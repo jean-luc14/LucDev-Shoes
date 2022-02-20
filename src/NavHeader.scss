@@ -1,0 +1,218 @@
+#navheader{
+  position:fixed;
+  height:80px;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:5;
+  box-sizing: content-box;
+  
+  .link{
+    display:flex;
+    width: 96.5vw;
+    margin-top:1.5vh;
+
+    .link_child{
+      display:flex;
+      height:80px;
+
+      li{
+        position:relative;
+        font-size:16px;
+        height:30px;
+        margin:5px 15px;
+
+        &::after{
+          content:'';
+          position:absolute;
+          bottom:0;
+          display:flex;
+          left:50%;
+          transform: translateX(-50%);
+          transition:all 400ms ease-out;
+          width:0%;
+          height:3px;
+          border-radius: 3px;
+          background-color:#CE6A14;
+        }
+
+        &.active::after,&:hover::after{
+          width:100%;
+        }
+      }
+    }
+
+    &:first-child{
+      justify-content:flex-end; 
+    }
+
+    .btn{
+      box-sizing:border-box;
+      cursor:pointer;
+      height: 30px;
+      font-size:13px;
+      margin:5px 12px;
+      padding:3px 10px 5px;
+    }
+    
+    .sign_up{
+      color:#CE6A14;
+      border-radius:20px;
+      border:2px solid #CE6A14;
+      font-weight:670;
+      &:hover{
+        background-color: whitesmoke;
+        border:2px solid transparent;
+      }
+      &:active{
+        background-color: rgb(177, 175, 175);
+        border:2px solid transparent;
+      }
+    }
+    
+    .log_in{
+      color:rgb(255, 255, 255);
+      border-radius:20px;
+      background-color:#ff973c;
+      border:2px solid #CE6A14;
+      margin-right: 5px;
+
+      &:hover{
+        background-color: #ac5a11;
+        border:2px solid #ac5a11;
+      }
+      &:active{
+        background-color: #d17f37;
+        border:2px solid #d17f37;
+      }
+    }
+    .style_link_category{
+      position:relative;
+      
+      .li_category{ 
+        font-size:16px;
+        margin:5px 15px;
+        cursor:pointer;
+        color:white;
+
+        &::after{
+          content:'';
+          position:absolute;
+          top:32px;
+          z-index:3;
+          left:50%;
+          transform: translateX(-50%);
+          transition:all 400ms ease-out;
+          width:0%;
+          height:3px;
+          border-radius: 2px;
+          background-color:#CE6A14;
+        }
+      }
+
+      &:hover div::after{
+        width:70%;
+      }
+    }
+  }
+}
+
+
+#category_ul{
+  position:absolute;
+  top:50px;
+  left: -42px;
+  transition:all 500ms ease-out;
+  opacity:1;
+  height: 0px;
+  border-radius:10px;
+  width: auto;
+  overflow:hidden;
+  background:#2f0501;
+
+  &:hover{
+    background:#2F0501;
+  }
+
+  ul{
+      
+    .catLi{
+      position:relative; 
+      font-size:1rem;
+      padding:8.4px;
+      text-indent: 10px;
+      text-align: start;
+      overflow:hidden;
+      
+      .nav-link{
+        white-space:nowrap;
+        font-weight: 400;
+      }
+      div{
+        position:absolute;
+        transform:translate(-50%,-50%);
+        background: #fff;
+        border-radius:50%;
+        animation: animCat 1s linear infinite;
+        pointer-events: none;
+      }
+      @keyframes animCat{
+        0%{
+          width:0;
+          height:0;
+          opacity:1;
+        }
+        100%{
+          width: 300px;
+          height:300px;
+          opacity:0;
+        }
+      }
+    }
+  }    
+}
+
+// Add of class for animation with Javascript
+#navheader.navheader{
+  background-image:linear-gradient(180deg,rgba(0,0,0,0.9),rgba(0,0,0,0.6),rgba(0,0,0,0.25),rgba(0,0,0,0));
+}
+
+#category_ul.category_ul{
+  height:384px;
+}
+
+// Reponsive 
+
+@media screen and (max-width:800px) {
+  .link_child{
+    position:fixed;
+    display:flex;
+    justify-content: space-around;
+    bottom:0;
+    height:30px;
+    width: 100vw;
+    z-index:6;
+    background-image:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.25),rgba(0,0,0,0.6),rgba(0,0,0,0.9));
+     
+    li{
+      position:relative;
+      top: 30px;
+
+      &::after{
+        content:'';
+        position:absolute;
+        display:flex;
+        left:50%;
+        transform: translateX(-50%);
+        transition:all 400ms ease-in;
+        width:0%;
+        height:4px;
+        border-radius: 2px;
+        background-color:#CE6A14;
+      }
+      &.active::after,&:hover::after{
+        width:100%;
+      }
+    }
+  }
+}  

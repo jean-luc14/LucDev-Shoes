@@ -1,0 +1,34 @@
+.op_log{
+  position:fixed;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  z-index:3;
+  background-image:linear-gradient(30deg,rgba(5, 30, 255, 0.904), rgba(5, 163, 255, 0.784), rgba(184, 5, 255, 0.733), rgba(255, 5, 5, 0.897));
+  //filter: blur(7px);
+}
+.wrapper_log{
+  position:fixed;
+  background-color: darken($color: #8f8f8fea, $amount: 0);
+  transition:all 0.5s ease-out;
+  z-index:4;
+
+  h1{
+    font-size:20px;
+    left:20px;
+  }
+
+  div{
+    margin:10px;
+    left:20px;
+  }
+
+  button{
+    position:absolute;
+    right:20px;
+    top:20px;
+  }
+
+
+}

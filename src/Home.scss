@@ -1,0 +1,305 @@
+.main-content{
+  padding:3vw 1vw 2vw;  
+  
+  h1{
+    font-size: clamp(25px,7vw,50px);
+    font-weight: 200;
+  }
+  h2{
+    font-size: clamp(25px,5vw,40px);
+    font-weight: 200;
+  }
+
+  .slideshow-container{
+    position:relative;
+    overflow: hidden;
+    height: 320px;
+    cursor:grab;
+   
+    &:active{
+      cursor:grabbing;
+    }
+    .slideshow{
+      position :absolute;
+      height:100%;
+      display:flex;
+      //pointer-events: none;
+
+      .slideWrapper{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left:15px;
+        overflow:visible;
+
+        .slide{
+          position:relative;
+          flex-shrink: 0;
+          height:200px;
+          width: 60vmin;
+          transition:height 0.5s ease-out;
+          
+          &::before{
+            position:absolute;
+            content:'';
+            top:-5px;
+            left:-5px;
+            right:-5px;
+            bottom:-5px;
+            background:rgb(21, 32, 233);
+            border-radius: 5px;
+            z-index: -1;
+          }
+          &:active{
+            pointer-events: none;
+          }
+          &:hover{
+            height:310px;
+          }
+          &:hover .slideImg{
+            height: 210px;
+          }
+          &:hover .slideImg::before{
+            opacity:0;
+          }
+          &:hover .price_shoes{
+            opacity:1;
+          }
+          &:hover .slideImg .overlay{
+            opacity:0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.slideImg{
+  position:relative;
+  height:200px;
+  transition:height 0.5s ease;
+
+  &::before{
+    content:'';
+    position:absolute;
+    height: 100%;
+    width:100%;
+    opacity:0.6;
+    background:#000;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transition:opacity 0.7s ease-in;
+  }
+  
+  img{
+    object-fit: cover;
+    height:100%;
+    width:100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .overlay{
+    position:absolute;
+    top:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    height:185px;
+    width:100%;
+    opacity:1;
+    transition:opacity 0.5s ease;
+
+    h2,h3{
+      color:rgb(186, 186, 186);
+      position: static;
+      span{
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.price_shoes{
+  position:absolute;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  bottom:0;
+  left:0;
+  right:0;
+  height:95px;
+  opacity:0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition:opacity 0.5s ease;
+  color:rgb(255, 255, 255);
+  background:rgba(0,0,0,0.4);
+
+  .slide_link{
+    cursor:pointer;
+
+    .nav-link{
+      color:rgb(248, 11, 11);
+      height:10px;
+      font-weight: 700;
+    }
+  }
+}
+/*.section_class{
+  position:relative;
+  margin-top:10vh;
+  margin-bottom:10vh;
+  height:350px;
+  
+  .title_section{
+    display:flex;
+    justify-content: start;
+    align-items: center;
+  }
+  
+  .slide {
+    position:relative;
+    width:250px;
+    
+    
+    .slide_child{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width:250px;
+      height:205px;
+      margin:0 15px;
+      cursor:grabbing;
+      background-color: blue;
+
+      .slide_child_child{
+        width:250px;
+        height:205px;
+        transition:height 0.5s ease;
+        background-color: red;
+
+        &:hover{
+          height:315px;
+        }
+
+         &::before{
+           content:'';
+           position:absolute;
+           top:-5px;
+           left:-5px;
+           right:-5px;
+           bottom:-5px;
+           background: #000;
+           border-radius:5px;
+           z-index:-1;
+         }
+        .slideImg{
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:200px;
+          display:flex;
+          justify-content:center;
+          align-items: center;
+          border-radius:5px;
+        
+          &::before{
+            content:'';
+            position:absolute;
+            height:100%;
+            width:100%;
+            opacity:0.4;
+            background:rgb(0, 0, 0);
+            transition:opacity 1s ease;
+            z-index: 1;
+          }
+
+          img{
+            width:100%;
+            height:200px;
+            object-fit: cover;
+          
+          }
+        
+          .type_and_other{       
+            position:absolute;;            
+            z-index:2;
+            color:rgb(202, 200, 200);
+            text-align: center;
+
+            h4{
+              font-size: 1.2rem;
+              span{
+                font-size: 15px;
+                font-weight:100;
+              }
+            }
+          }
+          
+        }
+
+        .price_shoes{
+          position:absolute;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center;
+          overflow:hidden;
+          bottom:0;
+          left:0;
+          right:0;
+          height:110px;
+          opacity:0.5;
+          transition:opacity 0.5s ease;
+          color:rgb(255, 255, 255);
+          background:rgb(47, 57, 87);
+
+          p{
+            margin-top:-10px;
+          }
+          .slide_link{
+            cursor:pointer;
+
+            .nav-link{
+              color:rgb(255, 255, 255);
+              border-radius: 25px;
+              padding:5px 15px;
+              background-image:linear-gradient(90deg,rgba(5, 30, 255, 0.904), rgb(155, 195, 255));
+              margin-top: -10px;
+            }
+            }
+
+        }
+        &:hover.price_shoes{
+          opacity:1;
+        }
+        &:hover.slideImg::before{
+          opacity:0;
+        }
+      }
+    } 
+  }   
+}
+
+
+.swiper_link{
+
+  .nav-link{
+    position: absolute;
+    bottom:0%;
+    right:1%;
+    z-index: -1;
+    background-color: rgba(252, 252, 252, 0.705);
+    border-radius: 30px;
+    padding: 7px 15px;
+    margin:7px;
+    border: 3px solid red;
+    color: red;
+  }
+}*/
