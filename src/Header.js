@@ -8,7 +8,7 @@ import "swiper/components/pagination/pagination.scss";
 import SwiperCore, { Pagination, Autoplay } from 'swiper';
 
 //import images
-import Pexel_1 from './Icon_and_images/pexel.jpg';
+import Pexel_1 from './Icon_and_images/Pexel.jpg';
 // import Pexel_2 from './Icon_and_images/pexel_2.jpg';
 // import Pexel_3 from './Icon_and_images/pexel_3.jpg';
 import ImgD from './Shoes_image/Oxford/D.jpg';
