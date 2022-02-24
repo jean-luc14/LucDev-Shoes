@@ -2,9 +2,7 @@
 .footer_parent{
   display:flex;
   justify-content:center;
-  background-image:linear-gradient(30deg,rgba(5, 30, 255, 0.904), rgba(5, 163, 255, 0.884), rgb(184, 5, 255), rgb(255, 5, 5));
-
-
+  background-image: radial-gradient(circle at center center, rgb(225, 137, 68),rgb(101, 40, 15));
   footer{
     display:flex;
     flex-direction:column;

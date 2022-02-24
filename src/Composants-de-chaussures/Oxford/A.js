@@ -50,7 +50,7 @@ const A = () => {
   return (
     <>
       <div className="shoes_wrapper">
-        <img className="back_shoes_img" src={ImgH} />
+        <div className="back"></div>
         <div className="shoes">
           <div className="shoes_img_wrapper">
             <img ref={imgRef_1} className="shoes_img 1" src={ImgH} />
@@ -77,6 +77,16 @@ const A = () => {
           </div>
         </div>
       </div>
+      <div className="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+     </div>
     </>
   );
 }

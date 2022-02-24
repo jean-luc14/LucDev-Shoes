@@ -8,7 +8,7 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
   
   return (
     <>
-      {reverse_sign ? <div className="op_log" onClick={toogle_sign} /> : null}
+      {reverse_sign ? <div className="op_sign" onClick={toogle_sign} /> : null}
 
       <div
         className="wrapper_sign"

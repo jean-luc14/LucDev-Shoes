@@ -51,9 +51,7 @@
             border-radius: 5px;
             z-index: -1;
           }
-          &:active{
-            pointer-events: none;
-          }
+
           &:hover{
             height:310px;
           }
@@ -85,11 +83,12 @@
     position:absolute;
     height: 100%;
     width:100%;
-    opacity:0.6;
+    opacity:0.5;
     background:#000;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     transition:opacity 0.7s ease-in;
+    z-index:2;
   }
   
   img{
@@ -110,11 +109,12 @@
     height:185px;
     width:100%;
     opacity:1;
-    transition:opacity 0.5s ease;
+    transition:opacity 0.8s ease;
+    z-index:1;
 
     h2,h3{
-      color:rgb(186, 186, 186);
-      position: static;
+      //position: static;
+      color:#FFF;;
       span{
         font-size: 20px;
       }

@@ -26,23 +26,32 @@ const Header = () => {
 
     return (
       <div className={`header-slide ${props.className}`}>
-        <img className='pexel' src={Pexel_1} />
-        <div className='parent-presentation' >
-          <div className='presentation'>
+        <img className="pexel" src={Pexel_1} />
+        <div className="parent-presentation">
+          <div className="presentation1">
             <h1>Man Shoes for all {props.e}</h1>
-            <p>lorem hjbdfjhjf vsshfnjvsdhvsjvnsp ovssn kvnmlqsk nnifdfnhifhl
+            <p>
+              lorem hjbdfjhjf vsshfnjvsdhvsjvnsp ovssn kvnmlqsk nnifdfnhifhl
               ifjgrvjvjsvjvjv, jjvnjvdjvjlqjqjlqjbivhjlrh fhae oazp por jariqd
               jlqnvjqqjj, ijjijeke hejgjkzskgjebv ueklzorg yrigoenj ibhdrun
             </p>
-            <div className='header_btn'>
-              <button>New Oxford Shoes</button>
-              <button>Best Oxford Shoes</button>
+            <div className="header_btn">
+              <button>New Shoes</button>
+              <button>Best Shoes</button>
             </div>
           </div>
-          <img className='img-header' src={ImgD} />
+          {/* <div className="header_img"> */}
+            <img className="img" src={ImgD} />
+            {/* <div className="shoes_text">
+              Lore lorem hjbdfjhjf vsshfnjvsdhvsjvnsp ovssn kvnmlqsk
+              nnifdfnhifhl ifjgrvjvjsvjvjv, jjvnjvdjvjlqjqjlqjbivhjlrh fhae oazp
+              por jariqd jlqnvjqqjj, ijjijeke hejgjkzskgjebv ueklzorg yrigoenj
+              ibhdrun
+            </div> */}
+          {/* </div> */}
         </div>
       </div>
-    )
+    );
   }
   
 
