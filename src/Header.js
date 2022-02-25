@@ -8,9 +8,9 @@ import "swiper/components/pagination/pagination.scss";
 import SwiperCore, { Pagination, Autoplay } from 'swiper';
 
 //import images
-import Pexel_1 from './Icon_and_images/Pexel.jpg';
-// import Pexel_2 from './Icon_and_images/pexel_2.jpg';
-// import Pexel_3 from './Icon_and_images/pexel_3.jpg';
+import Pexel from './iconAndImages/Pexel.jpg';
+// import Pexel_2 from './iconAndImages/pexel_2.jpg';
+// import Pexel_3 from './iconAndImages/pexel_3.jpg';
 import ImgD from './Shoes_image/Oxford/D.jpg';
 // import ImgB from './Image-de-chaussures/Oxford/B.webp';
 // import ImgC from './Image-de-chaussures/Oxford/C.jpg';
@@ -26,7 +26,7 @@ const Header = () => {
 
     return (
       <div className={`header-slide ${props.className}`}>
-        <img className="pexel" src={Pexel_1} />
+        <img className="pexel" src={Pexel} />
         <div className="parent-presentation">
           <div className="presentation1">
             <h1>Man Shoes for all {props.e}</h1>

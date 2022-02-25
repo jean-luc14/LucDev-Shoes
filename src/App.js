@@ -12,6 +12,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
+/* Update-React-in-GitHub-Pages
+    npm run deploy
+    git add .
+    git commit -m "update build for gh-pages"
+    git push -u origin main */
 
 const App = () => {
   window.addEventListener("load", () => {
