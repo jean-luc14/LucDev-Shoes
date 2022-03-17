@@ -1,0 +1,21 @@
+@mixin flex ($flex-direction:row,$justify-content:center,$align-items:center){
+  display:flex;
+  flex-direction:$flex-direction;
+  justify-content:$justify-content;
+  align-items:$align-items;
+}
+@mixin grid ($grid-template-columns,$grid-template-rows){
+  display:grid;
+  grid-template-columns:$grid-template-columns;
+  grid-template-rows:$grid-template-rows;
+}
+@mixin mobile {
+  @media only screen and (max-width:$mobile-width){
+    @content;
+  }
+}
+@mixin tablet {
+  @media only screen and (max-width:$tablet-width){
+    @content;
+  }
+}

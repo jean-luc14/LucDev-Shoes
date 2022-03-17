@@ -1,0 +1,56 @@
+@import "../variables.scss"; 
+.Search_wrapper{
+  position:relative;
+  margin:5px;
+  height:auto;
+  width:auto;
+
+  &::after{
+    content:'';
+    position:absolute;
+    bottom:0;
+    right:0;
+    height: 2px;
+    width:0;
+    background:$toggle-white-black;
+    z-index: 1;
+    border-radius:10px;
+    transition:width 0.5s ease-out;
+    
+  }
+  input{
+    height:100%;
+    width:auto;
+    opacity:0;
+    background:none;
+    border:none;
+    outline:none;
+    color:$toggle-white-black;
+    transition:opacity 0.5s ease-out;
+  }
+  .Search_icon{
+    height:20px;
+    width:20px;
+    filter:invert(1);
+    margin:0 5px;
+    cursor:pointer;
+
+  }
+  .result_of_dynamic_search{
+    background:wheat;
+    position:absolute;
+    z-index: 1;
+    .dynamic_search_item{
+      margin:10px;
+    }
+
+  }
+}
+.Search_wrapper.animSearch{
+  &::after{
+    width:100%;
+  }
+  input{
+    opacity:1;
+  }
+}

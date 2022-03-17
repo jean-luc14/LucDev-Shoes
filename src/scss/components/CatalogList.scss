@@ -1,0 +1,79 @@
+// A List of categories of shoes 
+.catalog{
+  position:sticky;
+  top:0px;
+  width:auto;
+  height:auto;
+  
+  .catalog_child{ 
+    font-size:16px;
+    margin:5px 18px 5px -10px;
+    cursor:pointer;
+    color:white;
+
+  }
+  
+  #catalog_list{
+    opacity:1;
+    height: auto;
+    border-radius:5px;
+    border:2px solid rgb(46, 2, 2); 
+    width:auto;
+    overflow:hidden;
+    transition:all 500ms ease-out;
+
+    // span{
+    //   position:absolute;
+    //   left:45px;
+    //   top:-22px;
+    //   width:20px;
+    //   height:20px;
+    //   border-bottom:10px solid #fff; 
+    //   border-top:10px solid transparent; 
+    //   border-right:10px solid transparent; 
+    //   border-left:10px solid transparent; 
+    //   z-index:1;
+    // }
+
+    .catalogLink{
+      position:relative;
+      //overflow:hidden;
+      width:170px;
+      height:70px;
+      div{
+        color:rgb(46, 2, 2);
+        white-space:nowrap;
+        font-size:1.1rem;
+        font-weight:500;
+        text-align: start;
+        background:#fff;
+        padding: 9px 10px;
+        //pointer-events: none;
+      }
+      span{
+        position:absolute;
+        z-index:10; 
+        width:50px;
+        height:50px;
+        transform:translate(-50%,-50%);
+        background:rgb(46, 2, 2);
+        border-radius:50%;
+        //pointer-events: none;
+        animation: animCat 1s linear infinite;
+      }
+      @keyframes animCat{
+        0%{
+          width:0;
+          height:0;
+          opacity:0.5;
+        }
+        100%{
+          width: 300px;
+          height:300px;
+          opacity:0;
+        }
+      }   
+    }
+    
+  }
+}

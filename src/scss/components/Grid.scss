@@ -1,0 +1,27 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.wrapperGridCenter{
+  @include flex($flex-direction:column);
+  
+  .wrapperGrids{
+    height:100%;
+    width:auto;
+    flex-wrap:wrap;
+    @include grid(repeat(3, 1fr),repeat(3, 1fr));
+    row-gap: 20px;
+    column-gap: 20px;
+
+  }
+}
+@media screen and (min-width:768px) and (max-width:992px) {
+  .wrapperGridCenter .wrapperGrids{
+    @include grid(repeat(2, 1fr),repeat(2, 1fr));
+  }
+}
+@media screen and (max-width:768px) {
+  .wrapperGridCenter .wrapperGrids{
+    @include grid(repeat(1, 1fr),repeat(1, 1fr));
+    row-gap: 50px;
+  }
+}

@@ -1,36 +1,46 @@
 import React from 'react';
 import './B.scss';
-import HightOrderComponent from '../../HightOrderComponent';
-//import { Swiper, SwiperSlide } from 'swiper/react';
-//import ImgD from '../../Shoes_image/Oxford/D.jpg';
+import HightOrderComponent from '../../components/HightOrderComponent';
+
 const B = () => {
-  
+  const array2 = () => [
+    {
+      firstName: "jean-Luc",
+      name: "Buckner",
+    },
+    {
+      firstName: "fauster",
+      name: "Houmavo",
+    },
+  ];
+  const array1 = array2();
+  // const array1FuncJean = array1[1].Func();
+  // const array1FuncFauster = array1[2].Func();
  
   return (
     <>
-      {/* <section>
-
-      <Swiper
-        grabCursor={true}
-        spacesBetween={2}
-        slidesPerView={'auto'} 
-      >
-        <SwiperSlide>
-          <div  className='B'>  
-              <div className='B_2'>
-                <img className='B_3' src={ImgD} />
-                <h5 className='B_4'> good morning darling</h5>
-              </div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
-      </section> */}
-      <div className='div1'>
-        <div className='div2'>
-
+      <div className="div1">
+        <div className="div2">
+          {array1.map((item, i) => (
+            <h1 key={i}>
+              {item.name} {item.firstName}
+            </h1>
+          ))}
+           {/* {array1FuncJean.map((item, i) => (
+            <>
+              <p>{item.age}</p>
+              <p>{item.sexe}</p>
+            </> 
+          ))}
+          {array1FuncFauster.map((item, i) => (
+            <>
+              <p>{item.age}</p>
+              <p>{item.sexe}</p>
+            </>
+          ))} */}
         </div>
       </div>
     </>
-  )
+  );
 }
 export default HightOrderComponent(B);

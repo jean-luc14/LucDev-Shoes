@@ -1,0 +1,11 @@
+@import '../mixins.scss';
+
+.sectionTitle{
+  @include flex;
+  
+  h1{
+    margin:50px;
+    font-size: calc(120 * var(--res));
+    font-weight: 600;
+  }
+}
