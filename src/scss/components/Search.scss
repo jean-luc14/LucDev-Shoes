@@ -1,4 +1,5 @@
 @import "../variables.scss"; 
+
 .Search_wrapper{
   position:relative;
   margin:5px;
@@ -40,6 +41,7 @@
     background:wheat;
     position:absolute;
     z-index: 1;
+    border-radius: 5px;
     .dynamic_search_item{
       margin:10px;
     }

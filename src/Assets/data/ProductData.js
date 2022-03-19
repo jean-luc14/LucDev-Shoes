@@ -15,6 +15,12 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    similarImg: {
+      img1: A,
+      img2: B,
+      img3:C
+    }
   },
   {
     catalogSlug: "loafers",
