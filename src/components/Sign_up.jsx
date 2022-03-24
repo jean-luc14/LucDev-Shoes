@@ -16,7 +16,7 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
 
   // REGEX
   const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  const PASSWORD_REGEX = /^(?=.*\d).{4,8}$/
+  const PASSWORD_REGEX = /^(?=.*\d).{4,14}$/
   const USERNAME_REGEX = /^[a-zA-Z0-9][a-zA-Z0-9_]{2,14}$/
 
 
@@ -53,7 +53,7 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
       newForm = { ...newForm, ...{ password: newField } };
     } else {
       const error =
-        "The password must be between 4 and 8 characters and at least 1 digit";
+        "The password must be between 4 and 15 characters and at least 1 digit";
       const newField = {
         value: form.password.value,
         errorMes: error,
@@ -131,7 +131,7 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
             Sign up <span onClick={toogle_sign}> &times;</span>
           </h1>
           {/* Username input */}
-          <div className="inputBox username">
+          <div className="inputBox">
             <input
               type="text"
               name="user"
@@ -140,27 +140,26 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={User} />
-            <div className="inputAlert">
-              <i className="fas fa-check-circle"> </i>
-              <i className="fas fa-exclamation-circle"></i>
+            {form.user.isValid ? (null) : (<div className="inputAlert ::before">
+              {/* <i className="fas fa-exclamation-circle"></i> */}
               <small>{form.user.errorMes}</small>
-            </div>
+            </div>)}
           </div>
           {/* email input */}
           <div className="inputBox">
             <input
-              type="email"
+              type="text"
               name="email"
               placeholder="Email"
               value={form.email.value}
+              //required=""
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Email} />
-            <div className="inputAlert">
-              <i className="fas fa-check-circle"> </i>
+            {form.email.isValid ? (null) : (<div className="inputAlert">
               <i className="fas fa-exclamation-circle"></i>
               <small>{form.email.errorMes}</small>
-            </div>
+            </div>)}
           </div>
           {/* password input */}
           <div className="inputBox">
@@ -172,11 +171,10 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Lock} />
-            <div className="inputAlert">
-              <i className="fas fa-check-circle"> </i>
+            {form.password.isValid ?(null) : (<div className="inputAlert">
               <i className="fas fa-exclamation-circle"></i>
               <small>{form.password.errorMes}</small>
-            </div>
+            </div>) }
           </div>
           {/* confirm password input */}
           <div className="inputBox">
@@ -188,11 +186,10 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Lock} />
-            <div className="inputAlert">
-              <i className="fas fa-check-circle"> </i>
+            {form.checkPassword.isValid ? (null) :(<div className="inputAlert">
               <i className="fas fa-exclamation-circle"></i>
-              <small>{form.checkPassword.value}</small>
-            </div>
+              <small>{form.checkPassword.errorMes}</small>
+            </div>)}
           </div>
           {/* submit form */}
           <input className="submit" type="submit" value="Sign up"></input>
