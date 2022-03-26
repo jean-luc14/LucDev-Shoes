@@ -1,6 +1,8 @@
 @import './variables';
 @import './mixins';
 @import './_base';
+@import './components/ProductView';
+@import './components/ProductViewModal';
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

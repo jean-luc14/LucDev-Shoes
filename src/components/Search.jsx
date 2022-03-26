@@ -2,7 +2,7 @@ import React,{useRef,useState,useEffect} from 'react'
 import PropTypes from 'prop-types'
 import '../scss/components/Search.scss'
 import Search_icon from '../iconAndImages/search_icon.png';
-import ProductData from '../Assets/data/ProductData'
+import {productData} from '../Assets/data/ProductData'
 
 const Search = props => {
   const animSearch = useRef(null)
@@ -14,7 +14,7 @@ const Search = props => {
     setInputValue(e.target.value);
     var regex = new RegExp(`${inputValue}`);
 
-    var dynamic_result = ProductData.filter( e => {
+    var dynamic_result = productData.filter( e => {
       return regex.test(e.name);
     })
     setDynamic_search_data(dynamic_result);

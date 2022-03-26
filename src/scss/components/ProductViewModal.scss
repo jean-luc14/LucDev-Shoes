@@ -1,0 +1,38 @@
+.productViewModal{
+  position:fixed;
+  height:100%;
+  width:100%;
+  background: #000;
+  opacity:0;
+  z-index:-2;
+  transition:opacity 0.5 ease-out;
+  
+  
+  &__content{
+    position:relative;
+    margin:auto;
+    padding:2rem;
+    width:50%;
+    opacity:0;
+    transform:translateY(-100vh);
+    z-index:1;
+    transition:transform 0.5 ease-out opacity 0.5 ease-in;
+    
+    span{
+      position:absolute;
+      color:#fff;
+      top:-30px;
+      right:-30px
+    }
+  }
+
+  &.active{
+    z-index:5;
+    opacity:0.5;
+
+    &__content{
+      opacity:1;
+      transform:translateY(0)
+    }
+  }
+}

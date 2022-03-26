@@ -5,7 +5,7 @@ import ProductCard from "../components/ProductCard";
 import Section, { SectionTitle, SectionBody } from "../components/Section";
 import {useParams} from 'react-router-dom'
 import {catalogData} from "../Assets/data/CatalogData";
-import productData from "../Assets/data/ProductData";
+import {productData} from "../Assets/data/ProductData";
 
 const Catalog = props => {
 

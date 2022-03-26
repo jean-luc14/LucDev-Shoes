@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Routing from "./routes/Routing";
 import Footer from "./components/Footer";
+import ProductViewModal from "./components/ProductViewModal";
 
   /* Update-React-in-GitHub-Pages
     npm run deploy
@@ -192,6 +193,7 @@ const App = () => {
         </div>
       </main>
       <Footer />
+      <ProductViewModal/>
     </>
   );
 };

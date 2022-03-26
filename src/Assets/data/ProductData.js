@@ -858,7 +858,13 @@ const productData = [
 ];
 
 
-export default productData;
+let getProductByCatalogAndId = (catalogSlug,id) => productData.find( e => 
+  e.catalogSlug === catalogSlug & e.id === id )
+
+
+export { productData, getProductByCatalogAndId };
+
+
   // LoafersProductData,
   // MocassinsProductData,
   // OxfordsProductData,
