@@ -858,8 +858,9 @@ const productData = [
 ];
 
 
-let getProductByCatalogAndId = (catalogSlug,id) => productData.find( e => 
-  e.catalogSlug === catalogSlug & e.id === id )
+const getProductByCatalogAndId = (catalog,idv) => productData.find( e => 
+  e.catalogSlug === catalog && e.id === idv
+)
 
 
 export { productData, getProductByCatalogAndId };

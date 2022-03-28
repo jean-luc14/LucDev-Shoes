@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import BuyProductButton from './BuyProductButton'
 import  '../scss/components/ProductCard.scss'
-import { getProductByCatalogAndId } from '../Assets/data/ProductData'
 import { useDispatch } from 'react-redux'
-import {set} from '../redux/productModal/ProductModalSlice'
+import {setId,setCatalog} from '../redux/productModal/ProductModalSlice'
 
 const ProductCard = props => {
   const navigate = useNavigate();
@@ -14,22 +13,21 @@ const ProductCard = props => {
   }
   const id = props.productProps.id;
   const catalogSlug = props.productProps.catalogSlug;
-
   const dispatch = useDispatch();
   return (
-    <div
-      className="productCard"
-      onClick={() => goToProductPage(catalogSlug,id)}
-    >
+    <div className="productCard" onClick={() => goToProductPage(catalogSlug, id)}>
       <img className="productCardImg" src={props.productProps.img} />
       <div className="productCardInfo">
-        <h1 className="productCardPrice">{props.productProps.price}</h1>
+        <h1 className="productCardPrice">
+          {props.productProps.price}
+        </h1>
         <div className="productCardName">{props.productProps.name}</div>
         <div className="productCardButton">
           <BuyProductButton
-            onClick={e => {
-              dispatch(set({ catalogSlug, id }))
-              e.stopPropagation()
+            click={(e) => {
+              dispatch(setId(id));
+              dispatch(setCatalog(catalogSlug));
+              e.stopPropagation();
             }}
           />
         </div>

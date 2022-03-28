@@ -4,7 +4,7 @@ import '../scss/components/BuyProductButton.scss'
 
 const BuyProductButton = props => {
   return (
-      <button className="buyButton">Buy</button>
+      <button className="buyButton" onClick={props.click}>Buy</button>
   );
 }
 

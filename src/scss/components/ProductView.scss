@@ -4,6 +4,21 @@
 .backgroundProduct{
   height: 100vh;
   width:100vw;
+  
+  &.sizeModal{
+    height: 500px;
+    width:500px;
+    //position:relative;
+    &::after{
+      position:absolute;
+      content:"";
+      width:inherit;
+      height: inherit;
+      left:0;
+      top:0;
+      background: rgba(0, 0, 0, 0);
+    }
+  }
   &::after{
     position:absolute;
     content:"";

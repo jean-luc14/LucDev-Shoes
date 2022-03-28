@@ -17,69 +17,78 @@ const ProductView = (props) => {
   const [activeThumb, setActiveThumb] = useState();
   let product = props.product;
 
-  if (product === undefined) product = {
+  if (product === undefined) {product = {
     price: 0,
     name: '',
     img:''
-    
+    }
+  }else{
+    console.log(product)
   }
 
   return (
     <>
       {product ? (
-        <div className="backgroundProduct">
-          <img className="backgroundProductImg" src={product.img} />
-          <div className="productWrapper">
-            <div className="productDetail">
-              <Swiper
-                loop={true}
-                navigation={true}
-                spaceBetween={10}
-                modules={[Navigation, Thumbs]}
-                grabCursor={true}
-                thumbs={{ swiper: activeThumb }}
-                className="productImageSlider"
-              >
-                {ImageSliderData.map((item, index) => (
-                  <SwiperSlide key={index}>
-                    <img className="imageSlider" src={item} />
-                  </SwiperSlide>
-                ))}{" "}
-                "";
-              </Swiper>
-              <div className="shoesDescription">
-                <h3>{product.price}</h3>
-                <p>{product.name}</p>
-                <h4>Etoiles et avis</h4>
+        <>
+          {/* sizeModal prop is for shrink size to show in modal*/}
+          <div
+            className={`backgroundProduct ${
+              product === undefined ? 'sizeModal' : ''
+            }`}
+          >
+            <img className="backgroundProductImg" src={product.img} />
+            <div className="productWrapper">
+              <div className="productDetail">
                 <Swiper
-                  onSwiper={setActiveThumb}
                   loop={true}
                   navigation={true}
-                  slidesPerView={5}
                   spaceBetween={10}
                   modules={[Navigation, Thumbs]}
-                  className="productImageSliderThumbs"
+                  grabCursor={true}
+                  thumbs={{ swiper: activeThumb }}
+                  className="productImageSlider"
                 >
                   {ImageSliderData.map((item, index) => (
-                    <SwiperSlide>
-                      <div
-                        key={index}
-                        className="productImageSliderThumbsWrapper"
-                      >
-                        <img className="similarImg" src={item} />
-                      </div>
+                    <SwiperSlide key={index}>
+                      <img className="imageSlider" src={item} />
                     </SwiperSlide>
                   ))}{" "}
                   "";
                 </Swiper>
-                <div className="buy_and_add_product_button">
-                  <button>Ajouter au panier</button>
-                  <button>Acheter maintenant</button>
+                <div className="shoesDescription">
+                  <h3>{product.price}</h3>
+                  <p>{product.name}</p>
+                  <h4>Etoiles et avis</h4>
+                  <Swiper
+                    onSwiper={setActiveThumb}
+                    loop={true}
+                    navigation={true}
+                    slidesPerView={5}
+                    spaceBetween={10}
+                    modules={[Navigation, Thumbs]}
+                    className="productImageSliderThumbs"
+                  >
+                    {ImageSliderData.map((item, index) => (
+                      <SwiperSlide>
+                        <div
+                          key={index}
+                          className="productImageSliderThumbsWrapper"
+                        >
+                          <img className="similarImg" src={item} />
+                        </div>
+                      </SwiperSlide>
+                    ))}{" "}
+                    "";
+                  </Swiper>
+                  <div className="buy_and_add_product_button">
+                    <button>Ajouter au panier</button>
+                    <button>Acheter maintenant</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </>
       ) : (
         <h1> This Component does not Exist </h1>
       )}
