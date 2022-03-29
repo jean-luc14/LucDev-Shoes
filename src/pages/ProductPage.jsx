@@ -5,7 +5,7 @@ import {productData} from "../Assets/data/ProductData";
 
 const ProductPage = () => {
 
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState(undefined);
   const params = useParams();
   const id = params.id;
   const catalogSlug = params.catalogSlug;

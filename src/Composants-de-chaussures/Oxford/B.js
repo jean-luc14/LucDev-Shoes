@@ -26,20 +26,12 @@ const B = () => {
               {item.name} {item.firstName}
             </h1>
           ))}
-           {/* {array1FuncJean.map((item, i) => (
-            <>
-              <p>{item.age}</p>
-              <p>{item.sexe}</p>
-            </> 
-          ))}
-          {array1FuncFauster.map((item, i) => (
-            <>
-              <p>{item.age}</p>
-              <p>{item.sexe}</p>
-            </>
-          ))} */}
         </div>
       </div>
+      <img
+        className="imgB"
+        src="/static/media/H.ffd10d7442a49328aca2.jpg"
+      />
     </>
   );
 }

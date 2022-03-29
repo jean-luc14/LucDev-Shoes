@@ -48,27 +48,55 @@
     z-index: 1;
      //backdrop-filter: blur(50px);
 
-    .productDetail{
+    .productInfo{
       @include flex;
       height:inherit;
       width:inherit;
       border-radius: 10px;
 
-      .shoesDescription{
+      .shoesInfoItem{
         @include flex($flex-direction:column,$align-items: flex-start);
         width: 40vw;
         margin:auto ;
 
-        h3,p,h4{
+        h3,p,div{
           margin-bottom:4vh;
           color:#fff;
+        }
+
+        div span{
+          width:50px;
+          height:50px;
+          font-size:20px;
+          border-radius: 3px;
+          border:1px solid rgb(138, 138, 138);
+          margin-left:10px;
+          padding: 0 7px;
+          cursor:pointer;
+          &.active{
+            border:1px solid $yellow;
+          }
+        }
+        .product_quantity{
+          @include flex;
+          width: 100px;
+          height:auto;
+          
+          &_btn{
+            color:red;
+            margin:5px;
+            width:10px;
+            height:10px;
+            margin-left:20px;
+            border:1px solid rgb(138, 138, 138);
+            cursor:pointer;
+          }
         }
         h3{
           font-size: 3rem;
           color:$yellow;
         }
         .buy_and_add_product_button{
-
           @include flex;
         }
       }

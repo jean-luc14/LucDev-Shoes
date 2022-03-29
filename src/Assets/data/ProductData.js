@@ -8,6 +8,16 @@ const G = require("../images/G.jpg");
 const H = require("../images/H.jpg");
 
 
+const I = require("../images/A.webp");
+const J = require("../images/B.webp");
+const K = require("../images/C.jpg");
+const L = require("../images/D.jpg");
+const M = require("../images/E.jpg");
+const N = require("../images/F.jpg");
+const O = require("../images/G.jpg");
+const P = require("../images/H.jpg");
+
+
 const productData = [
   {
     catalogSlug: "loafers",
@@ -16,11 +26,7 @@ const productData = [
     price: "US $109.5",
     img: A,
     size: [45, 49, 36, 38, 43],
-    similarImg: {
-      img1: A,
-      img2: B,
-      img3:C
-    }
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "loafers",
@@ -28,6 +34,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "loafers",
@@ -35,6 +43,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "loafers",
@@ -42,6 +52,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "loafers",
@@ -49,6 +61,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "loafers",
@@ -56,6 +70,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "loafers",
@@ -63,6 +79,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "loafers",
@@ -70,6 +88,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "mocassins",
@@ -77,6 +97,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "mocassins",
@@ -84,6 +106,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "mocassins",
@@ -91,6 +115,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "mocassins",
@@ -98,6 +124,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "mocassins",
@@ -105,6 +133,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "mocassins",
@@ -112,6 +142,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "mocassins",
@@ -119,6 +151,10 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "mocassins",
@@ -126,6 +162,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "oxfords",
@@ -133,6 +171,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "oxfords",
@@ -140,6 +180,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "oxfords",
@@ -147,6 +189,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "oxfords",
@@ -154,6 +198,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "oxfords",
@@ -161,6 +207,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "oxfords",
@@ -168,6 +216,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "oxfords",
@@ -175,6 +225,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "oxfords",
@@ -182,6 +234,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "derby-shoes",
@@ -189,6 +243,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "derby-shoes",
@@ -196,6 +252,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "derby-shoes",
@@ -203,6 +261,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "derby-shoes",
@@ -210,6 +270,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "derby-shoes",
@@ -217,6 +279,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "derby-shoes",
@@ -224,6 +288,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "derby-shoes",
@@ -231,6 +297,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "derby-shoes",
@@ -238,6 +306,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chukkas",
@@ -245,6 +315,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chukkas",
@@ -252,6 +324,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chukkas",
@@ -259,6 +333,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chukkas",
@@ -266,6 +342,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chukkas",
@@ -273,6 +351,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chukkas",
@@ -280,6 +360,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chukkas",
@@ -287,6 +369,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chukkas",
@@ -294,6 +378,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chelsea-style-boots",
@@ -301,6 +387,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chelsea-style-boots",
@@ -308,6 +396,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chelsea-style-boots",
@@ -315,6 +405,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chelsea-style-boots",
@@ -322,6 +414,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chelsea-style-boots",
@@ -329,6 +423,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chelsea-style-boots",
@@ -336,6 +432,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chelsea-style-boots",
@@ -343,6 +441,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "chelsea-style-boots",
@@ -350,6 +450,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-shoes",
@@ -357,6 +459,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-shoes",
@@ -364,6 +468,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-shoes",
@@ -371,6 +477,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-shoes",
@@ -378,6 +486,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-shoes",
@@ -385,6 +495,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-shoes",
@@ -392,6 +504,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-shoes",
@@ -399,6 +513,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-shoes",
@@ -406,6 +522,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sneakers",
@@ -413,6 +531,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sneakers",
@@ -420,6 +540,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sneakers",
@@ -427,6 +549,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sneakers",
@@ -434,6 +558,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sneakers",
@@ -441,6 +567,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sneakers",
@@ -448,6 +576,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sneakers",
@@ -455,6 +585,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sneakers",
@@ -462,6 +594,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "walking-shoes",
@@ -469,6 +603,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "walking-shoes",
@@ -476,6 +612,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "walking-shoes",
@@ -483,6 +621,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "walking-shoes",
@@ -490,6 +630,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "walking-shoes",
@@ -497,6 +639,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "walking-shoes",
@@ -504,6 +648,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "walking-shoes",
@@ -511,6 +657,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "walking-shoes",
@@ -518,6 +666,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-lace-up-sneakers",
@@ -525,6 +675,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-lace-up-sneakers",
@@ -532,6 +684,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-lace-up-sneakers",
@@ -539,6 +693,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-lace-up-sneakers",
@@ -546,6 +702,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-lace-up-sneakers",
@@ -553,6 +711,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-lace-up-sneakers",
@@ -560,6 +720,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-lace-up-sneakers",
@@ -567,6 +729,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-lace-up-sneakers",
@@ -574,6 +738,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-sneakers",
@@ -581,6 +747,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-sneakers",
@@ -588,6 +756,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-sneakers",
@@ -595,6 +765,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-sneakers",
@@ -602,6 +774,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-sneakers",
@@ -609,6 +783,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-sneakers",
@@ -616,6 +792,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-sneakers",
@@ -623,6 +801,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "casual-slip-on-sneakers",
@@ -630,6 +810,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "at-home-shoes",
@@ -637,6 +819,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "at-home-shoes",
@@ -644,6 +828,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "at-home-shoes",
@@ -651,6 +837,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "at-home-shoes",
@@ -658,6 +846,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "at-home-shoes",
@@ -665,6 +855,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "at-home-shoes",
@@ -672,6 +864,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "at-home-shoes",
@@ -679,6 +873,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "at-home-shoes",
@@ -686,6 +882,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "slides",
@@ -693,6 +891,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "slides",
@@ -700,6 +900,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "slides",
@@ -707,6 +909,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "slides",
@@ -714,6 +918,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "slides",
@@ -721,6 +927,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "slides",
@@ -728,6 +936,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "slides",
@@ -735,6 +945,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "slides",
@@ -742,6 +954,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "toe-post-sandals",
@@ -749,6 +963,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "toe-post-sandals",
@@ -756,6 +972,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "toe-post-sandals",
@@ -763,6 +981,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "toe-post-sandals",
@@ -770,6 +990,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "toe-post-sandals",
@@ -777,6 +999,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "toe-post-sandals",
@@ -784,6 +1008,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "toe-post-sandals",
@@ -791,6 +1017,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "toe-post-sandals",
@@ -798,6 +1026,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sandals",
@@ -805,6 +1035,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $109.5",
     img: A,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sandals",
@@ -812,6 +1044,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $209.5",
     img: B,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sandals",
@@ -819,6 +1053,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $569.5",
     img: C,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sandals",
@@ -826,6 +1062,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $147.5",
     img: D,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sandals",
@@ -833,6 +1071,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $123.5",
     img: E,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sandals",
@@ -840,6 +1080,8 @@ const productData = [
     name: "loufoc en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $167.8",
     img: F,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sandals",
@@ -847,6 +1089,8 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $124.2",
     img: G,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
   {
     catalogSlug: "active-sandals",
@@ -854,12 +1098,14 @@ const productData = [
     name: "chaussures en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: "US $145.6",
     img: H,
+    size: [45, 49, 36, 38, 43],
+    color: [I, J, K, L, M, N, O, P],
   },
 ];
 
 
-const getProductByCatalogAndId = (catalog,idv) => productData.find( e => 
-  e.catalogSlug === catalog && e.id === idv
+const getProductByCatalogAndId = (catalog,id) => productData.find( e => 
+  e.catalogSlug === catalog && e.id === id
 )
 
 

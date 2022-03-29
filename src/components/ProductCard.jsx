@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import BuyProductButton from './BuyProductButton'
 import  '../scss/components/ProductCard.scss'
 import { useDispatch } from 'react-redux'
-import {setId,setCatalog} from '../redux/productModal/ProductModalSlice'
+import {set} from '../redux/productModal/ProductModalSlice'
 
 const ProductCard = props => {
   const navigate = useNavigate();
@@ -25,8 +25,7 @@ const ProductCard = props => {
         <div className="productCardButton">
           <BuyProductButton
             click={(e) => {
-              dispatch(setId(id));
-              dispatch(setCatalog(catalogSlug));
+              dispatch(set({ id, catalogSlug }));
               e.stopPropagation();
             }}
           />

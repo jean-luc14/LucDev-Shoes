@@ -1,30 +1,55 @@
 import React, { useState} from "react";
-import ImageSliderData from "../Assets/data/ImageSliderData";
-import ImgE from "../Shoes_image/Oxford/E.jpg";
-import ImgG from "../Shoes_image/Oxford/G.jpg";
-import ImgH from "../Shoes_image/Oxford/H.jpg";
-import ImgI from "../Shoes_image/Oxford/I.jpg";
-import ImgJ from "../Shoes_image/Oxford/J.jpg";
+import { useDispatch } from 'react-redux'
+import {addItem} from '../redux/shoppingCart/CartItemsSlide'
 
 // import of Swiper.js Modules
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import { checkPropTypes } from "prop-types";
 
 const ProductView = (props) => {
   
-  const [activeThumb, setActiveThumb] = useState();
   let product = props.product;
+
+  const [activeThumb, setActiveThumb] = useState();
+  const [size, setSize] = useState( product === undefined ? undefined : product.size[0]);
+  const [color, setColor] = useState(undefined)
+  const [quantity, setQuantity] = useState(1)
+
+  const dispatch = useDispatch()
+
 
   if (product === undefined) {product = {
     price: 0,
     name: '',
-    img:''
+    img: '',
+    size:[],
+    color:[]
     }
-  }else{
-    console.log(product)
   }
+  
+  const updateQuantity = (type) => {
+    if (type === 'plus') {
+      setQuantity(quantity + 1)
+    } else {
+      setQuantity(quantity > 1 ? quantity - 1 : 1)
+    }
+    console.log(product.size[0])
+  }
+
+  // const addToCart = () => {
+  //   if (check()) {
+  //     dispatch(addItem({
+  //       slug: product.slug,
+  //       color: color,
+  //       size: size,
+  //       quantity:quantity,
+  //       price:product.price,
+  //     }))
+  //   }
+  // }
 
   return (
     <>
@@ -33,12 +58,12 @@ const ProductView = (props) => {
           {/* sizeModal prop is for shrink size to show in modal*/}
           <div
             className={`backgroundProduct ${
-              product === undefined ? 'sizeModal' : ''
+              product === undefined ? "sizeModal" : ""
             }`}
           >
             <img className="backgroundProductImg" src={product.img} />
             <div className="productWrapper">
-              <div className="productDetail">
+              <div className="productInfo">
                 <Swiper
                   loop={true}
                   navigation={true}
@@ -48,17 +73,16 @@ const ProductView = (props) => {
                   thumbs={{ swiper: activeThumb }}
                   className="productImageSlider"
                 >
-                  {ImageSliderData.map((item, index) => (
+                  {product.color.map((item, index) => (
                     <SwiperSlide key={index}>
                       <img className="imageSlider" src={item} />
                     </SwiperSlide>
                   ))}{" "}
                   "";
                 </Swiper>
-                <div className="shoesDescription">
+                <div className="shoesInfoItem">
                   <h3>{product.price}</h3>
                   <p>{product.name}</p>
-                  <h4>Etoiles et avis</h4>
                   <Swiper
                     onSwiper={setActiveThumb}
                     loop={true}
@@ -68,7 +92,7 @@ const ProductView = (props) => {
                     modules={[Navigation, Thumbs]}
                     className="productImageSliderThumbs"
                   >
-                    {ImageSliderData.map((item, index) => (
+                    {product.color.map((item, index) => (
                       <SwiperSlide>
                         <div
                           key={index}
@@ -80,6 +104,32 @@ const ProductView = (props) => {
                     ))}{" "}
                     "";
                   </Swiper>
+                  <div>
+                    {product.size.map((item, index) => (
+                      <span
+                        className={`${size === item ? "active" : ""}`}
+                        key={index}
+                        onClick={() => setSize(item)}
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="product_quantity">
+                    <div className="product_quantity_btn">
+                      <i
+                        className="bx bx-minus"
+                        onClick={() => updateQuantity("minus")}
+                      >a</i>
+                    </div>
+                    <div className="product_quantity_item">{quantity}</div>
+                    <div className="product_quantity_btn">
+                      <i
+                        className="bx bx-plus "
+                        onClick={() => updateQuantity("plus")}
+                      >a</i>
+                    </div>
+                  </div>
                   <div className="buy_and_add_product_button">
                     <button>Ajouter au panier</button>
                     <button>Acheter maintenant</button>

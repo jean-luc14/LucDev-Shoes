@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  catalogSlugValue: null,
-  idValue:null
+  value: {
+    catalogSlug: null,
+    id:null
+  }
 }
 
 
@@ -10,18 +12,15 @@ const productModalSlice = createSlice({
   name: 'productModal',
   initialState,
   reducers: {
-    setCatalog: (state, action) => {
-      state.catalogSlugValue = action.payload;
-    },
-    setId: (state, action) => {
-      state.idValue = action.payload;
+    set: (state, action) => {
+      state.value = {...state.value, ...action.payload};
+      console.log(action.payload)
     },
     remove: (state) => {
-      state.IdValue = null;
-      state.catalogSlugValue = null;
+      state.value = null;
     }
   }
 })
-export const { setId,setCatalog,remove } = productModalSlice.actions
+export const { set,remove } = productModalSlice.actions
 
 export default productModalSlice.reducer
