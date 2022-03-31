@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import PropTypes from 'prop-types'
 
 // import  Swiper modules
@@ -18,7 +18,6 @@ const Header = props => {
   
   SwiperCore.use([Pagination, Autoplay]);
   const data = props.data;
-
   return (
     <header className="header">
       <Swiper
@@ -34,7 +33,9 @@ const Header = props => {
               <Shoes_Slide
                 shoesSlideData={props.data}
                 e={e}
-                className={`${isActive ? "active" : ""}`}
+                //className={`${isActive ? "active" : ""}`}
+                foo={() => { if (isActive) console.log('jean') }}
+                consol={()=>{console.log(isActive)}}
               />
             )}
           </SwiperSlide>
@@ -47,15 +48,15 @@ const Header = props => {
 }
 const Shoes_Slide = props => {
   return (
-    <div className={`header-slide ${props.className}`}>
+    <div onClick={props.consol} className={`header-slide ${props.className}`}>
       <img className="pexel" src={props.e.img} />
       <div className="parent-presentation">
         <div className="presentation1">
           <h1>{props.e.title}</h1>
           <p>{props.e.description}</p>
           <div className="header_btn">
-            <button>New Shoes</button>
-            <button>Best Shoes</button>
+            <button onClick={props.consol}>New Shoes</button>
+            <button onClick={props.foo}>Best Shoes</button>
           </div>
         </div>
         <img className="img" src={props.e.imgFloat} />
