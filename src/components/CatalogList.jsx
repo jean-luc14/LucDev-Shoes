@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {catalogData} from '../Assets/data/CatalogData'
-import '../scss/components/CatalogList.scss'
 
 const CatalogList = () => {
 

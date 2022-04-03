@@ -9,10 +9,7 @@ import "swiper/css/pagination";
 import SwiperCore, { Pagination, Autoplay } from 'swiper';
 
 //import images
-import ImgD from '../Shoes_image/Oxford/D.jpg';
-
-//import scss
-import '../scss/components/Header.scss';
+import ImgD from '../Shoes_image/Oxford/D.jpg'
 
 const Header = props => {
   
@@ -33,7 +30,7 @@ const Header = props => {
               <Shoes_Slide
                 shoesSlideData={props.data}
                 e={e}
-                //className={`${isActive ? "active" : ""}`}
+                className={`${isActive ? "active" : ""}`}
                 foo={() => { if (isActive) console.log('jean') }}
                 consol={()=>{console.log(isActive)}}
               />

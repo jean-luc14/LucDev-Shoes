@@ -3,6 +3,21 @@
 @import './_base';
 @import './components/ProductView';
 @import './components/ProductViewModal';
+@import './components/ProductCard.scss';
+@import './components/Sign_up.scss';
+@import './components/Section.scss';
+@import './components/Search.scss';
+@import "./components/Log_in.scss";
+@import './components/Navbar.scss';
+@import './components/Header.scss';
+@import './components/Grid.scss';
+@import './components/Footer.scss';
+@import './components/CatalogList.scss';
+@import './components/BuyProductButton.scss';
+@import './components/BodyLayOut.scss';
+@import './components/Cart.scss';
+@import './components/CartItem.scss';
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

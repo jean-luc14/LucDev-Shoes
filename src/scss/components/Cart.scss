@@ -1,0 +1,24 @@
+@import '../mixins';
+
+.cart{
+  margin: 50px auto;
+  width:90vw;
+  height:auto;
+  user-select: none;
+  
+  &_info{
+    @include flex(row,center);
+    width:90vw;
+    height:inherit;
+
+    &_product{
+      width:63vw;
+      height:auto;
+    }
+    &_txt{
+      width: 27vw;
+      height:100px;
+    }
+
+  }  
+}

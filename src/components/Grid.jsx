@@ -1,5 +1,5 @@
 import React from 'react'
-import  '../scss/components/Grid.scss'
+
 
 const Grid = (props) => {
   return (

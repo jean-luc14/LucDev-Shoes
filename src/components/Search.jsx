@@ -1,6 +1,5 @@
 import React,{useRef,useState,useEffect} from 'react'
 import PropTypes from 'prop-types'
-import '../scss/components/Search.scss'
 import Search_icon from '../iconAndImages/search_icon.png';
 import {productData} from '../Assets/data/ProductData'
 

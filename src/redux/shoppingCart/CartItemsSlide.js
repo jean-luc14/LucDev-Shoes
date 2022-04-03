@@ -7,7 +7,7 @@ const initialState = { value: items }
 
 export const cartItemsSlice = createSlice({
   name: 'cartItems',
-  initialState,
+  initialState, 
   reducers: {
     addItem: (state, action) => {
       const newItem = action.payload
@@ -18,37 +18,71 @@ export const cartItemsSlice = createSlice({
         state.value = delItem(state.value, newItem)
         
         state.value = [
-          ...state.value, {
+          ...state.value,
+          {
             ...newItem,
-            id: duplicate[0].id,
-            quantity:newItem.quantity + duplicate[0].quantity
-          }
-        ]
+            valueItemId: duplicate[0].valueItemId,
+            quantity: newItem.quantity + duplicate[0].quantity,
+          },
+        ];
       }
       else {
-        state.value = [...state.value, {
-          ...newItem,
-          id:state.value.length > 0 ? state.value[state.value.length - 1].id + 1 : 1
-        }]
+        state.value = [
+          ...state.value,
+          {
+            ...newItem,
+            valueItemId:
+              state.value.length > 0
+                ? state.value[state.value.length - 1].valueItemId + 1: 1,
+          },
+        ];
       }
       localStorage.setItem('cartItems',JSON.stringify(sortItems(state.value)))
-      console.log(state.value)
+      console.log(action.payload)
+      console.log(items);
+    },
+    updateItem: (state, action) => {
+      const itemUpdate = action.payload
+      const item = findItem(state.value, itemUpdate);
+
+      if (item.length > 0) {
+        state.value = delItem(state.value, itemUpdate);
+        state.value = [
+          ...state.value,
+          {
+            ...itemUpdate,
+            valueItemId: item[0].valueItemId,
+          },
+        ];
+      }
+      localStorage.setItem("cartItems", JSON.stringify(sortItems(state.value)));
+    },
+    removeItem: (state, action) => {
+      const item = action.payload
+      state.value = delItem(state.value, item);
+       localStorage.setItem(
+         "cartItems",
+         JSON.stringify(sortItems(state.value))
+       );
     }
   }
 })
 
 const findItem = (arr, item) => arr.filter(
-  e => e.slug === item.slug && e.color === item.color && e.size === item.size
+  e => e.catalogSlug === item.catalogSlug && e.id === item.id &&
+    e.color === item.color && e.size === item.size
 )
 
-const delItem = (arr, item) => arr.filter(
-  e => e.slug !== item.slug || e.color !== item.color || e.size !== item.size
-)
+const delItem = (arr, item) =>arr.filter(
+  e =>e.catalogSlug !== item.catalogSlug || e.id !== item.id ||
+    e.color !== item.color || e.size !== item.size
+);
 
-const sortItems = (arr) => arr.sort((a, b) =>
-  a.id > b.id ? 1 : (a.id < b.id ? -1 : 0)
-)
+const sortItems = (arr) =>
+  arr.sort((a, b) =>
+    a.valueItemId > b.valueItemId ? 1 : a.valueItemId < b.valueItemId ? -1 : 0
+  );
 
-export const { addItem } = cartItemsSlice.actions
+export const { addItem, updateItem ,removeItem} = cartItemsSlice.actions;
 
 export default cartItemsSlice.reducer

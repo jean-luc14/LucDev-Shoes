@@ -1,5 +1,4 @@
 import React from 'react'
-import '../scss/components/Footer.scss'
 import facebook from '../iconAndImages/facebook_icon.png'
 import youtube from '../iconAndImages/youtube_icon.png'
 import instagram from '../iconAndImages/instagram_icon.png'

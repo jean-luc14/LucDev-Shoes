@@ -1,6 +1,5 @@
 import React from 'react'
 import CatalogList from "./CatalogList";
-import '../scss/components/BodyLayOut.scss'
 
 const BodyLayOut = props => {
   return (

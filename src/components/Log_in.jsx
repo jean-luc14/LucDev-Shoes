@@ -1,5 +1,4 @@
 import React from 'react';
-import "../scss/components/Log_in.scss";
 import User from "../iconAndImages/User.png";
 import Email from "../iconAndImages/Email.png";
 import Lock from "../iconAndImages/Lock.png";

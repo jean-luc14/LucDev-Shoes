@@ -16,7 +16,8 @@ const B = () => {
   const array1 = array2();
   // const array1FuncJean = array1[1].Func();
   // const array1FuncFauster = array1[2].Func();
- 
+  const arr =[]
+  console.log(arr.length)
   return (
     <>
       <div className="div1">

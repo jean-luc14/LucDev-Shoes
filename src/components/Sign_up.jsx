@@ -1,8 +1,8 @@
 import React,{useState,useRef,useEffect} from 'react';
-import '../scss/components/Sign_up.scss';
 import User from '../iconAndImages/User.png';
 import Email from '../iconAndImages/Email.png'
 import Lock from "../iconAndImages/Lock.png";
+import '../Assets/fontawesome-icons/scss/fontawesome.scss'
 
 const Sign_up = ({ reverse_sign, toogle_sign }) => {
 

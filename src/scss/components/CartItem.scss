@@ -1,0 +1,48 @@
+@import '../mixins.scss';
+.cart_item{
+  width:63vw;
+  height:200px;
+  margin:20px 0;
+  @include flex;
+  &_img{
+    width:20vw;
+    height:20vw;
+      img{
+      height:inherit;
+      width:inherit;
+      object-fit: cover;
+    }
+  }
+  &_info{
+    margin-left:50px;
+    width:33vw;
+    height:20vw;
+    @include flex(column,center,flex-start);
+    
+    &_name{
+      font-weight: 500;
+      
+    }
+    &_color{
+      font-weight: 400;
+      color:rgb(103, 103, 103);
+
+    }
+    &_size{
+      font-size:40px;
+      font-weight: 400;
+    }
+    &_quantity{
+      @include flex;
+      &_btn{
+        color:red
+      }
+    }
+    
+  }
+  &_del{
+    width:10vw;
+    height:10vw;
+    @include flex;
+  }
+}

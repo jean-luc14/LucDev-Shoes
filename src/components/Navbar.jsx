@@ -1,5 +1,4 @@
 import React,{useState,useEffect,useRef} from 'react';
-import '../scss/components/Navbar.scss';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Sign_up from './Sign_up';
 import Log_in from './Log_in';

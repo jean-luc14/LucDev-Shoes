@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import BuyProductButton from './BuyProductButton'
-import  '../scss/components/ProductCard.scss'
 import { useDispatch } from 'react-redux'
 import {set} from '../redux/productModal/ProductModalSlice'
 

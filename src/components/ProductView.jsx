@@ -1,6 +1,8 @@
-import React, { useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
-import {addItem} from '../redux/shoppingCart/CartItemsSlide'
+import { addItem } from '../redux/shoppingCart/CartItemsSlide'
+import "../Assets/fontawesome-icons/scss/fontawesome.scss";
 
 // import of Swiper.js Modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,7 +18,9 @@ const ProductView = (props) => {
   
   let product = props.product;
   const dispatch = useDispatch()
-  
+  const navigate = useNavigate()
+ 
+  //State
   const [activeThumb, setActiveThumb] = useState();
   const [size, setSize] = useState( product === undefined ? undefined : product.size[0]);
   const [quantity, setQuantity] = useState(1)
@@ -35,7 +39,7 @@ const ProductView = (props) => {
     setSelectedImg(jean);
   }
 
-
+  //Eviter de generer d'erreur dans productViewModal
   if (product === undefined) {product = {
     price: 0,
     name: '',
@@ -51,31 +55,48 @@ const ProductView = (props) => {
     setQuantity(1)
   },[product])
   
+
+  // update product property function
   const updateQuantity = (type) => {
     if (type === 'plus') {
       setQuantity(quantity + 1)
     } else {
       setQuantity(quantity > 1 ? quantity - 1 : 1)
     }
-    console.log(product.size[0])
   }
-
   const updateColor = (color) => {
     setColor(color)
   }
+  const updateSize = (item) => {
+    setSize(item)
+  }
 
-  // const addToCart = () => {
-  //   if (check()) {
-  //     dispatch(addItem({
-  //       img:selectedImg
-  //       slug: product.slug,
-  //       color: color,
-  //       size: size,
-  //       quantity:quantity,
-  //       price:product.price,
-  //     }))
-  //   }
-  // }
+  const addToCart = () => {
+      dispatch(addItem({
+        id: product.id,
+        catalogSlug:product.catalogSlug,
+        price:product.price,
+        img:selectedImg,
+        color: color,
+        size: size,
+        quantity:quantity,
+      }))
+  }
+
+  const goToCart = () => {
+    dispatch(
+      addItem({
+        id: product.id,
+        catalogSlug: product.catalogSlug,
+        price: product.price,
+        img: selectedImg,
+        color: color,
+        size: size,
+        quantity: quantity,
+      })
+      );
+    navigate('/cart')
+  }
 
   return (
     <div>
@@ -114,7 +135,7 @@ const ProductView = (props) => {
                   "";
                 </Swiper>
                 <div className="shoesInfoItem">
-                  <h3>{product.price}</h3>
+                  <h3> US ${product.price}</h3>
                   <p>{product.name}</p>
                   <div>color:{color}</div>
                   <Swiper
@@ -142,7 +163,7 @@ const ProductView = (props) => {
                       <span
                         className={`${size === item ? "active" : ""}`}
                         key={index}
-                        onClick={() => setSize(item)}
+                        onClick={() => updateSize(item)}
                       >
                         {item}
                       </span>
@@ -164,8 +185,20 @@ const ProductView = (props) => {
                     </div>
                   </div>
                   <div className="buy_and_add_product_button">
-                    <button>Ajouter au panier</button>
-                    <button>Acheter maintenant</button>
+                    <button
+                      onClick={() => {
+                        addToCart();
+                      }}
+                    >
+                      Ajouter au panier
+                    </button>
+                    <button
+                      onClick={() => {
+                        goToCart();
+                      }}
+                    >
+                      Acheter maintenant
+                    </button>
                   </div>
                 </div>
               </div>

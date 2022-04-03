@@ -1,14 +1,43 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React,{useState,useEffect} from 'react'
+import { useSelector } from 'react-redux'
+import {getCartItemsDetail} from '../Assets/data/ProductData'
+import CartItem from '../components/CartItem'
+import "../Assets/fontawesome-icons/scss/fontawesome.scss";
 
-const ProductCat = props => {
+const Cart = props => {
+
+  const cartItems = useSelector((state) => state.cartItems.value)
+  const [cartProduct, setCartProduct] = useState([]);
+  const [totalProduct, setTotalProduct] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
+
+  useEffect(() => {
+    setCartProduct(getCartItemsDetail(cartItems));
+    setTotalProduct(cartItems.reduce((total,e)=>total + Number(e.quantity),0));
+    setTotalPrice(cartItems.reduce((total,e) => total + Number(e.quantity) * Number(e.price)),0);
+
+  }, [cartProduct])
+  
   return (
     <>
-      <div>ProductCat</div>
+      <div className="cart">
+        <div className="cart_info">
+          <div className="cart_info_product">
+            {cartProduct.map((item, index) => (
+              <CartItem item={item} key={index} />
+            ))}
+          </div>
+          <div className="cart_info_txt">
+            <h1>
+              Total Price {totalPrice}
+            </h1>
+            <h1>Total Product {totalProduct}</h1>
+          </div>
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
-ProductCat.propTypes = {}
 
-export default ProductCat
+export default Cart
