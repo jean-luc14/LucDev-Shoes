@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useRef} from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Sign_up from './Sign_up';
-import Log_in from './Log_in';
+import SignUpModal from "./SignUpModal";
+import LogInModal from "./LogInModal";
 import Search from "./Search";
 import Shopping_bag from '../iconAndImages/shopping_bag_icon.png';
 import {navHeader} from  "../Assets/data/NavbarData";
@@ -101,7 +101,7 @@ const Navbar = () => {
               </button>
             </li>
           </ul>
-              <Search/>
+          <Search />
           <button className="btn sign_up" onClick={toogle_sign}>
             Sign up
           </button>
@@ -134,8 +134,8 @@ const Navbar = () => {
         </div>*/}
       </nav>
 
-      <Sign_up reverse_sign={reverse_sign} toogle_sign={toogle_sign} />
-      <Log_in reverse_log={reverse_log} toogle_log={toogle_log} />
+      <SignUpModal reverse_sign={reverse_sign} toogle_sign={toogle_sign} />
+      <LogInModal reverse_log={reverse_log} toogle_log={toogle_log} />
     </>
   );
 }

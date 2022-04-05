@@ -6,7 +6,6 @@ import Contact from "../components/Contact";
 import About_us from "../components/About_us";
 import B from "../Composants-de-chaussures/Oxford/B";
 import PageNotFound from "../pages/PageNotFound";
-import { NavbarData } from '../Assets/data/NavbarData'
 import Cart from "../pages/Cart";
 import Catalog from "../pages/Catalog";
 

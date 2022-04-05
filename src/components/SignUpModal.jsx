@@ -1,10 +1,24 @@
-import React,{useState,useRef,useEffect} from 'react';
+import React,{useState,useRef} from 'react';
 import User from '../iconAndImages/User.png';
 import Email from '../iconAndImages/Email.png'
 import Lock from "../iconAndImages/Lock.png";
 import '../Assets/fontawesome-icons/scss/fontawesome.scss'
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged
+} from 'firebase/auth'
+import {auth} from '../firebase-config'
 
-const Sign_up = ({ reverse_sign, toogle_sign }) => {
+const SignUpModal = ({ reverse_sign, toogle_sign }) => {
+  
+  //firebase
+  const [currentUser, setCurrentUser] = useState()
+  const [loadingData, setLoadingData] = useState(true)
+  const [firebaseErrMes, setFirebaseErrMes] = useState('');
+  
+
+  const signUp = (email,pwd)=>createUserWithEmailAndPassword(auth,email,pwd)
 
   // state qui gere la mise a jour du formulaire 
   const [form, setForm] = useState({
@@ -13,6 +27,8 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
     password: { value: "", errorMes: "", isValid: false },
     checkPassword: { value: "", errorMes: "", isValid: false },
   });
+
+  const formRef = useRef()
 
   // REGEX
   const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -38,7 +54,7 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
       const newField = { value: form.email.value, errorMes: "", isValid: true };
       newForm = { ...newForm, ...{ email: newField } };
     } else {
-      const error = "Invalid email address";
+      const error = "Invalid format email";
       const newField = {value: form.email.value, errorMes: error, isValid: false};
       newForm = { ...newForm, ...{ email: newField } };
     }
@@ -105,14 +121,46 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
   }
 
   // fonstion qui gere la soumission du formulaire
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     validForm();
+    //if (
+     // form.user.isValid && 
+     // form.email.isValid && 
+    //  form.password.isValid && 
+    //  form.checkPassword.isValid  
+    //  ) {
+        try {
+        const cred = await signUp(
+          form.email.value,
+          form.password.value
+        )
+        formRef.current.reset()
+        setFirebaseErrMes("");
+        console.log(cred)
+      } catch (err) {
+          if (err.code === 'auth/invalid-email') {
+            setFirebaseErrMes("Invalid format email");
+          }
+          if (err.code === 'auth/email-already-in-use') {
+            setFirebaseErrMes("Email already used");
+          }
+        }
+   //}
+   console.log();
   }
   
   return (
     <>
-      {reverse_sign ? <div className="op_sign" onClick={toogle_sign} /> : null}
+      {reverse_sign ? (
+        <div
+          className="op_sign"
+          onClick={() => {
+            toogle_sign();
+            setFirebaseErrMes("");
+          }}
+        />
+      ) : null}
 
       <div
         className="wrapper_sign"
@@ -126,9 +174,18 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
             : "translate(-50%,-50%)",
         }}
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} ref={formRef}>
           <h1>
-            Sign up <span onClick={toogle_sign}> &times;</span>
+            Sign up{" "}
+            <span
+              onClick={() => {
+                toogle_sign();
+                setFirebaseErrMes("");
+              }}
+            >
+              {" "}
+              &times;
+            </span>
           </h1>
           {/* Username input */}
           <div className="inputBox">
@@ -140,10 +197,12 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={User} />
-            {form.user.isValid ? (null) : (<div className="inputAlert ::before">
-              {/* <i className="fas fa-exclamation-circle"></i> */}
-              <small>{form.user.errorMes}</small>
-            </div>)}
+            {form.user.isValid ? null : (
+              <div className="inputAlert ::before">
+                {/* <i className="fas fa-exclamation-circle"></i> */}
+                <small>{form.user.errorMes}</small>
+              </div>
+            )}
           </div>
           {/* email input */}
           <div className="inputBox">
@@ -156,10 +215,12 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Email} />
-            {form.email.isValid ? (null) : (<div className="inputAlert">
-              <i className="fas fa-exclamation-circle"></i>
-              <small>{form.email.errorMes}</small>
-            </div>)}
+            {form.email.isValid ? null : (
+              <div className="inputAlert">
+                <i className="fas fa-exclamation-circle"></i>
+                <small>{form.email.errorMes}</small>
+              </div>
+            )}
           </div>
           {/* password input */}
           <div className="inputBox">
@@ -171,10 +232,12 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Lock} />
-            {form.password.isValid ?(null) : (<div className="inputAlert">
-              <i className="fas fa-exclamation-circle"></i>
-              <small>{form.password.errorMes}</small>
-            </div>) }
+            {form.password.isValid ? null : (
+              <div className="inputAlert">
+                <i className="fas fa-exclamation-circle"></i>
+                <small>{form.password.errorMes}</small>
+              </div>
+            )}
           </div>
           {/* confirm password input */}
           <div className="inputBox">
@@ -186,12 +249,15 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Lock} />
-            {form.checkPassword.isValid ? (null) :(<div className="inputAlert">
-              <i className="fas fa-exclamation-circle"></i>
-              <small>{form.checkPassword.errorMes}</small>
-            </div>)}
+            {form.checkPassword.isValid ? null : (
+              <div className="inputAlert">
+                <i className="fas fa-exclamation-circle"></i>
+                <small>{form.checkPassword.errorMes}</small>
+              </div>
+            )}
           </div>
           {/* submit form */}
+          <small className="firebaseErrMes">{firebaseErrMes}</small>
           <input className="submit" type="submit" value="Sign up"></input>
         </form>
       </div>
@@ -201,4 +267,4 @@ const Sign_up = ({ reverse_sign, toogle_sign }) => {
 }
 
 
-export default Sign_up;
+export default SignUpModal;

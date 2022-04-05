@@ -35,7 +35,7 @@
     min-width:230px;
 
     h1{
-      margin:10px;
+      margin:8px;
       color:#fff;
       width:auto;
       white-space: nowrap;
@@ -127,7 +127,14 @@
         background: rgba(255,255,255,0.3);
       }
     }
-
+    .firebaseErrMes{
+      height: auto;
+      width:auto;
+      color:red;
+      background: #fff;
+      font-size:15px;
+      padding:0 5px;
+    }
   }
 }
 

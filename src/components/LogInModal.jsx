@@ -3,7 +3,7 @@ import User from "../iconAndImages/User.png";
 import Email from "../iconAndImages/Email.png";
 import Lock from "../iconAndImages/Lock.png";
 
-  const Log_in = ({reverse_log, toogle_log}) => {
+  const LogInModal = ({reverse_log, toogle_log}) => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -54,4 +54,4 @@ import Lock from "../iconAndImages/Lock.png";
     );
   }
     
-export default Log_in;
+export default LogInModal;
