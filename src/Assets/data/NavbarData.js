@@ -1,5 +1,5 @@
 
-  const navHeader = [
+  const navbarData = [
     {
       display: "Home",
       path: "/",
@@ -14,4 +14,4 @@
     },
 ]
 
-export {navHeader};
+export {navbarData};

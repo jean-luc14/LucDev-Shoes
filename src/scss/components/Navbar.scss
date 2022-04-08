@@ -120,6 +120,14 @@
           background-color: #d17f37;
         }
       }
+      &.log_out{
+        position:relative;
+        display :block;
+        background-color:#fff;
+        margin-right: 35px;
+        border:0px solid transparent;
+        cursor:pointer;
+      }
     }
     .ecommerce_icons{
       img{

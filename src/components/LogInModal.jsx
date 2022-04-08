@@ -1,12 +1,39 @@
-import React from 'react';
+import React,{useState} from 'react';
 import User from "../iconAndImages/User.png";
 import Email from "../iconAndImages/Email.png";
 import Lock from "../iconAndImages/Lock.png";
+import { logIn } from "../redux/firebase/FirebaseSlice";
+import { useNavigate } from "react-router-dom";
 
   const LogInModal = ({reverse_log, toogle_log}) => {
 
-    const handleSubmit = (e) => {
+      const [form, setForm] = useState({
+        user: { value: ''},
+        email: { value: ''},
+        password: { value: ''}
+      });
+
+    const [firebaseErrMes, setFirebaseErrMes] = useState('')
+
+    const handleInputChange = e => {
+    const fieldName = e.target.name;
+    const fieldValue = e.target.value;
+    const newField = { [fieldName]: { value: fieldValue } }
+    setForm({...form,...newField})
+  }
+
+    const handleSubmit = async (e) => {
       e.preventDefault();
+      try {
+          await logIn(
+          form.email.value,
+          form.password.value
+        )
+        setFirebaseErrMes('')
+        toogle_log()
+      } catch {
+        setFirebaseErrMes("Wopsy, Email and/or password incorrect");  
+      }
     };
   
     return (
@@ -25,20 +52,21 @@ import Lock from "../iconAndImages/Lock.png";
         >
           <form onSubmit={handleSubmit}>
             <h1>
-              Sign up <span onClick={toogle_log}> &times;</span>
+              Log In <span onClick={toogle_log}> &times;</span>
             </h1>
             <div className="inputBox">
-              <input type="test" placeholder="Username"></input>
+              <input name='user' type="test" placeholder="Username"  onChange={(e) => handleInputChange(e)}></input>
               <img src={User} />
             </div>
             <div className="inputBox">
-              <input type="test" placeholder="Email"></input>
+              <input name='email' type="test" placeholder="Email"  onChange={(e) => handleInputChange(e)}></input>
               <img src={Email} />
             </div>
             <div className="inputBox">
-              <input type="password" placeholder="Password"></input>
+              <input name='password' type="password" placeholder="Password"  onChange={(e) => handleInputChange(e)}></input>
               <img src={Lock} />
             </div>
+            <small className="firebaseErrMes">{firebaseErrMes}</small>
             <div className="inputBox">
               <input className="submit" type="submit" value="Log in"></input>
             </div>

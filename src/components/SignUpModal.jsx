@@ -3,24 +3,21 @@ import User from '../iconAndImages/User.png';
 import Email from '../iconAndImages/Email.png'
 import Lock from "../iconAndImages/Lock.png";
 import '../Assets/fontawesome-icons/scss/fontawesome.scss'
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  onAuthStateChanged
-} from 'firebase/auth'
-import {auth} from '../firebase-config'
+import { signUp } from '../redux/firebase/FirebaseSlice'
+import {useNavigate} from 'react-router-dom'
+
 
 const SignUpModal = ({ reverse_sign, toogle_sign }) => {
+
+  const navigate = useNavigate()
   
   //firebase
-  const [currentUser, setCurrentUser] = useState()
-  const [loadingData, setLoadingData] = useState(true)
   const [firebaseErrMes, setFirebaseErrMes] = useState('');
   
 
-  const signUp = (email,pwd)=>createUserWithEmailAndPassword(auth,email,pwd)
 
-  // state qui gere la mise a jour du formulaire 
+
+  // form state
   const [form, setForm] = useState({
     user: { value: "", errorMes: "", isValid: false },
     email: { value: "", errorMes: "", isValid: false },
@@ -125,29 +122,27 @@ const SignUpModal = ({ reverse_sign, toogle_sign }) => {
     e.preventDefault();
     validForm();
     //if (
-     // form.user.isValid && 
-     // form.email.isValid && 
-    //  form.password.isValid && 
-    //  form.checkPassword.isValid  
+    // form.user.isValid &&
+    // form.email.isValid &&
+    //  form.password.isValid &&
+    //  form.checkPassword.isValid
     //  ) {
-        try {
-        const cred = await signUp(
-          form.email.value,
-          form.password.value
-        )
-        formRef.current.reset()
-        setFirebaseErrMes("");
-        console.log(cred)
-      } catch (err) {
-          if (err.code === 'auth/invalid-email') {
-            setFirebaseErrMes("Invalid format email");
-          }
-          if (err.code === 'auth/email-already-in-use') {
-            setFirebaseErrMes("Email already used");
-          }
-        }
-   //}
-   console.log();
+    try {
+      await signUp(form.email.value, form.password.value);
+      formRef.current.reset();
+      setFirebaseErrMes("");
+      toogle_sign();
+      navigate("/private/private-cart");
+    } catch (err) {
+      if (err.code === "auth/invalid-email") {
+        setFirebaseErrMes("Invalid format email");
+      }
+      if (err.code === "auth/email-already-in-use") {
+        setFirebaseErrMes("Email already used");
+      }
+    }
+    // console.log(form.email.value);
+    // console.log(form.password.value);
   }
   
   return (

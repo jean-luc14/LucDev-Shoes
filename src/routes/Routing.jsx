@@ -8,9 +8,11 @@ import B from "../Composants-de-chaussures/Oxford/B";
 import PageNotFound from "../pages/PageNotFound";
 import Cart from "../pages/Cart";
 import Catalog from "../pages/Catalog";
+import Private from "../pages/private/Private";
+import PrivateCart from "../pages/private/privateCart/PrivateCart";
 
 const Routing = () => {
-  return (
+  return ( 
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/:catalogSlug" element={<Catalog />} />
@@ -19,6 +21,9 @@ const Routing = () => {
       <Route path="/About_us" element={<About_us />} />
       <Route path="/Contact" element={<Contact />} />
       <Route path="/Composants-de-chaussures/Oxford/B" element={<B />} />
+      <Route path='/private' element={<Private/>}>
+        <Route path='/private/private-cart' element={<PrivateCart/>}/>
+      </Route>
       <Route element={<PageNotFound />} />
     </Routes>
   );
