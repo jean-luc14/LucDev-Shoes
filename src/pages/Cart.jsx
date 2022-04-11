@@ -1,10 +1,13 @@
 import React,{useState,useEffect} from 'react'
 import { useSelector } from 'react-redux'
-import {getCartItemsDetail} from '../Assets/data/ProductData'
+import { getCartItemsDetail } from '../Assets/data/ProductData'
 import CartItem from '../components/CartItem'
+import  Paypal from '../components/Paypal'
 import "../Assets/fontawesome-icons/scss/fontawesome.scss";
 
 const Cart = props => {
+
+  const currentUser = useSelector((state) => state.firebase.value.currentUser);
 
   const cartItems = useSelector((state) => state.cartItems.value)
   const [cartProduct, setCartProduct] = useState([]);
@@ -28,10 +31,15 @@ const Cart = props => {
             ))}
           </div>
           <div className="cart_info_txt">
-            <h1>
-              Total Price {totalPrice}
-            </h1>
+            <h1>Total Price {totalPrice}</h1>
             <h1>Total Product {totalProduct}</h1>
+            {currentUser ? (
+              <Paypal />
+            ) : (
+              <button>
+               Buy Now
+              </button>
+            )}
           </div>
         </div>
       </div>

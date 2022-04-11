@@ -7,7 +7,7 @@
   user-select: none;
   
   &_info{
-    @include flex(row,center);
+    @include flex(row,center,flex-start);
     width:90vw;
     height:inherit;
 
