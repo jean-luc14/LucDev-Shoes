@@ -10,7 +10,8 @@
     content:'';
     position:absolute;
     bottom:0;
-    right:0;
+    left:50%;
+    transform:translateX(-50%);
     height: 2px;
     width:0;
     background:$toggle-white-black;

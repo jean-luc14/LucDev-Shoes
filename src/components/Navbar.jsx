@@ -94,6 +94,15 @@ Please check your internet connect and retry.`
   return (
     <>
       <nav id="navbar">
+        <div
+          ref={hamburger_anim}
+          className="hamburger_menu"
+          onClick={hamburgerAnim_and_navResponAnim}
+        >
+          <div className="slice"></div>
+          <div className="slice"></div>
+          <div className="slice"></div>
+        </div>
         {catalog_back_state ? (
           <div onClick={animCatalog} className="catalog_list_background"></div>
         ) : null}
@@ -108,7 +117,10 @@ Please check your internet connect and retry.`
         <div ref={link} id="link">
           <ul ref={navResponAnim} className="link_child">
             {navbarData.map((e, i) => (
-              <li key={i} className={`${i === active ? "active" : ""}`}>
+              <li
+                key={i}
+                className={`link_child_li ${i === active ? "active" : ""}`
+              }>
                 <Link to={e.path} className="nav-link">
                   {e.display}
                 </Link>
@@ -132,15 +144,6 @@ Please check your internet connect and retry.`
             <Link to="/cart">
               <img src={Shopping_cart} />
             </Link>
-          </div>
-          <div
-            ref={hamburger_anim}
-            className="hamburger_menu"
-            onClick={hamburgerAnim_and_navResponAnim}
-          >
-            <div className="slice"></div>
-            <div className="slice"></div>
-            <div className="slice"></div>
           </div>
         </div>
       </nav>
