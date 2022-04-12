@@ -38,8 +38,8 @@ const Navbar = () => {
 
   // show or not navbar links in responsive 
   const hamburgerAnim_and_navResponAnim = () => {
-    hamburger_anim.current.classList.toogle("active");
-    navResponAnim.current.classList.toogle("active");
+    hamburger_anim.current.classList.toggle("active");
+    navResponAnim.current.classList.toggle("active");
   };
 
   //state and his update function for active signUp and LogIn modal
