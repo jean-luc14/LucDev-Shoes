@@ -44,7 +44,7 @@ const Catalog = props => {
           </Section>
         </div>
       ) : (
-        <h1>This cataloog page does not found</h1>
+        <h1>This catalog page does not found</h1>
       )}
     </>
   );

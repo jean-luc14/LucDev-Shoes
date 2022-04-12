@@ -7,7 +7,9 @@ $toggle-white-black:#fff;
 $product-card-box-shadow:-15px 0px 10px rgba(0, 0, 0, 0.415) , 15px 0px 10px rgba(0, 0, 0, 0.415), 0px 15px 10px rgba(0, 0, 0, 0.415);  
 
 $yellow:#ffd83c;
-$mobile-max-width:768px;
-$tablet-max-width:992px;
-$desktop-max-width:1200px;
-$large-desktop-min-width:1200px;
+
+// BREACKPOINT
+$mobile-max-width:768px; $mobile-card-min-width:280px;
+$tablet-max-width:992px; $tablet-card-min-width:350px;
+$desktop-max-width:1200px; $desktop-card-min-width:300px;
+$large-desktop-min-width:1200px; $large-desktop-card-min-width:360px;

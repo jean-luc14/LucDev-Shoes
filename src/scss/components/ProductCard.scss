@@ -3,8 +3,6 @@
 
 .productCard{
   position:relative;
-  height: 280px;
-  width:290px;
   overflow:hidden;
   border-radius: 8px;
   //transition:width 0.3s ease,height 0.3s ease;
@@ -61,7 +59,7 @@
   &:hover{
     // height: 290px;
     // width:300px;
-    box-shadow:$product-card-box-shadow;
+    //box-shadow:$product-card-box-shadow;
     &::after{
       opacity:1;
     }
@@ -77,6 +75,57 @@
       transform:translateY(0px);
       opacity:1;
       transition-delay:0.3s,0.3s;
+    }
+  }
+}
+
+//BREAKPOINT
+
+//mobile
+@include mobile{
+
+  .productCard{
+    @include mobile{
+      min-width:$mobile-card-min-width;
+      min-height:$mobile-card-min-width;
+      width:87vw;
+      height:87vw;
+    }
+  }
+}
+//tablet
+@include tablet{
+
+  .productCard{
+    @include tablet{
+      min-width:$tablet-card-min-width;
+      min-height:$tablet-card-min-width;
+      width:40vw;
+      height:40vw;
+    }
+  }
+}
+//desktop
+@include desktop{
+
+  .productCard{
+    @include desktop{
+      min-width:$desktop-card-min-width;
+      min-height:$desktop-card-min-width;
+      width:27vw;
+      height:27vw;
+    }
+  }
+}
+//large desktop
+@include large-desktop{
+
+  .productCard{
+    @include large-desktop{
+      min-width:$large-desktop-card-min-width;
+      min-height:$large-desktop-card-min-width;
+      width:27vw;
+      height:27vw;
     }
   }
 }

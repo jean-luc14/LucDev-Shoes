@@ -42,7 +42,7 @@
         position:relative;
         font-size:18px;
         height:30px;
-        margin:12px 0;
+        margin:12px 15px;
 
         &::after{
           content:'';
@@ -108,13 +108,11 @@
     background:rgba(0, 0, 0, 0.299);
   }
   .catalog_list_parent{
-    position:absolute;
-    left:0;
-    top:45px;
-    width:200px;
     height:auto;
     .catalog_list_btn{
-      position:relative;
+      position:absolute;
+      left:0;
+      top:35px;
       padding: 3px 10px 6px;
       background:rgb(236, 75, 11);
       cursor:pointer;
@@ -122,7 +120,10 @@
       border-radius:7px;
     }
     .catalog_list_wrapper{
-      width:auto;
+      position:absolute;
+      left:0;
+      top:75px;
+      width:200px;
       height:auto;
       transform:translateX(-100%);
       transition:transform 0.5s ease-out;
