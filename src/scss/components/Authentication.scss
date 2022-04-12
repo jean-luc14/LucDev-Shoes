@@ -1,0 +1,50 @@
+
+.auth_btn{
+  box-sizing: border-box;
+  cursor:pointer;
+  height: 30px;
+  font-size:13px;
+  margin:5px;
+  padding:3px 15px 5px;
+  color:#CE6A14;
+  border-radius:5px;
+  font-weight:770;
+  
+  &.sign_up{
+    position:relative;
+    border:2px solid #8c4202;
+    background-color: transparent;
+    &:hover{
+      background-color: whitesmoke;
+      border:2px solid transparent;
+    }
+    &:active{
+      background-color: rgb(177, 175, 175);
+      border:2px solid transparent;
+    }
+  }
+  /* sign up button and log in button 
+    (But we have two button log in, one in link and one in list of link_child)*/
+  
+  &.log_in{
+    position:relative;
+    display :block;
+    background-color:#ffd83c;
+    margin-right: 10px;
+    border:0px solid transparent;
+    &:hover{
+      background-color: #ac5a11;
+    }
+    &:active{
+      background-color: #d17f37;
+    }
+  }
+  &.log_out{
+    position:relative;
+    display :block;
+    background-color:#fff;
+    margin-right: 10px;
+    border:0px solid transparent;
+    cursor:pointer;
+  }
+}

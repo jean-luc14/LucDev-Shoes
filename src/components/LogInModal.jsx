@@ -5,7 +5,7 @@ import Lock from "../iconAndImages/Lock.png";
 import { logIn } from "../redux/firebase/FirebaseSlice";
 import { useNavigate } from "react-router-dom";
 
-  const LogInModal = ({reverse_log, toogle_log}) => {
+  const LogInModal = ({reverse_log, toggle_log}) => {
 
       const [form, setForm] = useState({
         user: { value: ''},
@@ -30,7 +30,7 @@ import { useNavigate } from "react-router-dom";
           form.password.value
         )
         setFirebaseErrMes('')
-        toogle_log()
+        toggle_log()
       } catch {
         setFirebaseErrMes("Wopsy, Email and/or password incorrect");  
       }
@@ -38,7 +38,7 @@ import { useNavigate } from "react-router-dom";
   
     return (
       <>
-        {reverse_log ? <div className="op_log" onClick={toogle_log} /> : null}
+        {reverse_log ? <div className="op_log" onClick={toggle_log} /> : null}
         <div
           className="wrapper_log"
           style={{
@@ -52,7 +52,7 @@ import { useNavigate } from "react-router-dom";
         >
           <form onSubmit={handleSubmit}>
             <h1>
-              Log In <span onClick={toogle_log}> &times;</span>
+              Log In <span onClick={toggle_log}> &times;</span>
             </h1>
             <div className="inputBox">
               <input name='user' type="test" placeholder="Username"  onChange={(e) => handleInputChange(e)}></input>

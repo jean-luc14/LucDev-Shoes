@@ -7,7 +7,7 @@ import { signUp } from '../redux/firebase/FirebaseSlice'
 import {useNavigate} from 'react-router-dom'
 
 
-const SignUpModal = ({ reverse_sign, toogle_sign }) => {
+const SignUpModal = ({ reverse_sign, toggle_sign }) => {
 
   const navigate = useNavigate()
   
@@ -131,7 +131,7 @@ const SignUpModal = ({ reverse_sign, toogle_sign }) => {
       await signUp(form.email.value, form.password.value);
       formRef.current.reset();
       setFirebaseErrMes("");
-      toogle_sign();
+      toggle_sign();
       navigate("/private/private-cart");
     } catch (err) {
       if (err.code === "auth/invalid-email") {
@@ -151,7 +151,7 @@ const SignUpModal = ({ reverse_sign, toogle_sign }) => {
         <div
           className="op_sign"
           onClick={() => {
-            toogle_sign();
+            toggle_sign();
             setFirebaseErrMes("");
           }}
         />
@@ -174,7 +174,7 @@ const SignUpModal = ({ reverse_sign, toogle_sign }) => {
             Sign up{" "}
             <span
               onClick={() => {
-                toogle_sign();
+                toggle_sign();
                 setFirebaseErrMes("");
               }}
             >
