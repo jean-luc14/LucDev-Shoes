@@ -2,37 +2,54 @@ import React, { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {catalogData} from '../Assets/data/CatalogData'
 
-const CatalogList = () => {
+const CatalogList = (props) => {
 
-  const cat = useRef(null);
   const navigate = useNavigate();
   
   const goToCatalogPage = (catalogSlug) => {
     navigate(`/${catalogSlug}`);
   };
+  let cats = null
 
   // const add_class = () => cat.current.classList.add("catalog_list");
   // const remove_class = () => cat.current.classList.remove("catalog_list");
+  // let x;
+  // let y;
+  // const foo = (e) => { 
+
+  //   x = e.clientX - e.target.offsetLeft;
+  //   y = e.clientY - e.target.offsetTop;
+  //   const circle = document.createElement("span");
+  //   circle.style.left = x + "px";
+  //   circle.style.top = y + "px";
+  //   item.appendChild(circle);
+  //   console.log(e.target);
+  //   setTimeout(() => {
+  //     circle.remove();
+  //   }, 1000);
+  // }
   
   // useEffect(() => {
-  //    const cats_list = document.querySelectorAll(".catalogLink");
-  //    cats_list.forEach((cat_list) => {
-  //      cat_list.onclick = (e) => {
-  //        let x = e.clientX - catalogRef.current.offsetLeft;
-  //        let y = e.clientY - catalogRef.current.offsetTop;
+  //    cats = document.querySelectorAll(".catalog_link");
+  //     cats.forEach((item) => {
+  //       item.addEventListener( 'click', (e) => {
+  //         let x = e.clientX - e.target.offsetLeft;
+  //         let y = e.clientY - e.target.offsetTop;
+  //         const circle = document.createElement("span");
+  //         circle.style.left = x + "px";
+  //         circle.style.top = y + "px";
+  //         item.appendChild(circle);
+  //         console.log(e.clientX);
+  //         console.log(e.target.offsetTop);
+  //         console.log(e.currentTarget.offsetTop);
+  //         setTimeout(() => {
+  //           circle.remove();
+  //         }, 500);
+  //       });
+  //     });
 
-  //        const circle = document.createElement("span");
-  //        circle.style.left = x + "px";
-  //        circle.style.top = y + "px";
 
-  //        cat_list.appendChild(circle);
-
-  //        setTimeout(() => {
-  //          circle.remove();
-  //        }, 1000);
-  //      };
-  //    });
-  // })
+  // },[])
   return (
     <div
       className="catalog"
@@ -40,15 +57,18 @@ const CatalogList = () => {
       // onMouseOut={remove_class}
       // ref={catalogRef}
     >
-      <div className="catalog_child">Category</div>
-      <div ref={cat} id="catalog_list">
-        {/* <span></span> */}
+      <div id="catalog_list" style={{height:props.height,overflow:props.overflow}}>
         {catalogData.map((item, i) => (
-          <div key={i} onClick={() => goToCatalogPage(item.path)}>
-            <a className="catalogLink" href="javascript:void(0);">
+            <a
+              className="catalog_link"
+              href="javascript:void(0);"
+              key={i}
+              onClick={() => {
+                goToCatalogPage(item.path);
+              }}
+            >
               <div>{item.display}</div>
             </a>
-          </div>
         ))}
       </div>
     </div>

@@ -3,7 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SignUpModal from "./SignUpModal";
 import LogInModal from "./LogInModal";
 import Search from "./Search";
-import Shopping_bag from '../iconAndImages/shopping_bag_icon.png';
+import CatalogList from './CatalogList'
+import Shopping_cart from '../iconAndImages/shopping_cart.png';
 import {navbarData} from  "../Assets/data/NavbarData";
 import { useSelector } from "react-redux";
 import {auth} from '../firebase-config'
@@ -16,9 +17,11 @@ const Navbar = () => {
 
   //state  for catch current path
   const [pathnameState, setPathnameState] = useState(null);
+  const [catalog_back_state, setCatalog_back_state] = useState(false);
 
-  //state for to catch navbar,hamburger
+  //ref for to catch navbar,hamburger,catalog list
   const link = useRef(null);
+  const catalogRef = useRef(null);
   const hamburger_anim = useRef(null);
   const navResponAnim = useRef(null);
 
@@ -52,18 +55,24 @@ const Navbar = () => {
   }
 
   //request to firebase to log out
-  const logOut = async ()=>{
+  const logOut = async () => {
 
     try {
       await signOut(auth)
       navigate('/')
       console.log('je')
-    }catch{
+    } catch {
       alert(
         `For some reasons,we can't deconnect. 
 Please check your internet connect and retry.`
       );
     }
+  };
+  //catalog list animation
+
+  const animCatalog = () => {
+    catalogRef.current.classList.toggle("active");
+    setCatalog_back_state(!catalog_back_state);
   }
 
   useEffect(() => {
@@ -89,6 +98,17 @@ Please check your internet connect and retry.`
   return (
     <>
       <nav id="navbar">
+        {catalog_back_state ? (
+          <div onClick={animCatalog} className="catalog_list_background"></div>
+        ) : null}
+        <div className="catalog_list_parent">
+          <button className="catalog_list_btn" onClick={animCatalog}>
+            Catalog
+          </button>
+          <div ref={catalogRef} className="catalog_list_wrapper">
+            <CatalogList height={"80vh"} overflow={'auto'} />
+          </div>
+        </div>
         <div ref={link} id="link">
           <ul ref={navResponAnim} className="link_child">
             {navbarData.map((e, i) => (
@@ -98,7 +118,7 @@ Please check your internet connect and retry.`
                 </Link>
               </li>
             ))}
-            {currentUser ? null:(
+            {currentUser ? null : (
               <li>
                 <button className="btn log_in" onClick={toogle_log}>
                   Log in
@@ -123,7 +143,7 @@ Please check your internet connect and retry.`
           )}
           <div className="ecommerce_icons">
             <Link to="/cart">
-              <img src={Shopping_bag} />
+              <img src={Shopping_cart} />
             </Link>
           </div>
           <div

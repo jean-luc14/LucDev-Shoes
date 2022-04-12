@@ -17,6 +17,17 @@
     width: 100vw;
     height:auto;
     
+    &.link{
+      background: rgb(255, 255, 255);
+      .link_child .nav-link{
+        color:black;
+      }
+    }
+
+    &.hamburger_menu{
+      display: none;
+    }
+
     .link_child{
       position:fixed;
       width:100vw;
@@ -137,6 +148,36 @@
       }
     }
   }
+  .catalog_list_background{
+    position:absolute;
+    width:100vw;
+    height:200vh; 
+    background:transparent;
+  }
+  .catalog_list_parent{
+    position:absolute;
+    left:0;
+    top:45px;
+    width:200px;
+    height:auto;
+    .catalog_list_btn{
+      position:relative;
+      padding: 3px 10px 6px;
+      background:rgb(236, 75, 11);
+      cursor:pointer;
+      margin-left:5px;
+      border-radius:7px;
+    }
+    .catalog_list_wrapper{
+      width:auto;
+      height:auto;
+      transform:translateX(-100%);
+      transition:transform 0.5s ease-out;
+      &.active{
+        transform:translateX(0%)
+      }
+    }
+  }
 }
 
 #navbar #miniCatalogList{
@@ -151,20 +192,6 @@
     margin:10px;
   }
 
-}
-
-// hamburger for responsive of navbar
-#navbar #link .hamburger_menu{
-  display: none;
-}
-
-
-// Add of class for animation with Javascript
-#navbar #link.link{
-  background: rgb(255, 255, 255);
-  .link_child .nav-link{
-    color:black;
-  }
 }
 
 #navbar #miniCatalogList.miniCatalogList{
