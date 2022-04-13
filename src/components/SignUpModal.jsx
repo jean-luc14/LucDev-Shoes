@@ -163,6 +163,12 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
           onClick={() => {
             toggle_sign();
             setFirebaseErrMes("");
+            setShowError({
+              user: false,
+              email:false,
+              passWord: false,
+              checkPassWord:false,
+            })
           }}
         />
       ) : null}
@@ -186,6 +192,12 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
               onClick={() => {
                 toggle_sign();
                 setFirebaseErrMes("");
+                setShowError({
+                  user: false,
+                  email:false,
+                  passWord: false,
+                  checkPassWord:false,
+                })
               }}
             >
               {" "}
