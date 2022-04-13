@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { addItem } from '../redux/shoppingCart/CartItemsSlide'
-import "../Assets/fontawesome-icons/scss/fontawesome.scss";
+import Plus from '../Assets/icons/plus.png'
+import Minus from '../Assets/icons/minus.png'
 
 // import of Swiper.js Modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -175,17 +176,11 @@ const ProductView = (props) => {
                 </div>
                 <div className="product_quantity">
                   <div className="product_quantity_btn">
-                    <i
-                      className="fa fa-minus"
-                      onClick={() => updateQuantity("minus")}
-                    ></i>
+                    <img src={Minus} onClick={() => updateQuantity("minus")}/>
                   </div>
                   <div className="product_quantity_item">{quantity}</div>
                   <div className="product_quantity_btn">
-                    <i
-                      className="fa fa-plus "
-                      onClick={() => updateQuantity("plus")}
-                    ></i>
+                    <img src={Plus} onClick={() => updateQuantity("plus")}/>
                   </div>
                 </div>
                 <div className="buy_and_add_product_button">

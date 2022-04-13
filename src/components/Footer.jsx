@@ -1,9 +1,9 @@
 import React from 'react'
-import facebook from '../iconAndImages/facebook_icon.png'
-import youtube from '../iconAndImages/youtube_icon.png'
-import instagram from '../iconAndImages/instagram_icon.png'
-import twitter from '../iconAndImages/twitter_icon.png'
-import linkedin from '../iconAndImages/linkedin_icon.png'
+import facebook from '../Assets/icons/facebook_icon.png'
+import youtube from "../Assets/icons/youtube_icon.png";
+import instagram from "../Assets/icons/instagram_icon.png";
+import twitter from "../Assets/icons/twitter_icon.png";
+import linkedin from "../Assets/icons/linkedin_icon.png";
 const Footer = ()=>{
 
     return (

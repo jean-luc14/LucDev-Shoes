@@ -2,8 +2,7 @@ import React,{useState,useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import { getCartItemsDetail } from '../Assets/data/ProductData'
 import CartItem from '../components/CartItem'
-import  Paypal from '../components/Paypal'
-import "../Assets/fontawesome-icons/scss/fontawesome.scss";
+import Paypal from '../components/Paypal'
 
 const Cart = props => {
 

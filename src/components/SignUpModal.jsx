@@ -1,8 +1,8 @@
 import React,{useState,useRef} from 'react';
-import User from '../iconAndImages/User.png';
-import Email from '../iconAndImages/Email.png'
-import Lock from "../iconAndImages/Lock.png";
-import '../Assets/fontawesome-icons/scss/fontawesome.scss'
+import User from '../Assets/icons/User.png';
+import Email from '../Assets/icons/Email.png'
+import Lock from "../Assets/icons/Lock.png";
+import Warning from "../Assets/icons/warning.png";
 import { signUp } from '../redux/firebase/FirebaseSlice'
 import {useNavigate} from 'react-router-dom'
 
@@ -193,8 +193,8 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
             ></input>
             <img src={User} />
             {form.user.isValid ? null : (
-              <div className="inputAlert ::before">
-                {/* <i className="fas fa-exclamation-circle"></i> */}
+              <div className="inputAlert ">
+                <img src={Warning} />
                 <small>{form.user.errorMes}</small>
               </div>
             )}
@@ -206,13 +206,12 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
               name="email"
               placeholder="Email"
               value={form.email.value}
-              //required=""
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Email} />
             {form.email.isValid ? null : (
               <div className="inputAlert">
-                <i className="fas fa-exclamation-circle"></i>
+                <img src={Warning} />
                 <small>{form.email.errorMes}</small>
               </div>
             )}
@@ -229,7 +228,7 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
             <img src={Lock} />
             {form.password.isValid ? null : (
               <div className="inputAlert">
-                <i className="fas fa-exclamation-circle"></i>
+                <img src={Warning} />
                 <small>{form.password.errorMes}</small>
               </div>
             )}
@@ -246,7 +245,7 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
             <img src={Lock} />
             {form.checkPassword.isValid ? null : (
               <div className="inputAlert">
-                <i className="fas fa-exclamation-circle"></i>
+                <img src={Warning} />
                 <small>{form.checkPassword.errorMes}</small>
               </div>
             )}

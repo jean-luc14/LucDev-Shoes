@@ -94,8 +94,7 @@
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.451);
         color:#fff;
         
-        &::before{
-          content:'';
+        span{
           position:absolute;
           top:-5px;
           left:22px;
@@ -106,9 +105,10 @@
           border-right :5px solid transparent;
           border-left :5px solid transparent;
         }
-        i{
-          color:bisque;
-          margin: 0 5px;
+        img{
+          filter:invert(1);
+          width:15px;
+          height:15px;
         }
       }
     }

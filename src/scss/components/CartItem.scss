@@ -35,7 +35,19 @@
     &_quantity{
       @include flex;
       &_btn{
-        color:red
+        border:1px solid #000;
+        border-radius:3px;
+        margin-right:10px;
+        padding:0 5px;
+        img{
+          height:15px;
+          width:15px;
+          cursor:pointer;
+        }
+      }
+      &_item{
+        font-size: 20px;
+        margin-right:10px;
       }
     }
     
@@ -44,5 +56,10 @@
     width:10vw;
     height:10vw;
     @include flex;
+    img{
+      height:25px;
+      width:25px;
+      cursor:pointer;
+    }
   }
 }

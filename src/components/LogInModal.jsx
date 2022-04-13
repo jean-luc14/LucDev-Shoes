@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-import User from "../iconAndImages/User.png";
-import Email from "../iconAndImages/Email.png";
-import Lock from "../iconAndImages/Lock.png";
+import User from "../Assets/icons/User.png";
+import Email from "../Assets/icons/Email.png";
+import Lock from "../Assets/icons/Lock.png";
 import { logIn } from "../redux/firebase/FirebaseSlice";
 import { useNavigate } from "react-router-dom";
 

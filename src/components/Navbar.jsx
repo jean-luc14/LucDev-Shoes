@@ -4,7 +4,7 @@ import SignUpModal from "./SignUpModal";
 import LogInModal from "./LogInModal";
 import Search from "./Search";
 import CatalogList from './CatalogList'
-import Shopping_cart from '../iconAndImages/shopping_cart.png';
+import Shopping_cart from "../Assets/icons/shopping_cart.png";
 import {navbarData} from  "../Assets/data/NavbarData";
 import {auth} from '../firebase-config'
 import {signOut} from  'firebase/auth'

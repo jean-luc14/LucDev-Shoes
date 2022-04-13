@@ -2,7 +2,10 @@ import React,{useState,useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {useDispatch} from'react-redux'
 import {Link} from 'react-router-dom'
-import {updateItem,removeItem} from '../redux/shoppingCart/CartItemsSlide'
+import { updateItem, removeItem } from '../redux/shoppingCart/CartItemsSlide'
+import Delete from "../Assets/icons/delete.png";
+import Plus from "../Assets/icons/plus.png";
+import Minus from "../Assets/icons/minus.png";
 
 const CartItem = props => {
   const dispatch = useDispatch();
@@ -41,16 +44,16 @@ const CartItem = props => {
         <div className="cart_item_info_size">{item.size}</div>
         <div className="cart_item_info_quantity">
           <div className="cart_item_info_quantity_btn">
-            <i className="fa fa-minus" onClick={() => updateQuantity("-")}></i>
+            <img src={Minus} onClick={() => updateQuantity("-")} />
           </div>
           <div className="cart_item_info_quantity_item">{item.quantity}</div>
           <div className="cart_item_info_quantity_btn">
-            <i className="fa fa-plus " onClick={() => updateQuantity("+")}></i>
+            <img src={Plus} onClick={() => updateQuantity("+")} />
           </div>
         </div>
       </div>
       <div className="cart_item_del">
-        <i className="fa fa-trash" onClick={() => removeCartItem()}></i>
+        <img src={Delete} onClick={() => removeCartItem()} />
       </div>
     </div>
   );
