@@ -1,4 +1,4 @@
-import React,{useState,useRef} from 'react';
+import React,{useState,useRef, useEffect} from 'react';
 import User from '../Assets/icons/User.png';
 import Email from '../Assets/icons/Email.png'
 import Lock from "../Assets/icons/Lock.png";
@@ -14,8 +14,13 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
   //firebase
   const [firebaseErrMes, setFirebaseErrMes] = useState('');
   
-
-
+  //state for to show error alert of input
+  const [showError, setShowError] = useState({
+    user: false,
+    email:false,
+    passWord: false,
+    checkPassWord:false,
+  })
 
   // form state
   const [form, setForm] = useState({
@@ -121,6 +126,12 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     validForm();
+    setShowError({
+      user: !form.user.isValid,
+      email: !form.email.isValid,
+      password: !form.password.isValid,
+      checkPassword: !form.checkPassword.isValid,
+    });
     //if (
     // form.user.isValid &&
     // form.email.isValid &&
@@ -141,7 +152,6 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
         setFirebaseErrMes("Email already used");
       }
     }
-    // console.log(form.email.value);
     // console.log(form.password.value);
   }
   
@@ -192,12 +202,15 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={User} />
-            {form.user.isValid ? null : (
+            {showError.user ? (
               <div className="inputAlert ">
-                <img src={Warning} />
-                <small>{form.user.errorMes}</small>
+                <span></span>
+                <small>
+                  <img src={Warning} />
+                  {form.user.errorMes}
+                </small>
               </div>
-            )}
+            ) : null}
           </div>
           {/* email input */}
           <div className="inputBox">
@@ -209,12 +222,15 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Email} />
-            {form.email.isValid ? null : (
+            {showError.email ? (
               <div className="inputAlert">
-                <img src={Warning} />
-                <small>{form.email.errorMes}</small>
+                <span></span>
+                <small>
+                  <img src={Warning} />
+                  {form.email.errorMes}
+                </small>
               </div>
-            )}
+            ) : null}
           </div>
           {/* password input */}
           <div className="inputBox">
@@ -226,12 +242,15 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Lock} />
-            {form.password.isValid ? null : (
+            {showError.password ? (
               <div className="inputAlert">
-                <img src={Warning} />
-                <small>{form.password.errorMes}</small>
+                <span></span>
+                <small>
+                  <img src={Warning} />
+                  {form.password.errorMes}
+                </small>
               </div>
-            )}
+            ):null}
           </div>
           {/* confirm password input */}
           <div className="inputBox">
@@ -243,12 +262,15 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Lock} />
-            {form.checkPassword.isValid ? null : (
+            {showError.checkPassword ? (
               <div className="inputAlert">
-                <img src={Warning} />
-                <small>{form.checkPassword.errorMes}</small>
+                <span></span>
+                <small>
+                  <img src={Warning} />
+                  {form.checkPassword.errorMes}
+                </small>
               </div>
-            )}
+            ):null}
           </div>
           {/* submit form */}
           <small className="firebaseErrMes">{firebaseErrMes}</small>
