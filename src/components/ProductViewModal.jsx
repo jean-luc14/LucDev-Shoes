@@ -15,13 +15,16 @@ const ProductViewModal = () => {
 
   useEffect(() => {
     setProduct(getProductByCatalogAndId(productCatalogSlug,productId));
-  }, [productCatalogSlug,productId]);
+  }, [productCatalogSlug, productId]);
      
   return (
-    <div className={`productViewModal ${product === undefined ? '' : 'active'}`}>
+    <div
+      className={`productViewModal ${product === undefined ? "" : "active"}`}
+      >
+      <span className ='close'onClick={() => dispatch(remove())}> &times;</span>
+      <div className="productViewModal__background"></div>
       <div className="productViewModal__content">
-        <ProductView product={product} />
-        <span onClick={()=>dispatch(remove())} > &times;</span>
+        <ProductView product={product} Modal={true} />
       </div>
     </div>
   );

@@ -112,7 +112,7 @@
     .catalog_list_btn{
       position:absolute;
       left:0;
-      top:35px;
+      top:45px;
       padding: 3px 10px 6px;
       background:rgb(236, 75, 11);
       cursor:pointer;
@@ -122,8 +122,8 @@
     .catalog_list_wrapper{
       position:absolute;
       left:0;
-      top:75px;
-      width:200px;
+      top:80px;
+      width:230px;
       height:auto;
       transform:translateX(-100%);
       transition:transform 0.5s ease-out;

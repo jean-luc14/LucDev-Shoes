@@ -2,69 +2,66 @@
 @import '../variables.scss';
 
 .backgroundProduct{
+  position:absolute;
+  top:0;
+  left:0;
   height: 100vh;
   width:100vw;
+  background: rgba(0, 0, 0, 0.652);
+  z-index:1;
+}
   
-  &.sizeModal{
-    height: 500px;
-    width:500px;
-    //position:relative;
-    &::after{
-      position:absolute;
-      content:"";
-      width:inherit;
-      height: inherit;
-      left:0;
-      top:0;
-      background: rgba(0, 0, 0, 0);
-    }
-  }
-  &::after{
-    position:absolute;
-    content:"";
-    width:inherit;
-    height: inherit;
-    left:0;
-    top:0;
-    background: rgba(0, 0, 0, 0.392);
-  }
-  .backgroundProductImg{
-    height: inherit;
-    width:inherit;
-    object-fit: cover;
-  }
-  .productWrapper{
-    position:absolute;
-    width:90vw;
-    height: 85vh;
-    top:50%;
-    left:50%;
-    transform:translate(-50% ,-50%);
-    border-radius: 10px;
-    box-shadow: 20px 30px 20px rgba(0, 0, 0, 0.403); 
-    border-radius: 10px;
-    background: rgba(182, 179, 179,0.2);
+.backgroundProductImg{  
+  height: 100vh;
+  width:100vw;
+  object-fit: cover;
+}
+.productWrapper{
+  position:absolute;
+  width:90vw;
+  height: 85vh;
+  top:50vh;
+  left:50vw;
+  transform:translate(-50% ,-50%);
+  border-radius: 10px;
+  box-shadow: 20px 30px 20px rgba(0, 0, 0, 0.403); 
+  background: rgba(182, 179, 179,0.2);
+  @include flex;
+  z-index: 2;
+  //backdrop-filter: blur(50px);
+  
+  
+  .productInfo{
     @include flex;
-    z-index: 1;
-     //backdrop-filter: blur(50px);
-
-    .productInfo{
-      @include flex;
-      height:inherit;
-      width:inherit;
-      border-radius: 10px;
-
-      .shoesInfoItem{
-        @include flex($flex-direction:column,$align-items: flex-start);
-        width: 40vw;
-        margin:auto ;
-
-        h3,p,div{
-          margin-bottom:4vh;
-          color:#fff;
+    height:inherit;
+    width:inherit;
+    
+    .shoesInfoItem{
+      @include flex($flex-direction:column,$align-items: flex-start);
+      width: 40vw;
+      margin:auto ;
+      
+      h3,p,div{
+        margin-bottom:3vh;
+        color:#fff;
+      }
+      h3{
+        font-size: 3rem;
+        color:$yellow;
+      }
+      p{
+        font-weight:500;
+        font-size:18px;
+      }
+      div{
+        span{
+          font-size:14px;
         }
-
-        div span{
+      }
+      
+      .size_wrapper {
+        margin-left: 0;
+        .size{
           width:50px;
           height:50px;
           font-size:20px;
@@ -77,42 +74,44 @@
             border:1px solid $yellow;
           }
         }
-        .product_quantity{
-          @include flex;
-          width: 100px;
-          height:auto;
-          
-          &_btn{
-            color:red;
-            margin:5px;
-            width:10px;
-            height:10px;
-            margin-left:20px;
-            border:1px solid rgb(138, 138, 138);
-            cursor:pointer;
-          }
-        }
-        h3{
-          font-size: 3rem;
-          color:$yellow;
-        }
-        .buy_and_add_product_button{
-          @include flex;
+      }
+      .product_quantity{
+        @include flex;
+        width: 100px;
+        height:auto;
+        
+        &_btn{
+          color:red;
+          margin:5px;
+          width:10px;
+          height:10px;
+          margin-left:20px;
+          border:1px solid rgb(138, 138, 138);
+          cursor:pointer;
         }
       }
-    } 
-  }
+      .buy_and_add_product_button{
+        @include flex;
+        button{
+          margin-right:20px;
+        }
+      }
+    }
+  } 
+
 }
+
 
 
 // scss of Swiper and Slider (Product image)
 
   .productImageSlider{
-      height: 400px;
-      width: 400px;
+      height: 36vw;
+      width: 37vw;
     .imageSlider{
       height:inherit;
       width:inherit;
+      border-radius:10px;
     }
     .swiper-button-prev{
       left:0;
@@ -127,7 +126,7 @@
 
   
 .productImageSliderThumbs{
-  width:400px;
+  width:37vw;
   height:60px;
   .swiper-slide{ 
     border:1px solid transparent;
@@ -144,20 +143,63 @@
       height: inherit;
       width:inherit;
       margin:auto;
-      //margin: 7px;
-      border-radius: 5px;
       cursor:pointer;
       object-fit: contain;
     }
   }
   .swiper-button-prev{
-    left: -40px;
+    left: 0;
     color:$yellow;
     transform:scale(0.5);
   }
   .swiper-button-next{
-    right:-40px;
+    right:0;
     color:$yellow;
-    transform:scale(0.5)
+    transform:scale(0.5);
+  }
+}
+
+  // redesign in modal mode
+.productWrapper.modal{
+  left:47vw;
+  top:53vh;
+  height:65vh;
+  width:80vw;
+  box-shadow: none; 
+  background: none;
+  .productInfo{
+    .shoesInfoItem{
+      margin-left:0;
+      width: 30vw;
+      h3,p,div{
+        margin-bottom:2vh;
+      }
+      h3{
+        font-size:2rem;
+      }
+      p{
+        font-weight:400;
+        font-size:14px;
+      }
+      .size_wrapper{
+        span{
+          font-size:13px;
+        }
+      }
+      .buy_and_add_product_button{
+        button{
+          font-size:14px;
+          margin-right:20px;
+        }
+      }
+    }
+  }
+  .productImageSlider{
+    height: 33vw;
+    width: 34vw;
+  }
+  .productImageSliderThumbs{
+    width:30vw;
+    height:48px;
   }
 }

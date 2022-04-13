@@ -102,104 +102,107 @@ const ProductView = (props) => {
     <div>
       {product ? (
         <>
-          {/* sizeModal prop is for shrink size to show in modal */}
-          <div
-            className={`backgroundProduct ${
-              product === undefined ? "sizeModal" : ""
-            }`}
-          >
+          {/*The Modal prop is to design the productView differently in modal*/}
+          <div className={`${props.Modal ? "" : "backgroundProduct"}`}></div>
+          {props.Modal ? null : (
             <img className="backgroundProductImg" src={product.img} />
-            <div className="productWrapper">
-              <div className="productInfo">
+          )}
+          <div className={`productWrapper ${props.Modal ? "modal" : ""}`}>
+            <div className="productInfo">
+              {/* Swipe which show a current product */}
+              <Swiper
+                navigation={true}
+                spaceBetween={10}
+                modules={[Navigation, Thumbs]}
+                grabCursor={true}
+                thumbs={{ swiper: activeThumb }}
+                className="productImageSlider"
+              >
+                {product.color.map((item, index) => (
+                  <SwiperSlide key={index}>
+                    {({ isActive }) => (
+                      <ImageSlider
+                        item={item.img}
+                        isActive={isActive}
+                        activeImages={activeImages}
+                        updateColor={updateColor}
+                        color={item.name}
+                      />
+                    )}
+                  </SwiperSlide>
+                ))}{" "}
+                "";
+              </Swiper>
+              <div className="shoesInfoItem">
+                <h3> ${product.price} US</h3>
+                <p>{product.name}</p>
+                <div>
+                  Color : <span>{color}</span>
+                </div>
+
+                {/* thumbs of Swiper js */}
                 <Swiper
+                  onSwiper={setActiveThumb}
                   navigation={true}
-                  spaceBetween={10}
+                  // redifine slidesPerView in modal mode
+                  slidesPerView={5}
+                  spaceBetween={1}
                   modules={[Navigation, Thumbs]}
-                  grabCursor={true}
-                  thumbs={{ swiper: activeThumb }}
-                  className="productImageSlider"
+                  className="productImageSliderThumbs"
                 >
                   {product.color.map((item, index) => (
-                    <SwiperSlide key={index}>
-                      {({ isActive }) => (
-                        <ImageSlider
-                          item={item.img}
-                          isActive={isActive}
-                          activeImages={activeImages}
-                          updateColor={updateColor}
-                          color={item.name}
-                        />
-                      )}
+                    <SwiperSlide>
+                      <div
+                        key={index}
+                        className="productImageSliderThumbsWrapper"
+                      >
+                        <img className="similarImg" src={item.img} />
+                      </div>
                     </SwiperSlide>
                   ))}{" "}
                   "";
                 </Swiper>
-                <div className="shoesInfoItem">
-                  <h3> US ${product.price}</h3>
-                  <p>{product.name}</p>
-                  <div>color:{color}</div>
-                  <Swiper
-                    onSwiper={setActiveThumb}
-                    navigation={true}
-                    slidesPerView={5}
-                    spaceBetween={10}
-                    modules={[Navigation, Thumbs]}
-                    className="productImageSliderThumbs"
+                <div  className='size_wrapper'>
+                  {product.size.map((item, index) => (
+                    <span
+                      className={`size ${size === item ? "active" : ""}`}
+                      key={index}
+                      onClick={() => updateSize(item)}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <div className="product_quantity">
+                  <div className="product_quantity_btn">
+                    <i
+                      className="fa fa-minus"
+                      onClick={() => updateQuantity("minus")}
+                    ></i>
+                  </div>
+                  <div className="product_quantity_item">{quantity}</div>
+                  <div className="product_quantity_btn">
+                    <i
+                      className="fa fa-plus "
+                      onClick={() => updateQuantity("plus")}
+                    ></i>
+                  </div>
+                </div>
+                <div className="buy_and_add_product_button">
+                  <button
+                    onClick={() => {
+                      addToCart();
+                    }}
                   >
-                    {product.color.map((item, index) => (
-                      <SwiperSlide>
-                        <div
-                          key={index}
-                          className="productImageSliderThumbsWrapper"
-                        >
-                          <img className="similarImg" src={item.img} />
-                        </div>
-                      </SwiperSlide>
-                    ))}{" "}
-                    "";
-                  </Swiper>
-                  <div>
-                    {product.size.map((item, index) => (
-                      <span
-                        className={`${size === item ? "active" : ""}`}
-                        key={index}
-                        onClick={() => updateSize(item)}
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="product_quantity">
-                    <div className="product_quantity_btn">
-                      <i
-                        className="fa fa-minus"
-                        onClick={() => updateQuantity("minus")}
-                      ></i>
-                    </div>
-                    <div className="product_quantity_item">{quantity}</div>
-                    <div className="product_quantity_btn">
-                      <i
-                        className="fa fa-plus "
-                        onClick={() => updateQuantity("plus")}
-                      ></i>
-                    </div>
-                  </div>
-                  <div className="buy_and_add_product_button">
-                    <button
-                      onClick={() => {
-                        addToCart();
-                      }}
-                    >
-                      Ajouter au panier
-                    </button>
-                    <button
-                      onClick={() => {
-                        goToCart();
-                      }}
-                    >
-                      Acheter maintenant
-                    </button>
-                  </div>
+                    Ajouter au panier
+                  </button>
+                  <button
+                    onClick={() => {
+                      goToCart();
+                    }}
+                  >
+                    Acheter maintenant
+                  </button>
                 </div>
               </div>
             </div>
