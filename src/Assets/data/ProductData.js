@@ -2193,9 +2193,15 @@ const productData = [
 ];
 
 
-const getProductByCatalogAndId = (catalog,id) => productData.find( e => 
-  e.catalogSlug === catalog && e.id === id
-)
+const getProductByCatalogAndId = (catalog, id) => {
+  let product;
+  if (catalog & id === undefined) {
+    product=undefined
+  } else {
+    product = productData.find(e => e.catalogSlug === catalog && e.id === id)
+  }
+  return product;
+}
 
 const getCartItemsDetail = (cartItems) => {
   let res = []
