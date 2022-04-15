@@ -140,64 +140,17 @@ const ProductView = (props) => {
                 <div>
                   Color : <span>{color}</span>
                 </div>
-
-                {/* thumbs of Swiper js */}
-                <Swiper
-                  onSwiper={setActiveThumb}
-                  navigation={true}
-                  // redifine slidesPerView in modal mode
-                  slidesPerView={5}
-                  spaceBetween={1}
-                  modules={[Navigation, Thumbs]}
-                  className="productImageSliderThumbs"
-                >
-                  {product.color.map((item, index) => (
-                    <SwiperSlide>
-                      <div
-                        key={index}
-                        className="productImageSliderThumbsWrapper"
-                      >
-                        <img className="similarImg" src={item.img} />
-                      </div>
-                    </SwiperSlide>
-                  ))}{" "}
-                  "";
-                </Swiper>
-                <div  className='size_wrapper'>
-                  {product.size.map((item, index) => (
-                    <span
-                      className={`size ${size === item ? "active" : ""}`}
-                      key={index}
-                      onClick={() => updateSize(item)}
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-                <div className="product_quantity">
-                  <div className="product_quantity_btn">
-                    <img src={Minus} onClick={() => updateQuantity("minus")}/>
-                  </div>
-                  <div className="product_quantity_item">{quantity}</div>
-                  <div className="product_quantity_btn">
-                    <img src={Plus} onClick={() => updateQuantity("plus")}/>
-                  </div>
-                </div>
-                <div className="buy_and_add_product_button">
-                  <button
-                    onClick={() => {
-                      addToCart();
-                    }}
-                  >
-                    Ajouter au panier
-                  </button>
-                  <button
-                    onClick={() => {
-                      goToCart();
-                    }}
-                  >
-                    Acheter maintenant
-                  </button>
+                <div className="thumbsSizeQuantityButton">
+                  <ThumbsSizeQuantityButton
+                    setActiveThumb={setActiveThumb}
+                    product={product}
+                    updateSize={updateSize}
+                    updateQuantity={updateQuantity}
+                    addToCart={addToCart}
+                    goToCart={goToCart}
+                    size={size}
+                    quantity={quantity}
+                  />
                 </div>
               </div>
             </div>
@@ -217,6 +170,67 @@ const ImageSlider = props => {
       props.updateColor(props.color)
     } 
     return <img className="imageSlider" src={props.item} />
+}
+
+// thumbs of Swiper js 
+const ThumbsSizeQuantityButton = (props) => {
+
+  return (
+    <>
+      <Swiper
+        onSwiper={props.setActiveThumb}
+        navigation={true}
+        slidesPerView={5}
+        spaceBetween={1}
+        modules={[Navigation, Thumbs]}
+        className="productImageSliderThumbs"
+      >
+        {props.product.color.map((item, index) => (
+          <SwiperSlide>
+            <div key={index} className="other_color_img_wrapper">
+              <img className="other_color_img" src={item.img} />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className="size_wrapper">
+        {props.product.size.map((item, index) => (
+          <span
+            className={`size ${props.size === item ? "active" : ""}`}
+            key={index}
+            onClick={() => props.updateSize(item)}
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+      <div className="product_quantity">
+        <div className="product_quantity_btn">
+          <img src={Minus} onClick={() => props.updateQuantity("minus")} />
+        </div>
+        <div className="product_quantity_item">{props.quantity}</div>
+        <div className="product_quantity_btn">
+          <img src={Plus} onClick={() => props.updateQuantity("plus")} />
+        </div>
+      </div>
+      <div className="buy_and_add_product_button">
+        <button
+          onClick={() => {
+            props.addToCart();
+          }}
+        >
+          Ajouter au panier
+        </button>
+        <button
+          onClick={() => {
+            props.goToCart();
+          }}
+        >
+          Acheter maintenant
+        </button>
+      </div>
+    </>
+  );
 }
 
 

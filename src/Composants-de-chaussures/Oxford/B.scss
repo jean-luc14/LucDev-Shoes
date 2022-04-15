@@ -11,9 +11,18 @@
     height:200px;
     width:200px;
 
+    .div3{
+      @extend .div5
+    }
   }
 }
 .imgB{
-  height:500px;
-  width:500px
+  height:400px;
+  width:400px
+}
+// .div4{
+//   @extend .div3
+// }
+.div5{
+  color:blue
 }

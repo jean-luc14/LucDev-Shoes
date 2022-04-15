@@ -22,26 +22,24 @@ const Cart = props => {
   
   return (
     <>
-      <div className="cart">
-        <div className="cart_info">
-          <div className="cart_info_product">
-            {cartProduct.map((item, index) => (
-              <CartItem item={item} key={index} />
-            ))}
-          </div>
-          <div className="cart_info_txt">
-            <h1>Total Price {totalPrice}</h1>
-            <h1>Total Product {totalProduct}</h1>
-            {currentUser ? (
-              <Paypal />
-            ) : (
-              <button>
-               Buy Now
-              </button>
-            )}
+      {cartProduct.length > 0 ? (
+        <div className="cart">
+          <div className="cart_info">
+            <div className="cart_info_product">
+              {cartProduct.map((item, index) => (
+                <CartItem item={item} key={index} />
+              ))}
+            </div>
+            <div className="cart_info_txt">
+              <h1>Total Price {totalPrice}</h1>
+              <h1>Total Product {totalProduct}</h1>
+              {currentUser ? <Paypal /> : <button>Buy Now</button>}
+            </div>
           </div>
         </div>
-      </div>
+      ) :
+        <h1>Vous n'avez rien dans le panier</h1>
+      }
     </>
   );
 }

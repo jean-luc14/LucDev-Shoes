@@ -9,7 +9,6 @@ import Minus from "../Assets/icons/minus.png";
 
 const CartItem = props => {
   const dispatch = useDispatch();
-
   const [item, setItem] = useState(props.item)
   const [quantity, setQuantity] = useState(props.item.quantity)
 
@@ -30,7 +29,6 @@ const CartItem = props => {
   useEffect(() => {
     setItem(props.item);
     setQuantity(props.item.quantity);
-    console.log(props.item.product.name);
   }, [item]);
   
   return (

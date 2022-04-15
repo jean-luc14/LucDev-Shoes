@@ -11,7 +11,7 @@
   }
 }
 
-//BREACKPOINT
+//BREAKPOINT
 @include mobile{
   .wrapperGridCenter .wrapperGrids{
     @include grid(repeat(1, 1fr),repeat(1, 1fr));
