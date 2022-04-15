@@ -19,7 +19,7 @@
 .productWrapper{
   position:absolute;
   width:90vw;
-  height: 85vh;
+  height: 80vh;
   top:50vh;
   left:50vw;
   transform:translate(-50% ,-50%);
@@ -32,147 +32,157 @@
   
   
   .productInfo{
-    @include flex;
-    height:auto;
-    width:inherit;
+    @include grid(repeat(4, 1fr), repeat(3, 1fr));
+    height:100%;
+    width:100%;
 
     .productImageSlider{
-        height: 36vw;
-        width: 37vw;
-      .imageSlider{
-        height:inherit;
-        width:inherit;
-        border-radius:10px;
+      grid-column:1/span 2;
+      grid-row:1/span 3;
+      height:100%;
+      width:100%;
+      @include flex;
+      .imageSliderWrapper{
+        margin: calc(10 * 0.41vmax) auto;
+        //margin-top:calc(20 * 0.41vmax);
+        height: 30vw;
+        width: 30vw;
+        min-height: 300px;
+        min-width: 300px;
+        
+        .imageSlider{
+          height: 100%;
+          width: 100%;
+          //margin-left:10%;
+          border-radius:10px;
+          object-fit:cover;
+        }
       }
       //swiper class
-      .swiper-button-prev{
-        left:0;
-        color:$yellow;
-      }
-      .swiper-button-next{
-        right:0;
-        color:$yellow;
-      }
+        .swiper-button-prev{
+          left:0;
+          color:$yellow;
+        }
+        .swiper-button-next{
+          right:0;
+          color:$yellow;
+        }
     }
     
     .shoesInfoItem{
-      @include flex($flex-direction:column,$align-items: flex-start);
+      grid-column:3/span 2;
+      grid-row:1/span 1;
+      @include flex(column,space-between,flex-start);
       width: 40vw;
       height:auto;
       margin:auto ;
       
       h3,p,div{
-        margin-bottom:0.5vw;
+        //margin-bottom:1vw;
         color:#fff;
       }
       h3{
-        font-size: 3rem;
+        font-size: calc(80 * var(--res));
         color:$yellow;
       }
       p{
         font-weight:500;
-        font-size:18px;
+        font-size:calc(30 * var(--res));
       }
       div{
         span{
           font-size:14px;
         }
       }
+    }
       
+    .thumbsSizeQuantityButton{
+      grid-column:3/span 2;
+      grid-row:2/span 2;
+      @include flex(column,space-between,flex-start);
+      width: 90%;
+      height:auto;
+      margin:auto ;
       
-      .thumbsSizeQuantityButton{
-        @include flex($flex-direction:column,$align-items: flex-start);
-        width: inherit;
+      .productImageSliderThumbs{
+        width:100%;
         height:auto;
-        margin:auto ;
-
         
-        .productImageSliderThumbs{
-          width:100%;
+        // class of swiper js
+        .swiper-slide{
+          border:3px solid rgba(0, 0, 0, 0);
+          margin:0.5vw;
+          padding:0;
+          border-radius:5px;
           height:auto;
-
-          // class of swiper js
-          .swiper-slide{
-            border:3px solid rgba(0, 0, 0, 0);
-            margin:0.5vw;
-            padding:0;
-            border-radius:5px;
-            height:auto;
-            width:auto;
-            &-thumb-active{
-              border-color:$yellow;
-            }
-            // ProductView class
-            .other_color_img_wrapper{
+          width:auto;
+          &-thumb-active{
+            border-color:$yellow;
+          }
+          // ProductView class
+          .other_color_img_wrapper{
+            height:100%;
+            width:100%;
+            margin:0;
+            .other_color_img{
+              border-radius:5px;
+              object-fit:cover;
               height:100%;
               width:100%;
-              margin:0;
-              .other_color_img{
-                border-radius:5px;
-                object-fit:cover;
-                height:100%;
-                width:100%;
-                cursor:pointer;
-              }
-            }
-          }
-          // swiper js class
-          .swiper-button-prev{
-            left:0;
-            color:$yellow;
-          }
-          .swiper-button-next{
-            right:0;
-            color:$yellow;
-          }
-          
-        }
-        .size_wrapper {
-          margin-left: 0;
-          .size{
-            width:40px;
-            height:40px;
-            font-size:20px;
-            border-radius: 3px;
-            border:1px solid rgb(138, 138, 138);
-            margin-right:10px;
-            padding: 0 7px;
-            cursor:pointer;
-            &.active{
-              border:2px solid $yellow;
-            }
-          }
-        }
-        .product_quantity{
-          @include flex;
-          width: 100px;
-          margin-bottom:0;
-
-          &_btn{
-            border:1px solid #fff;
-            border-radius:3px;
-            margin-right:10px;
-            padding:0 5px;
-            img{
-              height:15px;
-              width:15px;
               cursor:pointer;
-              filter:invert(1);
             }
           }
-          &_item{
-            font-size: 20px;
-            margin-right:10px;
-          }
         }
-        .buy_and_add_product_button{
-          @include flex;
-          button{
-            margin-right:20px;
+        
+      }
+      .size_wrapper {
+        margin-bottom: 1vw;
+        margin-left: 0;
+        .size{
+          color:#FFF;
+          width:40px;
+          height:40px;
+          font-size:20px;
+          border-radius: 3px;
+          border:2px solid rgb(138, 138, 138);
+          margin-right:10px;
+          padding: 0 7px;
+          cursor:pointer;
+          &.active{
+            border:2px solid $yellow;
           }
         }
       }
+      .product_quantity{
+        color:#fff;
+        @include flex;
+        width: 100px;
+        margin-bottom: 1vw;
+        &_btn{
+          border:1px solid #fff;
+          border-radius:3px;
+          margin-right:10px;
+          padding:0 5px;
+          img{
+            height:15px;
+            width:15px;
+            cursor:pointer;
+            filter:invert(1);
+          }
+        }
+        &_item{
+          font-size: 20px;
+          margin-right:10px;
+        }
+      }
+      .buy_and_add_product_button{
+        @include flex;
+        button{
+          margin-right:20px;
+        }
+      }
     }
+  
   } 
 }
 
@@ -185,17 +195,31 @@
   box-shadow: none; 
   background: none;
   .productInfo{
-    .shoesInfoItem{
-      margin-left:0;
-      width: 30vw;
-      h3,p,div{
-        margin-bottom:1vw;
+    .productImageSlider{
+      .imageSliderWrapper{
+        margin: auto;
+        margin-top:10vh;
+        height: 28vw;
+        width: 28vw;
+        min-height: 230px;
+        min-width: 230px;
+
+        .imageSlider{
+          height: 100%;
+          width: 100%;
+          //margin-left:10%;
+          border-radius:7px;
+          object-fit:cover;
+        }
       }
+    }
+    .shoesInfoItem{
+      
       h3{
-        font-size:2rem;
+        font-size: calc(65 * var(--res));;
       }
       p{
-        font-weight:400;
+        font-size: calc(15 * var(--res));;
         font-size:14px;
       }
       .size_wrapper{
@@ -205,19 +229,16 @@
       }
       .buy_and_add_product_button{
         button{
-          font-size:14px;
+          font-size:12px;
           margin-right:20px;
         }
       }
     }
   }
-  .productImageSlider{
-    height: 33vw;
-    width: 34vw;
-  }
+  
 
   .productImageSliderThumbs{
-    width:30vw;
+    width:100%;
     height:48px;
   }
 }

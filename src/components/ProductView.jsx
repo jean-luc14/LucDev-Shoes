@@ -131,8 +131,7 @@ const ProductView = (props) => {
                       />
                     )}
                   </SwiperSlide>
-                ))}{" "}
-                "";
+                ))}
               </Swiper>
               <div className="shoesInfoItem">
                 <h3> ${product.price} US</h3>
@@ -140,18 +139,18 @@ const ProductView = (props) => {
                 <div>
                   Color : <span>{color}</span>
                 </div>
-                <div className="thumbsSizeQuantityButton">
-                  <ThumbsSizeQuantityButton
-                    setActiveThumb={setActiveThumb}
-                    product={product}
-                    updateSize={updateSize}
-                    updateQuantity={updateQuantity}
-                    addToCart={addToCart}
-                    goToCart={goToCart}
-                    size={size}
-                    quantity={quantity}
-                  />
-                </div>
+              </div>
+              <div className="thumbsSizeQuantityButton">
+                <ThumbsSizeQuantityButton
+                  setActiveThumb={setActiveThumb}
+                  product={product}
+                  updateSize={updateSize}
+                  updateQuantity={updateQuantity}
+                  addToCart={addToCart}
+                  goToCart={goToCart}
+                  size={size}
+                  quantity={quantity}
+                />
               </div>
             </div>
           </div>
@@ -169,7 +168,11 @@ const ImageSlider = props => {
       props.activeImages()
       props.updateColor(props.color)
     } 
-    return <img className="imageSlider" src={props.item} />
+  return (
+    <div className="imageSliderWrapper">
+      <img className="imageSlider" src={props.item} />
+    </div>
+  );
 }
 
 // thumbs of Swiper js 
@@ -179,7 +182,6 @@ const ThumbsSizeQuantityButton = (props) => {
     <>
       <Swiper
         onSwiper={props.setActiveThumb}
-        navigation={true}
         slidesPerView={5}
         spaceBetween={1}
         modules={[Navigation, Thumbs]}
