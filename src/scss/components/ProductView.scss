@@ -32,7 +32,7 @@
   
   
   .productInfo{
-    @include grid(repeat(4, 1fr), repeat(3, 1fr));
+    @include grid(repeat(4, 25%), repeat(3, 33%));
     height:100%;
     width:100%;
 
@@ -41,21 +41,23 @@
       grid-row:1/span 3;
       height:100%;
       width:100%;
-      @include flex;
-      .imageSliderWrapper{
-        margin: calc(10 * 0.41vmax) auto;
-        //margin-top:calc(20 * 0.41vmax);
-        height: 30vw;
-        width: 30vw;
-        min-height: 300px;
-        min-width: 300px;
-        
-        .imageSlider{
-          height: 100%;
-          width: 100%;
-          //margin-left:10%;
+      .swiper-slide{
+        @include flex;
+        border-radius:10px;
+        .imageSliderWrapper{
+          height: 30vw;
+          width: 30vw;
+          min-height: 300px;
+          min-width: 300px;
           border-radius:10px;
-          object-fit:cover;
+          
+          .imageSlider{
+            height: 100%;
+            width: 100%;
+            border-radius:10px;
+            object-fit:cover;
+            border-radius:10px;
+          }
         }
       }
       //swiper class
@@ -136,8 +138,7 @@
         
       }
       .size_wrapper {
-        margin-bottom: 1vw;
-        margin-left: 0;
+        margin:calc(25 * var(--res)) 0;
         .size{
           color:#FFF;
           width:40px;
@@ -157,7 +158,7 @@
         color:#fff;
         @include flex;
         width: 100px;
-        margin-bottom: 1vw;
+        margin-bottom:calc(25 * var(--res));
         &_btn{
           border:1px solid #fff;
           border-radius:3px;
@@ -169,6 +170,9 @@
             cursor:pointer;
             filter:invert(1);
           }
+          &:active{
+            border:1px solid $yellow;
+          }
         }
         &_item{
           font-size: 20px;
@@ -178,6 +182,7 @@
       .buy_and_add_product_button{
         @include flex;
         button{
+          font-size:calc(35 * var(--res));
           margin-right:20px;
         }
       }
@@ -197,8 +202,6 @@
   .productInfo{
     .productImageSlider{
       .imageSliderWrapper{
-        margin: auto;
-        margin-top:10vh;
         height: 28vw;
         width: 28vw;
         min-height: 230px;
@@ -207,14 +210,13 @@
         .imageSlider{
           height: 100%;
           width: 100%;
-          //margin-left:10%;
           border-radius:7px;
           object-fit:cover;
         }
       }
     }
     .shoesInfoItem{
-      
+      width:90%;
       h3{
         font-size: calc(65 * var(--res));;
       }
@@ -246,9 +248,81 @@
 //BREAKPOINT
   // BREAKPOINT Tablet
 @include tablet {
-  
+  .productWrapper .productInfo {
+    @include grid(repeat(4, 1fr), repeat(4, 1fr));
+    .productImageSlider{
+      grid-column:1/span 2;
+      grid-row:1/span 2;
+      margin-left:1vh;
+      .imageSliderWrapper{
+        margin: calc(10 * 0.41vmax) auto;
+        height: 30vw;
+        width: 30vw;
+        min-height: 400px;
+        min-width: 400px;
+      }
+
+    }
+
+    .shoesInfoItem{
+      grid-column:3/span 2;
+      grid-row:1/span 2;
+      h3,p,div{
+        margin-bottom:3vh;
+      }
+    }
+    .thumbsSizeQuantityButton{
+      grid-column:1/span 4;
+      grid-row:3/span 2;
+      .productImageSliderThumbs{
+        margin-bottom:4vh;
+      }
+      .size_wrapper {
+        margin-bottom:4vh;
+      }
+      .product_quantity{
+        margin-bottom:4vh;
+      }
+    }
+  }
 }
-@include desktop{
-  // BREAKPOINT desktop 
+// mobile 
+@include mobile{
+  .productWrapper {
+    height: 90vh;
+    .productInfo {
+      @include grid(repeat(1,100%), 15% 25% 25% 35%);
+      .productImageSlider{
+        grid-column:1/span 1;
+        grid-row:2/span 2;
+        .imageSliderWrapper{
+          height: 15vw;
+          width: 15vw;
+          // min-height: 230px;
+          // min-width: 230px;
+        }
+
+      }
   
+
+      .shoesInfoItem{
+        grid-column:1/span 1;
+        grid-row:1/span 1;
+        width:90%;
+      }
+      .thumbsSizeQuantityButton{
+        grid-column:1/span 1;
+        grid-row:4/span 1;
+        // .productImageSliderThumbs{
+        //   margin-bottom:4vh;
+        // }
+        // .size_wrapper {
+        //   margin-bottom:4vh;
+        // }
+        // .product_quantity{
+        //   margin-bottom:4vh;
+        // }
+      }
+    }
+  } 
 }

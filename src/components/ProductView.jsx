@@ -117,6 +117,7 @@ const ProductView = (props) => {
                 modules={[Navigation, Thumbs]}
                 grabCursor={true}
                 thumbs={{ swiper: activeThumb }}
+                speed={800}
                 className="productImageSlider"
               >
                 {product.color.map((item, index) => (

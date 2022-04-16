@@ -31,8 +31,6 @@ const Header = props => {
                 shoesSlideData={props.data}
                 e={e}
                 className={`${isActive ? "active" : ""}`}
-                foo={() => { if (isActive) console.log('jean') }}
-                consol={()=>{console.log(isActive)}}
               />
             )}
           </SwiperSlide>
@@ -52,8 +50,8 @@ const Shoes_Slide = props => {
           <h1>{props.e.title}</h1>
           <p>{props.e.description}</p>
           <div className="header_btn">
-            <button onClick={props.consol}>New Shoes</button>
-            <button onClick={props.foo}>Best Shoes</button>
+            <button >New Shoes</button>
+            <button >Best Shoes</button>
           </div>
         </div>
         <img className="img" src={props.e.imgFloat} />
