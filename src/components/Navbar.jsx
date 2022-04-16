@@ -1,15 +1,15 @@
 import React,{useState,useEffect,useRef} from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import SignUpModal from "./SignUpModal";
-import LogInModal from "./LogInModal";
-import Search from "./Search";
+import SignUpModal from "./SignUpModal"
+import LogInModal from "./LogInModal"
+import Search from "./Search"
 import CatalogList from './CatalogList'
-import Shopping_cart from "../Assets/icons/shopping_cart.png";
-import {navbarData} from  "../Assets/data/NavbarData";
+import Shopping_cart from "../Assets/icons/shopping_cart.png"
+import {navbarData} from  "../Assets/data/NavbarData"
 import {auth} from '../firebase-config'
 import {signOut} from  'firebase/auth'
 import AuthenticationBtn from './AuthenticationBtn'
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"
 
 const Navbar = () => {
   //catch currentUser from redux/firebase
@@ -17,7 +17,8 @@ const Navbar = () => {
 
   //state  for catch current path
   const [pathnameState, setPathnameState] = useState(null);
-  const [catalog_back_state, setCatalog_back_state] = useState(false);
+  //state for animate catalog list
+  const [catalog_list_back_state, setCatalog_list_back_state] = useState(false);
 
   //ref for to catch navbar,hamburger,catalog list
   const link = useRef(null);
@@ -35,7 +36,7 @@ const Navbar = () => {
   // find active path
   const active = navbarData.findIndex((e) => e.path === pathname);
 
-  // show or not navbar links in responsive
+  // show or not navbar links in breakpoint mode
   const hamburgerAnim_and_navResponAnim = () => {
     hamburger_anim.current.classList.toggle("active");
     navResponAnim.current.classList.toggle("active");
@@ -66,11 +67,11 @@ Please check your internet connect and retry.`
       );
     }
   };
+  
   //catalog list animation
-
   const animCatalog = () => {
     catalogRef.current.classList.toggle("active");
-    setCatalog_back_state(!catalog_back_state);
+    setCatalog_list_back_state(!catalog_list_back_state);
   };
 
   useEffect(() => {
@@ -103,7 +104,7 @@ Please check your internet connect and retry.`
           <div className="slice"></div>
           <div className="slice"></div>
         </div>
-        {catalog_back_state ? (
+        {catalog_list_back_state ? (
           <div onClick={animCatalog} className="catalog_list_background"></div>
         ) : null}
         <div className="catalog_list_parent">
@@ -111,7 +112,11 @@ Please check your internet connect and retry.`
             Catalog
           </button>
           <div ref={catalogRef} className="catalog_list_wrapper">
-            <CatalogList height={"80vh"} overflow={"auto"} />
+            <CatalogList
+              animCatalog={animCatalog}
+              height={"80vh"}
+              overflow={"auto"}
+            />
           </div>
         </div>
         <div ref={link} id="link">
@@ -119,9 +124,13 @@ Please check your internet connect and retry.`
             {navbarData.map((e, i) => (
               <li
                 key={i}
-                className={`link_child_li ${i === active ? "active" : ""}`
-              }>
-                <Link to={e.path} className="nav-link">
+                className={`link_child_li ${i === active ? "active" : ""}`}
+              >
+                <Link
+                  to={e.path}
+                  className="nav-link"
+                  onClick={hamburgerAnim_and_navResponAnim}
+                >
                   {e.display}
                 </Link>
               </li>
