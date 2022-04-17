@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import '../scss/components/Home.scss';
 import BodyLayOut from '../components/BodyLayOut'
 import ImgD from '../Shoes_image/Oxford/D.jpg';
-import shoesSlideData from "../Assets/data/HeaderData";
+import shoesSlideData from "../Assets/data/ShoesSlideData";
 
 const Home = () => {
     const Numbers = [1, 2, 3, 4, 5, 6, 7];

@@ -16,13 +16,14 @@ const Header = props => {
   SwiperCore.use([Pagination, Autoplay]);
   const data = props.data;
   return (
-    <header className="header">
+    <header>
       <Swiper
         modules={[Autoplay]}
         pagination={{ dynamicBullets: true }}
         loop={true}
         autoplay={{ delay: 3500 }}
         speed={800}
+        className="header"
       >
         {data.map((e, i) => (
           <SwiperSlide key={i}>
@@ -43,18 +44,19 @@ const Header = props => {
 }
 const Shoes_Slide = props => {
   return (
-    <div onClick={props.consol} className={`header-slide ${props.className}`}>
-      <img className="pexel" src={props.e.img} />
-      <div className="parent-presentation">
-        <div className="presentation1">
-          <h1>{props.e.title}</h1>
-          <p>{props.e.description}</p>
-          <div className="header_btn">
-            <button >New Shoes</button>
-            <button >Best Shoes</button>
-          </div>
+    <div className={`hero_slide ${props.className}`}>
+      <img className="hero_slide_background_img" src={props.e.img} />
+      <div className="hero_slide_item">
+        <h1 className="hero_slide_item_title">{props.e.title}</h1>
+        <p className="hero_slide_item_info">{props.e.description}</p>
+        <div className="hero_slide_item_btn">
+          <button>New Shoes</button>
+          <button>Best Shoes</button>
         </div>
-        <img className="img" src={props.e.imgFloat} />
+        {/* the term float is not for because of the use of the float system  */}
+        <div className="hero_slide_item_float">
+          <img className="hero_slide_item_float_img" src={props.e.imgFloat} />
+        </div>
       </div>
     </div>
   );

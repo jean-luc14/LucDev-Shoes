@@ -23,7 +23,7 @@ const shoesSlideData = [
     imgFloat: imgFloat2,
   },
   {
-    title: " with 50% of reduction",
+    title: "50% of reduction",
     description: `lorem hjbdfjhjf vsshfnjvs dhvsjvnsp ovssn kvnmlqsk nnifdfnhifh
               ifjgrv jvjsvjvjv, jjvnjvdjvj lqjqjlqj bivhjlrh fhae oazp por jariqd
               jlqnvjqqjj, ijjijeke hejgjkzskgjebv ueklzorg yrigoenj ibhdrun`,
