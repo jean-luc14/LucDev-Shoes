@@ -5,7 +5,7 @@ const BodyLayOut = props => {
   return (
     <div className="body_layout">
       <div className="layout-catalogList">
-        <CatalogList />
+        <CatalogList navbar={false}/>
       </div>
       <div className='render'>
         {props.render()}

@@ -64,7 +64,9 @@ const CatalogList = (props) => {
               href="javascript:void(0);"
               key={i}
               onClick={() => {
-                props.animCatalog();
+                if (props.navbar) {
+                  props.animCatalog()
+                }
                 goToCatalogPage(item.path);
               }}
             >

@@ -113,6 +113,7 @@ Please check your internet connect and retry.`
           </button>
           <div ref={catalogRef} className="catalog_list_wrapper">
             <CatalogList
+              navbar={true}
               animCatalog={animCatalog}
               height={"80vh"}
               overflow={"auto"}
