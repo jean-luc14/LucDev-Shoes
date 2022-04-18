@@ -57,8 +57,8 @@
             grid-column:1/span 1;
             grid-row:3/span 1;
             @include flex(row,start,center);
-            margin-left: 2vw;
             button{
+              margin-left: 2vw;
               position:relative;
               //margin-right:3vw;
               padding: 2px 15px 5px;
@@ -175,8 +175,8 @@
               grid-column:2/span 1;
               grid-row:2/span 1;
               &_img{
-                height: 43vw;
-                width: 44vw;
+                height: calc(430 * var(--res));
+                width: calc(430 * var(--res));
               }
             }
           }
