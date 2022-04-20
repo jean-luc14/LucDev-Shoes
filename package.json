@@ -1,8 +1,8 @@
 {
   "name": "momoapp",
   "version": "0.1.0",
-  "private": true,
   "homepage": "https://jean-luc14.github.io/Momo-Shoes",
+  "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "@testing-library/jest-dom": "^5.16.2",
@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "react-scripts build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {

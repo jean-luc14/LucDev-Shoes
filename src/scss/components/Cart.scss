@@ -22,3 +22,12 @@
 
   }  
 }
+@include mobile {
+  .cart{
+    
+    &_info{
+      flex-direction:column;
+
+    }  
+  }
+}
