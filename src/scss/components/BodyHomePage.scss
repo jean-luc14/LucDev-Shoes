@@ -1,0 +1,157 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.body_home_page{
+  position:relative;
+  width:100vw;
+  height:auto;
+  display:flex;
+
+  .layout-catalogList{
+    width:30vw;
+    
+  }
+  .swiper_top_and_new_shoes{
+    width:70vw;
+    height:auto;
+    .slideshow-container{
+      position:relative;
+      overflow: hidden;
+      height: 320px;
+      cursor:grab;
+    
+      &:active{
+        cursor:grabbing;
+      }
+      .slideshow{
+        position :absolute;
+        height:100%;
+        display:flex;
+        //pointer-events: none;
+
+        .slideWrapper{
+          display:flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin-left:15px;
+          overflow:visible;
+
+          .slide{
+            position:relative;
+            flex-shrink: 0;
+            height:200px;
+            width: 60vmin;
+            transition:height 0.5s ease-out;
+
+            &::before{
+              position:absolute;
+              content:'';
+              top:-5px;
+              left:-5px;
+              right:-5px;
+              bottom:-5px;
+              background:rgb(21, 32, 233);
+              border-radius: 5px;
+              z-index: -1;
+            }
+
+            &:hover{
+              height:310px;
+            }
+            &:hover .slideImg{
+              height: 210px;
+            }
+            &:hover .slideImg::before{
+              opacity:0;
+            }
+            &:hover .price_shoes{
+              opacity:1;
+            }
+            &:hover .slideImg .overlay{
+              opacity:0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.slideImg{
+  position:relative;
+  height:200px;
+  transition:height 0.5s ease;
+
+  &::before{
+    content:'';
+    position:absolute;
+    height: 100%;
+    width:100%;
+    opacity:0.5;
+    background:#000;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transition:opacity 0.7s ease-in;
+    z-index:2;
+  }
+  
+  img{
+    object-fit: cover;
+    height:100%;
+    width:100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .overlay{
+    position:absolute;
+    top:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    height:185px;
+    width:100%;
+    opacity:1;
+    transition:opacity 0.8s ease;
+    z-index:1;
+
+    h2,h3{
+      //position: static;
+      color:#FFF;;
+      span{
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.price_shoes{
+  position:absolute;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  bottom:0;
+  left:0;
+  right:0;
+  height:95px;
+  opacity:0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition:opacity 0.5s ease;
+  color:rgb(255, 255, 255);
+  background:rgba(0,0,0,0.4);
+
+  .slide_link{
+    cursor:pointer;
+
+    .nav-link{
+      color:rgb(248, 11, 11);
+      height:10px;
+      font-weight: 700;
+    }
+  }
+}
