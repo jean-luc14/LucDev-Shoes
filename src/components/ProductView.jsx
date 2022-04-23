@@ -135,7 +135,7 @@ const ProductView = (props) => {
                 ))}
               </Swiper>
               <div className="shoesInfoItem">
-                <h3> ${product.price} US</h3>
+                <h3> US ${product.price}</h3>
                 <p>{product.name}</p>
                 <div>
                   Color : <span>{color}</span>
