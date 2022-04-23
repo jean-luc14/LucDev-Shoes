@@ -392,7 +392,7 @@ const productData = [
     id: "5",
     name: "Men Summer New British Style Shoes Handmade Leather Shoes Wedding Shoes Mens Black Casual Increase British Lace-Up Oxfrods",
     price: sellingPrice(66.66),
-    size: [45, 49, 36, 38, 43],
+    size: [5.5,6,6.5,7,8,8.5,9.5,10,10.5,11],
     img: require("../images/oxfords/5/black.jpg"),
     color: [
       { name: "Black", img: require("../images/oxfords/5/black.jpg") },
