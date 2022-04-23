@@ -1,11 +1,12 @@
-@import '../_variables.scss';
-@import '../_mixins.scss';
+@import '../_variables';
+@import '../_mixins';
+@import '../_placeholders';
 .header{
   .swiper-wrapper{
     .swiper-slide{
       .hero_slide{
         overflow:hidden;
-        @include flex;
+        @extend %flex-center;
 
         &_background_img{
           width:100vw;
@@ -97,7 +98,7 @@
           }
         
           &_float{
-            @include flex;
+            @extend %flex-center;
             grid-column:2/span 1;
             grid-row:1/span 3;
             border-radius: 30px;

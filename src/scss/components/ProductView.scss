@@ -42,7 +42,7 @@
       height:100%;
       width:100%;
       .swiper-slide{
-        @include flex;
+        @extend %flex-center;
         border-radius:10px;
         .imageSliderWrapper{
           height: 30vw;
@@ -156,7 +156,7 @@
       }
       .product_quantity{
         color:#fff;
-        @include flex;
+        @extend %flex-center;
         width: 100px;
         margin-bottom:calc(25 * var(--res));
         &_btn{
@@ -180,7 +180,7 @@
         }
       }
       .buy_and_add_product_button{
-        @include flex;
+        @extend %flex-center;
         button{
           font-size:calc(35 * var(--res));
           margin-right:20px;

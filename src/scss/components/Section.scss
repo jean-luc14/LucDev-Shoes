@@ -1,7 +1,7 @@
 @import '../_mixins.scss';
 
 .sectionTitle{
-  @include flex;
+  @extend %flex-center;
   
   h1{
     margin:50px;

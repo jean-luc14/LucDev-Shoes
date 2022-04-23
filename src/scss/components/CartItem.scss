@@ -1,9 +1,10 @@
 @import '../_mixins.scss';
+@import '../_placeholders.scss';
 .cart_item{
   width:63vw;
   height:200px;
   margin:20px 0;
-  @include flex;
+  @extend %flex-center;
   &_img{
     width:20vw;
     height:20vw;
@@ -33,7 +34,7 @@
       font-weight: 400;
     }
     &_quantity{
-      @include flex;
+      @extend %flex-center;
       &_btn{
         border:1px solid #000;
         border-radius:3px;
@@ -55,7 +56,7 @@
   &_del{
     width:10vw;
     height:10vw;
-    @include flex;
+    @extend %flex-center;
     img{
       height:25px;
       width:25px;
