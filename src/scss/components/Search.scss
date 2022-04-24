@@ -34,30 +34,40 @@
     cursor:pointer;
   }
   .dynamic_search_results{
-    position:absolute;
+    @include absolute($top:37px,$y:0%);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.496);
     background:white;
     z-index: 1;
     border-radius: 5px;
-    width:70vmin;
+    width:80vmin;
+    .triangle{
+      @include absolute($top:-7px,$y:0%);
+      @include pseudo(0,0,transparent);
+      border-bottom:7px solid #fff;
+      border-left:7px solid transparent;
+      border-right:7px solid transparent;
+    }
     .dynamic_search_item{
       position:relative;
-      margin:5px;
+      padding:5px;
       display:flex;
       flex-wrap: nowrap;
-      height:70px;
+      height:calc((80vmin * 15)/100);
       width:100%;
       z-index:1;
+      cursor:pointer;
       &::before{
         @include absolute(0,0,0,0);
         @include pseudo(100%,100%);
         z-index:2;
       }
       &:hover::before{
-        background:rgba(0, 0, 0, 0.402);
+        background:rgba(0, 0, 0, 0.26);
       }
       &_img{
-        height:50px;
-        width: 100px;
+        height:100%;
+        width: 15%;
+        margin-right:5px;
         img{
           height:100%;
           width: 100%;
@@ -65,17 +75,19 @@
       }
       &_content{
         text-overflow:ellipsis;
-        line-height: 10px;
-        &_category{
-          font-size:12px ;
-          color:rgb(128, 128, 128)
-        }
+        line-height: calc(80vmin /36);
+        width:85%;
         &_price{
           color:$yellow;
+          font-size:calc(80vmin /36);
+        }
+        &_category{
+          font-size:calc(80vmin /36);
+          color:rgb(128, 128, 128)
         }
         &_name{
           font-weight: 580;
-          font-size: 10px;
+          font-size: calc(80vmin /42);
         }
       }
     }

@@ -108,7 +108,11 @@ Please check your internet connect and retry.`
           <div onClick={animCatalog} className="catalog_list_background"></div>
         ) : null}
         <div className="catalog_list_parent">
-          <button className="catalog_list_btn" onClick={animCatalog}>
+          <button
+            className="catalog_list_btn"
+            type="button"
+            onClick={animCatalog}
+          >
             Catalog
           </button>
           <div ref={catalogRef} className="catalog_list_wrapper">
@@ -138,7 +142,11 @@ Please check your internet connect and retry.`
             ))}
             {currentUser ? null : (
               <li>
-                <button className="btn log_in" onClick={toggle_log}>
+                <button
+                  className="btn log_in"
+                  type="button"
+                  onClick={toggle_log}
+                >
                   Log in
                 </button>
               </li>

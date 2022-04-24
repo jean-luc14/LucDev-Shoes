@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 
 const BuyProductButton = props => {
   return (
-      <button className="buyButton" onClick={props.click}>Buy</button>
+    <button className="buyButton" type="button" onClick={props.click}>
+      Buy
+    </button>
   );
 }
 

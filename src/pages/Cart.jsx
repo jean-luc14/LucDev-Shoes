@@ -33,13 +33,17 @@ const Cart = props => {
             <div className="cart_info_txt">
               <h1>Total Price {totalPrice}</h1>
               <h1>Total Product {totalProduct}</h1>
-              {currentUser ? <Paypal /> : <button>Buy Now</button>}
+              {currentUser ? (
+                <Paypal />
+              ) : (
+                <button type="button">Buy Now</button>
+              )}
             </div>
           </div>
         </div>
-      ) :
+      ) : (
         <h1>Vous n'avez rien dans le panier</h1>
-      }
+      )}
     </>
   );
 }

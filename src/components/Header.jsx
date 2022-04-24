@@ -50,8 +50,8 @@ const Shoes_Slide = props => {
         <h1 className="hero_slide_item_title">{props.e.title}</h1>
         <p className="hero_slide_item_info">{props.e.description}</p>
         <div className="hero_slide_item_btn">
-          <button>New Shoes</button>
-          <button>Best Shoes</button>
+          <button type="button">New Shoes</button>
+          <button type="button">Best Shoes</button>
         </div>
         {/* the term float is not for because of the use of the float system  */}
         <div className="hero_slide_item_float">

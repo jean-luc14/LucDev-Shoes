@@ -9,15 +9,27 @@ const AuthenticationBtn = (props) => {
   return (
     <>
       {currentUser ? (
-        <button className="auth_btn log_out" onClick={props.logOut}>
+        <button
+          type="button"
+          className="auth_btn log_out"
+          onClick={props.logOut}
+        >
           Log Out
         </button>
       ) : (
         <>
-          <button className="auth_btn sign_up" onClick={props.toggle_sign}>
+          <button
+            type="button"
+            className="auth_btn sign_up"
+            onClick={props.toggle_sign}
+          >
             Sign up
           </button>
-          <button className="auth_btn log_in" onClick={props.toggle_log}>
+          <button
+            type="button"
+            className="auth_btn log_in"
+            onClick={props.toggle_log}
+          >
             Log in
           </button>
         </>

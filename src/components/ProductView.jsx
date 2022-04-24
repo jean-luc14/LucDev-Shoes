@@ -218,6 +218,7 @@ const ThumbsSizeQuantityButton = (props) => {
       </div>
       <div className="buy_and_add_product_button">
         <button
+          type="button"
           onClick={() => {
             props.addToCart();
           }}
@@ -225,6 +226,7 @@ const ThumbsSizeQuantityButton = (props) => {
           Ajouter au panier
         </button>
         <button
+          type="button"
           onClick={() => {
             props.goToCart();
           }}
