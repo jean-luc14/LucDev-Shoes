@@ -15,10 +15,11 @@
   top:$top;
   transform:translate(-$x,-$y);
 }
-@mixin pseudo($height,$width){
+@mixin pseudo($height,$width,$background:transparent){
   content:'';
   height:$height;
   width:$width;
+  background:$background;
 }
 
 //Breakpoint
