@@ -9,16 +9,20 @@ const Search = props => {
   const [inputValue, setInputValue] = useState('');
 
   // fonction qui met a jour la valeur de l'input dans le state ,et recherhe les donnees 
+
+  /* si les mots d'un groupe de mot recherchés sont mis dans un ordre
+   different de celui du nom des produits, ceux-ci ne s'afficheront pas(A performer plus tard) */
   const searchProductFoo = e => {
     setInputValue(e.target.value);
-    var regex = new RegExp(`${inputValue}`);
 
     var dynamic_result = productData.filter( e => {
-      return regex.test(e.name);
+      return e.name
+        .toLowerCase()
+        .replace(/\s/g, "")
+        .includes(inputValue.toLowerCase().replace(/\s/g, ""));
     })
     setDynamic_search_data(dynamic_result);
   }
-  console.log(dynamic_search_data);
   
  // Ajout de class pour animer l'input au click
   const animSearchFoo = () => {
@@ -30,12 +34,12 @@ const Search = props => {
         type="text"
         placeholder="Search"
         value={inputValue}
-        onChange={searchProductFoo}
+        onInput={searchProductFoo}
       ></input>
       <img className="Search_icon" src={Search_icon} onClick={animSearchFoo} />
       <div className='dynamic_search_results' >
-        <span className={`${dynamic_search_data.length > 0 ? 'triangle' : ''}`}></span>
-        {dynamic_search_data.map((e, i) => (
+        <span className={`${inputValue.length > 0 ? 'triangle' : ''}`}></span>
+        {inputValue.length > 0 ? (dynamic_search_data.map((e, i) => (
           <div key={i} className="dynamic_search_item">
             <div className="dynamic_search_item_img">
               <img src={e.img} alt={e.name} />
@@ -46,7 +50,7 @@ const Search = props => {
               <p className="dynamic_search_item_content_name">{e.name}</p>
             </div>
           </div>
-        ))}
+        ))):null}
       </div>
     </div>
   );

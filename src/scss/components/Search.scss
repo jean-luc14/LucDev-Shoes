@@ -35,7 +35,7 @@
   }
   .dynamic_search_results{
     @include absolute($top:37px,$y:0%);
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.496);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.32);
     background:white;
     z-index: 1;
     border-radius: 5px;
@@ -52,7 +52,8 @@
       padding:5px;
       display:flex;
       flex-wrap: nowrap;
-      height:calc((80vmin * 15)/100);
+      //height:calc((80vmin * 15)/100);
+      height:auto;
       width:100%;
       z-index:1;
       cursor:pointer;
@@ -62,19 +63,22 @@
         z-index:2;
       }
       &:hover::before{
+        background:rgba(0, 0, 0, 0.117);
+      }
+      &:active::before{
         background:rgba(0, 0, 0, 0.26);
       }
       &_img{
-        height:100%;
+        height:calc((80vmin * 15)/100);;
         width: 15%;
         margin-right:5px;
         img{
           height:100%;
           width: 100%;
+          object-fit:cover;
         }
       }
       &_content{
-        text-overflow:ellipsis;
         line-height: calc(80vmin /36);
         width:85%;
         &_price{
@@ -86,6 +90,7 @@
           color:rgb(128, 128, 128)
         }
         &_name{
+          text-overflow:ellipsis;
           font-weight: 580;
           font-size: calc(80vmin /42);
         }
