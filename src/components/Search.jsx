@@ -1,5 +1,5 @@
 import React,{useRef,useState,useEffect} from 'react'
-import PropTypes from 'prop-types'
+import {useNavigate} from 'react-router-dom'
 import Search_icon from '../Assets/icons/search_icon.png';
 import {productData} from '../Assets/data/ProductData'
 
@@ -7,6 +7,7 @@ const Search = props => {
   const animSearch = useRef(null)
   const [dynamic_search_data,setDynamic_search_data] = useState([])
   const [inputValue, setInputValue] = useState('');
+  const navigate = useNavigate();
 
   // fonction qui met a jour la valeur de l'input dans le state ,et recherhe les donnees 
 
@@ -28,6 +29,11 @@ const Search = props => {
   const animSearchFoo = () => {
     animSearch.current.classList.toggle('animSearch')
   }
+// fonction to go to product page 
+  const goToProductPage = (catalogSlug,id) => {
+    navigate(`/${catalogSlug}/${id}`)
+    setInputValue('')
+  }
   return (
     <div ref={animSearch} className="Search_wrapper">
       <input
@@ -37,20 +43,30 @@ const Search = props => {
         onInput={searchProductFoo}
       ></input>
       <img className="Search_icon" src={Search_icon} onClick={animSearchFoo} />
-      <div className='dynamic_search_results' >
-        <span className={`${inputValue.length > 0 ? 'triangle' : ''}`}></span>
-        {inputValue.length > 0 ? (dynamic_search_data.map((e, i) => (
-          <div key={i} className="dynamic_search_item">
-            <div className="dynamic_search_item_img">
-              <img src={e.img} alt={e.name} />
-            </div>
-            <div className="dynamic_search_item_content">
-              <p className="dynamic_search_item_content_price">US ${e.price}</p>
-              <p className="dynamic_search_item_content_category">{e.catalogSlug}</p>
-              <p className="dynamic_search_item_content_name">{e.name}</p>
-            </div>
-          </div>
-        ))):null}
+      <div className="dynamic_search_results">
+        <span className={`${inputValue.length > 0 ? "triangle" : ""}`}></span>
+        {inputValue.length > 0
+          ? dynamic_search_data.map((e, i) => (
+              <div
+                key={i}
+                className="dynamic_search_item"
+                onClick={() => goToProductPage(e.catalogSlug, e.id)}
+              >
+                <div className="dynamic_search_item_img">
+                  <img src={e.img} alt={e.name} />
+                </div>
+                <div className="dynamic_search_item_content">
+                  <p className="dynamic_search_item_content_price">
+                    US ${e.price}
+                  </p>
+                  <p className="dynamic_search_item_content_category">
+                    {e.catalogSlug}
+                  </p>
+                  <p className="dynamic_search_item_content_name">{e.name}</p>
+                </div>
+              </div>
+            ))
+          : null}
       </div>
     </div>
   );
