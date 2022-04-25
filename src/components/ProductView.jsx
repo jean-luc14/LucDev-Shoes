@@ -10,7 +10,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { checkPropTypes } from "prop-types";
 
 
 
