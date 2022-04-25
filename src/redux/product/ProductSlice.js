@@ -8,8 +8,8 @@ const initialState = {
 }
 
 
-const productModalSlice = createSlice({
-  name: 'productModal',
+const productSlice = createSlice({
+  name: 'product',
   initialState,
   reducers: {
     set: (state, action) => {
@@ -20,6 +20,6 @@ const productModalSlice = createSlice({
     }
   }
 })
-export const { set,remove } = productModalSlice.actions
+export const { set,remove } = productSlice.actions
 
-export default productModalSlice.reducer
+export default productSlice.reducer

@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import ProductView from './ProductView'
 import { getProductByCatalogAndId } from "../Assets/data/ProductData"
 import {useSelector,useDispatch} from 'react-redux'
-import { remove } from "../redux/productModal/ProductModalSlice";
+import { remove } from "../redux/product/ProductSlice";
 
 const ProductViewModal = () => {
 

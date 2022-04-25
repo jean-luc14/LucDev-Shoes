@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import BuyProductButton from './BuyProductButton'
 import { useDispatch } from 'react-redux'
-import {set} from '../redux/productModal/ProductModalSlice'
+import {set} from '../redux/product/ProductSlice'
 
 const ProductCard = props => {
   const navigate = useNavigate();

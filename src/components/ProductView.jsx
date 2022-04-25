@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
-import { addItem } from '../redux/shoppingCart/CartItemsSlide'
+import { addItem } from '../redux/shoppingCart/CartItemsSlice'
 import Plus from '../Assets/icons/plus.png'
 import Minus from '../Assets/icons/minus.png'
 

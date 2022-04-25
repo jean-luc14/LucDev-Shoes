@@ -40,6 +40,8 @@
     z-index: 1;
     border-radius: 5px;
     width:80vmin;
+    //max-height:60vh;
+    //overflow:scroll;
     .triangle{
       @include absolute($top:-7px,$y:0%);
       @include pseudo(0,0,transparent);
@@ -52,7 +54,6 @@
       padding:5px;
       display:flex;
       flex-wrap: nowrap;
-      //height:calc((80vmin * 15)/100);
       height:auto;
       width:100%;
       z-index:1;
