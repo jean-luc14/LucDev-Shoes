@@ -2,6 +2,7 @@ import React,{useState,useEffect,useRef} from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SignUpModal from "./SignUpModal"
 import LogInModal from "./LogInModal"
+import ForgotPasswordModal from "./ForgotPasswordModal";
 import Search from "./Search"
 import CatalogList from './CatalogList'
 import Shopping_cart from "../Assets/icons/shopping_cart.png"
@@ -42,15 +43,23 @@ const Navbar = () => {
     navResponAnim.current.classList.toggle("active");
   };
 
-  //state and his update function for active signUp and LogIn modal
+  //state and his update function for active signUp, LogIn and forgotPassword modal
   const [reverse_sign, setreverse_sign] = useState(false);
   const [reverse_log, setreverse_log] = useState(false);
+  const [reverse_forgot, setreverse_forgot] = useState(false);
   const toggle_sign = () => {
     setreverse_sign(!reverse_sign);
     setreverse_log(false);
+    setreverse_forgot(false);
   };
   const toggle_log = () => {
     setreverse_log(!reverse_log);
+    setreverse_sign(false);
+    setreverse_forgot(false);
+  };
+  const toggle_forgot = () => {
+    setreverse_forgot(!reverse_forgot);
+    setreverse_log(false);
     setreverse_sign(false);
   };
 
@@ -167,7 +176,15 @@ Please check your internet connect and retry.`
       </nav>
 
       <SignUpModal reverse_sign={reverse_sign} toggle_sign={toggle_sign} />
-      <LogInModal reverse_log={reverse_log} toggle_log={toggle_log} />
+      <LogInModal
+        reverse_log={reverse_log}
+        toggle_log={toggle_log}
+        toggle_forgot={toggle_forgot}
+      />
+      <ForgotPasswordModal
+        reverse_forgot={reverse_forgot}
+        toggle_forgot={toggle_forgot}
+      />
     </>
   );
 }

@@ -2,13 +2,13 @@ import { createSlice } from '@reduxjs/toolkit'
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
+  sendPasswordResetEmail
 } from "firebase/auth";
 import { auth } from "../../firebase-config";
 
 const signUp = (email, pwd) => createUserWithEmailAndPassword(auth, email, pwd);
 const logIn = (email, pwd) => signInWithEmailAndPassword(auth, email, pwd);
-
+const forgotPassword = (email) => sendPasswordResetEmail(auth,email)
  
 const initialState = {
   value: {
@@ -29,6 +29,6 @@ const firebaseSlice = createSlice({
   },
 });
 
-export {signUp,logIn} 
+export { signUp, logIn, forgotPassword }; 
 export const { setLoadingData, setCurrentUser } = firebaseSlice.actions;
 export default firebaseSlice.reducer
