@@ -1,5 +1,6 @@
 //import
 @import '../_mixins';
+@import '../_variables';
 
 /* Navigation */
 #navbar{
@@ -33,7 +34,6 @@
       position:fixed;
       width:100vw;
       display:flex;
-      //height:80px;
       
       &:first-child{
         justify-content:center; 
@@ -136,7 +136,7 @@
 }
 
 // BREAKPOINT
-@media screen and (max-width:900px) {
+@media screen and (max-width:$tablet-max-width) {
   #navbar #link {
     .link_child {
       position:absolute;
@@ -149,7 +149,7 @@
       transform :translateX(-100%);
       background:rgba(0, 0, 0, 0.796);
       transition: transform 0.5s ease-in-out;
-      z-index:1;
+      z-index:2;
       //background-image:linear-gradient(180deg,rgba(0,0,0,1),rgba(0,0,0,0.6),rgba(0,0,0,0.4),rgba(0,0,0,0));
 
       &.active{
@@ -190,7 +190,7 @@
     min-height:25px;
     min-width:35px;
     cursor: pointer;
-    z-index:2;
+    z-index:3;
 
     .slice {
       position: absolute;

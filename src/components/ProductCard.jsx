@@ -18,7 +18,7 @@ const ProductCard = props => {
       <img className="productCardImg" src={props.productProps.img} />
       <div className="productCardInfo">
         <h1 className="productCardPrice">
-          {props.productProps.price} USD
+          US ${props.productProps.price}
         </h1>
         <div className="productCardName">{props.productProps.name}</div>
         <div className="productCardButton">
