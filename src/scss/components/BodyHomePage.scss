@@ -1,83 +1,90 @@
 @import '../_mixins.scss';
 @import '../_variables.scss';
 
-.body_home_page{
-  position:relative;
-  width:96vw;
-  height:auto;
-  display:flex;
+.body_home_page {
+  width:92vw;
+  margin:15vmin auto;
+  // &_section_1{
 
-  .layout-catalogList{
-    width:25%;
-    margin-right:1vw;
-  }
-  .swiper_top_and_new_shoes{
-    width:75%;
+  // }
+
+  .body_home_page_section_2{
+    width:100%;
+    position:relative;
     height:auto;
-    .slideshow-container{
-      position:relative;
-      overflow: hidden;
-      height: 320px;
-      cursor:grab;
-    
-      &:active{
-        cursor:grabbing;
-      }
-      .slideshow{
-        position :absolute;
-        height:100%;
-        display:flex;
-        //pointer-events: none;
+    display:flex;
 
-        .slideWrapper{
-          display:flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          margin-left:15px;
-          overflow:visible;
-
-          .slide{
-            position:relative;
-            flex-shrink: 0;
-            height:200px;
-            width: 60vmin;
-            transition:height 0.5s ease-out;
-
-            &::before{
-              position:absolute;
-              content:'';
-              top:-5px;
-              left:-5px;
-              right:-5px;
-              bottom:-5px;
-              background:rgb(21, 32, 233);
-              border-radius: 5px;
-              z-index: -1;
-            }
-
-            &:hover{
-              height:310px;
-            }
-            &:hover .slideImg{
-              height: 210px;
-            }
-            &:hover .slideImg::before{
-              opacity:0;
-            }
-            &:hover .price_shoes{
-              opacity:1;
-            }
-            &:hover .slideImg .overlay{
-              opacity:0;
-            }
-          }
-        }
-      }
+    .layout-catalogList{
+      width:25%;
+      margin-right:1vw;
+    }
+    .swiper_top_and_new_shoes{
+      width:75%;
+      height:auto;
+      
     }
   }
 }
 
+.slideshow-container{
+  position:relative;
+  overflow: hidden;
+  height: 320px;
+  cursor:grab;
+
+  &:active{
+    cursor:grabbing;
+  }
+  .slideshow{
+    position :absolute;
+    height:100%;
+    display:flex;
+    //pointer-events: none;
+    .slideWrapper{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left:15px;
+      overflow:visible;
+      
+    }
+  }
+}
+
+.slideshow-container .slideWrapper .slide{
+  position:relative;
+  flex-shrink: 0;
+  height:200px;
+  width: 60vmin;
+  transition:height 0.5s ease-out;
+  &::before{
+    position:absolute;
+    content:'';
+    top:-5px;
+    left:-5px;
+    right:-5px;
+    bottom:-5px;
+    background:rgb(21, 32, 233);
+    border-radius: 5px;
+    z-index: -1;
+  }
+  &:hover{
+    height:310px;
+  }
+  &:hover .slideImg{
+    height: 210px;
+  }
+  &:hover .slideImg::before{
+    opacity:0;
+  }
+  &:hover .price_shoes{
+    opacity:1;
+  }
+  &:hover .slideImg .overlay{
+    opacity:0;
+  }
+}
 
 .slideImg{
   position:relative;
