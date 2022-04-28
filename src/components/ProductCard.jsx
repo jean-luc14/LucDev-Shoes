@@ -22,6 +22,7 @@ const ProductCard = props => {
         </h1>
         <div className="productCardName">{props.productProps.name}</div>
         <div className="productCardButton">
+          {/* Button to show a productdetail in modal */}
           <BuyProductButton
             click={(e) => {
               dispatch(set({ id, catalogSlug }));
