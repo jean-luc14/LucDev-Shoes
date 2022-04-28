@@ -44,23 +44,23 @@ const Navbar = () => {
   };
 
   //state and his update function for active signUp, LogIn and forgotPassword modal
-  const [reverse_sign, setreverse_sign] = useState(false);
-  const [reverse_log, setreverse_log] = useState(false);
-  const [reverse_forgot, setreverse_forgot] = useState(false);
+  const [reverse_sign, setReverse_sign] = useState(false);
+  const [reverse_log, setReverse_log] = useState(false);
+  const [reverse_forgot, setReverse_forgot] = useState(false);
   const toggle_sign = () => {
-    setreverse_sign(!reverse_sign);
-    setreverse_log(false);
-    setreverse_forgot(false);
+    setReverse_sign(!reverse_sign);
+    setReverse_log(false);
+    setReverse_forgot(false);
   };
   const toggle_log = () => {
-    setreverse_log(!reverse_log);
-    setreverse_sign(false);
-    setreverse_forgot(false);
+    setReverse_log(!reverse_log);
+    setReverse_sign(false);
+    setReverse_forgot(false);
   };
   const toggle_forgot = () => {
-    setreverse_forgot(!reverse_forgot);
-    setreverse_log(false);
-    setreverse_sign(false);
+    setReverse_forgot(!reverse_forgot);
+    setReverse_log(false);
+    setReverse_sign(false);
   };
 
   //request to firebase to log out
@@ -68,7 +68,6 @@ const Navbar = () => {
     try {
       await signOut(auth);
       navigate("/");
-      console.log("je");
     } catch {
       alert(
         `For some reasons,we can't deconnect. 
