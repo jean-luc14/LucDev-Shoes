@@ -13,8 +13,8 @@ const catalogData = [
     path: "loafers",
   },
   {
-    display: "Mocassins",
-    path: "mocassins",
+    display: "Moccasins",
+    path: "moccasins",
   },
   {
     display: "Oxfords",
