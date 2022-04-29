@@ -1,10 +1,14 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 import Moccasins from '../Assets/images/moccasins/7/gray.jpg'
 import Oxfords from '../Assets/images/oxfords/1/coffee.jpg'
 import Loafers from '../Assets/images/loafers/4/gray.jpg'
 import Derby from '../Assets/images/H.jpg'
 
 const BestCategory = () => {
+
+  //Navigate
+  const navigate = useNavigate();
 
   // state for catch the category which active
   const [activeMoccasins, setActiveMoccasins] = useState(false)
@@ -29,7 +33,7 @@ const BestCategory = () => {
   }
   return (
     <div className="bestCategory">
-      <div className="derby">
+      <div className="derby" onClick={() => navigate("/derby-shoes")}>
         <img src={Derby} alt="" />
       </div>
       <div
@@ -42,23 +46,41 @@ const BestCategory = () => {
       >
         <div className="bestCategory_child_name">
           <div>
-            <p>Moccasins</p>
-            <p>Oxfords</p>
-            <p>Loafers</p>
+            <p onClick={() => navigate("/moccasins")}>
+              <p className="slide_item">Moccasins</p>
+              <img src={Moccasins} alt="moccasins" />
+            </p>
+            <p onClick={() => navigate("/oxfords")}>
+              <p className="slide_item">Oxfords</p>
+              <img src={Oxfords} alt="oxfords" />
+            </p>
+            <p onClick={() => navigate("/loafers")}>
+              <p className="slide_item">Loafers</p>
+              <img src={Loafers} alt="loafers" />
+            </p>
           </div>
         </div>
         <div className="bestCategory_child_items">
           <div
             className="moccasins"
             onMouseOver={() => activeCategory("moccasins")}
+            onClick={() => navigate("/moccasins")}
           >
-            <img src={Moccasins} alt="" />
+            <img src={Moccasins} alt="moccasins" />
           </div>
-          <div className="oxfords" onMouseOver={() => activeCategory("oxfords")}>
-            <img src={Oxfords} alt="" />
+          <div
+            className="oxfords"
+            onMouseOver={() => activeCategory("oxfords")}
+            onClick={() => navigate("/oxfords")}
+          >
+            <img src={Oxfords} alt="oxfords" />
           </div>
-          <div className="loafers" onMouseOver={() => activeCategory("loafers")}>
-            <img src={Loafers} alt="" />
+          <div
+            className="loafers"
+            onMouseOver={() => activeCategory("loafers")}
+            onClick={() => navigate("/loafers")}
+          >
+            <img src={Loafers} alt="loafers" />
           </div>
         </div>
       </div>
