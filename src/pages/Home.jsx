@@ -9,13 +9,7 @@ const Home = () => {
   return (
     <>
       <Header data={shoesSlideData} />
-      <div className="main-content">
-        <br />
-        <h1>Bienvenue sur notre App</h1>
-        <br />
-        <h2>Oxford</h2>
-        <BodyHomePage/>
-      </div>
+      <BodyHomePage/>
     </>
   );
 }

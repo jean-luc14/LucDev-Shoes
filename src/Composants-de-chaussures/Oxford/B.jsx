@@ -6,19 +6,14 @@ import './B.scss';
 // Debugging Component
 const B = () => {
   
-  const color = [
-    { name: "coffee"},
-    { name: "black" },
-    { name: "brown" },
-    { name: "wine"  }
-  ]
+  
   return (
     <>
-      {color.map((e,index)=>(
-      <div key={index} className="div1">
-        <img src={`/images/oxfords/1/${e.name}.jpg`} alt="" className="img1" />
+      <div className='parent'>
+        <div className="child_1"></div>
+        <div className="child_2"></div>
+        <div className="child_3"></div>
       </div>
-      ))}
     </>
   );
 }

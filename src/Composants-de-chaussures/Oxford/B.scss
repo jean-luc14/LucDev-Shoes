@@ -1,28 +1,28 @@
+@import '../../scss/_mixins';
+.parent{
+  width:90vw;
+  height:80vh;
+  @include flex;
+  margin:30px auto;
+  background:rgb(233, 233, 23);
 
-.div1{
-  height:100vh;
-  width:70vw;
-  margin:auto;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  
-  .div2{
-    height:200px;
-    width:200px;
-
-    .div3{
-      @extend .div5
+  .child{
+    width:30vw;
+    height:100%;
+    &_1{
+      background:red;
+      width:30vw;
+      height:100%;
+    }
+    &_2{
+      background:rgb(13, 0, 255);
+      width:30vw;
+      height:100%;
+    }
+    &_3{
+      background:rgb(72, 255, 0);
+      width:30vw;
+      height:100%;
     }
   }
-}
-.imgB{
-  height:400px;
-  width:400px
-}
-// .div4{
-//   @extend .div3
-// }
-.div5{
-  color:blue
 }

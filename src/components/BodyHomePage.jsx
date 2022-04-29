@@ -1,5 +1,6 @@
 import React,{useEffect} from 'react'
 import CatalogList from "./CatalogList";
+import BestCategory from "./BestCategory";
 import ImgD from '../Shoes_image/Oxford/D.jpg';
 
 const BodyLayOut = props => {
@@ -87,42 +88,47 @@ const BodyLayOut = props => {
 
   return (
     <div className="body_home_page">
-      <div className="layout-catalogList">
-        <CatalogList navbar={false} />
+      <div className="body_home_page_section_1">
+        <BestCategory/>
       </div>
-        <div className="swiper_top_and_new_shoes">
-          {Title.map((e, i) => (
-            <section key={i} className="slideshow-container">
-              <h2>{e.Title}</h2>
-              <div className="slideshow">
-                {Numbers.map((e, i) => {
-                  return (
-                    <div key={i} className="slideWrapper">
-                      <div className="slide">
-                        <div className="slideImg">
-                          <img src={ImgD} />
-                          <div className="overlay">
-                            <h3>Richelieu{e}</h3>
-                            <h2>
-                              Etoiles<span>Avis</span>
-                            </h2>
+      <div className="body_home_page_section_2">
+        <div className="layout-catalogList">
+          <CatalogList navbar={false} />
+        </div>
+          <div className="swiper_top_and_new_shoes">
+            {Title.map((e, i) => (
+              <section key={i} className="slideshow-container">
+                <h2>{e.Title}</h2>
+                <div className="slideshow">
+                  {Numbers.map((e, i) => {
+                    return (
+                      <div key={i} className="slideWrapper">
+                        <div className="slide">
+                          <div className="slideImg">
+                            <img src={ImgD} />
+                            <div className="overlay">
+                              <h3>Richelieu{e}</h3>
+                              <h2>
+                                Etoiles<span>Avis</span>
+                              </h2>
+                            </div>
                           </div>
-                        </div>
-                        <div className="price_shoes">
-                          <h4>200$</h4>
-                          <p>Nom et carateristiques </p>
-                          <div className="slide_link">
-                            {/* <Link className="nav-link">View more</Link> */}
+                          <div className="price_shoes">
+                            <h4>200$</h4>
+                            <p>Nom et carateristiques </p>
+                            <div className="slide_link">
+                              {/* <Link className="nav-link">View more</Link> */}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-          ))}
-        </div>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
+          </div>
+      </div>
     </div>
   );
 }
