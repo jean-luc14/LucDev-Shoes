@@ -44,6 +44,7 @@ const BestCategory = () => {
         ${activeOxfords ? "active-oxfords" : ""}
         ${activeLoafers ? "active-loafers" : ""}`}
       >
+        {/* navigate to go to best category page */}
         <div className="bestCategory_child_name">
           <div>
             <p onClick={() => navigate("/moccasins")}>
@@ -61,6 +62,7 @@ const BestCategory = () => {
           </div>
         </div>
         <div className="bestCategory_child_items">
+          {/* activeCategory to animate best category items  */}
           <div
             className="moccasins"
             onMouseOver={() => activeCategory("moccasins")}

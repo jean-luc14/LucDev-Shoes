@@ -15,7 +15,7 @@
   top:$top;
   transform:translate(-$x,-$y);
 }
-@mixin pseudo($height,$width,$background:transparent){
+@mixin pseudo($height:100%,$width:100%,$background:transparent){
   content:'';
   height:$height;
   width:$width;
