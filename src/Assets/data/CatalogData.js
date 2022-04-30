@@ -70,39 +70,4 @@ const catalogData = [
   },
 ];
 
-const topCatalogData = [
-  {
-    display: "Loafers",
-    path: "loafers",
-  },
-  {
-    display: "Mocassins",
-    path: "mocassins",
-  },
-  {
-    display: "Oxfords",
-    path: "oxfords",
-  },
-  {
-    display: "Derby Shoes ",
-    path: "derby-shoes",
-  },
-  {
-    display: "Chukkas",
-    path: "chukkas",
-  },
-  {
-    display: "Chelsea Style Boots",
-    path: "chelsea-style-boots",
-  },
-  {
-    display: "Casual Slip-on Shoes",
-    path: "casual-slip-on-shoes",
-  },
-  {
-    display: "Active Sneakers",
-    path: "active-sneakers",
-  },
-
-];
-export { catalogData, topCatalogData }; 
+export { catalogData, }; 

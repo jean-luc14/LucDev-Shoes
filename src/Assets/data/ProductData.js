@@ -1,3 +1,4 @@
+import {catalogData} from'./CatalogData'
 const A = require("../images/A.webp");
 const B = require("../images/B.webp");
 const C = require("../images/C.jpg");
@@ -27,6 +28,7 @@ const productData = [
     name: "men's formal shoes Loafers Size 7-12 comfortable Men dress shoes men's casual shoes formal shoes for men #AL701",
     price: sellingPrice(43.2),
     size: [39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
+    favorite: false,
     img: require("../images/loafers/1/brown.jpg"),
     color: [
       { name: "Brown", img: require("../images/loafers/1/brown.jpg") },
@@ -39,6 +41,7 @@ const productData = [
     name: "Designer Men Leather Shoes Comfortable Fashion Men loafers Summer Casual Shoes",
     price: sellingPrice(30.52),
     size: [245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305],
+    favorite: false,
     img: require("../images/loafers/2/brown.jpg"),
     color: [
       { name: "Brown", img: require("../images/loafers/2/brown.jpg") },
@@ -51,6 +54,7 @@ const productData = [
     name: "Italian High Quality Men Loafers Casual Shoes Luxury Brand Shoes for Men Leather Moccasins British Style Slip on Driving Shoes",
     price: sellingPrice(34.75),
     size: [37, 38, 39, 40, 41, 42, 43, 44, 45],
+    favorite: false,
     img: require("../images/loafers/3/black.jpg"),
     color: [
       { name: "Black", img: require("../images/loafers/3/black.jpg") },
@@ -64,6 +68,7 @@ const productData = [
     name: "Men Shoes Fashion Loafers Breathable Canvas Sneakers Men Slip-On Casual Shoes Soft Comfortable Non-slip Driving Flats Black Gray",
     price: sellingPrice(12.79),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46],
+    favorite: true,
     img: require("../images/loafers/4/gray.jpg"),
     color: [
       { name: "Gray", img: require("../images/loafers/4/gray.jpg") },
@@ -76,6 +81,7 @@ const productData = [
     name: "Designer Shoes Men Zapatos De Hombre Slip-on Leather Shoes Casual Male Shoes Adult Red Driving Moccasin Soft Non-slip Loafers",
     price: sellingPrice(13.8),
     size: [38, 39, 40, 41, 42, 43, 44],
+    favorite: true,
     img: require("../images/loafers/5/black.jpg"),
     color: [
       { name: "Black", img: require("../images/loafers/5/black.jpg") },
@@ -89,6 +95,7 @@ const productData = [
     name: "Shoes Men Loafers Shoes High Quality Big Size 48 Slip-On Loafers Comfortable Soft Driving Shoe Men Shoes",
     price: sellingPrice(29.89),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
+    favorite: true,
     img: require("../images/loafers/6/blue.jpg"),
     color: [
       { name: "Blue", img: require("../images/loafers/6/blue.jpg") },
@@ -103,6 +110,7 @@ const productData = [
     name: "Men's Loafers Comfortable Flat Casual Shoes Breathable Slip-On Soft Leather Driving Shoes Moccasins Mocasines Hombre Men Shoes",
     price: sellingPrice(10.28),
     size: [39, 40, 41, 42, 43, 44],
+    favorite: true,
     img: require("../images/loafers/7/A13 black.jpg"),
     color: [
       { name: "A13 Black", img: require("../images/loafers/7/A13 black.jpg") },
@@ -116,6 +124,7 @@ const productData = [
     name: "Shoes Men Loafers Shoes 2021 Summer Fashion Shoes Men High Quality Leather Man Classic Comfy Casual Men Shoes",
     price: sellingPrice(27.49),
     size: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
+    favorite: true,
     img: require("../images/loafers/8/white.jpg"),
     color: [
       { name: "White", img: require("../images/loafers/8/white.jpg") },
@@ -130,6 +139,7 @@ const productData = [
     name: "Brand Casual Shoes High Quality Men's Leather Shoes Snake Pea Shoes Spring Summer Leather Ladies Moccasin Loafers",
     price: sellingPrice(27.2),
     size: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
+    favorite: true,
     img: require("../images/moccasins/1/red.jpg"),
     color: [
       { name: "Red", img: require("../images/moccasins/1/red.jpg") },
@@ -147,6 +157,7 @@ const productData = [
     name: "Casual Men Shoes Tassels Men Loafers Shoes Genuine Leather Loafers Soft Moccasins Men Suede Loafers for Men Male Flats",
     price: sellingPrice(24.43),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
+    favorite: false,
     img: require("../images/moccasins/2/yellow.jpg"),
     color: [
       { name: "Yellow", img: require("../images/moccasins/2/yellow.jpg") },
@@ -168,6 +179,7 @@ const productData = [
     name: "Men Casual Shoes Fashion Men Shoes Genuine Leather Men Loafers Moccasins Slip on Men's Flats Male Driving Shoes 2020 New",
     price: sellingPrice(10.32),
     size: [6, 6.5, 7, 8, 8.5, 9.5, 10, 11, 12, 13, 14],
+    favorite: false,
     img: require("../images/moccasins/3/light blue.jpg"),
     color: [
       {
@@ -197,6 +209,7 @@ const productData = [
     name: "Summer Leather Shoes Shoes Male Fashion Sneakers Men Casual Men's Italian Leather For Gentle Black Sport Lather Moccasins",
     price: sellingPrice(26.31),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
+    favorite: false,
     img: require("../images/moccasins/4/yellow.jpg"),
     color: [
       { name: "Yellow", img: require("../images/moccasins/4/yellow.jpg") },
@@ -212,6 +225,7 @@ const productData = [
     name: "Designer New Mens Leather Casual Shoes Formal Brogue Shoes for Men Tassel Loafers Large Size Comfortable Black Brown Moccasins",
     price: sellingPrice(28.44),
     size: [6.5, 7, 7.5, 8, 8.5, 9, 10, 11, 12],
+    favorite: false,
     img: require("../images/moccasins/5/green.jpg"),
     color: [
       { name: "Green", img: require("../images/moccasins/5/green.jpg") },
@@ -226,6 +240,7 @@ const productData = [
     name: "Men's Moccasins Brown Leather Shoes Gentle Men Mens Dress Loafers Lether Fashion Men's For Wedding Formal Luxury Black Gentleman",
     price: sellingPrice(26.83),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
+    favorite: false,
     img: require("../images/moccasins/6/red.jpg"),
     color: [
       { name: "Red", img: require("../images/moccasins/6/red.jpg") },
@@ -239,6 +254,7 @@ const productData = [
     name: "Suede Leather Men Shoes Casual Tassel Slip On Loafers Moccasins Soft Breathable Suede Men's Shoes Drivings",
     price: sellingPrice(27.5),
     size: [6, 6.5, 7, 8, 8.5, 9.5, 10, 10.5, 11, 12, 12.5],
+    favorite: false,
     img: require("../images/moccasins/7/gray.jpg"),
     color: [
       { name: "Gray", img: require("../images/moccasins/7/gray.jpg") },
@@ -252,7 +268,8 @@ const productData = [
     id: "8",
     name: "Men's Moccasins Brown Leather Shoes Gentle Men Mens Dress Loafers Lether Fashion Men's For Wedding Formal Luxury Black Gentleman",
     price: sellingPrice(26.83),
-    size: [38,39,40,41,42,43,44,45,46],
+    size: [38, 39, 40, 41, 42, 43, 44, 45, 46],
+    favorite: false,
     img: require("../images/moccasins/8/brown.jpg"),
     color: [
       { name: "Brown", img: require("../images/moccasins/8/brown.jpg") },
@@ -266,6 +283,7 @@ const productData = [
     name: "New Men Dress Handmade Shoes Genuine Leather Male Oxford Italian Classic Vintage Lace-up Men's Brogue Shoes Oxford",
     price: sellingPrice(64.1),
     size: [6, 7, 8, 8.5, 9.5, 10, 11],
+    favorite: true,
     img: require("../images/oxfords/1/coffee.jpg"),
     color: [
       { name: "Coffee", img: require("../images/oxfords/1/coffee.jpg") },
@@ -280,6 +298,7 @@ const productData = [
     name: "Handmade Mens Wingtip Oxford Shoes Grey Leather Brogue Men's Dress Shoes Classic Business Formal Shoes for Men 56",
     price: sellingPrice(13.86),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
+    favorite: true,
     img: require("../images/oxfords/2/gray.webp"),
     color: [
       { name: "Gray", img: require("../images/oxfords/2/gray.webp") },
@@ -293,6 +312,7 @@ const productData = [
     name: "Elegant Men Genuine Leather Oxford Wedding Business Mens Dress Flats Shoes 2020 Back Burgundy Vintage Pointed Shoes For Men",
     price: sellingPrice(67.69),
     size: [6, 6.5, 7, 8, 8.5, 9.5, 10, 10.5, 11],
+    favorite: true,
     img: require("../images/oxfords/3/wine.webp"),
     color: [
       { name: "Wine", img: require("../images/oxfords/3/wine.webp") },
@@ -305,6 +325,7 @@ const productData = [
     name: "Oxford Shoes Fashion Brogue Men Leather Formal Dress Shoes Man Comfortable Office Party Footwear",
     price: sellingPrice(35.28),
     size: [6.5, 7, 7.5, 8, 8.5, 9, 10.5],
+    favorite: true,
     img: require("../images/oxfords/4/A311 black.jpg"),
     color: [
       {
@@ -332,6 +353,7 @@ const productData = [
     price: sellingPrice(66.66),
     size: [5.5, 6, 6.5, 7, 8, 8.5, 9.5, 10, 10.5, 11],
     img: require("../images/oxfords/5/black.jpg"),
+    favorite: true,
     color: [
       { name: "Black", img: require("../images/oxfords/5/black.jpg") },
       { name: "Brown", img: require("../images/oxfords/5/brown.webp") },
@@ -344,6 +366,7 @@ const productData = [
     price: sellingPrice(34.6),
     size: [6, 6.5, 7, 8, 8.5, 9.5, 10],
     img: require("../images/oxfords/6/brown.jpg"),
+    favorite: true,
     color: [
       { name: "Brown", img: require("../images/oxfords/6/brown.jpg") },
       { name: "Black", img: require("../images/oxfords/6/black.jpg") },
@@ -357,6 +380,7 @@ const productData = [
     price: sellingPrice(34.6),
     size: [6, 6.5, 7, 8, 8.5, 9.5, 10],
     img: require("../images/oxfords/7/brown.jpg"),
+    favorite: false,
     color: [
       { name: "Brown", img: require("../images/oxfords/7/brown.jpg") },
       { name: "Black", img: require("../images/oxfords/7/black.jpg") },
@@ -368,6 +392,7 @@ const productData = [
     name: "Luxury Business Oxford Leather Shoes Men Breathable Rubber Formal Dress Shoes Male Office Wedding Flats Footwear Mocassin Homme",
     price: sellingPrice(20.07),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
+    favorite: false,
     img: require("../images/oxfords/8/auburn.jpg"),
     color: [
       { name: "Auburn", img: require("../images/oxfords/8/auburn.jpg") },
@@ -381,6 +406,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -399,6 +425,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -417,6 +444,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -435,6 +463,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -453,6 +482,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -471,6 +501,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -489,6 +520,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -507,6 +539,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -526,6 +559,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -544,6 +578,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -562,6 +597,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -580,6 +616,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -598,6 +635,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -616,6 +654,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -634,6 +673,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -652,6 +692,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -671,6 +712,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -689,6 +731,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -707,6 +750,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -725,6 +769,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -743,6 +788,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -761,6 +807,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -779,6 +826,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -797,6 +845,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -816,6 +865,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -834,6 +884,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -852,6 +903,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -870,6 +922,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -888,6 +941,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -906,6 +960,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -924,6 +979,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -942,6 +998,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -961,6 +1018,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -979,6 +1037,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -997,6 +1056,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -1015,6 +1075,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -1033,6 +1094,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -1051,6 +1113,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -1069,6 +1132,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -1087,6 +1151,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -1106,6 +1171,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -1124,6 +1190,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -1142,6 +1209,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -1160,6 +1228,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -1178,6 +1247,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -1196,6 +1266,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -1214,6 +1285,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -1232,6 +1304,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -1251,6 +1324,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -1269,6 +1343,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -1287,6 +1362,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -1305,6 +1381,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -1323,6 +1400,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -1341,6 +1419,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -1359,6 +1438,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -1377,6 +1457,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -1396,6 +1477,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -1414,6 +1496,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -1432,6 +1515,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -1450,6 +1534,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -1468,6 +1553,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -1486,6 +1572,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -1504,6 +1591,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -1522,6 +1610,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -1541,6 +1630,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -1559,6 +1649,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -1577,6 +1668,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -1595,6 +1687,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -1613,6 +1706,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -1631,6 +1725,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -1649,6 +1744,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -1667,6 +1763,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -1686,6 +1783,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -1704,6 +1802,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -1722,6 +1821,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -1740,6 +1840,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -1758,6 +1859,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -1776,6 +1878,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -1794,6 +1897,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -1812,6 +1916,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -1831,6 +1936,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -1849,6 +1955,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -1867,6 +1974,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -1885,6 +1993,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -1903,6 +2012,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -1921,6 +2031,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -1939,6 +2050,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -1957,6 +2069,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -1976,6 +2089,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: A,
     color: [
       { name: "Black", img: I },
@@ -1994,6 +2108,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: B,
     color: [
       { name: "Black", img: I },
@@ -2012,6 +2127,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: C,
     color: [
       { name: "Black", img: I },
@@ -2030,6 +2146,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: D,
     color: [
       { name: "Black", img: I },
@@ -2048,6 +2165,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: E,
     color: [
       { name: "Black", img: I },
@@ -2066,6 +2184,7 @@ const productData = [
     name: "loufoc en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: F,
     color: [
       { name: "Black", img: I },
@@ -2084,6 +2203,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: false,
     img: G,
     color: [
       { name: "Black", img: I },
@@ -2102,6 +2222,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
+    favorite: true,
     img: H,
     color: [
       { name: "Black", img: I },
@@ -2116,8 +2237,36 @@ const productData = [
   },
 ];
 
+//func to get our favorite
+const getFavoriteProducts = () => {
+  let favorite;
+  favorite = productData.filter(e => e.favorite === true)
+  return favorite;
+}
 
+// func to get the last product of each category 
+const getNewProducts = () => {
+  let lastProductInCategory;
+  const catalogSlugs = [];
+  let NewArrivals = [];
+  let category;
 
+  catalogData.forEach((e) => {
+    catalogSlugs.push(e.path);
+  })
+
+  catalogSlugs.forEach((item) => {
+    category = productData.filter(e => e.catalogSlug === item)
+    
+    lastProductInCategory = category.find(e => e.id === category.length.toString());
+    
+    NewArrivals.push(lastProductInCategory);
+  })
+  
+  return NewArrivals;
+}
+
+//func to get a product object
 const getProductByCatalogAndId = (catalog, id) => {
   let product;
   if (catalog & id === undefined) {
@@ -2128,6 +2277,7 @@ const getProductByCatalogAndId = (catalog, id) => {
   return product;
 }
 
+//func to get a detail of product of item in cart component
 const getCartItemsDetail = (cartItems) => {
   let res = []
   if (cartItems.length > 0) {
@@ -2141,22 +2291,14 @@ const getCartItemsDetail = (cartItems) => {
   return res
 }
 
-export { productData, getProductByCatalogAndId, getCartItemsDetail };
+
+export {
+  productData,
+  getProductByCatalogAndId,
+  getCartItemsDetail,
+  getNewProducts,
+  getFavoriteProducts,
+};
 
 
-  // LoafersProductData,
-  // moccasinsProductData,
-  // OxfordsProductData,
-  // Derby_shoesProductData,
-  // ChukkasProductData,
-  // Chelsea_style_bootsProductData,
-  // Casual_slip_on_shoesProductData,
-  // Active_sneakersProductData,
-  // Walking_shoesProductData,
-  // Casual_lace_up_sneakersProductData,
-  // Casual_slip_on_sneakersProductData,
-  // At_home_shoesProductData,
-  // SlidesProductData,
-  // Toe_post_sandalsProductData,
-  // Active_sandalsProductData
 

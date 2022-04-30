@@ -1,10 +1,15 @@
 import React,{useEffect} from 'react'
 import CatalogList from "./CatalogList";
 import BestCategory from "./BestCategory";
+import ProductCard from './ProductCard'
+import {
+  getNewProducts,
+  getFavoriteProducts,
+} from "../Assets/data/ProductData";
 import ImgD from '../Shoes_image/Oxford/D.jpg';
 
 const BodyLayOut = props => {
-
+    getNewProducts()
     const Numbers = [1, 2, 3, 4, 5, 6, 7];
     const Title = [
       { title: "Best Prices" },
