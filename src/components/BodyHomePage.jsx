@@ -9,13 +9,10 @@ import {
 import ImgD from '../Shoes_image/Oxford/D.jpg';
 
 const BodyLayOut = props => {
-    getNewProducts()
-    const Numbers = [1, 2, 3, 4, 5, 6, 7];
-    const Title = [
-      { title: "Best Prices" },
-      { title: "New Shoes" },
-      { title: "Livraison gratuite" },
-    ];
+
+  // Get New and favorite Products
+    const newProducts = getNewProducts();
+    const favoriteProducts = getFavoriteProducts();
 
     useEffect(() => {
       const sliderCtn = document.querySelectorAll(".slideshow-container");
@@ -94,45 +91,34 @@ const BodyLayOut = props => {
   return (
     <div className="body_home_page">
       <div className="body_home_page_section_1">
-        <BestCategory/>
+        <BestCategory />
       </div>
       <div className="body_home_page_section_2">
         <div className="layout-catalogList">
           <CatalogList navbar={false} />
         </div>
-          <div className="swiper_top_and_new_shoes">
-            {Title.map((e, i) => (
-              <section key={i} className="slideshow-container">
-                <h2>{e.Title}</h2>
-                <div className="slideshow">
-                  {Numbers.map((e, i) => {
-                    return (
-                      <div key={i} className="slideWrapper">
-                        <div className="slide">
-                          <div className="slideImg">
-                            <img src={ImgD} />
-                            <div className="overlay">
-                              <h3>Richelieu{e}</h3>
-                              <h2>
-                                Etoiles<span>Avis</span>
-                              </h2>
-                            </div>
-                          </div>
-                          <div className="price_shoes">
-                            <h4>200$</h4>
-                            <p>Nom et carateristiques </p>
-                            <div className="slide_link">
-                              {/* <Link className="nav-link">View more</Link> */}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
+        <div className="swiper_top_and_new_shoes">
+          <h2>New Arrivals</h2>
+          <section className="slideshow-container">
+            <div className="slideshow">
+              {newProducts.map((e, index) => (
+                <div className="child" key={index}>
+                  <ProductCard productProps={e} />
                 </div>
-              </section>
-            ))}
-          </div>
+              ))}
+            </div>
+          </section>
+          <h2>Our Favorites</h2>
+          <section className="slideshow-container">
+            <div className="slideshow">
+              {favoriteProducts.map((e, index) => (
+                <div className="child" key={index}>
+                  <ProductCard productProps={e} />
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );
