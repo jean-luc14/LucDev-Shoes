@@ -14,14 +14,18 @@
 //BREAKPOINT
 @include mobile{
   .wrapperGridCenter .wrapperGrids{
-    @include grid(repeat(1, 1fr),repeat(1, 1fr));
-    row-gap: 140px;
+    @include grid(repeat(1, 87vw),repeat(1, 87vw));
+    min-width:$mobile-card-min-width;
+    min-height:$mobile-card-min-width;
+    row-gap: 150px;
   }
 }
 
 @include tablet {
   .wrapperGridCenter .wrapperGrids{
-    @include grid(repeat(2, 1fr),repeat(2, 1fr));
+    @include grid(repeat(2, 40vw),repeat(2, 40vw));
+    min-width:$tablet-card-min-width;
+    min-height:$tablet-card-min-width;
     row-gap: 100px;
     column-gap: 20px;
   }

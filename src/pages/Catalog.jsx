@@ -33,11 +33,9 @@ const Catalog = props => {
           <Section>
             <SectionTitle>{activeCatalogPage.display}</SectionTitle>
             <SectionBody>
-              <Grid gap={20}>
+              <Grid>
                 {catalogProductCards.map((e, i) => (
-                  <div key={i}>
-                    <ProductCard productProps={e} />
-                  </div>
+                    <ProductCard productProps={e} key={i} />
                 ))}
               </Grid>
             </SectionBody>

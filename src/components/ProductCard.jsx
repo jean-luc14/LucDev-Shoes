@@ -6,13 +6,21 @@ import { useDispatch } from 'react-redux'
 import {set} from '../redux/product/ProductSlice'
 
 const ProductCard = props => {
+  //Navigate
   const navigate = useNavigate();
+
+  //Go to product page func
   const goToProductPage = (catalogSlug,id) => {
     navigate(`/${catalogSlug}/${id}`);
   }
+
+  //Catch current product id and category
   const id = props.productProps.id;
   const catalogSlug = props.productProps.catalogSlug;
+
+  //Dispatch
   const dispatch = useDispatch();
+  
   return (
     <div className="productCard" onClick={() => goToProductPage(catalogSlug, id)}>
       <img className="productCardImg" src={props.productProps.img} />

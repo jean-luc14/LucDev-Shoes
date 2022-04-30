@@ -7,6 +7,8 @@
   border-radius: 8px;
   transition: transform  0.5s  ease-out;
   overflow:hidden;
+  height:100%;
+  width:100%;
   
 
   &::after{
@@ -95,25 +97,25 @@
 
   .productCard{
     @include mobile{
-      min-width:$mobile-card-min-width;
-      min-height:$mobile-card-min-width;
-      width:87vw;
-      height:87vw;
+      // the width and hight of productCard is in Grid.scss and BodyHomePage.scss
+      width:100%;
+      height:100%;
     }
   }
 }
+
 //tablet
 @include tablet{
-
+  
   .productCard{
     @include tablet{
-      min-width:$tablet-card-min-width;
-      min-height:$tablet-card-min-width;
-      width:40vw;
-      height:40vw;
+      // the width and hight of productCard is in Grid.scss and BodyHomePage.scss
+      width:100%;
+      height:100%;
     }
   }
 }
+
 //desktop
 @include desktop{
 
@@ -126,6 +128,7 @@
     }
   }
 }
+
 //large desktop
 @include large-desktop{
 
@@ -135,6 +138,7 @@
       min-height:$large-desktop-card-min-width;
       width:27vw;
       height:27vw;
+      margin:18px;
     }
   }
 }
