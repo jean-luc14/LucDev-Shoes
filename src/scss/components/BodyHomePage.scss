@@ -23,14 +23,18 @@
       height:auto;
       
     }
+    h2{
+      font-size: calc(80 * var(--res));
+    }
   }
 }
 
 .slideshow-container{
   position:relative;
   overflow: hidden;
-  height: 320px;
+  height:30vw;
   cursor:grab;
+  margin-bottom:8vmin;
 
   &:active{
     cursor:grabbing;
@@ -39,129 +43,16 @@
     position :absolute;
     height:100%;
     display:flex;
-    //pointer-events: none;
-    .slideWrapper{
-      display:flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-left:15px;
-      overflow:visible;
+    pointer-events: none;
+    .child{
+      width:30vw;
+      height:100%;
       
     }
   }
 }
 
-.slideshow-container .slideWrapper .slide{
-  position:relative;
-  flex-shrink: 0;
-  height:200px;
-  width: 60vmin;
-  transition:height 0.5s ease-out;
-  &::before{
-    position:absolute;
-    content:'';
-    top:-5px;
-    left:-5px;
-    right:-5px;
-    bottom:-5px;
-    background:rgb(21, 32, 233);
-    border-radius: 5px;
-    z-index: -1;
-  }
-  &:hover{
-    height:310px;
-  }
-  &:hover .slideImg{
-    height: 210px;
-  }
-  &:hover .slideImg::before{
-    opacity:0;
-  }
-  &:hover .price_shoes{
-    opacity:1;
-  }
-  &:hover .slideImg .overlay{
-    opacity:0;
-  }
-}
 
-.slideImg{
-  position:relative;
-  height:200px;
-  transition:height 0.5s ease;
-
-  &::before{
-    content:'';
-    position:absolute;
-    height: 100%;
-    width:100%;
-    opacity:0.5;
-    background:#000;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    transition:opacity 0.7s ease-in;
-    z-index:2;
-  }
-  
-  img{
-    object-fit: cover;
-    height:100%;
-    width:100%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-  
-  .overlay{
-    position:absolute;
-    top:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items: center;
-    height:185px;
-    width:100%;
-    opacity:1;
-    transition:opacity 0.8s ease;
-    z-index:1;
-
-    h2,h3{
-      //position: static;
-      color:#FFF;;
-      span{
-        font-size: 20px;
-      }
-    }
-  }
-}
-
-.price_shoes{
-  position:absolute;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  bottom:0;
-  left:0;
-  right:0;
-  height:95px;
-  opacity:0;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  transition:opacity 0.5s ease;
-  color:rgb(255, 255, 255);
-  background:rgba(0,0,0,0.4);
-
-  .slide_link{
-    cursor:pointer;
-
-    .nav-link{
-      color:rgb(248, 11, 11);
-      height:10px;
-      font-weight: 700;
-    }
-  }
-}
 
 //Responsive
 @media screen and (max-width:$tablet-max-width){
@@ -170,9 +61,33 @@
 
   }
   .body_home_page{
-
     .swiper_top_and_new_shoes{
       width:100%;
+    }
+  }
+  .slideshow-container .slideshow .child{
+    margin:5vmin;
+  }
+}
+
+@include mobile{
+   .slideshow-container{
+     height:50vw;
+     min-height:130px;
+    .slideshow .child{
+      min-width:130px;
+      width:50vw;
+    }
+  }
+}
+
+@include tablet {
+  .slideshow-container {
+    height:40vw;
+    min-height:250px;
+    .slideshow .child{
+      min-width:250px;
+      width:40vw;
     }
   }
 }
