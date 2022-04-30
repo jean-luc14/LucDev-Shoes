@@ -3,10 +3,12 @@
 
 .body_home_page {
   width:92vw;
-  margin:15vmin auto;
-  &_section_1{
+  margin:0 auto;
+  padding-top:15vmin;
+  background:rgb(241, 241, 241);
+  // &_section_1{
 
-  }
+  // }
 
   &_section_2{
     width:100%;
@@ -47,7 +49,7 @@
     .child{
       width:30vw;
       height:100%;
-      
+      margin:0 1vmin 0;
     }
   }
 }
@@ -66,7 +68,7 @@
     }
   }
   .slideshow-container .slideshow .child{
-    margin:5vmin;
+    margin:0 4vmin 0;
   }
 }
 
