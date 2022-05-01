@@ -6,11 +6,11 @@
     },
     {
       display: "Contact",
-      path: "/Contact",
+      path: "/contact",
     },
     {
       display: "About us",
-      path: "/About_us",
+      path: "/about",
     },
 ]
 

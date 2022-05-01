@@ -18,8 +18,8 @@ const Routing = () => {
       <Route path="/:catalogSlug" element={<Catalog />} />
       <Route path="/:catalogSlug/:id" element={<ProductPage />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/About_us" element={<About_us />} />
-      <Route path="/Contact" element={<Contact />} />
+      <Route path="/about" element={<About_us />} />
+      <Route path="/contact" element={<Contact />} />
       <Route path="/Composants-de-chaussures/Oxford/B" element={<B />} />
       <Route path='/private' element={<Private/>}>
         <Route path='/private/private-cart' element={<PrivateCart/>}/>
