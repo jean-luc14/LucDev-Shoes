@@ -13,7 +13,7 @@
     margin-right:2%;
     cursor:pointer;
     img{
-      @extend %img-back;
+      @extend %back-img;
     }
   }
   &_child{
@@ -57,7 +57,7 @@
           }
           img{
             position:absolute;
-            @extend %img-back;
+            @extend %back-img;
           }
         }
       }
@@ -79,7 +79,7 @@
         transition:width 0.5s ease-out;
         cursor:pointer;
         img{
-          @extend %img-back;
+          @extend %back-img;
         }
       }
       .oxfords{
@@ -93,7 +93,7 @@
         cursor:pointer;
         transition:width 0.5s ease-out;
         img{
-          @extend %img-back;
+          @extend %back-img;
         }
       }
       .loafers{
@@ -107,7 +107,7 @@
         cursor:pointer;
         transition:width 0.5s ease-out;
         img{
-          @extend %img-back;
+          @extend %back-img;
         }
       }
     }

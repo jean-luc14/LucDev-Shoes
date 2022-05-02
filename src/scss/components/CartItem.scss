@@ -5,13 +5,11 @@
   height:200px;
   margin:20px 0;
   @extend %flex-center;
-  &_img{
+  .cart_item_img{
     width:20vw;
     height:20vw;
       img{
-      height:inherit;
-      width:inherit;
-      object-fit: cover;
+      @extend %back-img;
     }
   }
   &_info{

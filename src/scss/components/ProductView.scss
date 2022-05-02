@@ -128,9 +128,7 @@
             margin:0;
             .other_color_img{
               border-radius:5px;
-              object-fit:cover;
-              height:100%;
-              width:100%;
+              @extend %back-img;
               cursor:pointer;
             }
           }

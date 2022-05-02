@@ -1,5 +1,6 @@
 @import "../_variables"; 
 @import "../_mixins";
+@import "../_placeholders";
 
 .Search_wrapper{
   position:relative;
@@ -69,14 +70,12 @@
       &:active::before{
         background:rgba(0, 0, 0, 0.26);
       }
-      &_img{
+      .dynamic_search_item_img{
         height:calc((80vmin * 15)/100);;
         width: 15%;
         margin-right:5px;
         img{
-          height:100%;
-          width: 100%;
-          object-fit:cover;
+          @extend %back-img;
         }
       }
       &_content{

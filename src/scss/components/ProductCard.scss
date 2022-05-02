@@ -1,5 +1,6 @@
 @import '../_mixins';
 @import '../_variables';
+@import '../_placeholders';
 
 .productCard{
   position:relative;
@@ -26,9 +27,7 @@
     transition:opacity 0.5s ease-out ;
   }
   .productCardImg{
-    height:100%;
-    width:100%;
-    object-fit: cover;
+    @extend %back-img;
     border-radius: 8px;
     transform:scale(1);
     transition:transform 0.5s ease-out;
