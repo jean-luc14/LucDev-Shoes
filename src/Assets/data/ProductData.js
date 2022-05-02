@@ -2237,7 +2237,7 @@ const productData = [
   },
 ];
 
-//func to get our favorite
+//func to get our favorite products
 const getFavoriteProducts = () => {
   let favorite;
   favorite = productData.filter(e => e.favorite === true)
