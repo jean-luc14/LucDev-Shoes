@@ -1,5 +1,7 @@
 import React from 'react';
 import './B.scss';
+import Derby from "../../Assets/images/H.jpg";
+import Moccasins from "../../Assets/images/moccasins/7/gray.jpg";
 
 
 
@@ -9,10 +11,8 @@ const B = () => {
   
   return (
     <>
-      <div className='parent'>
-        <div className="child_1"></div>
-        <div className="child_2"></div>
-        <div className="child_3"></div>
+      <div className="parent">
+        <img src={Moccasins} alt="moccasins" />
       </div>
     </>
   );

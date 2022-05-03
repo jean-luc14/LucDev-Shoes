@@ -1,28 +1,18 @@
 @import '../../scss/_mixins';
+@import '../../scss/_placeholders';
 .parent{
   width:90vw;
   height:80vh;
   @include flex;
+  background-color: red;
   margin:30px auto;
-  background:rgb(233, 233, 23);
-
-  .child{
-    width:30vw;
-    height:100%;
-    &_1{
-      background:red;
-      width:30vw;
-      height:100%;
-    }
-    &_2{
-      background:rgb(13, 0, 255);
-      width:30vw;
-      height:100%;
-    }
-    &_3{
-      background:rgb(72, 255, 0);
-      width:30vw;
-      height:100%;
-    }
+  
+  visibility: visible;
+  transition: visibility 0.5s ease;
+  img{
+    @extend %back-img;
+  }
+  &:hover{
+      visibility: hidden;
   }
 }
