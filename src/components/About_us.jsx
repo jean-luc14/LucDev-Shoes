@@ -38,19 +38,21 @@ const About_us = () => {
   );
 }
 
-
+//the css of clothes components is in clothes.scss
 const Clothes = ({ activeAboutUsTitle }) => {
-  useEffect(() => {}, []);
 
   return (
     <div className="clothes">
-      <div className="moccasins">
+      <div className={`moccasins ${activeAboutUsTitle ? 'active':''}`}>
         <img src={Moccasins} alt="moccasins" />
+        <div>
+          <h2>Hello </h2>
+        </div>
       </div>
       <div className="clothes_child">
         <div className="clothes_child_title ">
           <h1 className={`${activeAboutUsTitle ? "active first" : ""}`}>
-            Clothes{" "}
+            Clothes
           </h1>
         </div>
         <div className="clothes_child_title">

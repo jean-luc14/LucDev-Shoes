@@ -37,93 +37,6 @@
 
 }
 
-
-//clothes
-.clothes{
-  height:40vw;
-  width:80vw;
-  margin: auto;
-  @include flex;
-  .moccasins{
-    height:100%;
-    width:48%;
-    margin-right: 2%;
-    img{
-      @extend %back-img;
-      border-radius: 4px;
-    }
-  }
-  .clothes_child{
-    height:100%;
-    width:50%;
-    @include flex(column,flex-start,space-around);
-    &_title{
-      width:100%;
-      height:auto;
-      overflow:hidden;
-    }
-  }
-}
-
-//slides in clothes
-.clothes_child_slides{
-  position:relative;
-  height:28vw;
-  width: 90%;
-  margin-top:1vw;
-  &_item{
-    position:relative;
-    @include absolute (0,0,0,0);
-    height:100%;
-    width:100%;
-    border-radius: 4px;
-    overflow: hidden;
-
-    img{
-      position:absolute;
-      @extend %back-img;
-      border-radius: 4px;
-      transform:translateX(105%);
-      opacity:0;
-
-      &.first{
-        animation:animSlides 4.5s infinite;
-        animation-delay: 1.5s;
-      }
-    
-      &.second {
-        animation:animSlides 4.5s infinite;
-        animation-delay: 3s;
-      }
-    
-      &.last {
-        animation:animSlides 4.5s infinite;
-        animation-delay: 4.5s;
-      }
-    }
-  }
-}
-@keyframes animSlides {
-  0%{
-    transform:translateX(105%);
-    opacity:1;
-  }
-  33%{
-    transform:translateX(0%);
-    opacity:1;
-  }
-  66%{
-    transform:translateX(0%);
-    opacity:0;
-  }
-  
-  100%{
-    transform:translateX(105%);
-    opacity:0;
-  }
-}
-
-
 //All h1 in about us page
 .about_us h1{
   transform: translateY(100%);
@@ -155,20 +68,4 @@
   }
 }
 
-//h1 in about us body in clothes
-.clothes_child h1{
-  font-size:calc(70 * var(--res));
 
-  &.active{
-    transform:translateY(0);
-    &.first{
-      transition-delay:0.6s;
-    }
-    &.second{
-      transition-delay:0.8s;
-    }
-    &.last{
-      transition-delay:1s;
-    }
-  }
-}
