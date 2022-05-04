@@ -39,7 +39,7 @@
 
 //All h1 in about us page
 .about_us h1{
-  transform: translateY(100%);
+  transform: translateY(110%);
   transition: transform 0.8s ease-out;
   font-size:calc(100 * var(--res));
   font-weight:500;
@@ -67,7 +67,7 @@
     }
   }
 }
-@media screen and(max-width:992px){
+@media screen and(max-width:$tablet-max-width){
   .about_us_body{
     width:100vw;
 

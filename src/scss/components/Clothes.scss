@@ -127,19 +127,20 @@
   }
 }
 
-@media  screen and (max-width:992px) {
+//Responsive
+@media  screen and (max-width:$tablet-max-width) {
   .clothes{
     height:auto;
-    width:70vw;
+    width:80vw;
     flex-direction:column-reverse;
     .moccasins{
-      height:80vw;
-      width:60vw;
+      height:75vw;
+      width:75vw;
       margin:2vw auto;
     }
     .clothes_child{
       height:90vw;
-      width:60vw;
+      width:75vw;
       margin:2vw auto;
 
       .clothes_child_slides{

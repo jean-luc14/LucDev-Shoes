@@ -1,5 +1,6 @@
 @import '../mixins';
 @import '../_placeholders';
+@import '../_variables';
 
 //The making_better components is in About_us.jsx
 .making_better{
@@ -89,6 +90,31 @@
     }
     &.last{
       transition-delay:1s;
+    }
+  }
+}
+
+//Responsive
+@media  screen and (max-width:$tablet-max-width) {
+  .making_better{
+    height:auto;
+    width:75vw;
+    flex-direction:column;
+    .moccasins{
+      height:70vw;
+      width:70vw;
+      margin:2vw auto;
+    }
+    .making_better_child{
+      height:80vw;
+      width:70vw;
+      margin:2vw auto;
+      &_info > h2 {
+        width:70%;
+      }
+      &_info > div > h3 {
+        font-size:calc(45 * var(--res));
+      }
     }
   }
 }
