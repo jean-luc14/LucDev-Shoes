@@ -53,9 +53,9 @@
 //slides in clothes
 .clothes_child_slides{
   position:relative;
-  height:28vw;
+  height:24vw;
   width: 90%;
-  margin-top:1vw;
+  margin-top:2vw;
   &_item{
     position:relative;
     @include absolute (0,0,0,0);
