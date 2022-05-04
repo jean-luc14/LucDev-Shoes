@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react';
+import Frequently_Questions from "./Frequently_Questions";
 import Oxfords from '../Assets/images/oxfords/1/coffee.jpg'
 import Loafers from '../Assets/images/loafers/4/gray.jpg'
 import Derby from '../Assets/images/H.jpg'
@@ -35,6 +36,7 @@ const About_us = () => {
       <div className="about_us_body">
         <Clothes activeAboutUsTitle={activeAboutUsTitle} />
         <Making_better activeMakingBetterTitle={activeMakingBetterTitle}/>
+        <Frequently_Questions/>
         <div className="frequently_questions"></div>
       </div>
     </div>
@@ -134,8 +136,4 @@ const Making_better = ({activeMakingBetterTitle}) => {
   );
 };
 
-const Frequently_questions = () => {
-  return <div>About_us</div>;
-};
-    
 export default About_us;
