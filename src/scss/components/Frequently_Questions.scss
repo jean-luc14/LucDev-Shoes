@@ -58,3 +58,11 @@
 
   }
 }
+@media screen and (max-width:$tablet-max-width){
+  .frequently_Questions_child{
+    flex-direction:column;
+    &_item{
+      width:100%;
+    }
+  }
+}
