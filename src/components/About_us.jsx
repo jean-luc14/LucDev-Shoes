@@ -6,11 +6,14 @@ import Moccasins from "../Assets/images/moccasins/7/gray.jpg";
 
 const About_us = () => {
 
-  //state to catch active/not active to animate about us header
+  //state to catch active/not active to animate about us titles
   const [activeAboutUsTitle, setActiveAboutUsTitle] = useState(false)
+  const [activeMakingBetterTitle, setActiveMakingBetterTitle] = useState(false)
+
 
   useEffect(() => {
-    setActiveAboutUsTitle(true)
+    setActiveAboutUsTitle(true);
+    setActiveMakingBetterTitle(true);
   }, []);  
   return (
     <div className="about_us">
@@ -31,7 +34,7 @@ const About_us = () => {
       </div>
       <div className="about_us_body">
         <Clothes activeAboutUsTitle={activeAboutUsTitle} />
-        <div className="making_better"></div>
+        <Making_better activeMakingBetterTitle={activeMakingBetterTitle}/>
         <div className="frequently_questions"></div>
       </div>
     </div>
@@ -81,8 +84,54 @@ const Clothes = ({ activeAboutUsTitle }) => {
   );
 };
 
-const Making_better = () => {
-  return <div>About_us</div>;
+const Making_better = ({activeMakingBetterTitle}) => {
+  return (
+    <div className="making_better">
+      <div className="making_better_child">
+        <div className="making_better_child_title ">
+          <h1 className={`${activeMakingBetterTitle ? "active first" : ""}`}>
+            We Are
+          </h1>
+        </div>
+        <div className="making_better_child_title">
+          <h1 className={`${activeMakingBetterTitle ? "active second" : ""}`}>
+            Making Better
+          </h1>
+        </div>
+        <div className="making_better_child_title">
+          <h1 className={`${activeMakingBetterTitle ? "active last" : ""}`}>
+            Your Life Style
+          </h1>
+        </div>
+        <div className="making_better_child_info">
+          <h2>10+</h2>
+          <div>
+            <h3>Years Of Experience</h3>
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+              molestias eius iusto veniam.
+            </div>
+          </div>
+        </div>
+        <div className="making_better_child_info">
+          <h2>20K+</h2>
+          <div>
+            <h3>Loyal Customer</h3>
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+              molestias eius iusto veniam.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={`moccasins ${activeMakingBetterTitle ? "active" : ""}`}>
+        <img src={Moccasins} alt="moccasins" />
+        <div>
+          <h2>We the best </h2>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const Frequently_questions = () => {
