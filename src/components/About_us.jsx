@@ -101,7 +101,7 @@ const Making_better = ({ activeMakingBetterTitle }) => {
       const { scrollTop, clientHeight } = document.documentElement;
       const TopMakingChildToTopViewport = MakingChild.getBoundingClientRect().top;
       if (scrollTop > (scrollTop + TopMakingChildToTopViewport).toFixed()
-      - clientHeight * 0.90) {
+      - clientHeight * 0.9) {
       titles.forEach((title) => {
         title.classList.add("active");
       });
