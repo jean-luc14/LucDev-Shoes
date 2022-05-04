@@ -10,22 +10,42 @@
     font-weight: 500;
     margin:2vmin 0;
   }
-  // h1 have a linear gradient color in about_us.scss
-  h1{
-    font-size: calc(80 * var(--res));
-    transform:translateY(0);
-    margin:1vmin 0;
+  &_title {
+    height:auto;
+    width:100%;
+    overflow:hidden;
+    @include flex;
+
+    //h1  have a linear gradient color, transform... in about_us.scss
+    h1{
+      font-size: calc(80 * var(--res));
+      margin:1vmin 0;
+      &.first{
+        transition-delay:0s;
+        &.active{
+          transform:translateY(0);
+        }
+      }
+      &.last{
+        transition-delay:0.4s;
+        &.active{
+          transform:translateY(0);
+        }
+      }
+    }
   }
   &_child{
     width:100%;
     height:auto;
     @include flex;
     margin:2vmin 0;
+
     &_item{
       width:33%;
       font-weight: 500;
       @include flex($flex-direction:column);
       margin:2vmin 0;
+
       div{
         margin:1.5vmin 0;
         font-size: calc(26 * var(--res));

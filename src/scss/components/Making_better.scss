@@ -60,7 +60,7 @@
     justify-content:center;
     flex-direction:column;
     font-size:calc(110 * var(--res));
-    width:50%;
+    width:70%;
   }
   div{
     display:flex;
@@ -80,16 +80,22 @@
 .making_better_child h1{
   font-size:calc(70 * var(--res));
 
-  &.active{
-    transform:translateY(0);
-    &.first{
-      transition-delay:0.6s;
+  &.first{
+    transition-delay:0s;
+    &.active{
+      transform:translateY(0);
     }
-    &.second{
-      transition-delay:0.8s;
+  }
+  &.second{
+    transition-delay:0.2s;
+    &.active{
+      transform:translateY(0);
     }
-    &.last{
-      transition-delay:1s;
+  }
+  &.last{
+    transition-delay:0.4s;
+    &.active{
+      transform:translateY(0);
     }
   }
 }

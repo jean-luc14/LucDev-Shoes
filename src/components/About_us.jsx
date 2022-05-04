@@ -37,7 +37,6 @@ const About_us = () => {
         <Clothes activeAboutUsTitle={activeAboutUsTitle} />
         <Making_better activeMakingBetterTitle={activeMakingBetterTitle}/>
         <Frequently_Questions/>
-        <div className="frequently_questions"></div>
       </div>
     </div>
   );
@@ -86,24 +85,41 @@ const Clothes = ({ activeAboutUsTitle }) => {
   );
 };
 
-const Making_better = ({activeMakingBetterTitle}) => {
+const Making_better = ({ activeMakingBetterTitle }) => {
+  useEffect(() => {
+    //Catch titles container
+    const MakingChild = document.querySelector(
+      ".making_better_child"
+    );
+    
+    //Catch titles 
+    const titles = document.querySelectorAll(
+      ".making_better_child h1");
+    
+    //Add active class to title if he is visible in viewport 
+    window.addEventListener('scroll',()=>{
+      const { scrollTop, clientHeight } = document.documentElement;
+      const TopMakingChildToTopViewport = MakingChild.getBoundingClientRect().top;
+      if (scrollTop > (scrollTop + TopMakingChildToTopViewport).toFixed()
+      - clientHeight * 0.90) {
+      titles.forEach((title) => {
+        title.classList.add("active");
+      });
+      }
+    })
+
+  }, []);
   return (
     <div className="making_better">
       <div className="making_better_child">
         <div className="making_better_child_title ">
-          <h1 className={`${activeMakingBetterTitle ? "active first" : ""}`}>
-            We Are
-          </h1>
+          <h1 className="first ">We Are</h1>
         </div>
         <div className="making_better_child_title">
-          <h1 className={`${activeMakingBetterTitle ? "active second" : ""}`}>
-            Making Better
-          </h1>
+          <h1 className="second ">Making Better</h1>
         </div>
         <div className="making_better_child_title">
-          <h1 className={`${activeMakingBetterTitle ? "active last" : ""}`}>
-            Your Life Style
-          </h1>
+          <h1  className="last ">Your Life Style</h1>
         </div>
         <div className="making_better_child_info">
           <h2>10+</h2>
