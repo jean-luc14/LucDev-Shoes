@@ -1,5 +1,6 @@
 @import './_variables';
 @import './_mixins';
+@import './_placeholders';
 @import './_base';
 @import './components/ProductView';
 @import './components/ProductViewModal';
@@ -27,6 +28,7 @@
 @import './components/Making_better.scss';
 @import './components/Frequently_Questions.scss';
 @import "./components/Let's_talk.scss";
+@import './components/ContactForm.scss';
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

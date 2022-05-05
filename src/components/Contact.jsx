@@ -39,7 +39,8 @@ const Contact = () => {
       </div>
       <div className="contact_body">
         <LetsTalk activeLetsTalkTitle={activeLetsTalkTitle} />
-        <Frequently_Questions/>
+        <ContactForm/>
+        <Frequently_Questions />
       </div>
     </div>
   );
@@ -125,5 +126,56 @@ const LetsTalk = ({ activeLetsTalkTitle }) => {
    </div>
  );
 };
+
+//The Style of ContactForm is in ContactForm.jsx
+const ContactForm = () => {
+
+    useEffect(() => {
+      //Catch titles container
+      const ContactForm = document.querySelector(".contactForm");
+
+      //Catch titles (h1)
+      const title = document.querySelector(".contactForm h1");
+
+      //Add active class to title if he is visible in viewport
+      window.addEventListener("scroll", () => {
+        const { scrollTop, clientHeight } = document.documentElement;
+        const TopContactFormToTopViewport =
+          ContactForm.getBoundingClientRect().top;
+        if (
+          scrollTop >
+          (scrollTop + TopContactFormToTopViewport).toFixed() -
+            clientHeight * 0.8
+        ) {
+          title.classList.add("active");
+        }
+      });
+    }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+  return (
+    <div className="contactForm">
+      <div className="contactForm_info">
+        <h3>Contact us</h3>
+        <div>
+          <h1>Send Inquiry</h1>
+        </div>
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Modi eius sapiente facere accusamus, a fuga itaque velit delectus tempora
+          ad ut unde fugiat suscipit illo, pariatur magnam ex dolor et.
+        </div>
+      </div>
+      <form onSubmit={handleSubmit} className="contactForm_child">
+        <input type='name' placeholder='Name'></input>
+        <input type='Email' placeholder='Email'></input>
+        <textarea placeholder='Message'></textarea>
+        <input type='submit' value='Send' id='submit'></input>
+      </form>
+    </div>
+  );
+}
 
 export default Contact;

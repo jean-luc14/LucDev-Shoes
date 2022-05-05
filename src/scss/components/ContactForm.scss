@@ -1,0 +1,82 @@
+//The component of contactForm is in Contact.jsx
+.contactForm{
+  height:auto;
+  width:80vw;
+  margin:15vmin auto;
+  @include flex($justify-content:space-between);
+  &_info{
+    width:49%;
+    height:100%;
+    @include flex(column,flex-start,flex-start);
+    h3{
+      font-size: calc(35 * var(--res));
+      font-weight: 500;
+      margin:2vmin 0;
+    }
+    div{
+      width:100%;
+      height:auto;
+      overflow:hidden;
+      font-size: calc(30 * var(--res));
+      margin:2vmin 0;
+      //The Style and transition of is in Contact.scss
+      h1{
+        margin:2vmin 0;
+        font-size:calc(80 * var(--res));
+        &.active{
+          transform:translateY(0);
+        }
+      }
+    }
+  }
+  &_child{
+    width:49%;
+    height:100%;
+    input{
+      width:100%;
+      margin:2vmin auto;
+      border:none;
+      border-radius:5px;
+      outline:none;
+      padding:1vmin;
+      &:last-child{
+        background:$red;
+        width:50%;
+        color:rgb(226, 226, 204);
+        font-weight:500;
+        cursor:pointer;
+        &:active{
+          background:rgb(216, 71, 13);
+        }
+      }
+    }
+    textarea{
+      @extend input ;
+    }
+  }
+}
+ 
+
+
+//Responsive
+// @media screen and (max-width:$tablet-max-width){
+//   .contactForm{
+//     flex-direction:column;
+//     &_info{
+//       width:100%;
+//       height:auto;
+//       margin-bottom:3vmin;
+//       h3{
+//         font-size: calc(50 * var(--res));
+//       }
+//       div{
+//         font-size: calc(25 * var(--res));
+//       }
+//     }
+//     &_child{
+//       width:100%;
+//       height:auto;
+//     }
+//   } 
+// }
+
