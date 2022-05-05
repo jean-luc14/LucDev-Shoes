@@ -68,6 +68,11 @@
         font-size: calc(40 * var(--res));
         font-weight:500;
       }
+      h4{
+        font-size: calc(50 * var(--res));
+        color:$red;
+        font-weight:500;
+      }
     }
   }
 }
@@ -75,7 +80,7 @@
 //Socials Network
 .lets_talk .socials_network{
   
-  //margin-top:4vmin;
+  margin-top:2.5vmin;
   display:flex;
   li{
     @include flex(row,flex-start,flex-end);
@@ -135,8 +140,6 @@
         }
         h4{
           font-size: calc(55 * var(--res));
-          color:$red;
-          font-weight:500;
         }
         .socials_network{
           margin-top:2.5vw;
