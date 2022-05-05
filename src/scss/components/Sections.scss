@@ -2,7 +2,7 @@
 
 .sectionTitle{
   @extend %flex-center;
-  
+    
   h1{
     margin:50px;
     font-size: calc(120 * var(--res));
