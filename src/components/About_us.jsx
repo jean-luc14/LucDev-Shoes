@@ -88,9 +88,7 @@ const Clothes = ({ activeAboutUsTitle }) => {
 const Making_better = ({ activeMakingBetterTitle }) => {
   useEffect(() => {
     //Catch titles container
-    const MakingChild = document.querySelector(
-      ".making_better_child"
-    );
+    const MakingChild = document.querySelector(".making_better_child_title");
     
     //Catch titles 
     const titles = document.querySelectorAll(
@@ -101,7 +99,7 @@ const Making_better = ({ activeMakingBetterTitle }) => {
       const { scrollTop, clientHeight } = document.documentElement;
       const TopMakingChildToTopViewport = MakingChild.getBoundingClientRect().top;
       if (scrollTop > (scrollTop + TopMakingChildToTopViewport).toFixed()
-      - clientHeight * 0.9) {
+      - clientHeight * 0.7) {
       titles.forEach((title) => {
         title.classList.add("active");
       });

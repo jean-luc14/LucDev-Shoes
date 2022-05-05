@@ -6,7 +6,7 @@ const Frequently_Questions = () => {
   
   useEffect(() => {
     //Catch titles container
-    const FrequentlyQuestions = document.querySelector(".frequently_Questions");
+    const FrequentlyQuestions = document.querySelector(".frequently_Questions_title");
     
     //Catch titles (h1)
     const titles = document.querySelectorAll(".frequently_Questions h1");
@@ -23,7 +23,7 @@ const Frequently_Questions = () => {
       if (
         scrollTop >
         (scrollTop + TopFrequentlyQuestionsToTopViewport).toFixed() -
-          clientHeight * 0.8
+          clientHeight * 0.7
       ) {
         titles.forEach((title) => {
           title.classList.add("active");
