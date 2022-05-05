@@ -59,24 +59,24 @@
 
 
 //Responsive
-// @media screen and (max-width:$tablet-max-width){
-//   .contactForm{
-//     flex-direction:column;
-//     &_info{
-//       width:100%;
-//       height:auto;
-//       margin-bottom:3vmin;
-//       h3{
-//         font-size: calc(50 * var(--res));
-//       }
-//       div{
-//         font-size: calc(25 * var(--res));
-//       }
-//     }
-//     &_child{
-//       width:100%;
-//       height:auto;
-//     }
-//   } 
-// }
+@media screen and (max-width:$tablet-max-width){
+  .contactForm{
+    flex-direction:column;
+    &_info{
+      width:100%;
+      height:auto;
+      margin-bottom:3vmin;
+      h3{
+        font-size: calc(50 * var(--res));
+      }
+      div{
+        font-size: calc(25 * var(--res));
+      }
+    }
+    &_child{
+      width:100%;
+      height:auto;
+    }
+  } 
+}
 
