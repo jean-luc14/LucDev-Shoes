@@ -1,0 +1,173 @@
+@import '../mixins';
+@import '../_placeholders';
+
+//The lets_talk components is in About_us.jsx
+.lets_talk{
+  height:40vw;
+  width:80vw;
+  margin: auto;
+  @include flex;
+  .moccasins{
+    position:relative;
+    height:100%;
+    width:48%;
+    margin-right: 2%;
+    &::after{
+      content:'';
+      @include absolute(0,0,0,0);
+      width:100%;
+      height:100%;
+      background-image:linear-gradient(0deg ,rgba(0, 0, 0, 0.843),rgba(0, 0, 0, 0));
+      z-index:1;
+    }
+    div{
+      position:absolute;
+      bottom:3%;
+      left:5%;
+      width:100%;
+      height:auto;
+      overflow:hidden;
+      z-index:2;
+      h2{
+        font-size:calc(70 * var(--res));
+        color:white;
+      }
+    }
+    img{
+      @extend %back-img;
+      border-radius: 4px;
+    }
+  }
+  .lets_talk_child{
+    height:100%;
+    width:50%;
+    @include flex(column,flex-start,space-around);
+    &_title{
+      width:100%;
+      height:auto;
+      overflow:hidden;
+    }
+  }
+}
+
+//info in lets_talk
+.lets_talk_child_info{
+  height:24vw;
+  width: 90%;
+  margin-top:2vw;
+  @include flex($flex-direction:column);
+  &_item{
+    height:50%;
+    width:100%;
+    @include flex;
+    div{
+      height:100%;
+      width:50%;
+      @include flex(column,center,flex-start);
+      h3{
+        font-size: calc(40 * var(--res));
+        font-weight:500;
+      }
+
+    }
+
+    
+  }
+}
+
+//Socials Network
+.lets_talk .socials_network{
+  
+  //margin-top:4vmin;
+  display:flex;
+  li{
+    @include flex(row,flex-start,flex-end);
+    width: 5vmin;
+    height: 5vmin;
+  
+    img {
+      @extend %back-img;
+      margin-right:2vmin;
+    }
+  
+  }
+}
+
+
+
+//h1 in about us body in lets_talk
+.lets_talk_child h1{
+  font-size:calc(70 * var(--res));
+
+  &.active{
+    transform:translateY(0);
+    &.first{
+      transition-delay:0.6s;
+    }
+    &.second{
+      transition-delay:0.8s;
+    }
+    &.last{
+      transition-delay:1s;
+    }
+  }
+}
+
+//Responsive
+@media  screen and (max-width:$tablet-max-width) {
+  .lets_talk{
+    height:auto;
+    width:80vw;
+    flex-direction:column-reverse;
+    .moccasins{
+      height:75vw;
+      width:75vw;
+      margin:2vw auto;
+    }
+    .lets_talk_child{
+      height:90vw;
+      width:75vw;
+      margin:2vw auto;
+
+      .lets_talk_child_info{
+        position:relative;
+        height:60vw;
+        width: 100%;
+        h3{
+          font-size: calc(45 * var(--res));
+        }
+        h4{
+          font-size: calc(55 * var(--res));
+          color:$red;
+          font-weight:500;
+        }
+        .socials_network{
+          margin-top:2.5vw;
+          
+        }
+        
+      }
+    }
+  }
+  .lets_talk_child_title h1{
+    &:last-child{
+      margin-bottom:3vmin;
+    }
+  }
+}
+@include mobile {
+  .lets_talk {
+    p{
+      font-size: calc(40 * var(--res));
+    }
+    .socials_network{
+      margin-top:10vmin;
+      li{
+        width: 6vmin;
+        height: 6vmin;
+      }
+    }
+    
+  }
+      
+}

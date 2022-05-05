@@ -23,7 +23,7 @@ const Frequently_Questions = () => {
       if (
         scrollTop >
         (scrollTop + TopFrequentlyQuestionsToTopViewport).toFixed() -
-          clientHeight * 0.85
+          clientHeight * 0.8
       ) {
         titles.forEach((title) => {
           title.classList.add("active");
@@ -35,6 +35,7 @@ const Frequently_Questions = () => {
     let tooltipId;
     questions.forEach((question) => {
       question.addEventListener("mouseenter", (e) => { 
+        
         tooltipId = e.target.getAttribute('tooltip-id');
 
         tooltip.classList.add('fade_in');
@@ -46,15 +47,14 @@ const Frequently_Questions = () => {
 
       })
       question.addEventListener("mouseout", () => { 
-        tooltip.classList.remove('fade_in');
+          tooltip.classList.remove('fade_in');
       })
-    }
-    );
+    });
     tooltip.addEventListener("mouseenter", () => { 
       tooltip.classList.add('fade_in');
     })
     tooltip.addEventListener("mouseout", () => { 
-      tooltip.classList.remove('fade_in');
+        tooltip.classList.remove('fade_in');
     })
 
   },[])

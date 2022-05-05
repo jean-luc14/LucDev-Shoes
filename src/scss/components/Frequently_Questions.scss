@@ -27,7 +27,7 @@
         }
       }
       &.last{
-        transition-delay:0.4s;
+        transition-delay:0.2s;
         &.active{
           transform:translateY(0);
         }
@@ -69,7 +69,7 @@
   font-size: calc(22 * var(--res));
   padding:2vw;
   background: white;
-  box-shadow: 0 30px 90px -20px rgba(0,0,0,3);
+  box-shadow: $box-shadow;
   transform:scale(1,0);
   z-index:1;
   border-radius:7px;
