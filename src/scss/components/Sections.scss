@@ -1,11 +1,33 @@
-@import '../_mixins';
 
 .sectionTitle{
-  @extend %flex-center;
-    
-  h1{
-    margin:50px;
-    font-size: calc(120 * var(--res));
-    font-weight: 600;
+  position:relative;
+  height:45vh;
+  width:100vw;
+  margin-bottom:10vmin;
+  &::after{
+    @include absolute;
+    @include pseudo($background:rgba(0, 0, 0, 0.466));
   }
+  img{
+    @extend %back-img;
+    z-index:1;
+  }
+  &_child{
+    @include absolute(9%,65%,0,50%);
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    z-index:2;
+    h1{
+      font-size: calc(120 * var(--res));
+      font-weight: 600;
+      @extend %title;
+      &.active{
+        transform:translateY(0);
+        transition-delay:1s;
+      }
+    }
+  }
+    
+  
 }

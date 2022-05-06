@@ -28,7 +28,7 @@ const Catalog = props => {
       return element.catalogSlug === catalog
     });
     setCatalogProductCards(catalogProductCards);
-    
+
   }, [catalog]);
   return (
     <>
@@ -36,11 +36,13 @@ const Catalog = props => {
       {activeCatalogPage ? (
         <div>
           <Section>
-            <SectionTitle>{activeCatalogPage.display}</SectionTitle>
+            <SectionTitle catalogProductCards={catalogProductCards}>
+              {activeCatalogPage.display}
+            </SectionTitle>
             <SectionBody>
               <Grid>
                 {catalogProductCards.map((e, i) => (
-                    <ProductCard productProps={e} key={i} />
+                  <ProductCard productProps={e} key={i} />
                 ))}
               </Grid>
             </SectionBody>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useRef,useEffect} from 'react'
 
 
 const Section = props => {
@@ -10,13 +10,30 @@ const Section = props => {
 }
 
 export const SectionTitle = props => {
+  // States and useEffect to add class to h1
+  const [activeTitle, setActiveTitle] = useState(false);
+  // const [noActiveTitle, setNoActiveTitle] = useState(false);
+  const h1 = useRef();
+  // let active; 
+  
+  useEffect(() => {
+    // active = true;
+    setActiveTitle(true);
+    // console.log(active);
+    // console.log(activeTitle);
+    // // return () => {
+    // //   active = false;
+    // // };
+  }, []);
+  
   return (
-    <div className={'sectionTitle'}>
-      <h1>
-        {props.children}
-      </h1>
+    <div className="sectionTitle">
+      <img src={props.catalogProductCards[0].img}/>
+      <div className="sectionTitle_child">
+        <h1 className={`${activeTitle ? "active" : ""}`}>{props.children}</h1>
+      </div>
     </div>
-  )
+  );
 }
 
 export const SectionBody = props => {
