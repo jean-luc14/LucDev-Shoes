@@ -1,0 +1,13 @@
+.search_results{
+  width:100vw;
+  height:auto;
+  .products_filter{
+    width:30%;
+    height:auto;
+  }
+  &_child{
+    @include flex;
+    width:70%;
+    height:auto;
+  }
+}

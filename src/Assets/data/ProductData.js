@@ -2266,7 +2266,7 @@ const getNewProducts = () => {
   return NewArrivals;
 }
 
-//func to get a product object
+//func to get a product object by him catalog and id
 const getProductByCatalogAndId = (catalog, id) => {
   let product;
   if (catalog & id === undefined) {
@@ -2291,6 +2291,22 @@ const getCartItemsDetail = (cartItems) => {
   return res
 }
 
+//fun to search products by name 
+
+/*( si les mots d'un groupe de mot recherchés sont mis dans un ordre
+   different de celui du nom des produits, ceux-ci ne s'afficheront pas(A performer plus tard) )*/
+const searchProducts = value => {
+
+  let results;
+    results = productData.filter( e => {
+      return e.name
+        .toLowerCase()
+        .replace(/\s/g, "")
+        .includes(value.toLowerCase().replace(/\s/g, ""));
+    })
+  return results
+}
+
 
 export {
   productData,
@@ -2298,6 +2314,7 @@ export {
   getCartItemsDetail,
   getNewProducts,
   getFavoriteProducts,
+  searchProducts,
 };
 
 

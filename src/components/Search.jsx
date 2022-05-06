@@ -1,9 +1,7 @@
 import React,{useRef,useState,useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import Search_icon from '../Assets/icons/search_icon.png';
-import { productData } from '../Assets/data/ProductData'
-import { useDispatch } from "react-redux";
-import { searchResults } from "../redux/searchResults/SearchResultsSlice";
+import { searchProducts } from "../Assets/data/ProductData";
 
 
 const Search = props => {
@@ -11,21 +9,13 @@ const Search = props => {
   const [dynamic_search_data,setDynamic_search_data] = useState([])
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  // fonction qui met a jour la valeur de l'input dans le state ,et recherhe les donnees 
+  // fonction qui met a jour la valeur de l'input dans le state et lance la recherche des produits
 
-  /* si les mots d'un groupe de mot recherchés sont mis dans un ordre
-   different de celui du nom des produits, ceux-ci ne s'afficheront pas(A performer plus tard) */
   const searchProductFoo = e => {
     setInputValue(e.target.value);
-
-    var dynamic_result = productData.filter( e => {
-      return e.name
-        .toLowerCase()
-        .replace(/\s/g, "")
-        .includes(inputValue.toLowerCase().replace(/\s/g, ""));
-    })
+    var dynamic_result = searchProducts(inputValue);
+    console.log(inputValue);
     setDynamic_search_data(dynamic_result);
   }
   
@@ -40,9 +30,9 @@ const Search = props => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(searchResults(dynamic_search_data));
-    navigate('/search');
-    setInputValue('')
+    navigate(`/search/${inputValue}`);
+    setInputValue('');
+    animSearchFoo();
   }
   return (
     <div ref={animSearch} className="Search_wrapper">
