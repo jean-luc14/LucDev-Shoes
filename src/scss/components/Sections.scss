@@ -19,12 +19,17 @@
     overflow:hidden;
     z-index:2;
     h1{
-      font-size: calc(120 * var(--res));
+      font-size: calc(100 * var(--res));
       font-weight: 600;
       @extend %title;
       &.active{
         transform:translateY(0);
         transition-delay:1s;
+      }
+      &.no_results{
+        font-size: calc(110 * var(--res));
+        color:#000;
+        margin:10vh auto;
       }
     }
   }

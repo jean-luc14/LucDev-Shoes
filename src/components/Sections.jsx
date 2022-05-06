@@ -28,7 +28,7 @@ export const SectionTitle = props => {
   
   return (
     <div className="sectionTitle">
-      <img src={props.catalogProductCards[0].img}/>
+      <img src={props.ProductCards[0].img}/>
       <div className="sectionTitle_child">
         <h1 className={`${activeTitle ? "active" : ""}`}>{props.children}</h1>
       </div>

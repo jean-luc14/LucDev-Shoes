@@ -1,13 +1,17 @@
 import React,{useRef,useState,useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import Search_icon from '../Assets/icons/search_icon.png';
-import {productData} from '../Assets/data/ProductData'
+import { productData } from '../Assets/data/ProductData'
+import { useDispatch } from "react-redux";
+import { searchResults } from "../redux/searchResults/SearchResultsSlice";
+
 
 const Search = props => {
   const animSearch = useRef(null)
   const [dynamic_search_data,setDynamic_search_data] = useState([])
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // fonction qui met a jour la valeur de l'input dans le state ,et recherhe les donnees 
 
@@ -36,6 +40,7 @@ const Search = props => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(searchResults(dynamic_search_data));
     navigate('/search');
     setInputValue('')
   }
@@ -54,9 +59,10 @@ const Search = props => {
           onClick={animSearchFoo}
         />
         <div className="dynamic_search_results">
-          <span className={`${inputValue.length > 0 ? "triangle" : ""}`}></span>
-          {inputValue.length > 0
+          <span className={`${inputValue.length > 3 ? "triangle" : ""}`}></span>
+          {inputValue.length > 3
             ? dynamic_search_data.map((e, i) => (
+              <>
                 <div
                   key={i}
                   className="dynamic_search_item"
@@ -75,9 +81,10 @@ const Search = props => {
                     <p className="dynamic_search_item_content_name">{e.name}</p>
                   </div>
                 </div>
+              <input type='submit' value='Plus' ></input>
+              </>
               ))
             : null}
-          <input type='submit' value='Plus' ></input>
         </div>
         
       </form>

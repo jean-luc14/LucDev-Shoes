@@ -31,10 +31,10 @@
     &:last-child{
       opacity:1; 
       background:$red;
-      width:100%;
+      width:98%;
       color:rgb(226, 226, 204);
       font-weight:500;
-      margin:2px 0;
+      margin:2px 1%;
       cursor:pointer;
       &:active{
         background:rgb(216, 71, 13);

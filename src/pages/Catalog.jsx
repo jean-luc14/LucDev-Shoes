@@ -36,7 +36,7 @@ const Catalog = props => {
       {activeCatalogPage ? (
         <div>
           <Section>
-            <SectionTitle catalogProductCards={catalogProductCards}>
+            <SectionTitle ProductCards={catalogProductCards}>
               {activeCatalogPage.display}
             </SectionTitle>
             <SectionBody>
