@@ -34,44 +34,54 @@ const Search = props => {
     navigate(`/${catalogSlug}/${id}`)
     setInputValue('')
   }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate('/search');
+    setInputValue('')
+  }
   return (
     <div ref={animSearch} className="Search_wrapper">
-      <input
-        type="text"
-        placeholder="Search"
-        value={inputValue}
-        onInput={searchProductFoo}
-      ></input>
-      <img className="Search_icon" src={Search_icon} onClick={animSearchFoo} />
-      <div className="dynamic_search_results">
-        <span className={`${inputValue.length > 0 ? "triangle" : ""}`}></span>
-        {inputValue.length > 0
-          ? dynamic_search_data.map((e, i) => (
-              <div
-                key={i}
-                className="dynamic_search_item"
-                onClick={() => goToProductPage(e.catalogSlug, e.id)}
-              >
-                <div className="dynamic_search_item_img">
-                  <img src={e.img} alt={e.name} />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Search"
+          value={inputValue}
+          onInput={searchProductFoo}
+        ></input>
+        <img
+          className="Search_icon"
+          src={Search_icon}
+          onClick={animSearchFoo}
+        />
+        <div className="dynamic_search_results">
+          <span className={`${inputValue.length > 0 ? "triangle" : ""}`}></span>
+          {inputValue.length > 0
+            ? dynamic_search_data.map((e, i) => (
+                <div
+                  key={i}
+                  className="dynamic_search_item"
+                  onClick={() => goToProductPage(e.catalogSlug, e.id)}
+                >
+                  <div className="dynamic_search_item_img">
+                    <img src={e.img} alt={e.name} />
+                  </div>
+                  <div className="dynamic_search_item_content">
+                    <p className="dynamic_search_item_content_price">
+                      US ${e.price}
+                    </p>
+                    <p className="dynamic_search_item_content_category">
+                      {e.catalogSlug}
+                    </p>
+                    <p className="dynamic_search_item_content_name">{e.name}</p>
+                  </div>
                 </div>
-                <div className="dynamic_search_item_content">
-                  <p className="dynamic_search_item_content_price">
-                    US ${e.price}
-                  </p>
-                  <p className="dynamic_search_item_content_category">
-                    {e.catalogSlug}
-                  </p>
-                  <p className="dynamic_search_item_content_name">{e.name}</p>
-                </div>
-              </div>
-            ))
-          : null}
-      </div>
+              ))
+            : null}
+          <input type='submit' value='Plus' ></input>
+        </div>
+        
+      </form>
     </div>
   );
 }
-
-Search.propTypes = {}
-
 export default Search
