@@ -80,10 +80,10 @@ const Search = props => {
                       </p>
                     </div>
                   </div>
-                  <input type="submit" value="Plus"></input>
                 </>
               ))
             : null}
+          {inputValue.length > 2 ? <input type="submit" value="Plus"></input>:null}
         </div>
       </form>
     </div>
