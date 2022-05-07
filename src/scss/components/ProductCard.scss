@@ -122,8 +122,8 @@
     @include desktop{
       min-width:$desktop-card-min-width;
       min-height:$desktop-card-min-width;
-      width:27vw;
-      height:27vw;
+      width:20vw;
+      height:20vw;
     }
   }
 }
@@ -135,8 +135,8 @@
     @include large-desktop{
       min-width:$large-desktop-card-min-width;
       min-height:$large-desktop-card-min-width;
-      width:27vw;
-      height:27vw;
+      width:20vw;
+      height:20vw;
       margin:18px;
     }
   }

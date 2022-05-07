@@ -15,7 +15,6 @@ const Search = props => {
   const searchProductFoo = e => {
     setInputValue(e.target.value);
     var dynamic_result = searchProducts(inputValue);
-    console.log(inputValue);
     setDynamic_search_data(dynamic_result);
   }
   
@@ -23,11 +22,12 @@ const Search = props => {
   const animSearchFoo = () => {
     animSearch.current.classList.toggle('animSearch')
   }
-// fonction to go to product page 
+// function to go to product page 
   const goToProductPage = (catalogSlug,id) => {
     navigate(`/${catalogSlug}/${id}`)
     setInputValue('')
   }
+  //Submit
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate(`/search/${inputValue}`);

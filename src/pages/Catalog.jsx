@@ -40,7 +40,7 @@ const Catalog = props => {
               {activeCatalogPage.display}
             </SectionTitle>
             <SectionBody>
-              <Grid>
+              <Grid searchResults={false}>
                 {catalogProductCards.map((e, i) => (
                   <ProductCard productProps={e} key={i} />
                 ))}

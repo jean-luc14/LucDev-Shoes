@@ -2,12 +2,12 @@
 @import '../_variables';
 
 .wrapperGridCenter{
+  width:100%;
   @include flex($flex-direction:column);
   .wrapperGrids{
-    height:100%;
+    height:auto;
     width:auto;
-    flex-wrap:wrap;
-    padding:5vmin;
+    padding:3vmin;
     
 
   }
@@ -21,7 +21,7 @@
       @include grid(repeat(1, 80vw),repeat(1, 80vw));
       min-width:$mobile-card-min-width;
       min-height:$mobile-card-min-width;
-      row-gap: 150px;
+      row-gap: 20vmin;
     }
   }
 }
@@ -33,26 +33,39 @@
       @include grid(repeat(2, 38vw),repeat(2, 38vw));
       min-width:$tablet-card-min-width;
       min-height:$tablet-card-min-width;
-      row-gap: 100px;
-      column-gap: 20px;
+      row-gap: 10vmin;
+      column-gap: 5vmin;
     }
   }
 }
 
 @include desktop{
-  .wrapperGridCenter .wrapperGrids{
-    @include grid(repeat(3, 1fr),repeat(3, 1fr));
-    row-gap: 100px;
-    column-gap: 20px;
-    background:$background;
+  .wrapperGridCenter {
+  @include flex;
+    width:100%;
+    height:auto;
+    .wrapperGrids{
+      height:auto;
+      @include grid(repeat(3, 1fr),repeat(3, 1fr));
+      row-gap: 10vmin;
+      column-gap: 5vmin;
+      background:$background;
+    }
+    &.search_results_active{
+      
+    }
   }
 }
 
 @include large-desktop{
-  .wrapperGridCenter .wrapperGrids{
-    @include grid(repeat(3, 1fr),repeat(3, 1fr));
-    row-gap: 100px;
-    column-gap: 20px;
-    background:$background;
+  .wrapperGridCenter {
+    width:100%;
+    height:auto;
+    .wrapperGrids{
+      @include grid(repeat(3, 1fr),repeat(3, 1fr));
+      row-gap: 10vmin;
+      column-gap: 5vmin;
+      background:$background;
+    }
   }
 }

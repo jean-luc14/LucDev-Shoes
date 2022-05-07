@@ -1,13 +1,90 @@
 .search_results{
   width:100vw;
-  height:auto;
-  .products_filter{
-    width:30%;
-    height:auto;
+  margin:auto;
+  .search_results_body{
+    position:relative;
+    @include flex(row,space-between,flex-start);
+    width:98%;
+    margin:auto;
+
+    .products_filter{
+      position:sticky;
+      top:0;
+      width:28%;
+      height:100vh;
+      background:$background;
+      padding:10px;
+      h2{
+        font-size: calc(35 * var(--res));
+        font-weight: 500;
+        margin:0.7vmin 0;
+        color:$red;
+      }
+      li{
+        font-size: calc(25 * var(--res));
+        margin:0.2vmin;
+      }
+      &_item_price{
+        &_title{
+          @include flex(row,space-between,flex-start)
+        }
+        &_child{
+          position:relative;
+          width:100%;
+          height:0.5vmin;
+          margin:1vmin;
+          background:$red;
+          span{
+            position:absolute;
+            width:1.5vmin;
+            height:1.5vmin;
+            border-radius:50%;
+            background:$red;
+            &:first-child{
+              top:0;
+              left:0;
+              transform:translate(-50%,-35%)
+            }
+            &:last-child{
+              top:0;
+              right:0;
+              transform:translate(50%,-35%)
+            }
+
+
+          }
+        }
+      }
+      &_item_color{
+        div{
+          @include flex(row,space-between,flex-start);
+        }
+      }
+      &_item_search{
+        display: flex;
+        flex-wrap: nowrap;
+        input{
+          font-size: calc(30 * var(--res));
+          border-radius:3px;
+          border:none;
+          outline:none;
+          padding:1vmin;
+          &:last-child{
+            background:$red;
+            color:rgb(226, 226, 204);
+            cursor:pointer;
+            padding:1vmin 4vmin;
+          }
+        }
+      }
+    }
+    .search_results_body_child{
+      width:70%;
+    }
   }
-  &_child{
-    @include flex;
-    width:70%;
-    height:auto;
+}
+@include mobile {
+  .search_results .search_results_body{
+    flex-direction: column;
   }
 }
