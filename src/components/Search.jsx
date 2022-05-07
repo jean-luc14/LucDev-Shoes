@@ -10,12 +10,9 @@ const Search = props => {
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
 
-  // fonction qui met a jour la valeur de l'input dans le state et lance la recherche des produits
-
+  // fonction qui met a jour la valeur de l'input dans le state
   const searchProductFoo = e => {
     setInputValue(e.target.value);
-    var dynamic_result = searchProducts(inputValue);
-    setDynamic_search_data(dynamic_result);
   }
   
  // Ajout de class pour animer l'input au click
@@ -34,6 +31,12 @@ const Search = props => {
     setInputValue('');
     animSearchFoo();
   }
+  useEffect(() => {
+    // fonction qui recherche les produits et les met dans le state
+    var dynamic_result = searchProducts(inputValue);
+    setDynamic_search_data(dynamic_result);
+  }, [inputValue]);
+  
   return (
     <div ref={animSearch} className="Search_wrapper">
       <form onSubmit={handleSubmit}>
