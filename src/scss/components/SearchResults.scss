@@ -13,12 +13,12 @@
       width:28%;
       height:100vh;
       background:$background;
-      padding:10px;
+      padding: 5px 2vw;
       h2{
         font-size: calc(35 * var(--res));
         font-weight: 500;
         margin:0.7vmin 0;
-        color:$red;
+        user-select:none;
       }
       li{
         font-size: calc(25 * var(--res));
@@ -26,32 +26,52 @@
       }
       &_item_price{
         &_title{
-          @include flex(row,space-between,flex-start)
+          @include flex(row,space-between,flex-end)
+          
+        }
+        h3 {
+          font-size: calc(30 * var(--res));
+          margin:0.7vmin 0;
+          user-select:none;
+          span{
+            color:$red;
+          }
         }
         &_child{
-          position:relative;
-          width:100%;
-          height:0.5vmin;
-          margin:1vmin;
-          background:$red;
-          span{
+          &.gray{
+            position:relative;
+            width:100%;
+            height:0.7vmin;
+            background:rgb(173, 172, 172);
+            user-select: none;
+            cursor:pointer;
+          }
+          &.red{ 
             position:absolute;
-            width:2vmin;
-            height:2vmin;
-            border-radius:50%;
+            top:-1vmin;
+            left:0;
+            width:100%;
+            height:100%;
+            margin:1vmin 0;
             background:$red;
-            &:first-child{
-              top:0;
-              left:0;
-              transform:translate(-50%,-35%)
+            //transform:translate(0%,-40%);
+            span{
+              position:absolute;
+              width:2vmin;
+              height:2vmin;
+              border-radius:50%;
+              background:$red;
+              &:first-child{
+                top:0;
+                left:0;
+                transform:translate(0%,-40%)
+              }
+              &:last-child{
+                top:0;
+                right:0;
+                transform:translate(-0%,-40%)
+              }
             }
-            &:last-child{
-              top:0;
-              right:0;
-              transform:translate(50%,-35%)
-            }
-
-
           }
         }
       }
@@ -73,7 +93,7 @@
             background:$red;
             color:rgb(226, 226, 204);
             cursor:pointer;
-            padding:1vmin 4vmin;
+            padding:1vmin 2vmin;
           }
         }
       }
@@ -84,6 +104,16 @@
   }
 }
 @include mobile {
+  .search_results .search_results_body{
+    flex-direction: column;
+  }
+}
+@include tablet {
+  .search_results .search_results_body{
+    flex-direction: column;
+  }
+}
+@include large-desktop {
   .search_results .search_results_body{
     flex-direction: column;
   }

@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import Grid from "../components/Grid";
 import ProductCard from "../components/ProductCard";
@@ -12,12 +12,6 @@ const SearchResults = () => {
   //params
   const params = useParams();
   let searchResults = searchProducts(params.slug);
-  useEffect(() => {
-    const filter = document.querySelector(".products_filter");
-    filter.addEventListener("mousemove", (e) => {
-      console.log(e.clientX);
-    });
-  }, [])
   
 
   return (
@@ -46,6 +40,77 @@ const SearchResults = () => {
 }
 
 const Filter = () => {
+
+  const maxPrice = '400';
+  const [price, setPrice] = useState(maxPrice);
+
+  
+  useEffect(() => {
+    const searchResultsBody = document.querySelector(".search_results_body");
+    const rowFilterGray = document.querySelector(".products_filter_item_price_child.gray");
+    const rowFilterRed = document.querySelector(".products_filter_item_price_child.red");
+    const firstFilter = document.querySelector(".products_filter_item_price_child .first");
+    const lastFilter = document.querySelector(".products_filter_item_price_child .last");
+    let holding = false;
+    let lastHolding = false;
+    let firstFilterClickX;
+    let lastFilterClickX;
+    let firstPageX;
+    let lastPageX;
+    let parentClickX;
+    let rowFilterGrayX;
+    let MarginLeft;
+    let rowFilterRedWidth;
+    let rowFilterGrayWidth;
+    let currentPrice;
+    rowFilterGray.addEventListener("mousedown", (e) => {
+      holding = true;
+      rowFilterGrayX = e.clientX;
+      const { clientWidth } = document.documentElement;
+      // "(clientWidth * 2)/100" is a padding of ".products_filter" in SearchResults.scss
+      MarginLeft = (clientWidth * 2) / 100 + searchResultsBody.offsetLeft;
+      rowFilterRedWidth = rowFilterGrayX - MarginLeft;
+      rowFilterRed.style.width = `${rowFilterRedWidth}px`;
+
+      /*The value of rowFilterGrayWidth is get from the width of
+      ".products_filter_item_price_child.gray" in SearchResults.scss*/
+      rowFilterGrayWidth = (((clientWidth * 98) / 100) * 28) / 100;
+      currentPrice = (rowFilterRedWidth * 457) / rowFilterGrayWidth;
+      setPrice(currentPrice.toFixed(2));
+
+      if (currentPrice.toFixed(2) <= 0) {
+        setPrice("0");
+      }
+      if (currentPrice.toFixed(2) >= 394) {
+        setPrice(maxPrice);
+      }
+    });
+    rowFilterGray.addEventListener("mousemove", (e) => {
+      if (!holding) return;
+      const x = e.clientX - MarginLeft;
+      const scrolled = x - (rowFilterGrayX - MarginLeft);
+      rowFilterRed.style.width = `${rowFilterRedWidth + scrolled}px`;
+
+      currentPrice =
+        ((rowFilterRedWidth + scrolled) * 457) / rowFilterGrayWidth;
+      setPrice(currentPrice.toFixed(2));
+
+      if (currentPrice.toFixed(2) <= 0) {
+        setPrice("0");
+      }
+      if (currentPrice.toFixed(2) >= 394) {
+        setPrice(maxPrice);
+      }
+    });
+    rowFilterGray.addEventListener("mouseup", () => {
+      holding = false;
+    });
+    rowFilterGray.addEventListener("mouseleave", () => {
+      holding = false;
+    });
+
+  }, []);
+
   return (
     <div className="products_filter">
       <div className="products_filter_item_category">
@@ -56,14 +121,17 @@ const Filter = () => {
           ))}
         </ul>
       </div>
-      <div className="products_filter_item_price">
+      <div onm className="products_filter_item_price">
         <div className="products_filter_item_price_title">
           <h2>Filter By Price</h2>
-          <h3>Price</h3>
+          <h3>$0 - <span>${price}</span>
+          </h3>
         </div>
-        <div className="products_filter_item_price_child">
-          <span></span>
-          <span></span>
+        <div className="products_filter_item_price_child gray">
+          <div className="products_filter_item_price_child red">
+            <span className="first"></span>
+            <span className="last"></span>
+          </div>
         </div>
       </div>
       <div className="products_filter_item_color">

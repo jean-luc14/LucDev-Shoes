@@ -15,7 +15,7 @@ const BodyLayOut = props => {
     const favoriteProducts = getFavoriteProducts();
 
   useEffect(() => {
-      //Full Swiper
+      //Full Slider
       const sliderCtn = document.querySelectorAll(".slideshow-container");
       let holding = false;
       let firstClickX;

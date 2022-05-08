@@ -54,7 +54,9 @@ const Search = props => {
         <div className="dynamic_search_results">
           <span
             className={`${
-              (inputValue.length > 2) & (dynamic_search_data.length > 0) ? "triangle" : ""
+              (inputValue.length > 2) & (dynamic_search_data.length > 0)
+                ? "triangle"
+                : ""
             }`}
           ></span>
           {inputValue.length > 2
@@ -83,7 +85,9 @@ const Search = props => {
                 </>
               ))
             : null}
-          {inputValue.length > 2 ? <input type="submit" value="Plus"></input>:null}
+          {(inputValue.length > 2) & (dynamic_search_data.length > 0) ? (
+            <input type="submit" value="Plus"></input>
+          ) : null}
         </div>
       </form>
     </div>
