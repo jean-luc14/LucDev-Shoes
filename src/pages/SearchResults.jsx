@@ -41,76 +41,7 @@ const SearchResults = () => {
 
 const Filter = () => {
 
-  const maxPrice = '400';
-  const [price, setPrice] = useState(maxPrice);
-
   
-  useEffect(() => {
-    const searchResultsBody = document.querySelector(".search_results_body");
-    const rowFilterGray = document.querySelector(".products_filter_item_price_child.gray");
-    const rowFilterRed = document.querySelector(".products_filter_item_price_child.red");
-    const firstFilter = document.querySelector(".products_filter_item_price_child .first");
-    const lastFilter = document.querySelector(".products_filter_item_price_child .last");
-    let holding = false;
-    let lastHolding = false;
-    let firstFilterClickX;
-    let lastFilterClickX;
-    let firstPageX;
-    let lastPageX;
-    let parentClickX;
-    let rowFilterGrayX;
-    let MarginLeft;
-    let rowFilterRedWidth;
-    let rowFilterGrayWidth;
-    let currentPrice;
-    rowFilterGray.addEventListener("mousedown", (e) => {
-      holding = true;
-      rowFilterGrayX = e.clientX;
-      const { clientWidth } = document.documentElement;
-      // "(clientWidth * 2)/100" is a padding of ".products_filter" in SearchResults.scss
-      MarginLeft = (clientWidth * 2) / 100 + searchResultsBody.offsetLeft;
-      rowFilterRedWidth = rowFilterGrayX - MarginLeft;
-      rowFilterRed.style.width = `${rowFilterRedWidth}px`;
-
-      /*The value of rowFilterGrayWidth is get from the width of
-      ".products_filter_item_price_child.gray" in SearchResults.scss*/
-      rowFilterGrayWidth = (((clientWidth * 98) / 100) * 28) / 100;
-      currentPrice = (rowFilterRedWidth * 457) / rowFilterGrayWidth;
-      setPrice(currentPrice.toFixed(2));
-
-      if (currentPrice.toFixed(2) <= 0) {
-        setPrice("0");
-      }
-      if (currentPrice.toFixed(2) >= 394) {
-        setPrice(maxPrice);
-      }
-    });
-    rowFilterGray.addEventListener("mousemove", (e) => {
-      if (!holding) return;
-      const x = e.clientX - MarginLeft;
-      const scrolled = x - (rowFilterGrayX - MarginLeft);
-      rowFilterRed.style.width = `${rowFilterRedWidth + scrolled}px`;
-
-      currentPrice =
-        ((rowFilterRedWidth + scrolled) * 457) / rowFilterGrayWidth;
-      setPrice(currentPrice.toFixed(2));
-
-      if (currentPrice.toFixed(2) <= 0) {
-        setPrice("0");
-      }
-      if (currentPrice.toFixed(2) >= 394) {
-        setPrice(maxPrice);
-      }
-    });
-    rowFilterGray.addEventListener("mouseup", () => {
-      holding = false;
-    });
-    rowFilterGray.addEventListener("mouseleave", () => {
-      holding = false;
-    });
-
-  }, []);
-
   return (
     <div className="products_filter">
       <div className="products_filter_item_category">
@@ -122,17 +53,7 @@ const Filter = () => {
         </ul>
       </div>
       <div onm className="products_filter_item_price">
-        <div className="products_filter_item_price_title">
-          <h2>Filter By Price</h2>
-          <h3>$0 - <span>${price}</span>
-          </h3>
-        </div>
-        <div className="products_filter_item_price_child gray">
-          <div className="products_filter_item_price_child red">
-            <span className="first"></span>
-            <span className="last"></span>
-          </div>
-        </div>
+        <PriceFilter/>
       </div>
       <div className="products_filter_item_color">
         <h2>Filter By Color</h2>
@@ -142,23 +63,23 @@ const Filter = () => {
             <li>Brown</li>
             <li>Gray</li>
             <li>Blue</li>
-            <li>White</li>
           </ul>
           <ul>
+            <li>White</li>
             <li>Green</li>
             <li>Red</li>
             <li>Auburn</li>
-            <li>Orange</li>
-            <li>Yellow</li>
           </ul>
           <ul>
+            <li>Orange</li>
+            <li>Yellow</li>
             <li>Coffee</li>
             <li>Golden</li>
+          </ul>
+          <ul>
             <li>Wine</li>
             <li>Khaki</li>
             <li>Ivory</li>
-          </ul>
-          <ul>
             <li>Sapphire</li>
           </ul>
         </div>
@@ -173,6 +94,92 @@ const Filter = () => {
       </div>
     </div>
   );
+};
+
+
+
+const PriceFilter = () => {
+
+    const maxPrice = "400";
+    const [price, setPrice] = useState(maxPrice);
+
+    useEffect(() => {
+      const searchResultsBody = document.querySelector(".search_results_body");
+      const rowFilterGray = document.querySelector(
+        ".products_filter_item_price_child.gray"
+      );
+      const rowFilterRed = document.querySelector(
+        ".products_filter_item_price_child.red"
+      );
+      let holding = false;
+      let rowFilterGrayX;
+      let MarginLeft;
+      let rowFilterRedWidth;
+      let rowFilterGrayWidth;
+      let currentPrice;
+      rowFilterGray.addEventListener("mousedown", (e) => {
+        holding = true;
+        rowFilterGrayX = e.clientX;
+        const { clientWidth } = document.documentElement;
+        // "(clientWidth * 2)/100" is a padding of ".products_filter" in SearchResults.scss
+        MarginLeft = (clientWidth * 2) / 100 + searchResultsBody.offsetLeft;
+        rowFilterRedWidth = rowFilterGrayX - MarginLeft;
+        rowFilterRed.style.width = `${rowFilterRedWidth}px`;
+
+        /*The value of rowFilterGrayWidth is get from the width of
+      ".products_filter_item_price_child.gray" in SearchResults.scss*/
+        rowFilterGrayWidth = (((clientWidth * 98) / 100) * 28) / 100;
+        currentPrice = (rowFilterRedWidth * 457) / rowFilterGrayWidth;
+        setPrice(currentPrice.toFixed(2));
+
+        if (currentPrice.toFixed(2) <= 0) {
+          setPrice("0");
+        }
+        if (currentPrice.toFixed(2) >= 394) {
+          setPrice(maxPrice);
+        }
+      });
+      rowFilterGray.addEventListener("mousemove", (e) => {
+        if (!holding) return;
+        const x = e.clientX - MarginLeft;
+        const scrolled = x - (rowFilterGrayX - MarginLeft);
+        rowFilterRed.style.width = `${rowFilterRedWidth + scrolled}px`;
+
+        currentPrice =
+          ((rowFilterRedWidth + scrolled) * 457) / rowFilterGrayWidth;
+        setPrice(currentPrice.toFixed(2));
+
+        if (currentPrice.toFixed(2) <= 0) {
+          setPrice("0");
+        }
+        if (currentPrice.toFixed(2) >= 394) {
+          setPrice(maxPrice);
+        }
+      });
+      rowFilterGray.addEventListener("mouseup", () => {
+        holding = false;
+      });
+      rowFilterGray.addEventListener("mouseleave", () => {
+        holding = false;
+      });
+    }, []);
+
+  return (
+    <>
+      <div className="products_filter_item_price_title">
+        <h2>Filter By Price</h2>
+        <h3>
+          $0 - <span>${price}</span>
+        </h3>
+      </div>
+      <div className="products_filter_item_price_child gray">
+        <div className="products_filter_item_price_child red">
+          <span className="first"></span>
+          <span className="last"></span>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default SearchResults
+export default SearchResults;

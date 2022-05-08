@@ -40,14 +40,18 @@
         &_child{
           &.gray{
             position:relative;
+            box-sizing: content-box;
             width:100%;
             height:0.7vmin;
             background:rgb(173, 172, 172);
             user-select: none;
+            border-top:2vmin solid $background;
+            border-bottom:2vmin solid $background;
             cursor:pointer;
           }
           &.red{ 
             position:absolute;
+            box-sizing: border-box;
             top:-1vmin;
             left:0;
             width:100%;
@@ -57,8 +61,8 @@
             //transform:translate(0%,-40%);
             span{
               position:absolute;
-              width:2vmin;
-              height:2vmin;
+              width:2.5vmin;
+              height:2.5vmin;
               border-radius:50%;
               background:$red;
               &:first-child{
