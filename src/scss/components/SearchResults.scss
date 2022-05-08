@@ -6,6 +6,13 @@
     @include flex(row,space-between,flex-start);
     width:98%;
     margin:auto;
+    &_child{
+      h1{
+        font-size: calc(105 * var(--res));
+        font-weight: 500;
+        margin:5vh auto;
+      }
+    }
 
     .products_filter{
       position:sticky;
