@@ -18,17 +18,21 @@
       position:sticky;
       top:0;
       width:28%;
-      height:100vh;
+      height:auto;
       background:$background;
       padding: 5px 2vw;
       h2{
-        font-size: calc(35 * var(--res));
-        font-weight: 500;
-        margin:0.7vmin 0;
+        font-size: calc(32 * var(--res));
+        font-weight: 700;
+        margin:0.5vmin 0;
         user-select:none;
+        span{
+            color:$red;
+        }
       }
       li{
-        font-size: calc(25 * var(--res));
+        font-size: calc(23 * var(--res));
+        font-weight:500;
         margin:0.2vmin;
       }
       &_item_price{
@@ -36,14 +40,12 @@
           @include flex(row,space-between,flex-end)
           
         }
-        h3 {
-          font-size: calc(30 * var(--res));
-          margin:0.7vmin 0;
-          user-select:none;
-          span{
-            color:$red;
-          }
-        }
+        // h3 {
+        //   font-size: calc(30 * var(--res));
+        //   margin:0.5vmin 0;
+        //   user-select:none;
+          
+        // }
         &_child{
           &.gray{
             position:relative;
@@ -99,7 +101,8 @@
           border-radius:3px;
           border:none;
           outline:none;
-          padding:1vmin;
+          padding:0.6vmin;
+          margin:1.5vmin 0;
           &:last-child{
             background:$red;
             color:rgb(226, 226, 204);
