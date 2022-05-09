@@ -35,59 +35,7 @@
         font-weight:500;
         margin:0.2vmin;
       }
-      &_item_price{
-        &_title{
-          @include flex(row,space-between,flex-end)
-          
-        }
-        // h3 {
-        //   font-size: calc(30 * var(--res));
-        //   margin:0.5vmin 0;
-        //   user-select:none;
-          
-        // }
-        &_child{
-          &.gray{
-            position:relative;
-            box-sizing: content-box;
-            width:100%;
-            height:0.7vmin;
-            background:rgb(173, 172, 172);
-            user-select: none;
-            border-top:2vmin solid $background;
-            border-bottom:2vmin solid $background;
-            cursor:pointer;
-          }
-          &.red{ 
-            position:absolute;
-            box-sizing: border-box;
-            top:-1vmin;
-            left:0;
-            width:100%;
-            height:100%;
-            margin:1vmin 0;
-            background:$red;
-            //transform:translate(0%,-40%);
-            span{
-              position:absolute;
-              width:2.5vmin;
-              height:2.5vmin;
-              border-radius:50%;
-              background:$red;
-              &:first-child{
-                top:0;
-                left:0;
-                transform:translate(0%,-40%)
-              }
-              &:last-child{
-                top:0;
-                right:0;
-                transform:translate(-0%,-40%)
-              }
-            }
-          }
-        }
-      }
+      
       &_item_color{
         div{
           @include flex(row,space-between,flex-start);
@@ -97,17 +45,25 @@
         display: flex;
         flex-wrap: nowrap;
         input{
-          font-size: calc(30 * var(--res));
+          font-size: calc(20 * var(--res));
           border-radius:3px;
           border:none;
           outline:none;
           padding:0.6vmin;
           margin:1.5vmin 0;
+          width:20vw;
           &:last-child{
             background:$red;
             color:rgb(226, 226, 204);
             cursor:pointer;
             padding:1vmin 2vmin;
+            width:5vw;
+            &:hover{
+              background: red;
+            }
+            &:active{
+              background: rgb(185, 58, 8);
+            }
           }
         }
       }

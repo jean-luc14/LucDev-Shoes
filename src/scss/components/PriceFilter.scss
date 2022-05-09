@@ -1,0 +1,53 @@
+.products_filter_item_price{
+  &_title{
+    @include flex(row,space-between,flex-end)
+
+  }
+  // h3 {
+  //   font-size: calc(30 * var(--res));
+  //   margin:0.5vmin 0;
+  //   user-select:none;
+
+  // }
+  &_child{
+    &.gray{
+      position:relative;
+      box-sizing: content-box;
+      width:100%;
+      height:0.7vmin;
+      background:rgb(173, 172, 172);
+      user-select: none;
+      border-top:2vmin solid $background;
+      border-bottom:2vmin solid $background;
+      cursor:pointer;
+    }
+    &.red{ 
+      position:absolute;
+      box-sizing: border-box;
+      top:-1vmin;
+      left:0;
+      width:100%;
+      height:100%;
+      margin:1vmin 0;
+      background:$red;
+      //transform:translate(0%,-40%);
+      span{
+        position:absolute;
+        width:2.5vmin;
+        height:2.5vmin;
+        border-radius:50%;
+        background:$red;
+        &:first-child{
+          top:0;
+          left:0;
+          transform:translate(0%,-40%)
+        }
+        &:last-child{
+          top:0;
+          right:0;
+          transform:translate(-0%,-40%)
+        }
+      }
+    }
+  }
+} 
