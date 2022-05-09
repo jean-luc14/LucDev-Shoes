@@ -1,18 +1,14 @@
 @import '../../scss/_mixins';
 @import '../../scss/_placeholders';
 .parent{
-  width:90vw;
+  width:20vw;
   height:80vh;
-  @include flex;
-  background-color: red;
-  margin:30px auto;
-  
-  visibility: visible;
-  transition: visibility 0.5s ease;
-  img{
-    @extend %back-img;
-  }
-  &:hover{
-      visibility: hidden;
+  @include flex($flex-direction:column);
+  background-color: rgb(210, 210, 210);
+  margin:10vh auto;
+  input{
+    background-color: red;
+    padding:13px;
+    color:red;
   }
 }

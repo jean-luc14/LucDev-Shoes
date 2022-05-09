@@ -19,11 +19,31 @@ const SearchResults = () => {
   const [searchResults, setSearchResults] = useState(searchProducts(params.slug));
   const [filterResults, setFilterResults] = useState(searchResults);
 
+  //filter Products By Category
+  const filterByCategory = (productCategory) => {
+    let filterByCategoryResults;
+    filterByCategoryResults = searchResults.filter( e => e.catalogSlug === productCategory );
+    
+    
+    return filterByCategoryResults.length;
+  }
+
   //filter Products By Price
   const filterByPrice = (productPrice) => {
     let filterByPriceResults;
     filterByPriceResults = searchResults.filter((e) => parseFloat(e.price) <= productPrice);
     setFilterResults(filterByPriceResults);
+  }
+
+  //filter Products By Color
+  const filterByColor = (productColor) => {
+    let filterByColorResults;
+    filterByColorResults = searchResults.filter((item) =>
+      item.color.some((e) => e.name.toLowerCase() === productColor.toLowerCase())
+    );
+    
+    
+    return filterByColorResults.length;
   }
 
   useEffect(() => {
@@ -44,6 +64,8 @@ const SearchResults = () => {
               searchResults={searchResults}
               price={price}
               setPrice={setPrice}
+              filterByColor={filterByColor}
+              filterByCategory={filterByCategory}
             />
             <div className="search_results_body_child">
               {filterResults.length > 0 ? (
@@ -52,7 +74,9 @@ const SearchResults = () => {
                     <ProductCard productProps={e} key={i} />
                   ))}
                 </Grid>
-              ):<h1> Oups! No Results</h1>}
+              ) : (
+                <h1> Oups! No Results</h1>
+              )}
             </div>
           </div>
         </SectionBody>
@@ -61,7 +85,14 @@ const SearchResults = () => {
   );
 }
 
-const Filter = ({ filterByPrice, searchResults,price,setPrice }) => {
+const Filter = ({
+  filterByPrice,
+  searchResults,
+  price,
+  setPrice,
+  filterByColor,
+  filterByCategory,
+}) => {
   useEffect(() => {
     filterByPrice(price);
   }, [searchResults]);
@@ -72,7 +103,9 @@ const Filter = ({ filterByPrice, searchResults,price,setPrice }) => {
         <h2>Filter By Categories</h2>
         <ul>
           {catalogData.map((e, index) => (
-            <li key={index}>{e.display} </li>
+            <li key={index}>
+              {e.display} {`(${filterByCategory(e.path)})`}
+            </li>
           ))}
         </ul>
       </div>
@@ -87,28 +120,28 @@ const Filter = ({ filterByPrice, searchResults,price,setPrice }) => {
         <h2>Filter By Color</h2>
         <div>
           <ul>
-            <li>Black</li>
-            <li>Brown</li>
-            <li>Gray</li>
-            <li>Blue</li>
+            <li>Black {`(${filterByColor("Black")})`}</li>
+            <li>Brown {`(${filterByColor("Brown")})`}</li>
+            <li>Gray {`(${filterByColor("Gray")})`}</li>
+            <li>Blue {`(${filterByColor("Blue")})`}</li>
           </ul>
           <ul>
-            <li>White</li>
-            <li>Green</li>
-            <li>Red</li>
-            <li>Auburn</li>
+            <li>White {`(${filterByColor("White")})`}</li>
+            <li>Green {`(${filterByColor("Green")})`}</li>
+            <li>Red {`(${filterByColor("Red")})`}</li>
+            <li>Auburn {`(${filterByColor("Auburn")})`}</li>
           </ul>
           <ul>
-            <li>Orange</li>
-            <li>Yellow</li>
-            <li>Coffee</li>
-            <li>Golden</li>
+            <li>Orange {`(${filterByColor("Orange")})`}</li>
+            <li>Yellow {`(${filterByColor("Yellow")})`}</li>
+            <li>Coffee {`(${filterByColor("Coffee")})`}</li>
+            <li>Golden {`(${filterByColor("Golden")})`}</li>
           </ul>
           <ul>
-            <li>Wine</li>
-            <li>Khaki</li>
-            <li>Ivory</li>
-            <li>Sapphire</li>
+            <li>Wine {`(${filterByColor("Wine")})`}</li>
+            <li>Khaki {`(${filterByColor("Khaki")})`}</li>
+            <li>Ivory {`(${filterByColor("Ivory")})`}</li>
+            <li>Sapphire {`(${filterByColor("Sapphire")})`}</li>
           </ul>
         </div>
       </div>
@@ -196,9 +229,9 @@ const PriceFilter = ({ filterByPrice,price,setPrice }) => {
     <>
       <div className="products_filter_item_price_title">
         <h2>Filter By Price</h2>
-        <h3>
+        <h2>
           $0 - <span>${price}</span>
-        </h3>
+        </h2>
       </div>
       <div className="products_filter_item_price_child gray">
         <div className="products_filter_item_price_child red">
