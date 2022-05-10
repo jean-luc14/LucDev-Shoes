@@ -34,11 +34,34 @@
         font-size: calc(23 * var(--res));
         font-weight:500;
         margin:0.2vmin;
+        color:rgb(190, 189, 189);
+        cursor:pointer;
+        user-select: none;
+        input{
+          cursor:pointer;
+        }
+        &.active{
+          color:$red;
+        }
       }
       
       &_item_color{
         div{
           @include flex(row,space-between,flex-start);
+           li{
+            font-size: calc(23 * var(--res));
+            font-weight:500;
+            margin:0.2vmin;
+            color:rgb(190, 189, 189);
+            cursor:pointer;
+            user-select: none;
+            input{
+              cursor:pointer;
+            }
+            &.active{
+              color:$red;
+            }
+          }
         }
       }
       &_item_search{

@@ -68,7 +68,7 @@ const Search = props => {
                     onClick={() => goToProductPage(e.catalogSlug, e.id)}
                   >
                     <div className="dynamic_search_item_img">
-                      <img src={e.img} alt={e.name} />
+                      <img src={e.color[0].img} alt={e.name} />
                     </div>
                     <div className="dynamic_search_item_content">
                       <p className="dynamic_search_item_content_price">

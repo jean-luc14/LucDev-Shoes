@@ -29,7 +29,6 @@ const productData = [
     price: sellingPrice(43.2),
     size: [39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
     favorite: false,
-    img: require("../images/loafers/1/brown.jpg"),
     color: [
       { name: "Brown", img: require("../images/loafers/1/brown.jpg") },
       { name: "Gray", img: require("../images/loafers/1/gray.jpg") },
@@ -42,7 +41,6 @@ const productData = [
     price: sellingPrice(30.52),
     size: [245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305],
     favorite: false,
-    img: require("../images/loafers/2/brown.jpg"),
     color: [
       { name: "Brown", img: require("../images/loafers/2/brown.jpg") },
       { name: "Dark blue", img: require("../images/loafers/2/dark-blue.jpg") },
@@ -55,7 +53,6 @@ const productData = [
     price: sellingPrice(34.75),
     size: [37, 38, 39, 40, 41, 42, 43, 44, 45],
     favorite: false,
-    img: require("../images/loafers/3/black.jpg"),
     color: [
       { name: "Black", img: require("../images/loafers/3/black.jpg") },
       { name: "Blue", img: require("../images/loafers/3/blue.jpg") },
@@ -69,7 +66,6 @@ const productData = [
     price: sellingPrice(12.79),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46],
     favorite: true,
-    img: require("../images/loafers/4/gray.jpg"),
     color: [
       { name: "Gray", img: require("../images/loafers/4/gray.jpg") },
       { name: "Black", img: require("../images/loafers/4/black.jpg") },
@@ -82,7 +78,6 @@ const productData = [
     price: sellingPrice(13.8),
     size: [38, 39, 40, 41, 42, 43, 44],
     favorite: true,
-    img: require("../images/loafers/5/black.jpg"),
     color: [
       { name: "Black", img: require("../images/loafers/5/black.jpg") },
       { name: "Blue", img: require("../images/loafers/5/blue.jpg") },
@@ -96,7 +91,6 @@ const productData = [
     price: sellingPrice(29.89),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
     favorite: true,
-    img: require("../images/loafers/6/blue.jpg"),
     color: [
       { name: "Blue", img: require("../images/loafers/6/blue.jpg") },
       { name: "Brown", img: require("../images/loafers/6/brown.jpg") },
@@ -111,7 +105,6 @@ const productData = [
     price: sellingPrice(10.28),
     size: [39, 40, 41, 42, 43, 44],
     favorite: true,
-    img: require("../images/loafers/7/A13 black.jpg"),
     color: [
       { name: "A13 Black", img: require("../images/loafers/7/A13 black.jpg") },
       { name: "A13 Blue", img: require("../images/loafers/7/A13 blue.jpg") },
@@ -125,7 +118,6 @@ const productData = [
     price: sellingPrice(27.49),
     size: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
     favorite: true,
-    img: require("../images/loafers/8/white.jpg"),
     color: [
       { name: "White", img: require("../images/loafers/8/white.jpg") },
       { name: "Black", img: require("../images/loafers/8/black.jpg") },
@@ -140,7 +132,6 @@ const productData = [
     price: sellingPrice(27.2),
     size: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
     favorite: true,
-    img: require("../images/moccasins/1/red.jpg"),
     color: [
       { name: "Red", img: require("../images/moccasins/1/red.jpg") },
       { name: "White", img: require("../images/moccasins/1/white.jpg") },
@@ -158,7 +149,6 @@ const productData = [
     price: sellingPrice(24.43),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
     favorite: false,
-    img: require("../images/moccasins/2/yellow.jpg"),
     color: [
       { name: "Yellow", img: require("../images/moccasins/2/yellow.jpg") },
       {
@@ -180,7 +170,6 @@ const productData = [
     price: sellingPrice(10.32),
     size: [6, 6.5, 7, 8, 8.5, 9.5, 10, 11, 12, 13, 14],
     favorite: false,
-    img: require("../images/moccasins/3/light blue.jpg"),
     color: [
       {
         name: "Light Blue",
@@ -210,7 +199,6 @@ const productData = [
     price: sellingPrice(26.31),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
     favorite: false,
-    img: require("../images/moccasins/4/yellow.jpg"),
     color: [
       { name: "Yellow", img: require("../images/moccasins/4/yellow.jpg") },
       { name: "Black", img: require("../images/moccasins/4/black.jpg") },
@@ -226,7 +214,6 @@ const productData = [
     price: sellingPrice(28.44),
     size: [6.5, 7, 7.5, 8, 8.5, 9, 10, 11, 12],
     favorite: false,
-    img: require("../images/moccasins/5/green.jpg"),
     color: [
       { name: "Green", img: require("../images/moccasins/5/green.jpg") },
       { name: "Yellow", img: require("../images/moccasins/5/yellow.jpg") },
@@ -241,7 +228,6 @@ const productData = [
     price: sellingPrice(26.83),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
     favorite: false,
-    img: require("../images/moccasins/6/red.jpg"),
     color: [
       { name: "Red", img: require("../images/moccasins/6/red.jpg") },
       { name: "Brown", img: require("../images/moccasins/6/brown.jpg") },
@@ -255,7 +241,6 @@ const productData = [
     price: sellingPrice(27.5),
     size: [6, 6.5, 7, 8, 8.5, 9.5, 10, 10.5, 11, 12, 12.5],
     favorite: false,
-    img: require("../images/moccasins/7/gray.jpg"),
     color: [
       { name: "Gray", img: require("../images/moccasins/7/gray.jpg") },
       { name: "Red", img: require("../images/moccasins/7/red.jpg") },
@@ -270,7 +255,6 @@ const productData = [
     price: sellingPrice(26.83),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46],
     favorite: false,
-    img: require("../images/moccasins/8/brown.jpg"),
     color: [
       { name: "Brown", img: require("../images/moccasins/8/brown.jpg") },
       { name: "Black", img: require("../images/moccasins/8/black.jpg") },
@@ -284,7 +268,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [6, 7, 8, 8.5, 9.5, 10, 11],
     favorite: true,
-    img: require("../images/oxfords/1/coffee.jpg"),
     color: [
       { name: "Coffee", img: require("../images/oxfords/1/coffee.jpg") },
       { name: "Black", img: require("../images/oxfords/1/black.jpg") },
@@ -299,7 +282,6 @@ const productData = [
     price: sellingPrice(13.86),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
     favorite: true,
-    img: require("../images/oxfords/2/gray.webp"),
     color: [
       { name: "Gray", img: require("../images/oxfords/2/gray.webp") },
       { name: "Black", img: require("../images/oxfords/2/black.webp") },
@@ -313,7 +295,6 @@ const productData = [
     price: sellingPrice(67.69),
     size: [6, 6.5, 7, 8, 8.5, 9.5, 10, 10.5, 11],
     favorite: true,
-    img: require("../images/oxfords/3/wine.webp"),
     color: [
       { name: "Wine", img: require("../images/oxfords/3/wine.webp") },
       { name: "Black", img: require("../images/oxfords/3/black.jpg") },
@@ -326,7 +307,6 @@ const productData = [
     price: sellingPrice(35.28),
     size: [6.5, 7, 7.5, 8, 8.5, 9, 10.5],
     favorite: true,
-    img: require("../images/oxfords/4/A311 black.jpg"),
     color: [
       {
         name: "A311 Black",
@@ -352,7 +332,6 @@ const productData = [
     name: "Men Summer New British Style Shoes Handmade Leather Shoes Wedding Shoes Mens Black Casual Increase British Lace-Up Oxfrods",
     price: sellingPrice(66.66),
     size: [5.5, 6, 6.5, 7, 8, 8.5, 9.5, 10, 10.5, 11],
-    img: require("../images/oxfords/5/black.jpg"),
     favorite: true,
     color: [
       { name: "Black", img: require("../images/oxfords/5/black.jpg") },
@@ -365,7 +344,6 @@ const productData = [
     name: " High Quality Handmade Oxford Dress Shoes Men Genuine Cow Leather Suit Shoes Footwear Wedding Formal Italian Shoes Hot",
     price: sellingPrice(34.6),
     size: [6, 6.5, 7, 8, 8.5, 9.5, 10],
-    img: require("../images/oxfords/6/brown.jpg"),
     favorite: true,
     color: [
       { name: "Brown", img: require("../images/oxfords/6/brown.jpg") },
@@ -379,7 +357,6 @@ const productData = [
     name: "High Quality Handmade Oxford Dress Shoes Men Genuine Cow Leather Suit Shoes Footwear Wedding Formal Italian Shoes Hot",
     price: sellingPrice(34.6),
     size: [6, 6.5, 7, 8, 8.5, 9.5, 10],
-    img: require("../images/oxfords/7/brown.jpg"),
     favorite: false,
     color: [
       { name: "Brown", img: require("../images/oxfords/7/brown.jpg") },
@@ -393,7 +370,6 @@ const productData = [
     price: sellingPrice(20.07),
     size: [38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
     favorite: false,
-    img: require("../images/oxfords/8/auburn.jpg"),
     color: [
       { name: "Auburn", img: require("../images/oxfords/8/auburn.jpg") },
       { name: "Black", img: require("../images/oxfords/8/black.jpg") },
@@ -407,7 +383,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -426,7 +401,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -445,7 +419,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -464,7 +437,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -483,7 +455,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -502,7 +473,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -521,7 +491,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -540,7 +509,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -560,7 +528,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -579,7 +546,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -598,7 +564,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -617,7 +582,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -636,7 +600,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -655,7 +618,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -674,7 +636,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -693,7 +654,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -713,7 +673,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -732,7 +691,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -751,7 +709,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -770,7 +727,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -789,7 +745,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -808,7 +763,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -827,7 +781,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -846,7 +799,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -866,7 +818,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -885,7 +836,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -904,7 +854,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -923,7 +872,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -942,7 +890,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -961,7 +908,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -980,7 +926,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -999,7 +944,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1019,7 +963,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1038,7 +981,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1057,7 +999,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1076,7 +1017,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1095,7 +1035,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1114,7 +1053,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1133,7 +1071,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1152,7 +1089,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1172,7 +1108,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1191,7 +1126,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1210,7 +1144,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1229,7 +1162,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1248,7 +1180,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1267,7 +1198,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1286,7 +1216,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1305,7 +1234,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1325,7 +1253,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1344,7 +1271,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1363,7 +1289,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1382,7 +1307,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1401,7 +1325,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1420,7 +1343,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1439,7 +1361,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1458,7 +1379,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1478,7 +1398,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1497,7 +1416,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1516,7 +1434,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1535,7 +1452,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1554,7 +1470,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1573,7 +1488,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1592,7 +1506,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1611,7 +1524,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1631,7 +1543,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1650,7 +1561,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1669,7 +1579,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1688,7 +1597,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1707,7 +1615,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1726,7 +1633,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1745,7 +1651,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1764,7 +1669,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1784,7 +1688,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1803,7 +1706,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1822,7 +1724,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1841,7 +1742,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1860,7 +1760,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1879,7 +1778,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1898,7 +1796,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1917,7 +1814,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1937,7 +1833,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1956,7 +1851,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1975,7 +1869,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1994,7 +1887,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2013,7 +1905,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2032,7 +1923,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2051,7 +1941,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2070,7 +1959,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2090,7 +1978,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: A,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2109,7 +1996,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: B,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2128,7 +2014,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: C,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2147,7 +2032,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: D,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2166,7 +2050,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: E,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2185,7 +2068,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: F,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2204,7 +2086,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: false,
-    img: G,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2223,7 +2104,6 @@ const productData = [
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
     favorite: true,
-    img: H,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },

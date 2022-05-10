@@ -4,6 +4,7 @@ const PriceFilter = ({ filterByPrice, price, setPrice }) => {
   const maxPrice = 400;
 
   useEffect(() => {
+    // the class '.search_results_body is in SearchResults.jsx'
     const searchResultsBody = document.querySelector(".search_results_body");
     const rowFilterGray = document.querySelector(
       ".products_filter_item_price_child.gray"

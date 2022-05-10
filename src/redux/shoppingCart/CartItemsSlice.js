@@ -74,7 +74,7 @@ const findItem = (arr, item) => arr.filter(
 )
 
 const delItem = (arr, item) =>arr.filter(
-  e =>e.catalogSlug !== item.catalogSlug || e.id !== item.id ||
+  e => e.catalogSlug !== item.catalogSlug || e.id !== item.id ||
     e.color !== item.color || e.size !== item.size
 );
 

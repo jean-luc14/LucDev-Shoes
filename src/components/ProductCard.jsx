@@ -23,7 +23,7 @@ const ProductCard = props => {
   
   return (
     <div className="productCard" onClick={() => goToProductPage(catalogSlug, id)}>
-      <img className="productCardImg" src={props.productProps.img} />
+      <img className="productCardImg" src={props.productProps.color[0].img} />
       <div className="productCardInfo">
         <h1 className="productCardPrice">
           US ${props.productProps.price}
