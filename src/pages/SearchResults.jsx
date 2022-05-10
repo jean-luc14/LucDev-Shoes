@@ -141,7 +141,13 @@ const SearchResults = () => {
                   ))}
                 </Grid>
               ) : (
-                <h1> Oops! No Results</h1>
+                <h1>
+                  {" "}
+                  Oops! No Results git commit -a -m 'feat/Refactor:delete the
+                  img property of each object in productData and use the img
+                  property of the first object in color array in productData as
+                  header background of Section.jsx ProductCard.jsx and other '
+                </h1>
               )}
             </div>
           </div>
