@@ -1,0 +1,64 @@
+
+.favorite_and_new_shoes_slider{
+  width:75%;
+  height:auto;
+  h2{
+    font-size: calc(80 * var(--res));
+  }
+}
+
+.slideshow-container{
+  position:relative;
+  overflow: hidden;
+  height:30vw;
+  cursor:grab;
+  margin-bottom:8vmin;
+
+  &:active{
+    cursor:grabbing;
+  }
+  .slideshow{
+    position :absolute;
+    height:100%;
+    display:flex;
+    pointer-events: none;
+    .child{
+      width:30vw;
+      height:100%;
+      margin:0 1vmin 0;
+    }
+  }
+}
+
+
+//Responsive
+@media screen and (max-width:$tablet-max-width){
+  .favorite_and_new_shoes_slider{
+    width:100%;
+  }
+  .slideshow-container .slideshow .child{
+    margin:0 4vmin 0;
+  }
+}
+
+@include mobile{
+   .slideshow-container{
+     height:50vw;
+     min-height:130px;
+    .slideshow .child{
+      min-width:130px;
+      width:50vw;
+    }
+  }
+}
+
+@include tablet {
+  .slideshow-container {
+    height:40vw;
+    min-height:250px;
+    .slideshow .child{
+      min-width:250px;
+      width:40vw;
+    }
+  }
+}
