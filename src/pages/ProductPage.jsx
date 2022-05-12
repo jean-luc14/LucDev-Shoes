@@ -1,6 +1,7 @@
 import React, { useState, useEffect }from 'react'
 import { useParams } from 'react-router-dom'
 import ProductView from '../components/ProductView'
+import NewAndFavorite from "../components/NewAndFavorite";
 import {productData} from "../Assets/data/ProductData";
 
 const ProductPage = () => {
@@ -19,7 +20,10 @@ const ProductPage = () => {
   }, [id, catalogSlug]);
 
   return (
-    <div><ProductView product={product}/></div>
+    <div>
+      <ProductView product={product} />
+      <NewAndFavorite/>
+    </div>
   )
 }
 

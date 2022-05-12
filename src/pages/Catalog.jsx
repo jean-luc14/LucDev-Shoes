@@ -1,6 +1,7 @@
 import React, {useState,useEffect}from 'react'
 import Grid from "../components/Grid";
 import ProductCard from "../components/ProductCard";
+import NewAndFavorite from "../components/NewAndFavorite";
 import Section, { SectionTitle, SectionBody } from "../components/Sections";
 import {useParams} from 'react-router-dom'
 import {catalogData} from "../Assets/data/CatalogData";
@@ -47,6 +48,7 @@ const Catalog = props => {
               </Grid>
             </SectionBody>
           </Section>
+          <NewAndFavorite/>
         </div>
       ) : (
         <h1>This catalog page does not found</h1>
