@@ -12,8 +12,6 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 
-
-
 const ProductView = (props) => {
   
   let product = props.product;
@@ -33,25 +31,25 @@ const ProductView = (props) => {
     var jean;
     activeImages.forEach((item) => {
       if (item.parentNode.className === "swiper-slide swiper-slide-active") {
-        jean=item.src
+        jean = item.src
       }
     }) 
     setSelectedImg(jean);
   }
 
-  //Eviter de generer d'erreur dans productViewModal
-  if (product === undefined) {product = {
-    price: 0,
-    name: '',
-    img: '',
-    size:[],
-    color:[]
-    }
-  }
+  //Eviter de generer d'erreur dans productViewModal au deuxieme affichage du meme produit
+  // if (product === undefined) {product = {
+  //   price: 0,
+  //   name: '',
+  //   img: '',
+  //   size:[],
+  //   color:[]
+  //   }
+  // }
 
 
   useEffect(() => {
-    setSize(product.size[0])
+    setSize(product === undefined ? undefined : product.size[0]);
     setQuantity(1)
   },[product])
   
@@ -71,6 +69,7 @@ const ProductView = (props) => {
     setSize(item)
   }
 
+  //Add Product to cart
   const addToCart = () => {
       dispatch(addItem({
         id: product.id,
@@ -83,6 +82,7 @@ const ProductView = (props) => {
       }))
   }
 
+  //Add Product to cart and go to cart
   const goToCart = () => {
     dispatch(
       addItem({
@@ -97,15 +97,14 @@ const ProductView = (props) => {
       );
     navigate('/cart')
   }
-
   return (
     <div>
       {product ? (
         <>
           {/*The Modal prop is to design the productView differently in modal*/}
           <div className={`${props.Modal ? "" : "backgroundProduct"}`}></div>
-          {props.Modal ? null : (
-            <img className="backgroundProductImg" src={product.img} />
+          {props.Modal || product === undefined ? null : (
+            <img className="backgroundProductImg" src={product.color[0].img} />
           )}
           <div className={`productWrapper ${props.Modal ? "modal" : ""}`}>
             <div className="productInfo">
@@ -196,14 +195,15 @@ const ThumbsSizeQuantityButton = (props) => {
         ))}
       </Swiper>
       <div className="size_wrapper">
-        {props.product.size.map((item, index) => (
+        {props.product === undefined ? null :
+          (props.product.size.map((item, index) => (
           <span
             className={`size ${props.size === item ? "active" : ""}`}
             key={index}
             onClick={() => props.updateSize(item)}
           >
             {item}
-          </span>
+          </span>)
         ))}
       </div>
       <div className="product_quantity">

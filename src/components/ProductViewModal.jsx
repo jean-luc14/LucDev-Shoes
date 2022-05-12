@@ -24,7 +24,9 @@ const ProductViewModal = () => {
       <span className ='close'onClick={() => dispatch(remove())}> &times;</span>
       <div className="productViewModal__background"></div>
       <div className="productViewModal__content">
-        <ProductView product={product} Modal={true} />
+        { product===undefined ? null:
+          <ProductView product={product} Modal={true} />
+        }
       </div>
     </div>
   );
