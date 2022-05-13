@@ -23,18 +23,21 @@ const ProductView = (props) => {
   const [size, setSize] = useState( product === undefined ? undefined : product.size[0]);
   const [quantity, setQuantity] = useState(1)
   const [color, setColor] = useState(undefined)
-  const [selectedImg, setSelectedImg] = useState(undefined)
+  //const [selectedImg, setSelectedImg] = useState(undefined)
   
   // fonction pour caputer l'adresse de l'image active avec la class nommer par swiper js
-  const activeImages = () => {
-    let activeImages = document.querySelectorAll('.imageSlider');
-    var jean;
-    activeImages.forEach((item) => {
-      if (item.parentNode.className === "swiper-slide swiper-slide-active") {
-        jean = item.src
+  const getSelectedImages = () => {
+    let Images = document.querySelectorAll('.imageSlider');
+    let  imageSelected;
+    Images.forEach((item) => {
+      if (
+        item.parentNode.parentNode.className ===
+        "swiper-slide swiper-slide-active"
+      ) {
+        imageSelected = item.src;
       }
     }) 
-    setSelectedImg(jean);
+    return imageSelected;
   }
 
   //Eviter de generer d'erreur dans productViewModal au deuxieme affichage du meme produit
@@ -71,6 +74,7 @@ const ProductView = (props) => {
 
   //Add Product to cart
   const addToCart = () => {
+    let selectedImg = getSelectedImages();
       dispatch(addItem({
         id: product.id,
         catalogSlug:product.catalogSlug,
@@ -84,6 +88,7 @@ const ProductView = (props) => {
 
   //Add Product to cart and go to cart
   const goToCart = () => {
+    let selectedImg = getSelectedImages();
     dispatch(
       addItem({
         id: product.id,
@@ -102,54 +107,57 @@ const ProductView = (props) => {
       {product ? (
         <>
           {/*The Modal prop is to design the productView differently in modal*/}
-          <div className={`${props.Modal ? "" : "backgroundProduct"}`}></div>
-          {props.Modal || product === undefined ? null : (
-            <img className="backgroundProductImg" src={product.color[0].img} />
-          )}
-          <div className={`productWrapper ${props.Modal ? "modal" : ""}`}>
-            <div className="productInfo">
-              {/* Swipe which show a current product */}
-              <Swiper
-                navigation={true}
-                spaceBetween={10}
-                modules={[Navigation, Thumbs]}
-                grabCursor={true}
-                thumbs={{ swiper: activeThumb }}
-                speed={800}
-                className="productImageSlider"
-              >
-                {product.color.map((item, index) => (
-                  <SwiperSlide key={index}>
-                    {({ isActive }) => (
-                      <ImageSlider
-                        item={item.img}
-                        isActive={isActive}
-                        activeImages={activeImages}
-                        updateColor={updateColor}
-                        color={item.name}
-                      />
-                    )}
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-              <div className="shoesInfoItem">
-                <h3> US ${product.price}</h3>
-                <p>{product.name}</p>
-                <div>
-                  Color : <span>{color}</span>
-                </div>
+          <div className={`${props.Modal ? "" : "backgroundProduct"}`}>
+            {props.Modal || product === undefined ? null : (
+              <div className="backgroundProductImgWrapper">
+                <img src={product.color[0].img} alt={product.color[0].name} />
               </div>
-              <div className="thumbsSizeQuantityButton">
-                <ThumbsSizeQuantityButton
-                  setActiveThumb={setActiveThumb}
-                  product={product}
-                  updateSize={updateSize}
-                  updateQuantity={updateQuantity}
-                  addToCart={addToCart}
-                  goToCart={goToCart}
-                  size={size}
-                  quantity={quantity}
-                />
+            )}
+            <div className={`productWrapper ${props.Modal ? "modal" : ""}`}>
+              <div className="productInfo">
+                {/* Swipe which show a current product */}
+                <Swiper
+                  navigation={true}
+                  spaceBetween={10}
+                  modules={[Navigation, Thumbs]}
+                  grabCursor={true}
+                  thumbs={{ swiper: activeThumb }}
+                  speed={800}
+                  className="productImageSlider"
+                >
+                  {product.color.map((item, index) => (
+                    <SwiperSlide key={index}>
+                      {({ isActive }) => (
+                        <ImageSlider
+                          item={item.img}
+                          isActive={isActive}
+                          getSelectedImages={getSelectedImages}
+                          updateColor={updateColor}
+                          color={item.name}
+                        />
+                      )}
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+                <div className="shoesInfoItem">
+                  <h3> US ${product.price}</h3>
+                  <p>{product.name}</p>
+                  <div>
+                    Color : <span>{color}</span>
+                  </div>
+                </div>
+                <div className="thumbsSizeQuantityButton">
+                  <ThumbsSizeQuantityButton
+                    setActiveThumb={setActiveThumb}
+                    product={product}
+                    updateSize={updateSize}
+                    updateQuantity={updateQuantity}
+                    addToCart={addToCart}
+                    goToCart={goToCart}
+                    size={size}
+                    quantity={quantity}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -164,7 +172,6 @@ const ProductView = (props) => {
 
 const ImageSlider = props => {
     if (props.isActive === true) {
-      props.activeImages()
       props.updateColor(props.color)
     } 
   return (
@@ -174,6 +181,7 @@ const ImageSlider = props => {
   );
 }
 
+// The style of ThumbsSizeQuantityButton is in ThumbsSizeQuantityButton.scss
 // thumbs of Swiper js 
 const ThumbsSizeQuantityButton = (props) => {
 
@@ -189,7 +197,7 @@ const ThumbsSizeQuantityButton = (props) => {
         {props.product.color.map((item, index) => (
           <SwiperSlide>
             <div key={index} className="other_color_img_wrapper">
-              <img className="other_color_img" src={item.img} />
+              <img className="other_color_img" src={item.img} alt={item.name} />
             </div>
           </SwiperSlide>
         ))}
@@ -219,18 +227,18 @@ const ThumbsSizeQuantityButton = (props) => {
         <button
           type="button"
           onClick={() => {
-            props.addToCart();
-          }}
-        >
-          Ajouter au panier
-        </button>
-        <button
-          type="button"
-          onClick={() => {
             props.goToCart();
           }}
         >
           Acheter maintenant
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            props.addToCart();
+          }}
+        >
+          Ajouter au panier
         </button>
       </div>
     </>
