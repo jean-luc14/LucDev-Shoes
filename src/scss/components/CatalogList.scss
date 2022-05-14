@@ -1,7 +1,7 @@
 // A List of categories of shoes 
 .catalog{
   position:sticky;
-  top:0px;
+  top:0;
   width:auto;
   height:auto;
   
@@ -11,7 +11,7 @@
     border-radius:10px;
     width:auto;
     transition:all 500ms ease-out;
-    background:rgba(54, 1, 1, 0.082);
+    background:rgb(217, 217, 217);
     // span{
     //   position:absolute;
     //   left:45px;
@@ -33,7 +33,7 @@
       display:inline-block;
       border-radius:10px;
       &:hover{
-        background:rgba(46, 2, 2, 0.125);
+        background:rgba(183, 183, 183, 0.624);
       }
       div{
         width:100%;
@@ -51,7 +51,7 @@
         width:50px;
         height:50px;
         transform:translate(-50%,-50%);
-        background:rgba(46, 2, 2, 0.624);
+        background:rgba(178, 178, 178, 0.624);
         border-radius:50%;
         pointer-events: none;
         animation: animCat 0.4s linear infinite;
