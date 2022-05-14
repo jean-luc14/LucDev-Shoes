@@ -82,8 +82,22 @@
   .buy_and_add_product_button{
     @extend %flex-center;
     button{
-      font-size:calc(35 * var(--res));
+      font-size:calc(30 * var(--res));
       margin-right:20px;
+      line-height: 1.1;
+      padding:1vmin 4.5vmin;
+      font-weight:500;
+      cursor:pointer;
+      color:rgb(250, 247, 221);
+      border:none;
+      border-radius:4px;
+      &:first-child{
+        background: $red;
+      }
+      &:last-child{
+        background: $background-image;
+      }
+
     }
   }
 }
