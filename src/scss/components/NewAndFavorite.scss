@@ -1,7 +1,11 @@
-
 .favorite_and_new_shoes_slider{
-  width:75%;
+  width:100%;
   height:auto;
+  padding-top:0;
+  background: $background;
+  .body_home_page{
+    width:73%;
+  }
   h2{
     font-size: calc(80 * var(--res));
   }
@@ -10,9 +14,10 @@
 .slideshow-container{
   position:relative;
   overflow: hidden;
-  height:30vw;
+  height:20vw;
   cursor:grab;
-  margin-bottom:8vmin;
+  margin-top:2vmin;
+  margin-bottom:10vmin;
 
   &:active{
     cursor:grabbing;
@@ -24,7 +29,7 @@
     .child{
       width:auto;
       height:100%;
-      margin:0 2.2vmin;
+      margin-right:4vmin;
     }
   }
 }

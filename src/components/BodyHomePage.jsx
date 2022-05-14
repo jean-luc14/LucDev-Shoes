@@ -16,7 +16,7 @@ const BodyLayOut = props => {
         <div className="layout-catalogList">
           <CatalogList navbar={false} />
         </div>
-        <NewAndFavorite/>
+        <NewAndFavorite bodyHomePage={true}/>
       </div>
     </div>
   );

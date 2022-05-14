@@ -5,7 +5,7 @@ import {
   getFavoriteProducts,
 } from "../Assets/data/ProductData";
 
-const NewAndFavorite = () => {
+const NewAndFavorite = (props) => {
   // Get New and favorite Products
   const newProducts = getNewProducts();
   const favoriteProducts = getFavoriteProducts();
@@ -86,7 +86,7 @@ const NewAndFavorite = () => {
   }, []);
 
   return (
-    <div className="favorite_and_new_shoes_slider">
+    <div className={`favorite_and_new_shoes_slider ${props.bodyHomePage === true ? 'body_home_page':'' }`}>
       <h2>New Arrivals</h2>
       <section className="slideshow-container">
         <div className="slideshow">
