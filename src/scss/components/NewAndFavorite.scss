@@ -19,13 +19,12 @@
   }
   .slideshow{
     position :absolute;
-    height:100%;
     display:flex;
     pointer-events: none;
     .child{
-      width:30vw;
+      width:auto;
       height:100%;
-      margin:0 1vmin 0;
+      margin:0 2.2vmin;
     }
   }
 }
