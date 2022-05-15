@@ -54,6 +54,7 @@ const ProductView = (props) => {
   useEffect(() => {
     setSize(product === undefined ? undefined : product.size[0]);
     setQuantity(1)
+    getSelectedImages();
   },[product])
   
 
@@ -107,7 +108,7 @@ const ProductView = (props) => {
       {product ? (
         <>
           {/*The Modal prop is to design the productView differently in modal*/}
-          <div className={`${props.Modal ? "" : "backgroundProduct"}`}>
+          <div className= "backgroundProduct">
             {props.Modal || product === undefined ? null : (
               <div className="backgroundProductImgWrapper">
                 <img src={product.color[0].img} alt={product.color[0].name} />
@@ -142,6 +143,7 @@ const ProductView = (props) => {
                 <div className="shoesInfoItem">
                   <h3> US ${product.price}</h3>
                   <p>{product.name}</p>
+                  <div className = 'category'>Category:<span> {product.catalogSlug} </span></div>
                   <div>
                     Color : <span>{color}</span>
                   </div>
@@ -171,12 +173,12 @@ const ProductView = (props) => {
 
 
 const ImageSlider = props => {
-    if (props.isActive === true) {
-      props.updateColor(props.color)
-    } 
+  if (props.isActive === true) {
+    props.updateColor(props.color);
+  }
   return (
-    <div className="imageSliderWrapper">
-      <img className="imageSlider" src={props.item} />
+    <div  className="imageSliderWrapper">
+      <img  className="imageSlider" src={props.item} />
     </div>
   );
 }
@@ -230,7 +232,7 @@ const ThumbsSizeQuantityButton = (props) => {
             props.goToCart();
           }}
         >
-          Acheter maintenant
+          Buy Now
         </button>
         <button
           type="button"
@@ -238,7 +240,7 @@ const ThumbsSizeQuantityButton = (props) => {
             props.addToCart();
           }}
         >
-          Ajouter au panier
+          Add To Card
         </button>
       </div>
     </>

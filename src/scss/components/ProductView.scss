@@ -3,7 +3,7 @@
   width:100vw;
   &::after{
     @include absolute;
-    @include pseudo($background:rgba(0, 0, 0, 0.5));
+    @include pseudo($background:rgba(0, 0, 0, 0.55));
   }
   
   
@@ -14,9 +14,7 @@
     height: 100%;
     width:100%;
     img{
-      height: 100%;
-      width:100%;
-      object-fit: cover;
+      @extend %back-img;
     }
   } 
   .productWrapper{
@@ -84,6 +82,13 @@
         height:auto;
         margin:auto ;
 
+        .category{
+          font-size:calc(30 * var(--res));
+          span{
+            font-weight:700;
+            color:rgb(187, 187, 187);
+          }
+        }
         h3,p,div{
           color:#fff;
         }
@@ -99,7 +104,6 @@
           font-size:calc(30 * var(--res));
           span{
             font-weight:700;
-            font-size:calc(30 * var(--res));
             color:#ff983e;
           }
         }
@@ -108,114 +112,14 @@
     } 
   }
 }
-// redesign in modal mode
-.backgroundProduct .productWrapper.modal{
-  left:47vw;
-  top:53vh;
-  height:65vh;
-  width:80vw;
-  box-shadow: none; 
-  background: none;
-  .productInfo{
-    .productImageSlider{
-      .imageSliderWrapper{
-        height: 28vw;
-        width: 28vw;
-        min-height: 230px;
-        min-width: 230px;
 
-        .imageSlider{
-          height: 100%;
-          width: 100%;
-          border-radius:7px;
-          object-fit:cover;
-        }
-      }
-    }
-    .shoesInfoItem{
-      width:90%;
-      h3{
-        font-size: calc(65 * var(--res));
-      }
-      p{
-        font-size: calc(15 * var(--res));
-      }
-      .size_wrapper{
-        font-size: calc(20 * var(--res));
-        span{
-          color:$red;
-        }
-      }
-      .buy_and_add_product_button{
-        button{
-          font-size:12px;
-          margin-right:20px;
-        }
-      }
-    }
-  }
-}
-
-//Responsive
-  // BREAKPOINT Tablet
-// @media screen and (max-width:800px) and (min-width:768px){
-//   .backgroundProduct .productWrapper{
-//     height: 90vh;
-//     .productInfo {
-//       overflow:auto;
-//       @include grid(30% 35% 25% 10%, 30% 35% 25% 10%);
-//       .productImageSlider{
-//         grid-column:1/span 2;
-//         grid-row:1/span 2;
-//         @include flex;
-//         width:100%;
-//         height:100%;
-//         //class of siper js
-//         .swiper-slide {
-//           height: 100%!important;
-//           width: 100%!important;
-//           .imageSliderWrapper{
-//             height: 50vh;
-//             width: 50vh;
-//             max-height:420px;
-//             max-width:420px;
-//             min-height:310px;
-//             min-width:310px;
-//             .imageSlider{
-//               height:100%;
-//               width:100%;
-//             }
-//           }
-//         }
-
-//       }
-//       .shoesInfoItem{
-//         grid-column:3/span 2;
-//         grid-row:1/span 2;
-//         width:98%;
-//         height:100%;
-//         @include flex(column,center,flex-start);
-//         h3{
-//           font-size: calc(50 * var(--res));
-//         }
-//         p{
-//           font-size: calc(25 * var(--res));
-//         }
-//         h3,p,div{
-//           margin-bottom:3vw;
-//         }
-//       }
-//     } 
-
-//   }
-// }
 // mobile 
-@media screen and (max-width:992px) {
+@media screen and (max-width:$tablet-max-width) {
   .backgroundProduct .productWrapper {
-    height: 95vh;
+    height: 90vh;
     .productInfo {
       overflow:auto;
-      @include grid(repeat(1,100%), 25% 25% 25% 1fr);
+      @include grid(100%, 25% 25% 25% 1fr);
       .shoesInfoItem{
         grid-column:1/span 1;
         grid-row:1/span 1;
