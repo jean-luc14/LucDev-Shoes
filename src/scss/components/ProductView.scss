@@ -80,15 +80,8 @@
         @include flex(column,space-between,flex-start);
         width: 40vw;
         height:auto;
-        margin:auto ;
+        margin:auto;
 
-        .category{
-          font-size:calc(30 * var(--res));
-          span{
-            font-weight:700;
-            color:rgb(187, 187, 187);
-          }
-        }
         h3,p,div{
           color:#fff;
         }
@@ -105,6 +98,8 @@
           span{
             font-weight:700;
             color:#ff983e;
+            text-transform:capitalize;
+            cursor:pointer;
           }
         }
       }

@@ -108,7 +108,7 @@ const ProductView = (props) => {
       {product ? (
         <>
           {/*The Modal prop is to design the productView differently in modal*/}
-          <div className= "backgroundProduct">
+          <div className="backgroundProduct">
             {props.Modal || product === undefined ? null : (
               <div className="backgroundProductImgWrapper">
                 <img src={product.color[0].img} alt={product.color[0].name} />
@@ -143,7 +143,12 @@ const ProductView = (props) => {
                 <div className="shoesInfoItem">
                   <h3> US ${product.price}</h3>
                   <p>{product.name}</p>
-                  <div className = 'category'>Category:<span> {product.catalogSlug} </span></div>
+                  <div className="category">
+                    Category :{" "}
+                    <span onClick={() => navigate(`/${product.catalogSlug}`)}>
+                      {product.catalogSlug}
+                    </span>
+                  </div>
                   <div>
                     Color : <span>{color}</span>
                   </div>
