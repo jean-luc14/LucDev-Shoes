@@ -1,6 +1,7 @@
 import React, { useState, useEffect }from 'react'
 import { useParams } from 'react-router-dom'
 import ProductView from '../components/ProductView'
+import ProductInfo from "../components/ProductInfo";
 import NewAndFavorite from "../components/NewAndFavorite";
 import {productData} from "../Assets/data/ProductData";
 
@@ -22,9 +23,10 @@ const ProductPage = () => {
   return (
     <div>
       <ProductView product={product} />
-      <NewAndFavorite/>
+      <ProductInfo product={product} />
+      <NewAndFavorite />
     </div>
-  )
+  );
 }
 
 export default ProductPage
