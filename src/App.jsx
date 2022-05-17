@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useState,useEffect} from "react";
 import "swiper/css";
 import "./App.scss";
 import { Link } from "react-router-dom";
@@ -13,15 +13,16 @@ import {setCurrentUser,setLoadingData} from './redux/firebase/FirebaseSlice'
 import { auth } from "./firebase-config";
 
 const App = () => {
+  //Avoid displaying the application before the firebase verification request launched in useEffect
+  const loadingData = useSelector((state) => state.firebase.value.loadingData);
 
-  //Eviter d'afficher l'application avant la requete de verification de firebase lancé dans useEffect 
-  const loadingData = useSelector((state) => state.firebase.value.loadingData)
-  
-
+  // animate text before loading the document
   window.addEventListener("load", () => {
-      document.getElementById("loader").classList.add("fondu_out");
+    document.getElementById("loader").classList.add("fondu_out");
   });
-  const dispatch = useDispatch()
+
+  //useDispatch
+  const dispatch = useDispatch();
   /* var r;
   r = 2;
   useEffect(() => {
@@ -77,16 +78,52 @@ const App = () => {
   }, [r])*/
 
   useEffect(() => {
+    //get progress bar div and click progress bar div
+    const progressBarClick = document.querySelector(".click_scroll_bar");
+    const progressBar = document.querySelector(".click_scroll_bar .scroll_bar");
+
+    // function to animate scroll bar relatively document height
+    const progressBarFunc = () => {
+      let totalHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+      progressBarClick.addEventListener("click", (e) => {
+        let newPageScroll =
+          (e.clientY / progressBarClick.offsetHeight) * totalHeight;
+        window.scrollTo({
+          top: newPageScroll,
+          behavior: "smooth",
+        });
+      });
+
+      window.addEventListener("scroll", () => {
+        let progress = (document.documentElement.scrollTop / totalHeight) * 100;
+        progressBar.style.height = `${progress}%`;
+      });
+    };
+
+    progressBarFunc();
+
+    // call the function progressBarFunc each time the link changes, (the height of the document)
+    window.addEventListener("click", () => {
+      progressBarFunc();
+    });
+
+    // firebase unsubscribe 
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      dispatch(setCurrentUser(currentUser))
+      dispatch(setCurrentUser(currentUser));
       dispatch(setLoadingData(false));
-    })
-  
-    return unsubscribe
-  }, [])
-  
+    });
+
+    return unsubscribe;
+  }, []);
+
   return (
     <>
+      <div className="click_scroll_bar">
+        <div className="scroll_bar"></div>
+      </div>
       <div id="loader">
         <span className="lettre">L</span>
         <span className="lettre">O</span>
@@ -101,7 +138,7 @@ const App = () => {
       </div>
       <main>
         <Navbar />
-        <Routing/>
+        <Routing />
         <br />
         <div>
           <ul className="link">
@@ -112,7 +149,7 @@ const App = () => {
         </div>
       </main>
       <Footer />
-      <ProductViewModal/>
+      <ProductViewModal />
     </>
   );
 };

@@ -111,9 +111,31 @@ a{
     text-shadow: 0 0 7px #fff900;
   }
 }
-//cursor animation after click on window
-// .clickAnim{
-//   position:absolute;
-//   z-index: 100;
-// }
 
+::-webkit-scrollbar{
+  width:0;
+  background:transparent;
+}
+
+
+.click_scroll_bar{
+  position:fixed;
+  top:0;
+  right:0;
+  width:12px;
+  height:100vh;
+  background:rgba(170,170,170,0.356);
+  user-select:none;
+  z-index:10;
+  border-radius:15px;
+  .scroll_bar{
+    position:fixed;
+    top:0;
+    right:0;
+    width:12px;
+    height:0;
+    background:linear-gradient(to top, rgb(254,254,5) ,rgb(254,63,3));
+    z-index:11;
+    border-radius:15px;
+  }
+}
