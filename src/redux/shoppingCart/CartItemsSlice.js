@@ -37,9 +37,8 @@ export const cartItemsSlice = createSlice({
           },
         ];
       }
+      console.log(action.payload);
       localStorage.setItem('cartItems',JSON.stringify(sortItems(state.value)))
-      console.log(action.payload)
-      console.log(items);
     },
     updateItem: (state, action) => {
       const itemUpdate = action.payload
@@ -63,20 +62,31 @@ export const cartItemsSlice = createSlice({
        localStorage.setItem(
          "cartItems",
          JSON.stringify(sortItems(state.value))
-       );
+      );
+      console.log(action.payload)
     }
   }
 })
 
-const findItem = (arr, item) => arr.filter(
-  e => e.catalogSlug === item.catalogSlug && e.id === item.id &&
-    e.color === item.color && e.size === item.size
-)
+const findItem = (arr, item) =>
+  arr.filter(
+    (e) =>
+      e.catalogSlug === item.catalogSlug &&
+      e.id === item.id &&
+      e.color === item.color &&
+      e.size === item.size &&
+      e.quantity === item.quantity
+  );
 
-const delItem = (arr, item) =>arr.filter(
-  e => e.catalogSlug !== item.catalogSlug || e.id !== item.id ||
-    e.color !== item.color || e.size !== item.size
-);
+const delItem = (arr, item) =>
+  arr.filter(
+    e =>
+      e.catalogSlug !== item.catalogSlug ||
+      e.id !== item.id ||
+      e.color !== item.color ||
+      e.size !== item.size ||
+      e.quantity !== item.quantity
+  );
 
 const sortItems = (arr) =>
   arr.sort((a, b) =>
