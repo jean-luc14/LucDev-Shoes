@@ -2157,20 +2157,6 @@ const getProductByCatalogAndId = (catalog, id) => {
   return product;
 }
 
-//func to get a detail of product of item in cart component
-const getCartItemsDetail = (cartItems) => {
-  let res = []
-  if (cartItems.length > 0) {
-    cartItems.forEach(e => {
-      res.push({
-        ...e,
-        product: getProductByCatalogAndId(e.catalogSlug, e.id),
-      });
-    })
-  }
-  return res
-}
-
 //fun to search products by name 
 
 /*( si les mots d'un groupe de mot recherchés sont mis dans un ordre

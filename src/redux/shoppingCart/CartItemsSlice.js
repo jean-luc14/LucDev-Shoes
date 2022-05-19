@@ -93,6 +93,7 @@ const sortItems = (arr) =>
     a.valueItemId > b.valueItemId ? 1 : a.valueItemId < b.valueItemId ? -1 : 0
   );
 
+export { findItem, delItem, sortItems };
 export const { addItem, updateItem ,removeItem} = cartItemsSlice.actions;
 
 export default cartItemsSlice.reducer

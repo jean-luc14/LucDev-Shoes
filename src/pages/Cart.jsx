@@ -1,38 +1,46 @@
 import React,{useState,useEffect} from 'react'
 import { useSelector } from 'react-redux'
-import { getCartItemsDetail } from '../Assets/data/ProductData'
 import CartItem from '../components/CartItem'
 import Paypal from '../components/Paypal'
 
 const Cart = props => {
 
   const currentUser = useSelector((state) => state.firebase.value.currentUser);
-
-  const cartItems = useSelector((state) => state.cartItems.value)
-  const [cartProduct, setCartProduct] = useState([]);
+  
+  const [cartItems, setCartItems] = useState(useSelector((state) => state.cartItems.value));
+  const [cartItemsClone, setCartItemsClone] = useState(cartItems);
   const [totalProduct, setTotalProduct] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
 
-  useEffect(() => {
-    setCartProduct(getCartItemsDetail(cartItems));
-    setTotalProduct(cartItems.reduce((total,e)=>total + Number(e.quantity),0));
-    setTotalPrice(cartItems.reduce((total,e) => total + Number(e.quantity) * Number(e.price)),0);
+  
+  console.log(useSelector((state) => state.cartItems.value));
+  console.log(cartItems)
 
-  }, [cartProduct])
+  useEffect(() => {
+    setCartItems(cartItemsClone);
+    // setTotalProduct(cartItems.reduce((total,e) => total + Number(e.quantity),0));
+    // setTotalPrice(cartItems.reduce((total,e) => total + Number(e.quantity) * Number(e.price)),0);
+  }, [cartItemsClone]);
   
   return (
     <>
-      {cartProduct.length > 0 ? (
+      {cartItems.length > 0 ? (
         <div className="cart">
           <div className="cart_info">
             <div className="cart_info_product">
-              {cartProduct.map((item, index) => (
-                <CartItem item={item} key={index} />
+              {cartItems.map((item, index) => (
+                
+                    <CartItem
+                      key={index}
+                      item={item}
+                      cartItemsClone={cartItemsClone}
+                      setCartItemsClone={setCartItemsClone}
+                    />
               ))}
             </div>
             <div className="cart_info_txt">
-              <h1>Total Price {totalPrice}</h1>
-              <h1>Total Product {totalProduct}</h1>
+              {/* <h1>Total Price {totalPrice}</h1>
+              <h1>Total Product {totalProduct}</h1> */}
               {currentUser ? (
                 <Paypal />
               ) : (
@@ -47,6 +55,5 @@ const Cart = props => {
     </>
   );
 }
-
 
 export default Cart
