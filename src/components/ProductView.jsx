@@ -79,6 +79,7 @@ const ProductView = (props) => {
       dispatch(addItem({
         id: product.id,
         catalogSlug:product.catalogSlug,
+        name: product.name,
         price:product.price,
         img:selectedImg,
         color: color,
@@ -94,13 +95,14 @@ const ProductView = (props) => {
       addItem({
         id: product.id,
         catalogSlug: product.catalogSlug,
+        name: product.name,
         price: product.price,
         img: selectedImg,
         color: color,
         size: size,
         quantity: quantity,
       })
-      );
+    );
     navigate('/cart')
   }
   return (
