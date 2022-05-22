@@ -63,12 +63,12 @@ const PriceFilter = ({ filterByPrice, price, setPrice }) => {
     rowFilterGray.addEventListener("mouseleave", () => {
       holding = false;
     });
-    //To filter Products
+    //To filter Products by price
     filterByPrice(price);
   }, [price]);
 
   return (
-    <div onm className="products_filter_item_price">
+    <div className="products_filter_item_price">
       <div className="products_filter_item_price_title">
         <h2>Filter By Price</h2>
         <h2>
