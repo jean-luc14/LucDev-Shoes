@@ -12,17 +12,16 @@ const SearchResults = () => {
   let params = useParams();
 
   //All filter state
-  const [searchResults, setSearchResults] = useState( searchProducts(params.slug));
+  const [searchResults, setSearchResults] = useState(
+    searchProducts(params.slug)
+  );
   const [filterResults, setFilterResults] = useState(searchResults);
-  
 
   let allFilterByCategoryResults = [];
   let allFilterByCategoryResults2 = [];
   let allFilterByPriceResults = [];
   let allFilterByColorResults = [];
 
-  
-  
   //get quantity of each product category
   const getCategoryQuantity = (productCategory, categoryCheck) => {
     let filterByCategoryResults = [];
@@ -33,8 +32,7 @@ const SearchResults = () => {
       );
     }
     return filterByCategoryResults.length;
- }
- 
+  };
 
   //get quantity of each product color
   const getColorQuantity = (productColor, colorCheck) => {
@@ -51,7 +49,7 @@ const SearchResults = () => {
       );
     }
     return filterByColorResults.length;
-  }
+  };
 
   //filter Products By Category and push it in allFilterByCategoryResults variable
   const filterByCategory = (productCategory, categoryCheck) => {
@@ -59,7 +57,7 @@ const SearchResults = () => {
 
     if (categoryCheck) {
       filterByCategoryResults = searchResults.filter(
-        item => item.catalogSlug === productCategory
+        (item) => item.catalogSlug === productCategory
       );
       allFilterByCategoryResults.push(...filterByCategoryResults);
     }
@@ -67,10 +65,12 @@ const SearchResults = () => {
 
   //filter Products By Price and push it in allFilterByPriceResults variable
   const filterByPrice = (price) => {
-    allFilterByPriceResults = allFilterByCategoryResults.filter(e => e.price < price)
+    allFilterByPriceResults = allFilterByCategoryResults.filter(
+      (e) => e.price < price
+    );
   };
 
-   //filter Products By Color and push it in allFilterByColorResults variable
+  //filter Products By Color and push it in allFilterByColorResults variable
   const filterByColor = (productColor, colorCheck) => {
     let filterByColorResults = [];
 
@@ -83,18 +83,16 @@ const SearchResults = () => {
             .includes(productColor.toLowerCase().replace(/\s/g, ""))
         )
       );
-      
+
       allFilterByColorResults.push(...filterByColorResults);
-      
     }
   };
-
   
   // update all filter in filter results state to show in DOM
   const putFilterResultsInState = () => {
     let arr = [...new Set(allFilterByColorResults)];
     setFilterResults(arr);
-  }
+  };
 
   useEffect(() => {
     setSearchResults(searchProducts(params.slug));
@@ -104,7 +102,16 @@ const SearchResults = () => {
   return (
     <div className="search_results">
       <Section>
-        <SectionTitle ProductCards={filterResults}>
+        <SectionTitle
+          ProductCards={filterResults}
+          instruction={
+            <div className="color_instruction">
+              <span className='triangle'></span>
+              Each product has different colors, please click on the button to
+              buy to see the other colors of the product{" "}
+            </div>
+          }
+        >
           {`Search Results (${filterResults.length})`}
         </SectionTitle>
         <SectionBody>
@@ -126,7 +133,15 @@ const SearchResults = () => {
                   ))}
                 </Grid>
               ) : (
-                <h1> Oops! No Results </h1>
+                <div className="no_results">
+                  <h1> Oops! No Results </h1>
+                  <div>
+                    <span className="triangle"></span>
+                    Please select at least one product category and one active
+                    (red) product color If there is no active category or
+                    product color, please search for other keywords
+                  </div>
+                </div>
               )}
             </div>
           </div>

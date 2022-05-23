@@ -1,0 +1,18 @@
+.search_results_body .products_filter{
+  position:sticky;
+  top:0;
+  width:28%;
+  height:auto;
+  background:$background;
+  padding: 5px 2vw;
+  h2{
+    font-size: calc(32 * var(--res));
+    font-weight: 700;
+    margin:0.5vmin 0;
+    user-select:none;
+    span{
+        color:$red;
+    }
+  }
+  
+}

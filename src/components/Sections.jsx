@@ -36,6 +36,9 @@ export const SectionTitle = props => {
               {props.children}
             </h1>
           </div>
+          <div>
+            {props.instruction}
+          </div>
         </>
       ) : (
         <>
