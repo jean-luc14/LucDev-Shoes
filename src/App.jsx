@@ -106,7 +106,7 @@ const App = () => {
     progressBarFunc();
 
     // call the function progressBarFunc each time the link changes, (the height of the document)
-    window.addEventListener("click", () => {
+    window.addEventListener("scroll", () => {
       progressBarFunc();
     });
 
