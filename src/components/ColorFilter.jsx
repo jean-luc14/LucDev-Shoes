@@ -1,9 +1,27 @@
 import React, { useState, useEffect } from "react";
 
 const ColorFilter = ({
+  price,
+  filterByCategory,
+  filterByPrice,
   filterByColor,
-  putAllFilterInState,
+  putFilterResultsInState,
   colorQuantity,
+  Loafers,
+  Moccasins,
+  Oxfords,
+  DerbyShoes,
+  Chukkas,
+  ChelseaStyleBoots,
+  CasualSlipOnShoes,
+  ActiveSneakers,
+  WalkingShoes,
+  CasualLaceUpSneakers,
+  CasualSlipOnSneakers,
+  AtHomeShoes,
+  Slides,
+  ToePostSandals,
+  ActiveSandals,
   Black,
   Brown,
   Gray,
@@ -38,6 +56,24 @@ const ColorFilter = ({
   setSapphire,
 }) => {
   useEffect(() => {
+    filterByCategory("loafers", Loafers);
+    filterByCategory("moccasins", Moccasins);
+    filterByCategory("oxfords", Oxfords);
+    filterByCategory("derby-shoes", DerbyShoes);
+    filterByCategory("chukkas", Chukkas);
+    filterByCategory("chelsea-style-boots", ChelseaStyleBoots);
+    filterByCategory("casual-slip-on-shoes", CasualSlipOnShoes);
+    filterByCategory("active-sneakers", ActiveSneakers);
+    filterByCategory("walking-shoes", WalkingShoes);
+    filterByCategory("casual-lace-up-sneakers", CasualLaceUpSneakers);
+    filterByCategory("casual-slip-on-sneakers", CasualSlipOnSneakers);
+    filterByCategory("at-home-shoes", AtHomeShoes);
+    filterByCategory("slides", Slides);
+    filterByCategory("toe-post-sandals", ToePostSandals);
+    filterByCategory("active-sandals", ActiveSandals);
+
+    filterByPrice(price);
+
     filterByColor("Black", Black);
     filterByColor("Brown", Brown);
     filterByColor("Gray", Gray);
@@ -54,7 +90,8 @@ const ColorFilter = ({
     filterByColor("Khaki", Khaki);
     filterByColor("Ivory", Ivory);
     filterByColor("Sapphire", Sapphire);
-    putAllFilterInState();
+    
+    putFilterResultsInState();
   }, [
     Black,
     Brown,

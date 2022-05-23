@@ -4,6 +4,7 @@ import { getProductByCatalogAndId } from "../Assets/data/ProductData"
 import {useSelector,useDispatch} from 'react-redux'
 import { remove } from "../redux/product/ProductSlice";
 
+
 const ProductViewModal = () => {
 
   const productId = useSelector(state => state.product.value.id)
@@ -22,8 +23,8 @@ const ProductViewModal = () => {
       className={`productViewModal ${product === undefined ? "" : "active"}`}
       >
       <span className ='close'onClick={() => dispatch(remove())}> &times;</span>
-      <div className="productViewModal__background"></div>
-      <div className="productViewModal__content">
+      <div className="productViewModal_background"></div>
+      <div className="productViewModal_content">
         { product===undefined ? null:
           <ProductView product={product} Modal={true} />
         }

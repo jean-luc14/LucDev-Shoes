@@ -1,9 +1,28 @@
 import React, { useState, useEffect } from "react";
 
 const CategoryFilter = ({
+  price,
+  filterByPrice,
   filterByCategory,
-  putAllFilterInState,
+  filterByColor,
+  putFilterResultsInState,
   categoryQuantity,
+  Black,
+  Brown,
+  Gray,
+  Blue,
+  White,
+  Green,
+  Red,
+  Auburn,
+  Orange,
+  Yellow,
+  Coffee,
+  Golden,
+  Wine,
+  Khaki,
+  Ivory,
+  Sapphire,
   Loafers,
   Moccasins,
   Oxfords,
@@ -51,7 +70,27 @@ const CategoryFilter = ({
     filterByCategory("slides", Slides);
     filterByCategory("toe-post-sandals", ToePostSandals);
     filterByCategory("active-sandals", ActiveSandals);
-    putAllFilterInState()
+
+    filterByPrice(price);
+
+    filterByColor("Black", Black);
+    filterByColor("Brown", Brown);
+    filterByColor("Gray", Gray);
+    filterByColor("Blue", Blue);
+    filterByColor("White", White);
+    filterByColor("Green", Green);
+    filterByColor("Red", Red);
+    filterByColor("Auburn", Auburn);
+    filterByColor("Orange", Orange);
+    filterByColor("Yellow", Yellow);
+    filterByColor("Coffee", Coffee);
+    filterByColor("Golden", Golden);
+    filterByColor("Wine", Wine);
+    filterByColor("Khaki", Khaki);
+    filterByColor("Ivory", Ivory);
+    filterByColor("Sapphire", Sapphire);
+
+    putFilterResultsInState();
   }, [
     Loafers,
     Moccasins,

@@ -14,41 +14,73 @@
     top: 15vh;
     right:16vw;
     cursor:pointer;
-    z-index:3;
-  }
-  &__img{
-    position:absolute;
-    width:100vw;
-    height:100vh;
-    object-fit:cover;
-    z-index:1;
+    user-select:none;
+    z-index:13;
   }
 
-  &__background{
-    position:absolute;
-    height:100vh;
-    width:100vw;
-    background: rgba(0, 0, 0, 0.904);
-    z-index:2;
-    transition:opacity 0.5 ease-out;
-    
-  } 
-
-  &__content{
+  &_content{
     position:absolute;
     margin:auto;
     padding:2rem;
     width:auto;
     height:500px;
-    opacity:1;
-    //transform:translateY(-100vh);
+    opacity:0;
+    transform:translateY(-100vh);
     z-index:3;
-    transition:transform 0.5 ease-out opacity 0.5 ease-in;
+    transition:transform 0.5s ease-out;
+    transition:opacity 0.5s ease-in;
     
   }
   &.active{
     z-index:5;
     display:block;
+    .productViewModal_content{
+      opacity:1;
+      transform:translateY(0);
+    }
   }
 
+}
+
+.backgroundProduct .productWrapper.modal{
+  left:47vw;
+  top:53vh;
+  height:65vh;
+  width:80vw;
+  box-shadow: none; 
+  background: none;
+  .productInfo .imageSliderWrapper{
+    height: 28vw;
+    width: 28vw;
+    min-height: 230px;
+    min-width: 230px;
+    .imageSlider{
+      height: 100%;
+      width: 100%;
+      border-radius:7px;
+      object-fit:cover;
+    }
+  }
+  .shoesInfoItem{
+    width:90%;
+    h3{
+      font-size: calc(65 * var(--res));
+    }
+    p{
+      font-size: calc(25 * var(--res));
+    }
+    .size_wrapper{
+      font-size: calc(20 * var(--res));
+      span{
+        color:$red;
+      }
+    }
+    .buy_and_add_product_button{
+      button{
+        font-size:12px;
+        margin-right:20px;
+      }
+    }
+  }
+  
 }

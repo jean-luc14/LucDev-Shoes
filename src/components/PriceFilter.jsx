@@ -1,6 +1,44 @@
 import React,{useEffect} from 'react'
 
-const PriceFilter = ({ filterByPrice, price, setPrice }) => {
+const PriceFilter = ({
+  filterByPrice,
+  filterByCategory,
+  filterByColor,
+  putFilterResultsInState,
+  price,
+  setPrice,
+  Loafers,
+  Moccasins,
+  Oxfords,
+  DerbyShoes,
+  Chukkas,
+  ChelseaStyleBoots,
+  CasualSlipOnShoes,
+  ActiveSneakers,
+  WalkingShoes,
+  CasualLaceUpSneakers,
+  CasualSlipOnSneakers,
+  AtHomeShoes,
+  Slides,
+  ToePostSandals,
+  ActiveSandals,
+  Black,
+  Brown,
+  Gray,
+  Blue,
+  White,
+  Green,
+  Red,
+  Auburn,
+  Orange,
+  Yellow,
+  Coffee,
+  Golden,
+  Wine,
+  Khaki,
+  Ivory,
+  Sapphire,
+}) => {
   const maxPrice = 400;
 
   useEffect(() => {
@@ -31,12 +69,12 @@ const PriceFilter = ({ filterByPrice, price, setPrice }) => {
       ".products_filter_item_price_child.gray" in SearchResults.scss*/
       rowFilterGrayWidth = (((clientWidth * 98) / 100) * 28) / 100;
       currentPrice = (rowFilterRedWidth * 457) / rowFilterGrayWidth;
-      setPrice(currentPrice.toFixed(2));
+      setPrice(Number.parseFloat(currentPrice.toFixed(2)));
 
-      if (currentPrice.toFixed(2) <= 0) {
+      if (Number.parseFloat(currentPrice.toFixed(2)) <= 0) {
         setPrice(0);
       }
-      if (currentPrice.toFixed(2) >= 394) {
+      if(Number.parseFloat(currentPrice.toFixed(2)) >= 394) {
         setPrice(maxPrice);
       }
     });
@@ -48,12 +86,12 @@ const PriceFilter = ({ filterByPrice, price, setPrice }) => {
 
       currentPrice =
         ((rowFilterRedWidth + scrolled) * 457) / rowFilterGrayWidth;
-      setPrice(currentPrice.toFixed(2));
+      setPrice(Number.parseFloat(currentPrice.toFixed(2)));
 
-      if (currentPrice.toFixed(2) <= 0) {
+      if (Number.parseFloat(currentPrice.toFixed(2)) <= 0) {
         setPrice(0);
       }
-      if (currentPrice.toFixed(2) >= 394) {
+      if (Number.parseFloat(currentPrice.toFixed(2)) >= 394) {
         setPrice(maxPrice);
       }
     });
@@ -63,8 +101,43 @@ const PriceFilter = ({ filterByPrice, price, setPrice }) => {
     rowFilterGray.addEventListener("mouseleave", () => {
       holding = false;
     });
-    //To filter Products by price
+    
+    filterByCategory("loafers", Loafers);
+    filterByCategory("moccasins", Moccasins);
+    filterByCategory("oxfords", Oxfords);
+    filterByCategory("derby-shoes", DerbyShoes);
+    filterByCategory("chukkas", Chukkas);
+    filterByCategory("chelsea-style-boots", ChelseaStyleBoots);
+    filterByCategory("casual-slip-on-shoes", CasualSlipOnShoes);
+    filterByCategory("active-sneakers", ActiveSneakers);
+    filterByCategory("walking-shoes", WalkingShoes);
+    filterByCategory("casual-lace-up-sneakers", CasualLaceUpSneakers);
+    filterByCategory("casual-slip-on-sneakers", CasualSlipOnSneakers);
+    filterByCategory("at-home-shoes", AtHomeShoes);
+    filterByCategory("slides", Slides);
+    filterByCategory("toe-post-sandals", ToePostSandals);
+    filterByCategory("active-sandals", ActiveSandals);
+
     filterByPrice(price);
+
+    filterByColor("Black", Black);
+    filterByColor("Brown", Brown);
+    filterByColor("Gray", Gray);
+    filterByColor("Blue", Blue);
+    filterByColor("White", White);
+    filterByColor("Green", Green);
+    filterByColor("Red", Red);
+    filterByColor("Auburn", Auburn);
+    filterByColor("Orange", Orange);
+    filterByColor("Yellow", Yellow);
+    filterByColor("Coffee", Coffee);
+    filterByColor("Golden", Golden);
+    filterByColor("Wine", Wine);
+    filterByColor("Khaki", Khaki);
+    filterByColor("Ivory", Ivory);
+    filterByColor("Sapphire", Sapphire);
+
+    putFilterResultsInState();
   }, [price]);
 
   return (

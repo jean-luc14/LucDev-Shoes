@@ -527,7 +527,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -545,7 +545,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -690,7 +690,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -708,7 +708,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -980,7 +980,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -998,7 +998,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1252,7 +1252,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1415,7 +1415,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1433,7 +1433,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1451,7 +1451,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1523,7 +1523,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -1542,7 +1542,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2103,7 +2103,7 @@ const productData = [
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
     size: [45, 49, 36, 38, 43],
-    favorite: true,
+    favorite: false,
     color: [
       { name: "Black", img: I },
       { name: "Black", img: J },
@@ -2120,7 +2120,7 @@ const productData = [
 //func to get our favorite products
 const getFavoriteProducts = () => {
   let favorite;
-  favorite = productData.filter(e => e.favorite === true)
+  favorite = productData.filter(e => e.favorite === false)
   return favorite;
 }
 
@@ -2177,7 +2177,6 @@ const searchProducts = value => {
 export {
   productData,
   getProductByCatalogAndId,
-  getCartItemsDetail,
   getNewProducts,
   getFavoriteProducts,
   searchProducts,

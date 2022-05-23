@@ -11,10 +11,7 @@ const Cart = props => {
   const [cartItemsClone, setCartItemsClone] = useState(cartItems);
   const [totalProduct, setTotalProduct] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
-
   
-  console.log(useSelector((state) => state.cartItems.value));
-  console.log(cartItems)
 
   useEffect(() => {
     setCartItems(cartItemsClone);
@@ -29,7 +26,7 @@ const Cart = props => {
           <div className="cart_info">
             <div className="cart_info_product">
               {cartItems.map((item, index) => (
-                
+
                     <CartItem
                       key={index}
                       item={item}

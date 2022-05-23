@@ -1,0 +1,19 @@
+.products_filter_item_color{
+  div{
+    @include flex(row,space-between,flex-start);
+     li{
+      font-size: calc(23 * var(--res));
+      font-weight:500;
+      margin:0.2vmin;
+      color:rgb(190, 189, 189);
+      user-select: none;
+      &.active{
+        input{
+          cursor:pointer;
+        }
+        cursor:pointer;
+        color:$red;
+      }
+    }
+  }
+}

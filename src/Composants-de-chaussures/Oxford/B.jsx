@@ -8,24 +8,20 @@ import Moccasins from "../../Assets/images/moccasins/7/gray.jpg";
 // Debugging Component
 const B = () => {
   
-  const arr = [];
-  const arr2 = ['a','b','c','d','e','f','g','h','i']
-
-  const foo = () => {
-    let hey;
-    arr.forEach((item) => {
-     hey = arr2.filter(e => e == item )
-     console.log(hey);
-    })
-  }
   
   useEffect(() => {
-    
+    let arr1 = [ ];
+    let arr2 = [1, 2, 3, 4, 5];
+    let arr;
+    arr1.forEach(item => {
+      arr = arr2.filter((e) => e < item);
+      console.log(arr)
+    })
   }, []);
 
   return (
     <>
-      <div className="parent" onClick={foo}>
+      <div className="parent" >
         <input type="checkbox"></input>
       </div>
     </>

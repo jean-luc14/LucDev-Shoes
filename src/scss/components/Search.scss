@@ -51,8 +51,8 @@
     z-index: 1;
     border-radius: 5px;
     width:80vmin;
-    //max-height:60vh;
-    //overflow:scroll;
+    max-height:60vh;
+    overflow:auto;
     .triangle{
       @include absolute($top:-7px,$y:0%);
       @include pseudo(0,0,transparent);
