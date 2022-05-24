@@ -46,19 +46,19 @@ const BestCategory = () => {
       >
         {/* navigate to go to best category page */}
         <div className="bestCategory_child_name">
-          <div>
-            <p onClick={() => navigate("/moccasins")}>
+          <div className="slide_item_wrapper">
+            <div onClick={() => navigate("/moccasins")}>
               <p className="slide_item">Moccasins</p>
               <img src={Moccasins} alt="moccasins" />
-            </p>
-            <p onClick={() => navigate("/oxfords")}>
+            </div>
+            <div onClick={() => navigate("/oxfords")} >
               <p className="slide_item">Oxfords</p>
               <img src={Oxfords} alt="oxfords" />
-            </p>
-            <p onClick={() => navigate("/loafers")}>
+            </div>
+            <div onClick={() => navigate("/loafers")} >
               <p className="slide_item">Loafers</p>
               <img src={Loafers} alt="loafers" />
-            </p>
+            </div>
           </div>
         </div>
         <div className="bestCategory_child_items">
