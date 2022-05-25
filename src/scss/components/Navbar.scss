@@ -111,14 +111,18 @@
     height:auto;
     .catalog_list_btn{
       position:absolute;
-      font-size:calc(30 * var(--res));
+      font-size:calc(27 * var(--res));
+      font-weight:500;
       left:0;
       top:45px;
-      padding: 3px 10px 6px;
+      line-height: 2;
+      padding:0 2vmin;
       background:$red;
       cursor:pointer;
       margin-left:5px;
       border-radius:7px;
+      border:none;
+      outline:none;
     }
     .catalog_list_wrapper{
       position:absolute;
