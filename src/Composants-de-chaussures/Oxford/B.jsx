@@ -26,7 +26,7 @@ const B = () => {
         <img
           width="250px"
           height="250px"
-          src="/static/media/green.339b2bfe91263f18fc54.jpg"
+          src="../../static/media/green.339b2bfe91263f18fc54.jpg"
         />
       </div>
     </>
