@@ -10,7 +10,7 @@ import Filter from "../components/Filter";
 const SearchResults = () => {
   //params and dispatch
   let params = useParams();
-
+  let slug = params.slug;
   //All filter state
   const [searchResults, setSearchResults] = useState(
     searchProducts(params.slug)
@@ -95,9 +95,10 @@ const SearchResults = () => {
   };
 
   useEffect(() => {
-    setSearchResults(searchProducts(params.slug));
-    setFilterResults(searchProducts(params.slug));
-  }, [params.slug]);
+    setSearchResults(searchProducts(slug));
+    setFilterResults(searchProducts(slug));
+    console.log(slug);
+  }, [slug]);
 
   return (
     <div className="search_results">

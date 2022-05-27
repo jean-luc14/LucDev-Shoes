@@ -6,9 +6,10 @@ import {store} from './redux/Store'
 import {Provider} from 'react-redux'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+//basename="/LucDev-Shoes"
 
 ReactDOM.render(
-  <BrowserRouter basename="/LucDev-Shoes">
+  <BrowserRouter >
     <Provider store={store}>
       <App />
     </Provider>
