@@ -1,7 +1,7 @@
 @import '../../scss/_mixins';
 @import '../../scss/_placeholders';
 .parent{
-  width:20vw;
+  width:80vw;
   height:80vh;
   @include flex($flex-direction:column);
   background-color: rgb(210, 210, 210);
@@ -10,5 +10,9 @@
     background-color: red;
     padding:13px;
     color:red;
+  }
+  img{
+    width:250px;
+    height:250px
   }
 }

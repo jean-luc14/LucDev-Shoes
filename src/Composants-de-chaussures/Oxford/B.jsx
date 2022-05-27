@@ -21,8 +21,11 @@ const B = () => {
 
   return (
     <>
-      <div className="parent" >
+      <div className="parent">
         <input type="checkbox"></input>
+        <img
+          src="/static/media/green.339b2bfe91263f18fc54.jpg"
+        />
       </div>
     </>
   );
