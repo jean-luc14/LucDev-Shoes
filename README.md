@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# LucDev-Shoes
+---------
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Outline a brief description of your project. Live demo [here](https://www.wawacity.blue/?p=manga&id=2161-high-rise-invasion-saison1)
 
-## Available Scripts
+## Tables of Contents
+--------
 
-In the project directory, you can run:
+* General Info 
+* Technologies Used
+* Features
+* Screenshots
+* Setup
+* Usage
+* Project Status
+* Room for Improvement
+* Acknowledgements
+* Contact
 
-### `npm start`
+### General Information
+-------
+* Provide general information about your project here.
+* What problem does it (intent to) solve ?
+* What is the purpose of your project
+* Why did you undertake it ?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Technologiees Used 
+-------
+* Tech 1 - version 1.0
+* Tech 2 - version 2.0
+* Tech 3 - version 3.0
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Features
+-------
+List the ready features here:
 
-### `npm test`
+* Awesome feature 1
+* Awesome feature 2
+* Awesome feature 3
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshots
+-------
+![Moccaisin](https://jean-luc14.github.io/LucDev-Shoes/static/media/yellow.b1c1d0e9d1258f52cc47.jpg)
 
-### `npm run build`
+### Setup
+What are the project requirement/dependencies? 
+Where are they listed ?.A requirements.txt or a Pipfile.lock file perhaps ?
+Where is it located ?  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Proceed to describe how to install /setup one's local environement/get started with the project.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Usage
+-------
+How does one go about using it ? Provide various use 
+cases and code examples here.  
+`write-your-code-here`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Project Status
+-------
+Project is:*in progress / complete / no longer being worked on.*
+if you are no longer working on it,provide reasons why.
 
-### `npm run eject`
+### Room for Improvement
+-------
+Include areas you believe need improvement / could be improved.
+Also add TODOS for future development  
+  
+Room for improvement  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Improvement to be done 1
+* Improvement to be done 2  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To do:  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Feature to be added 1
+* Feature to be added 1
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Acknowledgements
+------
 
-## Learn More
+Give credit here.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* This project was inspired by...
+* This project was based on [this tutorial.](https://youtu.be/fUdrXQ72670)
+* Many thanks to...
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Contact 
+------
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Created by jean-luc free to contact me! 
+  
