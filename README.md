@@ -47,13 +47,13 @@
 
 ## Screenshots 
 * Data filtering by category, color, and price
-![DataFiltering LucDev-Shoes](https://jean-luc14.github.io/LucDev-Shoes/images/DataFiltering-LucDev-Shoes.PNG)
+![DataFiltering LucDev-Shoes](./img/DataFiltering-LucDev-Shoes.PNG)
   
 * Home page 
-![HeaderHomePage LucDev-Shoes](https://jean-luc14.github.io/LucDev-Shoes/images/HeaderHomePage-LucDev-Shoes.PNG)
+![HeaderHomePage LucDev-Shoes](./img/HeaderHomePage-LucDev-Shoes.PNG)
   
 * Product detail in modal
-![ModalProductDetail LucDev-Shoes](https://jean-luc14.github.io/LucDev-Shoes/images/ModalProductDetail-LucDev-Shoes.PNG)
+![ModalProductDetail LucDev-Shoes](./img/ModalProductDetail-LucDev-Shoes.PNG)
 
 ## Setup 
 To setup you can simply clone this ecommerce-demo repository and
