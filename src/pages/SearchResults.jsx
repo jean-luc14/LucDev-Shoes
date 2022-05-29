@@ -130,7 +130,7 @@ const SearchResults = () => {
               {filterResults.length > 0 ? (
                 <Grid searchResults={true}>
                   {filterResults.map((e, i) => (
-                    <ProductCard productProps={e} key={i} />
+                    <ProductCard productProps={e} key={i}  />
                   ))}
                 </Grid>
               ) : (
