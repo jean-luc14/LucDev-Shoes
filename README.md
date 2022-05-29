@@ -46,11 +46,11 @@
 * A thumbs galery
 
 ## Screenshots 
-* Data filtering by category, color, and price
-![DataFiltering LucDev-Shoes](./img/DataFiltering-LucDev-Shoes.PNG)
-  
 * Home page 
 ![HeaderHomePage LucDev-Shoes](./img/HeaderHomePage-LucDev-Shoes.PNG)
+
+* Data filtering by category, color, and price
+![DataFiltering LucDev-Shoes](./img/DataFiltering-LucDev-Shoes.PNG)
   
 * Product detail in modal
 ![ModalProductDetail LucDev-Shoes](./img/ModalProductDetail-LucDev-Shoes.PNG)
