@@ -32,6 +32,7 @@
 * prop-types 15.8
 * sass 1.43
 * swiper js 8
+* drift-zoom 1.5
 
 ## Features 
 
