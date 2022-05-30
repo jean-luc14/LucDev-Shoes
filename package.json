@@ -9,7 +9,6 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "babel": "^6.23.0",
-    "drift-zoom": "^1.5.0",
     "firebase": "^9.6.10",
     "node-sass": "^6.0.1",
     "prop-types": "^15.8.1",
