@@ -55,6 +55,9 @@ const ProductView = (props) => {
     setSize(product === undefined ? undefined : product.size[0]);
     setQuantity(1)
     getSelectedImages();
+
+    
+
   },[product])
   
 
@@ -183,9 +186,10 @@ const ImageSlider = props => {
   if (props.isActive === true) {
     props.updateColor(props.color);
   }
+  
   return (
-    <div  className="imageSliderWrapper">
-      <img  className="imageSlider" src={props.item} />
+    <div className="imageSliderWrapper ">
+      <img className="imageSlider" src={props.item} />
     </div>
   );
 }

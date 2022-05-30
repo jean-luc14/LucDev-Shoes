@@ -20,7 +20,6 @@ const ProductCard = props => {
 
   //Dispatch
   const dispatch = useDispatch();
-  console.log(props.productProps.color[0].img);
   return (
     <div className="productCard" onClick={() => goToProductPage(catalogSlug, id)}>
       <img className="productCardImg" src={props.productProps.color[0].img} />

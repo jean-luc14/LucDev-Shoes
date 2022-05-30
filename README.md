@@ -23,7 +23,7 @@
   I took the products from AliExpress. By creating this application,
   my goal is to prove my skills in React and Javascript. 
 
-## Technologiees Used
+## Technologies Used
 * react 17 
 * react-router-dom 6 
 * react-redux 7.2
@@ -32,7 +32,6 @@
 * prop-types 15.8
 * sass 1.43
 * swiper js 8
-* drift-zoom 1.5
 
 ## Features 
 
