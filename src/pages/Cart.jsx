@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import CartItem from '../components/CartItem'
+import { SectionTitle } from "../components/Sections";
 import Paypal from '../components/Paypal'
 
 const Cart = props => {
@@ -21,18 +22,20 @@ const Cart = props => {
   
   return (
     <>
+      <SectionTitle ProductCards={cartItemsClone} cartPage={true}>
+        {'Shopping Cart'}
+      </SectionTitle>
       {cartItems.length > 0 ? (
         <div className="cart">
           <div className="cart_info">
             <div className="cart_info_product">
               {cartItems.map((item, index) => (
-
-                    <CartItem
-                      key={index}
-                      item={item}
-                      cartItemsClone={cartItemsClone}
-                      setCartItemsClone={setCartItemsClone}
-                    />
+                <CartItem
+                  key={index}
+                  item={item}
+                  cartItemsClone={cartItemsClone}
+                  setCartItemsClone={setCartItemsClone}
+                />
               ))}
             </div>
             <div className="cart_info_txt">
