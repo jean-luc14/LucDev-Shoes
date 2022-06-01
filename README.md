@@ -38,9 +38,10 @@
 * Authentication system with firebase
 * Data filtering system by category, color and price. 
 * Dynamic research
+* Custom zoom effect on image with javascript
 * A list of similar products in the same product category that changes when the relevant product page loads
 * A mouse slider with decreasing velocity
-* The capacity to see the details of a product in modal
+* show product detail in modal
 * Different custom scroll bars
 * An infinite slide loop 
 * A thumbs galery
