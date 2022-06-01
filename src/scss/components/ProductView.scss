@@ -92,6 +92,8 @@
   user-select: none;
   @extend %flex-center;
   border-radius:10px;
+
+  // The imageSliderWrapper class is in ImageSlider.jsx
   .imageSliderWrapper{
     position:relative;
     height: 32vw;
