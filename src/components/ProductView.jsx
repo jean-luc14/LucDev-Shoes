@@ -23,7 +23,6 @@ const ProductView = (props) => {
   const [size, setSize] = useState( product === undefined ? undefined : product.size[0]);
   const [quantity, setQuantity] = useState(1)
   const [color, setColor] = useState(undefined)
-  //const [selectedImg, setSelectedImg] = useState(undefined)
   
   // fonction pour caputer l'adresse de l'image active avec la class nommer par swiper js
   const getSelectedImages = () => {
@@ -39,17 +38,6 @@ const ProductView = (props) => {
     }) 
     return imageSelected;
   }
-
-  //Eviter de generer d'erreur dans productViewModal au deuxieme affichage du meme produit
-  // if (product === undefined) {product = {
-  //   price: 0,
-  //   name: '',
-  //   img: '',
-  //   size:[],
-  //   color:[]
-  //   }
-  // }
-
 
   useEffect(() => {
     setSize(product === undefined ? undefined : product.size[0]);
@@ -186,10 +174,57 @@ const ImageSlider = props => {
   if (props.isActive === true) {
     props.updateColor(props.color);
   }
+  /*useEffect(() => {
+    
+    window.document.addEventListener('load', () => {
+      
+      // get active slide
+      const activeSlide = document.querySelector(
+        ".swiper-slide swiper-slide-active"
+      );
+  
+      // zoom image in active slide
+      activeSlide.addEventListener('mousemove',() => {
+        
+        const imageSliderWrapper = document.querySelector(
+          ".swiper-slide swiper-slide-active .imageSliderWrapper"
+        );
+        const imageSlider = document.querySelector(
+          ".swiper-slide swiper-slide-active .imageSlider"
+        );
+        const lens = document.querySelector(
+          ".swiper-slide swiper-slide-active .lens"
+        );
+        const result = document.querySelector(
+          ".swiper-slide swiper-slide-active .result"
+        );
+        
+        const imageSliderWrapperRect = imageSliderWrapper.getBoundingClientRect()
+        const imageSliderRect = imageSlider.getBoundingClientRect();
+        const lensRect = lens.getBoundingClientRect();
+        const resultRect = result.getBoundingClientRect();
+  
+        imageSliderWrapper.addEventListener('mousemove',zoomImage)
+    
+        const zoomImage = (e) => {
+          let x = e.clientX - imageSliderWrapperRect.left - lensRect.width/2;
+          let y = e.clientY - imageSliderWrapperRect.top - lensRect.height / 2;
+  
+          lens.style.left = x + 'px'
+          lens.style.top = y + 'px'
+        }
+      })
+      console.log(activeSlide);
+      
+    })
+  }, [])*/
+  
   
   return (
     <div className="imageSliderWrapper ">
       <img className="imageSlider" src={props.item} />
+      <div className="lens"></div>
+      <div className="result"></div>
     </div>
   );
 }
