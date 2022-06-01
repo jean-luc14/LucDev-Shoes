@@ -10,7 +10,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { getMouseEventOptions } from "@testing-library/user-event/dist/utils";
 
 
 const ProductView = (props) => {
@@ -130,6 +129,7 @@ const ProductView = (props) => {
                           getSelectedImages={getSelectedImages}
                           updateColor={updateColor}
                           color={item.name}
+                          modal={props.Modal}
                         />
                       )}
                     </SwiperSlide>
@@ -191,18 +191,11 @@ const ImageSlider = props => {
 
     // zoom image in active slide
     swiper.addEventListener("mousemove", (e) => {
-      imageSliderWrapper = document.querySelector(
-        ".swiper-slide.swiper-slide-active .imageSliderWrapper"
-      );
-      imageSlider = document.querySelector(
-        ".swiper-slide.swiper-slide-active .imageSlider"
-      );
-      lens = document.querySelector(
-        ".swiper-slide.swiper-slide-active .lens"
-      );
-      zoomImageResult = document.querySelector(
-        ".productWrapper .zoom_image_result"
-      );
+      
+      imageSliderWrapper = document.querySelector(".swiper-slide.swiper-slide-active .imageSliderWrapper" );
+      imageSlider = document.querySelector( ".swiper-slide.swiper-slide-active .imageSlider" );
+      lens = document.querySelector( ".swiper-slide.swiper-slide-active .lens" );
+      zoomImageResult = document.querySelector( ".productWrapper .zoom_image_result" );
 
       //Add background image and active class to result of image zoom and lens
       zoomImageResult.classList.add("active");
@@ -213,7 +206,12 @@ const ImageSlider = props => {
       imageSliderRect = imageSlider.getBoundingClientRect();
       lensRect = lens.getBoundingClientRect();
       zoomImageResultRect = zoomImageResult.getBoundingClientRect();
+      zoomImage(e)
+    });
 
+    //zoom image
+    const zoomImage = (e) => {
+      
       let { x, y } = getMousePos(e);
 
       lens.style.left = x + "px";
@@ -225,7 +223,7 @@ const ImageSlider = props => {
       zoomImageResult.style.backgroundSize = `${imageSliderRect.width * fx}px
        ${imageSliderRect.height * fy}px`;
       zoomImageResult.style.backgroundPosition = `-${x * fx}px -${y * fy}px `;
-    });
+    }
 
     // get position of mouse on swiper
     const getMousePos = (e) => {
