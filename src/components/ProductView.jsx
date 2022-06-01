@@ -178,7 +178,12 @@ const ImageSlider = props => {
   }
   useEffect(() => {
     // get active slide
-    const swiper = document.querySelector(".productInfo .swiper");
+    let swiper;
+    if (props.modal) {
+      swiper = document.querySelector(".productWrapper.modal .swiper");
+    } else {
+      swiper = document.querySelector(".productInfo .swiper");
+    }
 
     let imageSliderWrapper;
     let imageSliderWrapperRect;
@@ -189,13 +194,38 @@ const ImageSlider = props => {
     let zoomImageResult;
     let zoomImageResultRect;
 
-    // zoom image in active slide
+    // zoom image in active slide 
     swiper.addEventListener("mousemove", (e) => {
-      
-      imageSliderWrapper = document.querySelector(".swiper-slide.swiper-slide-active .imageSliderWrapper" );
-      imageSlider = document.querySelector( ".swiper-slide.swiper-slide-active .imageSlider" );
-      lens = document.querySelector( ".swiper-slide.swiper-slide-active .lens" );
-      zoomImageResult = document.querySelector( ".productWrapper .zoom_image_result" );
+
+      /*Get html elements separately for that even on product page the related products 
+      can get show html elements in productViewModal */
+      if (props.modal) {
+        imageSliderWrapper = document.querySelector(
+          ".productWrapper.modal .swiper-slide.swiper-slide-active .imageSliderWrapper"
+        );
+        imageSlider = document.querySelector(
+          ".productWrapper.modal .swiper-slide.swiper-slide-active .imageSlider"
+        );
+        lens = document.querySelector(
+          ".productWrapper.modal .swiper-slide.swiper-slide-active .lens"
+        );
+        zoomImageResult = document.querySelector(
+          ".productWrapper.modal .zoom_image_result"
+        );
+      } else {
+        imageSliderWrapper = document.querySelector(
+          ".swiper-slide.swiper-slide-active .imageSliderWrapper"
+        );
+        imageSlider = document.querySelector(
+          ".swiper-slide.swiper-slide-active .imageSlider"
+        );
+        lens = document.querySelector(
+          ".swiper-slide.swiper-slide-active .lens"
+        );
+        zoomImageResult = document.querySelector(
+          ".productWrapper .zoom_image_result"
+        );
+      }
 
       //Add background image and active class to result of image zoom and lens
       zoomImageResult.classList.add("active");
@@ -206,12 +236,11 @@ const ImageSlider = props => {
       imageSliderRect = imageSlider.getBoundingClientRect();
       lensRect = lens.getBoundingClientRect();
       zoomImageResultRect = zoomImageResult.getBoundingClientRect();
-      zoomImage(e)
+      zoomImage(e);
     });
 
     //zoom image
     const zoomImage = (e) => {
-      
       let { x, y } = getMousePos(e);
 
       lens.style.left = x + "px";
@@ -223,7 +252,7 @@ const ImageSlider = props => {
       zoomImageResult.style.backgroundSize = `${imageSliderRect.width * fx}px
        ${imageSliderRect.height * fy}px`;
       zoomImageResult.style.backgroundPosition = `-${x * fx}px -${y * fy}px `;
-    }
+    };
 
     // get position of mouse on swiper
     const getMousePos = (e) => {
@@ -251,7 +280,7 @@ const ImageSlider = props => {
       zoomImageResult.classList.remove("active");
       lens.classList.remove("active");
     });
-  }, [])
+  }, [props.modal]);
   
   
   return (
