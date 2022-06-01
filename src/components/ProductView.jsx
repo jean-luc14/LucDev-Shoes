@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import { getMouseEventOptions } from "@testing-library/user-event/dist/utils";
 
 
 const ProductView = (props) => {
@@ -108,6 +109,7 @@ const ProductView = (props) => {
               </div>
             )}
             <div className={`productWrapper ${props.Modal ? "modal" : ""}`}>
+              <div className="zoom_image_result"></div>
               <div className="productInfo">
                 {/* Swipe which show a current product */}
                 <Swiper
@@ -174,57 +176,90 @@ const ImageSlider = props => {
   if (props.isActive === true) {
     props.updateColor(props.color);
   }
-  /*useEffect(() => {
-    
-    window.document.addEventListener('load', () => {
-      
-      // get active slide
-      const activeSlide = document.querySelector(
-        ".swiper-slide swiper-slide-active"
+  useEffect(() => {
+    // get active slide
+    const swiper = document.querySelector(".productInfo .swiper");
+
+    let imageSliderWrapper;
+    let imageSliderWrapperRect;
+    let imageSlider;
+    let imageSliderRect;
+    let lens;
+    let lensRect;
+    let zoomImageResult;
+    let zoomImageResultRect;
+
+    // zoom image in active slide
+    swiper.addEventListener("mousemove", (e) => {
+      imageSliderWrapper = document.querySelector(
+        ".swiper-slide.swiper-slide-active .imageSliderWrapper"
       );
-  
-      // zoom image in active slide
-      activeSlide.addEventListener('mousemove',() => {
-        
-        const imageSliderWrapper = document.querySelector(
-          ".swiper-slide swiper-slide-active .imageSliderWrapper"
-        );
-        const imageSlider = document.querySelector(
-          ".swiper-slide swiper-slide-active .imageSlider"
-        );
-        const lens = document.querySelector(
-          ".swiper-slide swiper-slide-active .lens"
-        );
-        const result = document.querySelector(
-          ".swiper-slide swiper-slide-active .result"
-        );
-        
-        const imageSliderWrapperRect = imageSliderWrapper.getBoundingClientRect()
-        const imageSliderRect = imageSlider.getBoundingClientRect();
-        const lensRect = lens.getBoundingClientRect();
-        const resultRect = result.getBoundingClientRect();
-  
-        imageSliderWrapper.addEventListener('mousemove',zoomImage)
-    
-        const zoomImage = (e) => {
-          let x = e.clientX - imageSliderWrapperRect.left - lensRect.width/2;
-          let y = e.clientY - imageSliderWrapperRect.top - lensRect.height / 2;
-  
-          lens.style.left = x + 'px'
-          lens.style.top = y + 'px'
-        }
-      })
-      console.log(activeSlide);
-      
-    })
-  }, [])*/
+      imageSlider = document.querySelector(
+        ".swiper-slide.swiper-slide-active .imageSlider"
+      );
+      lens = document.querySelector(
+        ".swiper-slide.swiper-slide-active .lens"
+      );
+      zoomImageResult = document.querySelector(
+        ".productWrapper .zoom_image_result"
+      );
+
+      //Add background image and active class to (result of image zoom,lens)
+      zoomImageResult.classList.add("active");
+      lens.classList.add("active");
+      zoomImageResult.style.backgroundImage = `url(${imageSlider.src})`;
+
+      imageSliderWrapperRect = imageSliderWrapper.getBoundingClientRect();
+      imageSliderRect = imageSlider.getBoundingClientRect();
+      lensRect = lens.getBoundingClientRect();
+      zoomImageResultRect = zoomImageResult.getBoundingClientRect();
+
+      let { x, y } = getMousePos(e);
+
+      lens.style.left = x + "px";
+      lens.style.top = y + "px";
+
+      let fx = zoomImageResultRect.width / lensRect.width;
+      let fy = zoomImageResultRect.height / lensRect.height;
+
+      zoomImageResult.style.backgroundSize = `${imageSliderRect.width * fx}px
+       ${imageSliderRect.height * fy}px`;
+      zoomImageResult.style.backgroundPosition = `-${x * fx}px -${y * fy}px `;
+    });
+
+    // get position of mouse on swiper
+    const getMousePos = (e) => {
+      let x = e.clientX - imageSliderWrapperRect.left - lensRect.width / 2;
+      let y = e.clientY - imageSliderWrapperRect.top - lensRect.height / 2;
+      let minX = 0;
+      let minY = 0;
+      let maxX = imageSliderWrapperRect.width - lensRect.width;
+      let maxY = imageSliderWrapperRect.height - lensRect.height;
+      if (x <= minX) {
+        x = minX;
+      } else if (x >= maxX) {
+        x = maxX;
+      }
+      if (y <= minY) {
+        y = minY;
+      } else if (y >= maxY) {
+        y = maxY;
+      }
+      return { x, y };
+    };
+
+    //Remove active class from result of image zoom en lens if mouse leave
+    swiper.addEventListener("mouseleave", () => {
+      zoomImageResult.classList.remove("active");
+      lens.classList.remove("active");
+    });
+  }, [])
   
   
   return (
     <div className="imageSliderWrapper ">
       <img className="imageSlider" src={props.item} />
       <div className="lens"></div>
-      <div className="result"></div>
     </div>
   );
 }
