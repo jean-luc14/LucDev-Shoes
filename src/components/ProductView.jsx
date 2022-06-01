@@ -204,7 +204,7 @@ const ImageSlider = props => {
         ".productWrapper .zoom_image_result"
       );
 
-      //Add background image and active class to (result of image zoom,lens)
+      //Add background image and active class to result of image zoom and lens
       zoomImageResult.classList.add("active");
       lens.classList.add("active");
       zoomImageResult.style.backgroundImage = `url(${imageSlider.src})`;

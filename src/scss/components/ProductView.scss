@@ -155,9 +155,10 @@
     }
   } 
 
-  .backgroundProduct .zoom_image_result{
-    width:25vh;
-    height:25vh;
+  .backgroundProduct .productWrapper .zoom_image_result{
+    right:0;
+    width:30vh;
+    height:30vh;
   }
 
   .backgroundProduct .productImageSlider{
@@ -179,10 +180,9 @@
     }
   }
 }
-@include mobile{
-  .backgroundProduct .zoom_image_result{
-    top:5%;
-    width:30vh;
-    height:30vh;
-  }
-} 
+// @include mobile{
+//   .backgroundProduct .productWrapper .zoom_image_result{
+//     width:30vh;
+//     height:30vh;
+//   }
+// } 
