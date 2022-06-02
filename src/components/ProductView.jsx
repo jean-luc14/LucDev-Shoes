@@ -39,15 +39,6 @@ const ProductView = (props) => {
     return imageSelected;
   }
 
-  useEffect(() => {
-    setSize(product === undefined ? undefined : product.size[0]);
-    setQuantity(1)
-    getSelectedImages();
-
-    
-  },[product])
-  
-
   // update product property function
   const updateQuantity = (type) => {
     if (type === 'plus') {
@@ -110,6 +101,13 @@ const ProductView = (props) => {
     }
     setColor(activeImage.getAttribute("color"));
   }
+
+   useEffect(() => {
+    setSize(product === undefined ? undefined : product.size[0]);
+    setQuantity(1)
+    getSelectedImages();
+
+  },[product])
 
   return (
     <div>
