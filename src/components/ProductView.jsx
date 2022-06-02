@@ -45,7 +45,6 @@ const ProductView = (props) => {
     getSelectedImages();
 
     
-
   },[product])
   
 
@@ -96,6 +95,22 @@ const ProductView = (props) => {
     );
     navigate('/cart')
   }
+
+  //put color of active image in state
+  const putColorInState = () => {
+    let activeImage;
+    if (props.Modal) {
+      activeImage = document.querySelector(
+        ".productWrapper.modal .swiper-slide.swiper-slide-active .imageSlider"
+      );
+    } else {
+      activeImage = document.querySelector(
+       ".swiper-slide.swiper-slide-active .imageSlider"
+     );
+    }
+    setColor(activeImage.getAttribute("color"));
+  }
+
   return (
     <div>
       {product ? (
@@ -122,21 +137,19 @@ const ProductView = (props) => {
                 >
                   {product.color.map((item, index) => (
                     <SwiperSlide key={index}>
-                      {({ isActive }) => (
                         <ImageSlider
                           item={item.img}
-                          isActive={isActive}
                           getSelectedImages={getSelectedImages}
-                          updateColor={updateColor}
+                          putColorInState={putColorInState}
                           color={item.name}
                           modal={props.Modal}
+                          name={product.name}
                         />
-                      )}
                     </SwiperSlide>
                   ))}
                 </Swiper>
                 <div className="shoesInfoItem">
-                  <h3> US ${product.price}</h3>
+                  <h3 value="luc"> US ${product.price}</h3>
                   <p>{product.name}</p>
                   <div className="category">
                     Category :{" "}
@@ -158,6 +171,8 @@ const ProductView = (props) => {
                     goToCart={goToCart}
                     size={size}
                     quantity={quantity}
+                    putColorInState={putColorInState}
+                    modal={props.Modal}
                   />
                 </div>
               </div>

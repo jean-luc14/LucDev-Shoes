@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 
 // The style of ImageSlider Component is in ProductView.scss
 const ImageSlider = (props) => {
-  if (props.isActive === true) {
-    props.updateColor(props.color);
-  }
+  // if (props.isActive === true) {
+  //   props.updateColor(props.color);
+  // }
   useEffect(() => {
     // get swiper in modal or not
     let swiper;
@@ -65,6 +65,9 @@ const ImageSlider = (props) => {
       lensRect = lens.getBoundingClientRect();
       zoomImageResultRect = zoomImageResult.getBoundingClientRect();
       zoomImage(e);
+
+      //put color of active in state
+      props.putColorInState();
     });
 
     //zoom image
@@ -108,11 +111,30 @@ const ImageSlider = (props) => {
       zoomImageResult.classList.remove("active");
       lens.classList.remove("active");
     });
+
+    //put color of active in state
+    props.putColorInState();
+    let getSwiperBtnPrev;
+    let getSwiperBtnNext;
+    if (props.modal) {
+      getSwiperBtnPrev = document.querySelector(
+        ".productWrapper.modal .swiper .swiper-button-prev"
+      );
+      getSwiperBtnNext = document.querySelector(
+        ".productWrapper.modal .swiper .swiper-button-next"
+      );
+    } else {
+      getSwiperBtnPrev = document.querySelector('.swiper .swiper-button-prev')
+      getSwiperBtnNext = document.querySelector('.swiper .swiper-button-next')
+    }
+    getSwiperBtnPrev.addEventListener("click", () => props.putColorInState());
+    getSwiperBtnNext.addEventListener("click", () => props.putColorInState());
+
   }, [props.modal]);
 
   return (
     <div className="imageSliderWrapper ">
-      <img className="imageSlider" src={props.item} />
+      <img className="imageSlider" src={props.item} alt={props.name} color={props.color}/>
       <div className="lens"></div>
     </div>
   );

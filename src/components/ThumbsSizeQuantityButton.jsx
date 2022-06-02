@@ -21,7 +21,11 @@ const ThumbsSizeQuantityButton = (props) => {
       >
         {props.product.color.map((item, index) => (
           <SwiperSlide>
-            <div key={index} className="other_color_img_wrapper">
+            <div
+              key={index}
+              className="other_color_img_wrapper"
+              onClick={props.putColorInState}
+            >
               <img className="other_color_img" src={item.img} alt={item.name} />
             </div>
           </SwiperSlide>
