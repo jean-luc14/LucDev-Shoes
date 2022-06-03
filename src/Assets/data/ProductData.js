@@ -313,8 +313,8 @@ const productData = [
         img: require("../images/oxfords/4/A311 black.jpg"),
       },
       {
-        name: "A310 Patent leather",
-        img: require("../images/oxfords/4/A310 patent leather.jpg"),
+        name: "A310 Patent leather Black",
+        img: require("../images/oxfords/4/A310 patent leather black.jpg"),
       },
       { name: "Auburn", img: require("../images/oxfords/4/auburn.jpg") },
       { name: "Black", img: require("../images/oxfords/4/black.jpg") },
@@ -2116,15 +2116,15 @@ const productData = [
     ],
   },
 ];
-
-//func to get our favorite products
+ 
+//  get our favorite products
 const getFavoriteProducts = () => {
   let favorite;
   favorite = productData.filter(e => e.favorite === false)
   return favorite;
 }
 
-// func to get the last product of each category 
+// get the last product of each category 
 const getNewProducts = () => {
   let lastProductInCategory;
   const catalogSlugs = [];
@@ -2146,7 +2146,7 @@ const getNewProducts = () => {
   return NewArrivals;
 }
 
-//func to get a product object by him catalog and id
+// get a product object by him catalog and id
 const getProductByCatalogAndId = (catalog, id) => {
   let product;
   if (catalog & id === undefined) {
@@ -2156,8 +2156,6 @@ const getProductByCatalogAndId = (catalog, id) => {
   }
   return product;
 }
-
-//fun to search products by name 
 
 /*( si les mots d'un groupe de mot recherchés sont mis dans un ordre
    different de celui du nom des produits, ceux-ci ne s'afficheront pas(A performer plus tard) )*/
@@ -2179,7 +2177,7 @@ export {
   getProductByCatalogAndId,
   getNewProducts,
   getFavoriteProducts,
-  searchProducts,
+  searchProducts, 
 };
 
 
