@@ -93,6 +93,41 @@ const Filter = ({
 
   useEffect(() => {
     
+    setBlack(false)
+    setBrown(false)
+    setGray(false)
+    setBlue(false)
+    setWhite(false)
+    setGreen(false)
+    setRed(false)
+    setAuburn(false)
+    setOrange(false)
+    setYellow(false)
+    setCoffee(false)
+    setGolden(false)
+    setWine(false)
+    setKhaki(false)
+    setIvory(false)
+    setSapphire(false)
+  
+    if (searchPage) { 
+      setLoafers(false);
+      setMoccasins(false)
+      setOxfords(false)
+      setDerbyShoes(false)
+      setChukkas(false)
+      setChelseaStyleBoots(false)
+      setCasualSlipOnShoes(false)
+      setActiveSneakers(false)
+      setWalkingShoes(false)
+      setCasualLaceUpSneakers(false)
+      setCasualSlipOnSneakers(false)
+      setAtHomeShoes(false)
+      setSlides(false)
+      setToePostSandals(false)
+      setActiveSandals(false)
+    }
+    
     setColorQuantity({
       Black: getColorQuantity("Black", true),
       Brown: getColorQuantity("Brown", true),
@@ -137,7 +172,7 @@ const Filter = ({
         ActiveSandals: getCategoryQuantity("active-sandals", true),
       });
     }
-  }, [searchResults]);
+  }, [slug,searchResults]);
 
   return (
     <div className="products_filter">

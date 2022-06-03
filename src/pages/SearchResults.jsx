@@ -89,10 +89,8 @@ const SearchResults = () => {
   
   // update all filter in filter results state to show in DOM
   const putFilterResultsInState = () => {
-    //if (allFilterByColorResults) { 
-      let arr = [...new Set(allFilterByColorResults)];
-      setFilterResults(arr);
-    //}
+    let arr = [...new Set(allFilterByColorResults)];
+    setFilterResults(arr);
   };
 
   useEffect(() => {

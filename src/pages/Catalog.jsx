@@ -67,15 +67,14 @@ const Catalog = props => {
       );
 
       allFilterByColorResults.push(...filterByColorResults);
+       
     }
   };
 
   // update all filter in filter results state to show in DOM
   const putFilterResultsInState = () => {
-    //if (allFilterByColorResults.length > 0) { 
       let arr = [...new Set(allFilterByColorResults)];
-      setCatalogProductCardsClone(arr);
-    //}
+    setCatalogProductCardsClone(arr); 
   };
 
   useEffect(() => {
@@ -84,12 +83,11 @@ const Catalog = props => {
     
     // put products witch are in current category in state
      setCatalogProductCards(
-      productData.filter((e) => e.catalogSlug === catalog)
+      productData.filter(e => e.catalogSlug === catalog)
     );
     setCatalogProductCardsClone(
-      productData.filter((e) => e.catalogSlug === catalog)
-    );
-
+      productData.filter(e => e.catalogSlug === catalog)
+    ); 
   }, [catalog]);
   return (
     <>
@@ -97,7 +95,7 @@ const Catalog = props => {
       {activeCatalogPage ? (
         <div className='catalog'>
           <Section>
-            <SectionTitle
+            <SectionTitle 
               ProductCards={catalogProductCardsClone}
               instruction={
                 <div className="color_instruction">
