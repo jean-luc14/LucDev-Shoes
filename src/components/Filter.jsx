@@ -4,6 +4,7 @@ import ColorFilter from "./ColorFilter";
 import CategoryFilter from "./CategoryFilter";
 
 const Filter = ({
+  searchPage,
   getColorQuantity,
   getCategoryQuantity,
   searchResults,
@@ -11,6 +12,7 @@ const Filter = ({
   filterByColor,
   filterByCategory,
   putFilterResultsInState,
+  slug,
 }) => {
   const maxPrice = 400;
   //price filter state
@@ -52,44 +54,45 @@ const Filter = ({
   const [ActiveSandals, setActiveSandals] = useState(false);
 
   const [colorQuantity, setColorQuantity] = useState({
-    Black: getColorQuantity("Black", true),
-    Brown: getColorQuantity("Brown", true),
-    Gray: getColorQuantity("Gray", true),
-    Blue: getColorQuantity("Blue", true),
-    White: getColorQuantity("White", true),
-    Green: getColorQuantity("Green", true),
-    Red: getColorQuantity("Red", true),
-    Auburn: getColorQuantity("Auburn", true),
-    Orange: getColorQuantity("Orange", true),
-    Yellow: getColorQuantity("Yellow", true),
-    Coffee: getColorQuantity("Coffee", true),
-    Golden: getColorQuantity("Golden", true),
-    Wine: getColorQuantity("Wine", true),
-    Khaki: getColorQuantity("Khaki", true),
-    Ivory: getColorQuantity("Ivory", true),
-    Sapphire: getColorQuantity("Sapphire", true),
-  });
+    Black:0,
+    Brown:0,
+    Gray:0,
+    Blue:0,
+    White:0,
+    Green:0,
+    Red:0,
+    Auburn:0,
+    Orange:0,
+    Yellow:0,
+    Coffee:0,
+    Golden:0,
+    Wine:0,
+    Khaki:0,
+    Ivory:0,
+    Sapphire:0,
+  }); 
 
-  const [categoryQuantity, setCategoryQuantity] = useState({
-    Loafers: getCategoryQuantity("loafers", true),
-    Moccasins: getCategoryQuantity("moccasins", true),
-    Oxfords: getCategoryQuantity("oxfords", true),
-    DerbyShoes: getCategoryQuantity("derby-shoes", true),
-    Chukkas: getCategoryQuantity("chukkas", true),
-    ChelseaStyleBoots: getCategoryQuantity("chelsea-style-boots", true),
-    CasualSlipOnShoes: getCategoryQuantity("casual-slip-on-shoes", true),
-    ActiveSneakers: getCategoryQuantity("active-sneakers", true),
-    WalkingShoes: getCategoryQuantity("walking-shoes", true),
-    CasualLaceUpSneakers: getCategoryQuantity("casual-lace-up-sneakers", true),
-    CasualSlipOnSneakers: getCategoryQuantity("casual-slip-on-sneakers", true),
-    AtHomeShoes: getCategoryQuantity("at-home-shoes", true),
-    Slides: getCategoryQuantity("slides", true),
-    ToePostSandals: getCategoryQuantity("toe-post-sandals", true),
-    ActiveSandals: getCategoryQuantity("active-sandals", true),
+  const [categoryQuantity, setCategoryQuantity] = useState ({
+    Loafers: 0,
+    Moccasins: 0,
+    Oxfords: 0,
+    DerbyShoes:0,
+    Chukkas:0,
+    ChelseaStyleBoots:0,
+    CasualSlipOnShoes: 0,
+    ActiveSneakers: 0,
+    WalkingShoes:0,
+    CasualLaceUpSneakers:0,
+    CasualSlipOnSneakers:0,
+    AtHomeShoes:0,
+    Slides: 0,
+    ToePostSandals: 0,
+    ActiveSandals: 0,
   });
+  
 
   useEffect(() => {
-    // filterByPrice(price);
+    
     setColorQuantity({
       Black: getColorQuantity("Black", true),
       Brown: getColorQuantity("Brown", true),
@@ -109,88 +112,93 @@ const Filter = ({
       Sapphire: getColorQuantity("Sapphire", true),
     });
 
-    setCategoryQuantity({
-      Loafers: getCategoryQuantity("loafers", true),
-      Moccasins: getCategoryQuantity("moccasins", true),
-      Oxfords: getCategoryQuantity("oxfords", true),
-      DerbyShoes: getCategoryQuantity("derby-shoes", true),
-      Chukkas: getCategoryQuantity("chukkas", true),
-      ChelseaStyleBoots: getCategoryQuantity("chelsea-style-boots", true),
-      CasualSlipOnShoes: getCategoryQuantity("casual-slip-on-shoes", true),
-      ActiveSneakers: getCategoryQuantity("active-sneakers", true),
-      WalkingShoes: getCategoryQuantity("walking-shoes", true),
-      CasualLaceUpSneakers: getCategoryQuantity(
-        "casual-lace-up-sneakers",
-        true
-      ),
-      CasualSlipOnSneakers: getCategoryQuantity(
-        "casual-slip-on-sneakers",
-        true
-      ),
-      AtHomeShoes: getCategoryQuantity("at-home-shoes", true),
-      Slides: getCategoryQuantity("slides", true),
-      ToePostSandals: getCategoryQuantity("toe-post-sandals", true),
-      ActiveSandals: getCategoryQuantity("active-sandals", true),
-    });
+    if (searchPage) {
+      setCategoryQuantity({
+        Loafers: getCategoryQuantity("loafers", true),
+        Moccasins: getCategoryQuantity("moccasins", true),
+        Oxfords: getCategoryQuantity("oxfords", true),
+        DerbyShoes: getCategoryQuantity("derby-shoes", true),
+        Chukkas: getCategoryQuantity("chukkas", true),
+        ChelseaStyleBoots: getCategoryQuantity("chelsea-style-boots", true),
+        CasualSlipOnShoes: getCategoryQuantity("casual-slip-on-shoes", true),
+        ActiveSneakers: getCategoryQuantity("active-sneakers", true),
+        WalkingShoes: getCategoryQuantity("walking-shoes", true),
+        CasualLaceUpSneakers: getCategoryQuantity(
+          "casual-lace-up-sneakers",
+          true
+        ),
+        CasualSlipOnSneakers: getCategoryQuantity(
+          "casual-slip-on-sneakers",
+          true
+        ),
+        AtHomeShoes: getCategoryQuantity("at-home-shoes", true),
+        Slides: getCategoryQuantity("slides", true),
+        ToePostSandals: getCategoryQuantity("toe-post-sandals", true),
+        ActiveSandals: getCategoryQuantity("active-sandals", true),
+      });
+    }
   }, [searchResults]);
 
   return (
     <div className="products_filter">
-      <CategoryFilter
-        price={price}
-        filterByCategory={filterByCategory}
-        filterByPrice={filterByPrice}
-        filterByColor={filterByColor}
-        putFilterResultsInState={putFilterResultsInState}
-        categoryQuantity={categoryQuantity}
-        Loafers={Loafers}
-        Moccasins={Moccasins}
-        Oxfords={Oxfords}
-        DerbyShoes={DerbyShoes}
-        Chukkas={Chukkas}
-        ChelseaStyleBoots={ChelseaStyleBoots}
-        CasualSlipOnShoes={CasualSlipOnShoes}
-        ActiveSneakers={ActiveSneakers}
-        WalkingShoes={WalkingShoes}
-        CasualLaceUpSneakers={CasualLaceUpSneakers}
-        CasualSlipOnSneakers={CasualSlipOnSneakers}
-        AtHomeShoes={AtHomeShoes}
-        Slides={Slides}
-        ToePostSandals={ToePostSandals}
-        ActiveSandals={ActiveSandals}
-        Black={Black}
-        Brown={Brown}
-        Gray={Gray}
-        Blue={Blue}
-        White={White}
-        Green={Green}
-        Red={Red}
-        Auburn={Auburn}
-        Orange={Orange}
-        Yellow={Yellow}
-        Coffee={Coffee}
-        Golden={Golden}
-        Wine={Wine}
-        Khaki={Khaki}
-        Ivory={Ivory}
-        Sapphire={Sapphire}
-        setLoafers={setLoafers}
-        setMoccasins={setMoccasins}
-        setOxfords={setOxfords}
-        setDerbyShoes={setDerbyShoes}
-        setChukkas={setChukkas}
-        setChelseaStyleBoots={setChelseaStyleBoots}
-        setCasualSlipOnShoes={setCasualSlipOnShoes}
-        setActiveSneakers={setActiveSneakers}
-        setWalkingShoes={setWalkingShoes}
-        setCasualLaceUpSneakers={setCasualLaceUpSneakers}
-        setCasualSlipOnSneakers={setCasualSlipOnSneakers}
-        setAtHomeShoes={setAtHomeShoes}
-        setSlides={setSlides}
-        setToePostSandals={setToePostSandals}
-        setActiveSandals={setActiveSandals}
-      />
+      {searchPage === true ? (
+        <CategoryFilter
+          price={price}
+          filterByCategory={filterByCategory}
+          filterByPrice={filterByPrice}
+          filterByColor={filterByColor}
+          putFilterResultsInState={putFilterResultsInState}
+          categoryQuantity={categoryQuantity}
+          Loafers={Loafers}
+          Moccasins={Moccasins}
+          Oxfords={Oxfords}
+          DerbyShoes={DerbyShoes}
+          Chukkas={Chukkas}
+          ChelseaStyleBoots={ChelseaStyleBoots}
+          CasualSlipOnShoes={CasualSlipOnShoes}
+          ActiveSneakers={ActiveSneakers}
+          WalkingShoes={WalkingShoes}
+          CasualLaceUpSneakers={CasualLaceUpSneakers}
+          CasualSlipOnSneakers={CasualSlipOnSneakers}
+          AtHomeShoes={AtHomeShoes}
+          Slides={Slides}
+          ToePostSandals={ToePostSandals}
+          ActiveSandals={ActiveSandals}
+          Black={Black}
+          Brown={Brown}
+          Gray={Gray}
+          Blue={Blue}
+          White={White}
+          Green={Green}
+          Red={Red}
+          Auburn={Auburn}
+          Orange={Orange}
+          Yellow={Yellow}
+          Coffee={Coffee}
+          Golden={Golden}
+          Wine={Wine}
+          Khaki={Khaki}
+          Ivory={Ivory}
+          Sapphire={Sapphire}
+          setLoafers={setLoafers}
+          setMoccasins={setMoccasins}
+          setOxfords={setOxfords}
+          setDerbyShoes={setDerbyShoes}
+          setChukkas={setChukkas}
+          setChelseaStyleBoots={setChelseaStyleBoots}
+          setCasualSlipOnShoes={setCasualSlipOnShoes}
+          setActiveSneakers={setActiveSneakers}
+          setWalkingShoes={setWalkingShoes}
+          setCasualLaceUpSneakers={setCasualLaceUpSneakers}
+          setCasualSlipOnSneakers={setCasualSlipOnSneakers}
+          setAtHomeShoes={setAtHomeShoes}
+          setSlides={setSlides}
+          setToePostSandals={setToePostSandals}
+          setActiveSandals={setActiveSandals}
+        />
+      ) : null}
       <PriceFilter
+        searchPage={searchPage}
         filterByCategory={filterByCategory}
         filterByPrice={filterByPrice}
         filterByColor={filterByColor}
@@ -230,6 +238,7 @@ const Filter = ({
         Sapphire={Sapphire}
       />
       <ColorFilter
+        searchPage={searchPage}
         price={price}
         filterByCategory={filterByCategory}
         filterByPrice={filterByPrice}
@@ -284,7 +293,6 @@ const Filter = ({
         setIvory={setIvory}
         setSapphire={setSapphire}
       />
-      
     </div>
   );
 };

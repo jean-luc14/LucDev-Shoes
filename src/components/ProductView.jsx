@@ -103,11 +103,10 @@ const ProductView = (props) => {
   }
 
    useEffect(() => {
-    setSize(product === undefined ? undefined : product.size[0]);
-    setQuantity(1)
-    getSelectedImages();
-
-  },[product])
+     setSize(product === undefined ? undefined : product.size[0]);
+     setQuantity(1);
+     getSelectedImages();
+   }, [product]);
 
   return (
     <div>

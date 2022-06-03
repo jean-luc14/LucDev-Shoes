@@ -18,7 +18,6 @@ const SearchResults = () => {
   const [filterResults, setFilterResults] = useState(searchResults);
 
   let allFilterByCategoryResults = [];
-  let allFilterByCategoryResults2 = [];
   let allFilterByPriceResults = [];
   let allFilterByColorResults = [];
 
@@ -90,14 +89,15 @@ const SearchResults = () => {
   
   // update all filter in filter results state to show in DOM
   const putFilterResultsInState = () => {
-    let arr = [...new Set(allFilterByColorResults)];
-    setFilterResults(arr);
+    //if (allFilterByColorResults) { 
+      let arr = [...new Set(allFilterByColorResults)];
+      setFilterResults(arr);
+    //}
   };
 
   useEffect(() => {
     setSearchResults(searchProducts(slug));
-    setFilterResults(searchProducts(slug));
-    console.log(slug);
+    setFilterResults(searchProducts(slug)); 
   }, [slug]);
 
   return (
@@ -107,9 +107,9 @@ const SearchResults = () => {
           ProductCards={filterResults}
           instruction={
             <div className="color_instruction">
-              <span className='triangle'></span>
-              Each product has different colors, please click on the button to
-              buy to see the other colors of the product{" "}
+              <span className="triangle"></span>
+              Each product has different colors, please click on the buy button
+              to see the other colors of the product{" "}
             </div>
           }
         >
@@ -118,6 +118,7 @@ const SearchResults = () => {
         <SectionBody>
           <div className="search_results_body">
             <Filter
+              searchPage={true}
               getColorQuantity={getColorQuantity}
               getCategoryQuantity={getCategoryQuantity}
               searchResults={searchResults}
@@ -125,12 +126,13 @@ const SearchResults = () => {
               filterByColor={filterByColor}
               filterByCategory={filterByCategory}
               putFilterResultsInState={putFilterResultsInState}
+              slug={slug}
             />
             <div className="search_results_body_child">
               {filterResults.length > 0 ? (
                 <Grid searchResults={true}>
                   {filterResults.map((e, i) => (
-                    <ProductCard productProps={e} key={i}  />
+                    <ProductCard productProps={e} key={i} />
                   ))}
                 </Grid>
               ) : (
@@ -139,7 +141,7 @@ const SearchResults = () => {
                   <div>
                     <span className="triangle"></span>
                     Please select at least one product category and one active
-                    (red) product color If there is no active category or
+                    (red) product color. If there is no active category or
                     product color, please search for other keywords
                   </div>
                 </div>
@@ -152,7 +154,4 @@ const SearchResults = () => {
     </div>
   );
 };
-
-
-
 export default SearchResults;

@@ -11,7 +11,7 @@
     font-weight: 500;
     font-size: calc(25 * var(--res));
     border-radius: 5px;
-    background: rgb(255, 247, 208);
+    background: rgb(46, 230, 77);
     color:black;
     padding:0.5vmin 1vmin ;
     z-index:3;
@@ -19,7 +19,7 @@
       @include absolute($top:100%,$y:0%);
       height:0;
       width:0;
-      border-top:1vmin solid rgb(255, 247, 208);
+      border-top:1vmin solid rgb(46, 230, 77);
       border-left:1vmin solid transparent;
       border-right:1vmin solid transparent;
     }
@@ -45,7 +45,7 @@
       font-weight: 500;
       font-size: calc(35 * var(--res));
       border-radius: 10px;
-      background: rgb(255, 247, 208);
+      background: rgb(46, 230, 77);
       padding:3vmin;
       box-shadow: $box-shadow;
       .triangle{
@@ -54,7 +54,7 @@
         width:0;
         border-bottom:2vmin solid transparent;
         border-top:2vmin solid transparent;
-        border-right:2vmin solid rgb(255, 247, 208);
+        border-right:2vmin solid rgb(46, 230, 77);
       }
     }
   }

@@ -1,14 +1,17 @@
 .products_filter_item_price{
   &_title{
-    @include flex(row,space-between,flex-end)
-
+    @include flex(row,space-between,flex-end);
+    h2 {
+      font-size: calc(35 * var(--res));
+      font-weight: 500;
+      margin:1vmin 0;
+      user-select:none; 
+      span{
+        color:$red;
+      }
+    }
   }
-  // h3 {
-  //   font-size: calc(30 * var(--res));
-  //   margin:0.5vmin 0;
-  //   user-select:none;
 
-  // }
   &_child{
     &.gray{
       position:relative;

@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react'
 
 const PriceFilter = ({
+  searchPage,
   filterByPrice,
   filterByCategory,
   filterByColor,
@@ -43,7 +44,13 @@ const PriceFilter = ({
 
   useEffect(() => {
     // the class '.search_results_body is in SearchResults.jsx'
-    const searchResultsBody = document.querySelector(".search_results_body");
+    let Body;
+    
+    if (searchPage) { 
+      Body = document.querySelector(".search_results_body");
+    } else {
+      Body = document.querySelector(".catalog_body"); 
+    }
     const rowFilterGray = document.querySelector(
       ".products_filter_item_price_child.gray"
     );
@@ -61,7 +68,7 @@ const PriceFilter = ({
       rowFilterGrayX = e.clientX;
       const { clientWidth } = document.documentElement;
       // "(clientWidth * 2)/100" is a padding of ".products_filter" in SearchResults.scss
-      MarginLeft = (clientWidth * 2) / 100 + searchResultsBody.offsetLeft;
+      MarginLeft = (clientWidth * 2) / 100 + Body.offsetLeft;
       rowFilterRedWidth = rowFilterGrayX - MarginLeft;
       rowFilterRed.style.width = `${rowFilterRedWidth}px`;
 
@@ -101,22 +108,23 @@ const PriceFilter = ({
     rowFilterGray.addEventListener("mouseleave", () => {
       holding = false;
     });
-    
-    filterByCategory("loafers", Loafers);
-    filterByCategory("moccasins", Moccasins);
-    filterByCategory("oxfords", Oxfords);
-    filterByCategory("derby-shoes", DerbyShoes);
-    filterByCategory("chukkas", Chukkas);
-    filterByCategory("chelsea-style-boots", ChelseaStyleBoots);
-    filterByCategory("casual-slip-on-shoes", CasualSlipOnShoes);
-    filterByCategory("active-sneakers", ActiveSneakers);
-    filterByCategory("walking-shoes", WalkingShoes);
-    filterByCategory("casual-lace-up-sneakers", CasualLaceUpSneakers);
-    filterByCategory("casual-slip-on-sneakers", CasualSlipOnSneakers);
-    filterByCategory("at-home-shoes", AtHomeShoes);
-    filterByCategory("slides", Slides);
-    filterByCategory("toe-post-sandals", ToePostSandals);
-    filterByCategory("active-sandals", ActiveSandals);
+    if (searchPage) { 
+      filterByCategory("loafers", Loafers);
+      filterByCategory("moccasins", Moccasins);
+      filterByCategory("oxfords", Oxfords);
+      filterByCategory("derby-shoes", DerbyShoes);
+      filterByCategory("chukkas", Chukkas);
+      filterByCategory("chelsea-style-boots", ChelseaStyleBoots);
+      filterByCategory("casual-slip-on-shoes", CasualSlipOnShoes);
+      filterByCategory("active-sneakers", ActiveSneakers);
+      filterByCategory("walking-shoes", WalkingShoes);
+      filterByCategory("casual-lace-up-sneakers", CasualLaceUpSneakers);
+      filterByCategory("casual-slip-on-sneakers", CasualSlipOnSneakers);
+      filterByCategory("at-home-shoes", AtHomeShoes);
+      filterByCategory("slides", Slides);
+      filterByCategory("toe-post-sandals", ToePostSandals);
+      filterByCategory("active-sandals", ActiveSandals);
+    }
 
     filterByPrice(price);
 
@@ -137,7 +145,7 @@ const PriceFilter = ({
     filterByColor("Ivory", Ivory);
     filterByColor("Sapphire", Sapphire);
 
-    putFilterResultsInState();
+    putFilterResultsInState(); 
   }, [price]);
 
   return (

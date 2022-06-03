@@ -1,14 +1,24 @@
+.products_filter_item_category { 
+  h2 {
+    font-size: calc(35 * var(--res));
+    font-weight: 500;
+    margin:1vmin 0;
+    user-select:none; 
+  }
+}
+
 .products_filter_item_category li{
   font-size: calc(23 * var(--res));
   font-weight:500;
   margin:0.2vmin;
   color:rgb(190, 189, 189);
   user-select: none;
+
   &.active{
+    cursor:pointer;
+    color:$red;
     input{
       cursor:pointer;
     }
-    cursor:pointer;
-    color:$red;
   }
 }

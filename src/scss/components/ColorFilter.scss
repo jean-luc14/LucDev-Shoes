@@ -1,4 +1,11 @@
 .products_filter_item_color{
+  h2 {
+    font-size: calc(35 * var(--res));
+    font-weight: 500;
+    margin:1vmin 0;
+    user-select:none; 
+  }
+  
   div{
     @include flex(row,space-between,flex-start);
      li{
@@ -8,11 +15,11 @@
       color:rgb(190, 189, 189);
       user-select: none;
       &.active{
+        cursor:pointer;
+        color:$red;
         input{
           cursor:pointer;
         }
-        cursor:pointer;
-        color:$red;
       }
     }
   }

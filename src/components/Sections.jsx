@@ -57,7 +57,7 @@ export const SectionTitle = props => {
 
 export const SectionBody = props => {
   return (
-    <div>
+    <div className = 'sectionBody'>
       {props.children}
     </div>
   )
