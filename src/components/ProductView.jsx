@@ -134,19 +134,19 @@ const ProductView = (props) => {
                 >
                   {product.color.map((item, index) => (
                     <SwiperSlide key={index}>
-                        <ImageSlider
-                          item={item.img}
-                          getSelectedImages={getSelectedImages}
-                          putColorInState={putColorInState}
-                          color={item.name}
-                          modal={props.Modal}
-                          name={product.name}
-                        />
+                      <ImageSlider
+                        item={item.img}
+                        getSelectedImages={getSelectedImages}
+                        putColorInState={putColorInState}
+                        color={item.name}
+                        modal={props.Modal}
+                        name={product.name}
+                      />
                     </SwiperSlide>
                   ))}
                 </Swiper>
                 <div className="shoesInfoItem">
-                  <h3 value="luc"> US ${product.price}</h3>
+                  <h3> US ${product.price}</h3>
                   <p>{product.name}</p>
                   <div className="category">
                     Category :{" "}
@@ -155,7 +155,10 @@ const ProductView = (props) => {
                     </span>
                   </div>
                   <div>
-                    Color : <span>{color}</span>
+                    Color :{" "}
+                    <span onClick={() => navigate(`/${product.catalogSlug}`)}>
+                      {color}
+                    </span>
                   </div>
                 </div>
                 <div className="thumbsSizeQuantityButton">
