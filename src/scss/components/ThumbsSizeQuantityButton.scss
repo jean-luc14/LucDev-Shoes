@@ -82,7 +82,7 @@
     @extend %flex-center;
     button{
       font-size:calc(30 * var(--res));
-      margin-right:20px;
+      margin-right:2vmin;
       line-height: 1.1;
       padding:1vmin 4.5vmin;
       font-weight:500;
@@ -93,8 +93,12 @@
       &:first-child{
         background: $red;
       }
-      &:last-child{
+      &:nth-child(2){
         background: $background-image;
+      }
+      &:last-child{
+        background:$background-image ;
+        padding:1vmin;
       }
 
     }

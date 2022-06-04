@@ -1,4 +1,5 @@
 import React from "react";
+import {useNavigate} from 'react-router-dom'
 import Plus from "../Assets/icons/plus.png";
 import Minus from "../Assets/icons/minus.png";
 
@@ -10,6 +11,7 @@ import "swiper/css/thumbs";
 
 // thumbs of Swiper js
 const ThumbsSizeQuantityButton = (props) => {
+  const navigate = useNavigate();
   return (
     <>
       <Swiper
@@ -70,6 +72,16 @@ const ThumbsSizeQuantityButton = (props) => {
         >
           Add To Card
         </button>
+        {props.modal ? (
+          <button
+            type="button"
+            onClick={() => {
+              navigate(`/${props.product.catalogSlug}/${props.product.id}`);
+            }}
+          >
+            Go To Product Page
+          </button>
+        ) : null}
       </div>
     </>
   );
