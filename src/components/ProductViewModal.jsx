@@ -19,16 +19,10 @@ const ProductViewModal = () => {
   }, [productCatalogSlug, productId]);
      
   return (
-    <div
-      className={`productViewModal ${product === undefined ? "" : "active"}`}
-      >
-      <span className ='close'onClick={() => dispatch(remove())}> &times;</span>
-      <div className="productViewModal_background"></div>
-      <div className="productViewModal_content">
-        { product===undefined ? null:
-          <ProductView product={product} Modal={true} />
-        }
-      </div>
+    <div className={`productViewModal ${product === undefined ? "" : "active"}`}> 
+      { product===undefined ? null:
+        <ProductView product={product} Modal={true} />
+      } 
     </div>
   );
 }

@@ -1,6 +1,7 @@
 .backgroundProduct{
   height: 100vh;
   width:100vw;
+  @include flex;
   &::after{
     @include absolute;
     @include pseudo($background:rgba(0, 0, 0, 0.55));
@@ -18,16 +19,28 @@
   .productWrapper{
     position:absolute;
     width:90vw;
-    height: 80vh;
-    top:50vh;
-    left:50vw;
-    transform:translate(-50% ,-50%);
+    height: 80vh; 
     border-radius: 10px;
     box-shadow: $box-shadow;
     background: rgba(182, 179, 179,0.2);
     @include flex($flex-direction:column);
     z-index: 1;
-    //backdrop-filter: blur(2px);
+    //backdrop-filter: blur(2px); 
+
+    &.modal{ 
+      box-shadow: none; 
+      background: none; 
+    }
+    .close{
+      position:absolute;
+      color:#fff;
+      font-size:50px;
+      top: 0;
+      right:5vmin;
+      cursor:pointer;
+      user-select:none;
+      z-index:13;
+    } 
     .zoom_image_result{
       display:none;
       position:absolute;
@@ -121,8 +134,7 @@
       &.active{
         display:block
       }
-    }
-    
+    } 
   }
 }
 //swiper class
@@ -181,10 +193,4 @@
       }
     }
   }
-}
-// @include mobile{
-//   .backgroundProduct .productWrapper .zoom_image_result{
-//     width:30vh;
-//     height:30vh;
-//   }
-// } 
+} 

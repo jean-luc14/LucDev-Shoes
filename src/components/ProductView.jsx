@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { addItem } from '../redux/shoppingCart/CartItemsSlice'
 import ImageSlider from "./ImageSlider";
 import ThumbsSizeQuantityButton from "./ThumbsSizeQuantityButton";
+import { remove } from "../redux/product/ProductSlice";
 
 // import of Swiper.js Modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -46,10 +47,7 @@ const ProductView = (props) => {
     } else {
       setQuantity(quantity > 1 ? quantity - 1 : 1)
     }
-  }
-  const updateColor = (color) => {
-    setColor(color)
-  }
+  } 
   const updateSize = (item) => {
     setSize(item)
   }
@@ -120,6 +118,7 @@ const ProductView = (props) => {
               </div>
             )}
             <div className={`productWrapper ${props.Modal ? "modal" : ""}`}>
+              {props.Modal ? <span className ='close'onClick={() => dispatch(remove())}> &times;</span> :null}
               <div className="zoom_image_result"></div>
               <div className="productInfo">
                 {/* Swipe which show a current product */}

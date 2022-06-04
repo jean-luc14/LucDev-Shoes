@@ -5,82 +5,51 @@
   top:0;
   left:0;
   z-index:-5;
-  display: none;
-
-  .close{
-    position:absolute;
-    color:#fff;
-    font-size:50px;
-    top: 15vh;
-    right:16vw;
-    cursor:pointer;
-    user-select:none;
-    z-index:13;
-  }
-
-  &_content{
-    position:absolute;
-    margin:auto;
-    padding:2rem;
-    width:auto;
-    height:500px;
-    opacity:0;
-    transform:translateY(-100vh);
-    z-index:3;
-    transition:transform 0.5s ease-out;
-    transition:opacity 0.5s ease-in;
-    
-  }
+  display: none; 
   &.active{
     z-index:5;
-    display:block;
-    .productViewModal_content{
-      opacity:1;
-      transform:translateY(0);
-    }
+    display:block; 
   }
-
 }
-
-.backgroundProduct .productWrapper.modal{
-  left:47vw;
-  top:53vh;
-  height:65vh;
-  width:80vw;
-  box-shadow: none; 
-  background: none;
-  .productInfo .imageSliderWrapper{
-    height: 28vw;
-    width: 28vw;
-    min-height: 230px;
-    min-width: 230px;
-    .imageSlider{
-      height: 100%;
-      width: 100%;
-      border-radius:7px;
-      object-fit:cover;
-    }
-  }
-  .shoesInfoItem{
-    width:90%;
-    h3{
-      font-size: calc(65 * var(--res));
-    }
-    p{
-      font-size: calc(25 * var(--res));
-    }
-    .size_wrapper{
-      font-size: calc(20 * var(--res));
-      span{
-        color:$red;
-      }
-    }
-    .buy_and_add_product_button{
-      button{
-        font-size:12px;
-        margin-right:20px;
-      }
-    }
-  }
+// .backgroundProduct .productWrapper.modal{
+//    left:48vw;
+  // top:47vh;
+  // height:80vh;
+  // width:80vw;
+  // box-shadow: none; 
+  // background: none;
+  // .productInfo .imageSliderWrapper{
+  //   height: 28vw;
+  //   width: 28vw;
+  //   min-height: 230px;
+  //   min-width: 230px;
+  //   .imageSlider{
+  //     height: 100%;
+  //     width: 100%;
+  //     border-radius:7px;
+  //     object-fit:cover;
+  //   }
+  // }
+  // .shoesInfoItem{
+  //   width:90%;
+  //   h3{
+  //     font-size: calc(65 * var(--res));
+  //   }
+  //   p{
+  //     font-size: calc(25 * var(--res));
+  //   }
+  //   .size_wrapper{
+  //     font-size: calc(20 * var(--res));
+  //     span{
+  //       color:$red;
+  //     }
+  //   }
+  //   .buy_and_add_product_button{
+  //     button{
+  //       font-size:12px;
+  //       margin-right:20px;
+  //     }
+  //   }
+  // }
   
-}
+// }
