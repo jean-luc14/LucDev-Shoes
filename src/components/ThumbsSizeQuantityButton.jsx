@@ -2,6 +2,8 @@ import React from "react";
 import {useNavigate} from 'react-router-dom'
 import Plus from "../Assets/icons/plus.png";
 import Minus from "../Assets/icons/minus.png";
+import { useDispatch } from "react-redux";
+import { remove } from "../redux/product/ProductSlice";
 
 // import of Swiper.js Modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,6 +14,17 @@ import "swiper/css/thumbs";
 // thumbs of Swiper js
 const ThumbsSizeQuantityButton = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
+
+  //Buy product, go to cart and close modal
+  const goToCartAndClose = () => {
+    props.goToCart();
+
+    if(props.modal){ 
+      dispatch(remove()); 
+    }
+  }
+  
   return (
     <>
       <Swiper
@@ -56,12 +69,7 @@ const ThumbsSizeQuantityButton = (props) => {
         </div>
       </div>
       <div className="buy_and_add_product_button">
-        <button
-          type="button"
-          onClick={() => {
-            props.goToCart();
-          }}
-        >
+        <button type="button" onClick={goToCartAndClose}>
           Buy Now
         </button>
         <button
@@ -77,6 +85,7 @@ const ThumbsSizeQuantityButton = (props) => {
             type="button"
             onClick={() => {
               navigate(`/${props.product.catalogSlug}/${props.product.id}`);
+              dispatch(remove());
             }}
           >
             Go To Product Page

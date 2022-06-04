@@ -100,6 +100,15 @@ const ProductView = (props) => {
     setColor(activeImage.getAttribute("color"));
   }
 
+  // go to current category page
+  const goToCategoryPage = () => {
+    navigate(`/${product.catalogSlug}`);
+
+    if (props.Modal) {
+      dispatch(remove());
+    }
+  }
+
    useEffect(() => {
      setSize(product === undefined ? undefined : product.size[0]);
      setQuantity(1);
@@ -118,7 +127,12 @@ const ProductView = (props) => {
               </div>
             )}
             <div className={`productWrapper ${props.Modal ? "modal" : ""}`}>
-              {props.Modal ? <span className ='close'onClick={() => dispatch(remove())}> &times;</span> :null}
+              {props.Modal ? (
+                <span className="close" onClick={() => dispatch(remove())}>
+                  {" "}
+                  &times;
+                </span>
+              ) : null}
               <div className="zoom_image_result"></div>
               <div className="productInfo">
                 {/* Swipe which show a current product */}
@@ -149,15 +163,12 @@ const ProductView = (props) => {
                   <p>{product.name}</p>
                   <div className="category">
                     Category :{" "}
-                    <span onClick={() => navigate(`/${product.catalogSlug}`)}>
+                    <span onClick={goToCategoryPage}>
                       {product.catalogSlug}
                     </span>
                   </div>
                   <div>
-                    Color :{" "}
-                    <span onClick={() => navigate(`/${product.catalogSlug}`)}>
-                      {color}
-                    </span>
+                    Color : <span onClick={goToCategoryPage}>{color}</span>
                   </div>
                 </div>
                 <div className="thumbsSizeQuantityButton">
