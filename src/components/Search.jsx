@@ -21,13 +21,13 @@ const Search = props => {
   }
 // function to go to product page 
   const goToProductPage = (catalogSlug,id) => {
-    navigate(`/${catalogSlug}/${id}`)
+    navigate(`/catalog=${catalogSlug}&id=${id}`)
     setInputValue('')
   }
   //Submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/search/${inputValue}`);
+    navigate(`/search=${inputValue}`);
     setInputValue('');
     animSearchFoo();
   }

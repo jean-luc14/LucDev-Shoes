@@ -7,7 +7,7 @@ const CatalogList = (props) => {
   const navigate = useNavigate();
   
   const goToCatalogPage = (catalogSlug) => {
-    navigate(`/${catalogSlug}`);
+    navigate(`/catalog=${catalogSlug}`);
   };
   let cats = null
 

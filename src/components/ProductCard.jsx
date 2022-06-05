@@ -11,7 +11,7 @@ const ProductCard = props => {
 
   //Go to product page func
   const goToProductPage = (catalogSlug,id) => {
-    navigate(`/${catalogSlug}/${id}`);
+    navigate(`/catalog=${catalogSlug}&id=${id}`);
   }
 
   //Catch current product id and category

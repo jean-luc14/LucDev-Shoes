@@ -13,18 +13,18 @@ import Private from "../pages/private/Private";
 import PrivateCart from "../pages/private/privateCart/PrivateCart";
 
 const Routing = () => {
-  return ( 
+  return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/:catalogSlug" element={<Catalog />} />
-      <Route path="/:catalogSlug/:id" element={<ProductPage />} />
+      <Route path="/catalog=:catalogSlug" element={<Catalog />} />
+      <Route path="/catalog=:catalogSlug&id=:id" element={<ProductPage />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/about" element={<About_us />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/search/:slug" element={<SearchResults />}/>
+      <Route path="/search=:value" element={<SearchResults />} />
       <Route path="/Composants-de-chaussures/Oxford/B" element={<B />} />
-      <Route path='/private' element={<Private/>}>
-        <Route path='/private/private-cart' element={<PrivateCart/>}/>
+      <Route path="/private" element={<Private />}>
+        <Route path="/private/private-cart" element={<PrivateCart />} />
       </Route>
       <Route element={<PageNotFound />} />
     </Routes>

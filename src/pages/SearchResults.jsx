@@ -10,7 +10,7 @@ import Filter from "../components/Filter";
 const SearchResults = () => {
   //params and dispatch
   let params = useParams();
-  let slug = params.slug;
+  let slug = params.value;
   //All filter state
   const [searchResults, setSearchResults] = useState(
     searchProducts(params.slug)

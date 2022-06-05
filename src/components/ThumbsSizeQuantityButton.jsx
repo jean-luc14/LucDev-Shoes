@@ -84,7 +84,7 @@ const ThumbsSizeQuantityButton = (props) => {
           <button
             type="button"
             onClick={() => {
-              navigate(`/${props.product.catalogSlug}/${props.product.id}`);
+              navigate(`/catalog=${props.product.catalogSlug}&id=${props.product.id}`);
               dispatch(remove());
             }}
           >

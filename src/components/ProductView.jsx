@@ -102,7 +102,7 @@ const ProductView = (props) => {
 
   // go to current category page
   const goToCategoryPage = () => {
-    navigate(`/${product.catalogSlug}`);
+    navigate(`/catalog=${product.catalogSlug}`);
 
     if (props.Modal) {
       dispatch(remove());
