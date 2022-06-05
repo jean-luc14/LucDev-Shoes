@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.358ae307.css",
-    "main.js": "./static/js/main.10309947.js",
+    "main.css": "./static/css/main.4dbc2758.css",
+    "main.js": "./static/js/main.5019779d.js",
     "static/js/787.d574fd58.chunk.js": "./static/js/787.d574fd58.chunk.js",
     "static/media/brown.jpg": "./static/media/brown.f38e97fd2bb475be3101.jpg",
     "static/media/G.jpg": "./static/media/G.3b71187d18e094fb9c41.jpg",
@@ -28,7 +28,7 @@
     "static/media/coffee.jpg": "./static/media/coffee.afb9a64e722949469539.jpg",
     "static/media/blue.jpg": "./static/media/blue.caa01f2c5546713ef789.jpg",
     "static/media/dark blue.jpg": "./static/media/dark blue.58754932177ba173161e.jpg",
-    "static/media/A310 patent leather.jpg": "./static/media/A310 patent leather.bf4580acfb3da99494ad.jpg",
+    "static/media/A310 patent leather black.jpg": "./static/media/A310 patent leather black.bf4580acfb3da99494ad.jpg",
     "static/media/A312 white.jpg": "./static/media/A312 white.a57f09074d235ef9bd1f.jpg",
     "static/media/green.jpg": "./static/media/green.339b2bfe91263f18fc54.jpg",
     "static/media/ivory.jpg": "./static/media/ivory.ce64943ddaae0489779c.jpg",
@@ -51,12 +51,12 @@
     "static/media/delete.png": "./static/media/delete.a6fd29509719f079bfd7.png",
     "static/media/warning.png": "./static/media/warning.b34807aabfbaa99480c5.png",
     "index.html": "./index.html",
-    "main.358ae307.css.map": "./static/css/main.358ae307.css.map",
-    "main.10309947.js.map": "./static/js/main.10309947.js.map",
+    "main.4dbc2758.css.map": "./static/css/main.4dbc2758.css.map",
+    "main.5019779d.js.map": "./static/js/main.5019779d.js.map",
     "787.d574fd58.chunk.js.map": "./static/js/787.d574fd58.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.358ae307.css",
-    "static/js/main.10309947.js"
+    "static/css/main.4dbc2758.css",
+    "static/js/main.5019779d.js"
   ]
 }
