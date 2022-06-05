@@ -16,8 +16,8 @@ const Routing = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/catalog=:catalogSlug" element={<Catalog />} />
       <Route path="/catalog=:catalogSlug&id=:id" element={<ProductPage />} />
+      <Route path="/catalog=:catalogSlug" element={<Catalog />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/about" element={<About_us />} />
       <Route path="/contact" element={<Contact />} />

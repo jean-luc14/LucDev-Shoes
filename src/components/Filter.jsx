@@ -12,7 +12,7 @@ const Filter = ({
   filterByColor,
   filterByCategory,
   putFilterResultsInState,
-  slug,
+  value,
 }) => {
   const maxPrice = 400;
   //price filter state
@@ -172,7 +172,7 @@ const Filter = ({
         ActiveSandals: getCategoryQuantity("active-sandals", true),
       });
     }
-  }, [slug,searchResults]);
+  }, [value,searchResults]);
 
   return (
     <div className="products_filter">
