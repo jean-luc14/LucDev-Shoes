@@ -1,7 +1,3 @@
-//import
-@import '../_mixins';
-@import '../_variables';
-
 /* Navigation */
 #navbar{
   position:fixed;
@@ -16,8 +12,7 @@
     display: none;
   }
 
-  #link{
-    //position:fixed;
+  #link{ 
     @include flex(row,flex-end,center);
     width: 100vw;
     height:auto;
@@ -28,114 +23,112 @@
         color:black;
       }
     }
-
-
-    .link_child{
-      position:fixed;
-      width:100vw;
-      display:flex;
-      
-      &:first-child{
-        justify-content:center; 
-      }
-      &_li{
-        position:relative;
-        font-size:18px;
-        height:30px;
-        margin:12px 15px;
-
-        &::after{
-          content:'';
-          position:absolute;
-          bottom:-2px;
-          display:flex;
-          left:50%;
-          transform: translateX(-50%);
-          transition:all 400ms ease-out;
-          width:0%;
-          height:3px;
-          border-radius: 3px;
-          background-color:#CE6A14;
-        }
-
-        
-        &.active::after,&:hover::after{
-          width:100%;
-        }
-        &.active .nav-link,&:hover .nav-link{
-          color:#CE6A14;
-        }
-
-      }
-      .btn{
-        cursor:pointer;
-        height: 30px;
-        font-size:calc(30 * var(--res));
-        margin:5px;
-        padding:3px 15px 5px;
-        color:#CE6A14;
-        border-radius:5px;
-        font-weight:770;
-        &.log_in{
-          display:none;
-          margin:10px 0;
-          position:relative;
-          background-color:#ffd83c;
-          border:0px solid transparent;
-          &:active{
-            background-color:  whitesmoke;
-          }
-        }
-      }
-    }
-
-    &:first-child{
-      justify-content:flex-end; 
-    }
-    .ecommerce_icons{
-      img{
-        height:30px;
-        width:40px;
-        filter:invert(1);
-        margin-right:15px;
-      }
-    }
   }
-  .catalog_list_background{
+}
+
+#navbar .catalog_list_background{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh; 
+  background:rgba(0, 0, 0, 0.299); 
+}
+#navbar .catalog_list_parent{
+  height:auto;
+  .catalog_list_btn{
     position:absolute;
-    width:100vw;
-    height:200vh; 
-    background:rgba(0, 0, 0, 0.299);
+    font-size:calc(27 * var(--res));
+    font-weight:500;
+    left:0;
+    top:45px;
+    line-height: 2;
+    padding:0 2vmin;
+    background:$red;
+    cursor:pointer;
+    margin-left:5px;
+    border-radius:7px;
+    border:none;
+    outline:none;
   }
-  .catalog_list_parent{
+  .catalog_list_wrapper{
+    position:absolute;
+    left:0;
+    top:80px;
+    width:230px;
     height:auto;
-    .catalog_list_btn{
-      position:absolute;
-      font-size:calc(27 * var(--res));
-      font-weight:500;
-      left:0;
-      top:45px;
-      line-height: 2;
-      padding:0 2vmin;
-      background:$red;
-      cursor:pointer;
-      margin-left:5px;
-      border-radius:7px;
-      border:none;
-      outline:none;
+    transform:translateX(-100%);
+    transition:transform 0.5s ease-out;
+    &.active{
+      transform:translateX(0%)
     }
-    .catalog_list_wrapper{
+  }
+}
+
+#navbar #link .link_child{
+  position:fixed;
+  width:100vw;
+  display:flex;
+  
+  &:first-child{
+    justify-content:center; 
+  }
+  &_li{
+    position:relative;
+    font-size:18px;
+    height:30px;
+    margin:12px 15px;
+    &::after{
+      content:'';
       position:absolute;
-      left:0;
-      top:80px;
-      width:230px;
-      height:auto;
-      transform:translateX(-100%);
-      transition:transform 0.5s ease-out;
-      &.active{
-        transform:translateX(0%)
+      bottom:-2px;
+      display:flex;
+      left:50%;
+      transform: translateX(-50%);
+      transition:all 400ms ease-out;
+      width:0%;
+      height:3px;
+      border-radius: 3px;
+      background-color:#CE6A14;
+    }
+    
+    &.active::after,&:hover::after{
+      width:100%;
+    }
+    &.active .nav-link,&:hover .nav-link{
+      color:#CE6A14;
+    }
+  }
+  .btn{
+    cursor:pointer;
+    height: 30px;
+    font-size:calc(30 * var(--res));
+    margin:5px;
+    padding:3px 15px 5px;
+    color:#CE6A14;
+    border-radius:5px;
+    font-weight:770;
+    &.log_in{
+      display:none;
+      margin:10px 0;
+      position:relative;
+      background-color:#ffd83c;
+      border:0px solid transparent;
+      &:active{
+        background-color:  whitesmoke;
       }
     }
+  }
+}
+#navbar:first-child{
+  justify-content:flex-end; 
+}
+#navbar .ecommerce_icons{
+  img{
+    height:30px;
+    width:40px;
+    filter:invert(1);
+    margin-right:15px;
   }
 }
 
