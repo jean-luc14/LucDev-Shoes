@@ -94,7 +94,7 @@ const delItem = (arr, item) =>
 //sort products
 const sortItems = (arr) =>
   arr.sort((a, b) =>
-    a.valueItemId > b.valueItemId ? 1 : a.valueItemId < b.valueItemId ? -1 : 0
+    a.valueItemId > b.valueItemId ? -1 : a.valueItemId < b.valueItemId ? 1 : 0
   );
 
 export { findItem, delItem, sortItems };
