@@ -16,11 +16,13 @@ const CartItem = props => {
   const updateQuantity = (opt) => {
     if (opt === "+") {
       dispatch(updateItem({ ...item, quantity: quantity + 1 }));
+      setQuantity(quantity + 1);
     }
     if (opt === "-") {
       dispatch(
         updateItem({ ...item, quantity: quantity - 1 === 0 ? 1 : quantity - 1 })
       );
+      setQuantity( quantity - 1 === 0 ? 1 : quantity - 1);
     }
   };
 
@@ -32,8 +34,7 @@ const CartItem = props => {
   };
 
   useEffect(() => {
-    setItem(props.item);
-    setQuantity(props.item.quantity);
+    setItem(props.item); 
   }, [props.item]);
 
   return (
@@ -49,7 +50,7 @@ const CartItem = props => {
           <div className="cart_item_info_quantity_btn">
             <img src={Minus} onClick={() => updateQuantity("-")} />
           </div>
-          <div className="cart_item_info_quantity_item">{item.quantity}</div>
+          <div className="cart_item_info_quantity_item">{quantity}</div>
           <div className="cart_item_info_quantity_btn">
             <img src={Plus} onClick={() => updateQuantity("+")} />
           </div>

@@ -9,6 +9,7 @@ export const cartItemsSlice = createSlice({
   name: 'cartItems',
   initialState, 
   reducers: {
+    //add product to cart 
     addItem: (state, action) => {
       const newItem = action.payload
 
@@ -36,12 +37,13 @@ export const cartItemsSlice = createSlice({
                 ? state.value[state.value.length - 1].valueItemId + 1: 1,
           },
         ];
-      }
-      console.log(action.payload);
+      } 
       localStorage.setItem('cartItems',JSON.stringify(sortItems(state.value)))
     },
+
+    //update a product in products of cart
     updateItem: (state, action) => {
-      const itemUpdate = action.payload
+      const itemUpdate = action.payload;
       const item = findItem(state.value, itemUpdate);
 
       if (item.length > 0) {
@@ -54,40 +56,42 @@ export const cartItemsSlice = createSlice({
           },
         ];
       }
-      localStorage.setItem("cartItems", JSON.stringify(sortItems(state.value)));
+      localStorage.setItem("cartItems", JSON.stringify(sortItems(state.value))); 
     },
+
+    //remove product in cart
     removeItem: (state, action) => {
       const item = action.payload
       state.value = delItem(state.value, item);
        localStorage.setItem(
          "cartItems",
          JSON.stringify(sortItems(state.value))
-      );
-      console.log(action.payload)
+      ); 
     }
   }
 })
 
+//find product 
 const findItem = (arr, item) =>
   arr.filter(
     (e) =>
       e.catalogSlug === item.catalogSlug &&
       e.id === item.id &&
       e.color === item.color &&
-      e.size === item.size &&
-      e.quantity === item.quantity
+      e.size === item.size 
   );
 
+//delete product
 const delItem = (arr, item) =>
   arr.filter(
     e =>
       e.catalogSlug !== item.catalogSlug ||
       e.id !== item.id ||
       e.color !== item.color ||
-      e.size !== item.size ||
-      e.quantity !== item.quantity
+      e.size !== item.size 
   );
 
+//sort products
 const sortItems = (arr) =>
   arr.sort((a, b) =>
     a.valueItemId > b.valueItemId ? 1 : a.valueItemId < b.valueItemId ? -1 : 0

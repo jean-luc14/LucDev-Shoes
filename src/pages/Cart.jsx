@@ -23,7 +23,7 @@ const Cart = props => {
   return (
     <>
       <SectionTitle ProductCards={cartItemsClone} cartPage={true}>
-        {'Shopping Cart'}
+        {`Shopping Cart${cartItems.length}`}
       </SectionTitle>
       {cartItems.length > 0 ? (
         <div className="cart">
