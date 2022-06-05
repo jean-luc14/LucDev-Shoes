@@ -46,6 +46,7 @@ const CartItem = props => {
         <div className="cart_item_info_name">{item.name}</div>
         <div className="cart_item_info_color">{item.color}</div>
         <div className="cart_item_info_size">{item.size}</div>
+        <div className="cart_item_info_price">US ${item.price}</div>
         <div className="cart_item_info_quantity">
           <div className="cart_item_info_quantity_btn">
             <img src={Minus} onClick={() => updateQuantity("-")} />

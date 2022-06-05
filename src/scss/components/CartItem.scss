@@ -1,5 +1,3 @@
-@import '../_mixins';
-@import '../_placeholders';
 .cart_item{
   width:63vw;
   height:200px;
@@ -30,6 +28,10 @@
     &_size{
       font-size:40px;
       font-weight: 400;
+    }
+    &_price{
+      font-weight: 500;
+      color:$red;
     }
     &_quantity{
       @extend %flex-center;
