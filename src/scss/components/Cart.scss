@@ -1,32 +1,14 @@
-
 .cart{
-  margin: 50px auto;
+  margin: auto;
   width:90vw;
   height:auto;
-  user-select: none;
-  
-  &_info{
-    @include flex(row,center,flex-start);
-    width:90vw;
-    height:inherit;
+  user-select: none; 
 
-    &_product{
-      width:63vw;
-      height:auto;
-    }
-    &_txt{
-      width: 27vw;
-      height:100px;
-    }
-
-  }  
-}
-@include mobile {
-  .cart{
-    
-    &_info{
-      flex-direction:column;
-
-    }  
+  &_products{
+    width:100%; 
   }
-}
+  &_info{
+    width: 100%;
+    @include flex;
+  }  
+} 

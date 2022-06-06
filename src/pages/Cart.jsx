@@ -1,18 +1,23 @@
 import React,{useState,useEffect} from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import CartItem from '../components/CartItem'
 import { SectionTitle } from "../components/Sections";
-import Paypal from '../components/Paypal'
+import Progress from "../components/Progress";
 
 const Cart = props => {
 
   const currentUser = useSelector((state) => state.firebase.value.currentUser);
-  
+  const navigate = useNavigate()
+
   const [cartItems, setCartItems] = useState(useSelector((state) => state.cartItems.value));
   const [cartItemsClone, setCartItemsClone] = useState(cartItems);
   const [totalProduct, setTotalProduct] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
   
+  const goToCheckout = () => {
+    navigate("/private/checkout-cart");
+  }
 
   useEffect(() => {
     setCartItems(cartItemsClone);
@@ -27,26 +32,21 @@ const Cart = props => {
       </SectionTitle>
       {cartItems.length > 0 ? (
         <div className="cart">
+          <Progress shopping={true}/>
+          <div className="cart_products">
+            {cartItems.map((item, index) => (
+              <CartItem
+                key={index}
+                item={item}
+                cartItemsClone={cartItemsClone}
+                setCartItemsClone={setCartItemsClone}
+              />
+            ))}
+          </div>
           <div className="cart_info">
-            <div className="cart_info_product">
-              {cartItems.map((item, index) => (
-                <CartItem
-                  key={index}
-                  item={item}
-                  cartItemsClone={cartItemsClone}
-                  setCartItemsClone={setCartItemsClone}
-                />
-              ))}
-            </div>
-            <div className="cart_info_txt">
-              {/* <h1>Total Price {totalPrice}</h1>
-              <h1>Total Product {totalProduct}</h1> */}
-              {currentUser ? (
-                <Paypal />
-              ) : (
-                <button type="button">Buy Now</button>
-              )}
-            </div>
+            {/* <h1>Total Price {totalPrice}</h1>
+            <h1>Total Product {totalProduct}</h1> */}
+            <button onClick={goToCheckout}type="button">Buy Now</button>
           </div>
         </div>
       ) : (

@@ -10,7 +10,8 @@ import PageNotFound from "../pages/PageNotFound";
 import Cart from "../pages/Cart";
 import Catalog from "../pages/Catalog";
 import Private from "../pages/private/Private";
-import PrivateCart from "../pages/private/privateCart/PrivateCart";
+import CheckoutCart from "../pages/private/privateCart/CheckoutCart";
+import OrderCompleteCart from "../pages/private/privateCart/OrderCompleteCart";
 
 const Routing = () => {
   return (
@@ -24,7 +25,8 @@ const Routing = () => {
       <Route path="/search=:value" element={<SearchResults />} />
       <Route path="/Composants-de-chaussures/Oxford/B" element={<B />} />
       <Route path="/private" element={<Private />}>
-        <Route path="/private/private-cart" element={<PrivateCart />} />
+        <Route path="/private/checkout-cart" element={<CheckoutCart />} />
+        <Route path="/private/order-complete-cart" element={<OrderCompleteCart />} />
       </Route>
       <Route element={<PageNotFound />} />
     </Routes>

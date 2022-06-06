@@ -142,8 +142,7 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
       await signUp(form.email.value, form.password.value);
       formRef.current.reset();
       setFirebaseErrMes("");
-      toggle_sign();
-      navigate("/private/private-cart");
+      toggle_sign(); 
     } catch (err) {
       if (err.code === "auth/invalid-email") {
         setFirebaseErrMes("Invalid format email");
