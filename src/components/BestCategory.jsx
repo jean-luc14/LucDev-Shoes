@@ -33,7 +33,7 @@ const BestCategory = () => {
   }
   return (
     <div className="bestCategory">
-      <div className="derby" onClick={() => navigate("/derby-shoes")}>
+      <div className="derby" onClick={() => navigate("/catalog=derby-shoes")}>
         <img src={Derby} alt="" />
       </div>
       <div
@@ -47,15 +47,15 @@ const BestCategory = () => {
         {/* navigate to go to best category page */}
         <div className="bestCategory_child_name">
           <div className="slide_item_wrapper">
-            <div onClick={() => navigate("/moccasins")}>
+            <div onClick={() => navigate("/catalog=moccasins")}>
               <p className="slide_item">Moccasins</p>
               <img src={Moccasins} alt="moccasins" />
             </div>
-            <div onClick={() => navigate("/oxfords")} >
+            <div onClick={() => navigate("/catalog=oxfords")}>
               <p className="slide_item">Oxfords</p>
               <img src={Oxfords} alt="oxfords" />
             </div>
-            <div onClick={() => navigate("/loafers")} >
+            <div onClick={() => navigate("/catalog=loafers")}>
               <p className="slide_item">Loafers</p>
               <img src={Loafers} alt="loafers" />
             </div>
@@ -66,21 +66,21 @@ const BestCategory = () => {
           <div
             className="moccasins"
             onMouseOver={() => activeCategory("moccasins")}
-            onClick={() => navigate("/moccasins")}
+            onClick={() => navigate("/catalog=moccasins")}
           >
             <img src={Moccasins} alt="moccasins" />
           </div>
           <div
             className="oxfords"
             onMouseOver={() => activeCategory("oxfords")}
-            onClick={() => navigate("/oxfords")}
+            onClick={() => navigate("/catalog=oxfords")}
           >
             <img src={Oxfords} alt="oxfords" />
           </div>
           <div
             className="loafers"
             onMouseOver={() => activeCategory("loafers")}
-            onClick={() => navigate("/loafers")}
+            onClick={() => navigate("/catalog=loafers")}
           >
             <img src={Loafers} alt="loafers" />
           </div>
