@@ -11,49 +11,99 @@ const CartItem = props => {
   const dispatch = useDispatch();
   const [item, setItem] = useState(props.item); 
   const [quantity, setQuantity] = useState(props.item.quantity);
+  const [price, setPrice] = useState(props.item.price);
 
-  // update quantity of current product and in CartItemsSlice
-  const updateQuantity = (opt) => {
+
+  //function to convert string to number
+  const toNumber = string => Number.parseFloat(string);
+
+
+  // update data of current product in states of cart and in CartItemsSlice
+  const updateProductData = (opt) => {
     if (opt === "+") {
-      dispatch(updateItem({ ...item, quantity: quantity + 1 }));
-      setQuantity(quantity + 1);
+      dispatch(updateItem({ ...item, quantity: quantity + 1 })); 
+      setQuantity(quantity + 1); 
+      setPrice(toNumber(props.item.price * ( quantity + 1)).toFixed(2));
+
+      props.setTotalPrice(
+        (
+          toNumber(props.totalPrice) +
+          toNumber(props.item.price)
+        ).toFixed(2)
+      );
+
+      props.setTotalProduct(props.totalProduct + 1);
     }
+
     if (opt === "-") {
       dispatch(
         updateItem({ ...item, quantity: quantity - 1 === 0 ? 1 : quantity - 1 })
       );
-      setQuantity( quantity - 1 === 0 ? 1 : quantity - 1);
+
+      setQuantity(quantity - 1 === 0 ? 1 : quantity - 1);
+
+      setPrice(
+        toNumber(
+          props.item.price * (quantity - 1 === 0 ? 1 : quantity - 1)
+        ).toFixed(2)
+      );
+
+      props.setTotalPrice(
+        quantity - 1 === 0
+          ? props.totalPrice
+          : (
+              toNumber(props.totalPrice) -
+              toNumber(props.item.price)
+            ).toFixed(2)
+      ); 
+      props.setTotalProduct(
+        quantity - 1 === 0
+          ? props.totalProduct
+          : props.totalProduct - 1 
+      ); 
     }
   };
 
+
   //remove current product in cart products list and in CartItemsSlice
   const removeCartItem = () => {
-    let arr = [...sortItems(delItem(props.cartItemsClone, item))];
-    dispatch(removeItem(item));
-    props.setCartItemsClone(arr);
+    let arr = [...sortItems(delItem(props.cartItemsClone, item))]; 
+    dispatch(removeItem(item)); 
+    props.setCartItemsClone(arr); 
+    props.setTotalPrice(
+      (
+        toNumber(props.totalPrice) -
+        price
+      ).toFixed(2)
+    ); 
+    props.setTotalProduct(props.totalProduct - quantity);
   };
+
 
   useEffect(() => {
     setItem(props.item); 
-  }, [props.item]);
+  }, [props.item,quantity]);
 
   return (
     <div className="cart_item">
       <div className="cart_item_img">
         <img src={item.img} />
       </div>
-      <div className="cart_item_info">
+      <div className="cart_item_info first">
         <div className="cart_item_info_name">{item.name}</div>
         <div className="cart_item_info_color">{item.color}</div>
         <div className="cart_item_info_size">{item.size}</div>
+      </div>
+      <div className="cart_item_info last">
+        <div className="cart_item_info_subtotal_price">US ${price}</div>
         <div className="cart_item_info_price">US ${item.price}</div>
         <div className="cart_item_info_quantity">
           <div className="cart_item_info_quantity_btn">
-            <img src={Minus} onClick={() => updateQuantity("-")} />
+            <img src={Minus} onClick={() => updateProductData("-")} />
           </div>
           <div className="cart_item_info_quantity_item">{quantity}</div>
           <div className="cart_item_info_quantity_btn">
-            <img src={Plus} onClick={() => updateQuantity("+")} />
+            <img src={Plus} onClick={() => updateProductData("+")} />
           </div>
         </div>
       </div>

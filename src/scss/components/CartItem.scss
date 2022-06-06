@@ -1,65 +1,73 @@
 .cart_item{
-  width:63vw;
-  height:200px;
-  margin:20px 0;
-  @extend %flex-center;
+  width:90%;
+  height:auto;
+  margin:3vw auto;
+  @include flex($justify-content:space-around);
   .cart_item_img{
-    width:20vw;
-    height:20vw;
-      img{
+    width:10vw;
+    height:10vw;
+    img{
       @extend %back-img;
+      border-radius:5px;
     }
   }
-  &_info{
-    margin-left:50px;
-    width:33vw;
-    height:20vw;
-    @include flex(column,center,flex-start);
+  .cart_item_info{  
+    height:10vw;
+    @include flex(column,space-around,flex-start);
+    &.first{
+      width:50vw;
+    }
+    &.last{
+      width:10vw;
+    }
     
     &_name{
-      font-weight: 500;
-      
+      font-size: 1.5vw;
+      font-weight: 500; 
     }
     &_color{
       font-weight: 400;
-      color:rgb(103, 103, 103);
-
+      color:rgb(103, 103, 103); 
     }
     &_size{
-      font-size:40px;
+      font-size:2vw;
       font-weight: 400;
     }
-    &_price{
+    &_subtotal_price{
+      font-size:1.8vw;
       font-weight: 500;
       color:$red;
+    }
+    &_price{
+      font-size:1vw; 
     }
     &_quantity{
       @extend %flex-center;
       &_btn{
         border:1px solid #000;
         border-radius:3px;
-        margin-right:10px;
+        margin-right:1vw;
         padding:0 5px;
         img{
-          height:15px;
-          width:15px;
+          height:1.2vw;
+          width:1.2vw;
           cursor:pointer;
         }
       }
       &_item{
-        font-size: 20px;
-        margin-right:10px;
+        font-size: 1.5vw;
+        margin-right:1vw;
       }
     }
     
   }
   &_del{
-    width:10vw;
+    width:3vw;
     height:10vw;
     @extend %flex-center;
     img{
-      height:25px;
-      width:25px;
+      height:2vw;
+      width:2vw;
       cursor:pointer;
     }
   }

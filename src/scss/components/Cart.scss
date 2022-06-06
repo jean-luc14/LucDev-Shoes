@@ -2,13 +2,29 @@
   margin: auto;
   width:90vw;
   height:auto;
-  user-select: none; 
+  user-select: none;
+  @include flex(column,center,flex-end);
 
   &_products{
     width:100%; 
   }
   &_info{
-    width: 100%;
-    @include flex;
+    width: 30%;
+    height:17vw; 
+    @include flex(column,space-around,flex-start);
+    font-size: 2vw;
+    font-weight: 500; 
+    span{  
+      color:$red;
+    }
+    button{ 
+      padding:1vw 6vw;
+      background: $red; 
+      border:none;
+      outline:none;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+    }
   }  
 } 

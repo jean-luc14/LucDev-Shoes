@@ -7,22 +7,28 @@ import Progress from "../components/Progress";
 
 const Cart = props => {
 
-  const currentUser = useSelector((state) => state.firebase.value.currentUser);
-  const navigate = useNavigate()
-
   const [cartItems, setCartItems] = useState(useSelector((state) => state.cartItems.value));
   const [cartItemsClone, setCartItemsClone] = useState(cartItems);
-  const [totalProduct, setTotalProduct] = useState(0)
-  const [totalPrice, setTotalPrice] = useState(0)
+
+  let ttlPrice = cartItemsClone.reduce(
+    (total, e) => total + e.quantity * Number.parseFloat(e.price),
+    0
+  );
+  const [totalProduct, setTotalProduct] = useState(
+    cartItemsClone.reduce((total, e) => total + e.quantity, 0)
+  );
+  const [totalPrice, setTotalPrice] = useState(ttlPrice.toFixed(2));
+
+  const currentUser = useSelector((state) => state.firebase.value.currentUser);
+  const navigate = useNavigate() 
+  
   
   const goToCheckout = () => {
     navigate("/private/checkout-cart");
   }
 
   useEffect(() => {
-    setCartItems(cartItemsClone);
-    // setTotalProduct(cartItems.reduce((total,e) => total + Number(e.quantity),0));
-    // setTotalPrice(cartItems.reduce((total,e) => total + Number(e.quantity) * Number(e.price)),0);
+    setCartItems(cartItemsClone); 
   }, [cartItemsClone]);
   
   return (
@@ -32,7 +38,7 @@ const Cart = props => {
       </SectionTitle>
       {cartItems.length > 0 ? (
         <div className="cart">
-          <Progress shopping={true}/>
+          <Progress shopping={true} />
           <div className="cart_products">
             {cartItems.map((item, index) => (
               <CartItem
@@ -40,13 +46,24 @@ const Cart = props => {
                 item={item}
                 cartItemsClone={cartItemsClone}
                 setCartItemsClone={setCartItemsClone}
+                totalProduct={totalProduct}
+                totalPrice={totalPrice}
+                setTotalProduct={setTotalProduct}
+                setTotalPrice={setTotalPrice}
               />
             ))}
           </div>
           <div className="cart_info">
-            {/* <h1>Total Price {totalPrice}</h1>
-            <h1>Total Product {totalProduct}</h1> */}
-            <button onClick={goToCheckout}type="button">Buy Now</button>
+            <h1>Carts Total</h1>
+            <h2>
+              Total Price : <span> ${totalPrice}</span>
+            </h2>
+            <h2>
+              Total Product : <span> {totalProduct} </span>
+            </h2>
+            <button onClick={goToCheckout} type="button">
+              Buy Now
+            </button>
           </div>
         </div>
       ) : (
