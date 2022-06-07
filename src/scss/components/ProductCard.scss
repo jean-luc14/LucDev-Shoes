@@ -1,140 +1,94 @@
-@import '../_mixins';
-@import '../_variables';
-@import '../_placeholders';
+.product_card{
+  width:20vw;
+  height:30vw;
+  margin:2vw 1.3vw;
+  font-weight:500;
+  @include flex(column,space-around,center);
 
-.productCard{
-  position:relative;
-  overflow:hidden;
-  border-radius: 8px;
-  transition: transform  0.5s  ease-out;
-  overflow:hidden;
-  height:100%;
-  width:100%;
-  
-
-  &::after{
-    position:absolute;
-    content:'';
-    bottom:0;
-    left:0;
-    height:100%;
-    width:100%;
-    opacity:0;
-    background-image:linear-gradient(0deg,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0));
-    z-index:1;
-    border-radius: 8px;
-    transform:scale(1);
-    transition:opacity 0.5s ease-out ;
-  }
-  .productCardImg{
-    @extend %back-img;
-    border-radius: 8px;
-    transform:scale(1);
-    transition:transform 0.5s ease-out;
-    will-change:transform;
-  }
-  .productCardInfo{
-    position:absolute;
-    color:$txt-white;
-    width:100%;
-    height:auto;
-    bottom:10px;
-    margin-left:5px;
-    z-index:2;
-    text-align: start;
-    
-    .productCardPrice{
-      color:$yellow;
-      margin:2px;
-      font-size: calc(40 * var(--res));
-      transform:translateY(85px);
-      transition:transform 0.4s ease;
-      text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.198);
+  .product_card_child{
+    position:relative;
+    width:20vw;
+    height:20vw; 
+    overflow:hidden;
+    border-radius:8px;
+    cursor:pointer;
+    transition:transform 0.5s ease-out; 
+    &::after{ 
+      @include absolute(0,0,0%,0%);
+      @include pseudo ;
+      opacity:0;
+      background-image:linear-gradient(0deg,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0));
+      border-radius: 8px;
+      transform:scale(1);
+      transition:opacity 0.5s ease-out ;
+      z-index:1;
     }
-    .productCardName{
-      margin:5px;
-      font-size: 13px;
-      transform:translateY(110px);
+    img{
+      @extend %back-img;
+      border-radius: 8px;
+      transform:scale(1);
+      transition:transform 0.5s ease-out;
+      will-change:transform;
+    } 
+    &_name{
+      position:absolute;  
+      font-size:1.3vw; 
+      bottom:1vw;
+      padding: 0 1vw;
+      text-align: start;
+      color:white; 
+      transform:translateY(110%);
       opacity:0;
       transition:transform 0.4s ease,opacity 0.6s ease;
+      z-index:2;
+    } 
+
+    &:hover{ 
+      transform:scale(1.1);
+      &::after{
+        opacity:1;
+      }
+      img{
+        transform:scale(1.30);
+      }
+      .product_card_child_name{
+        transform:translateY(0px);
+        opacity:1; 
+      }  
     }
-    .productCardButton{
-      margin:5px;
-      opacity:0;
-      transform:translateY(100px);
-      transition:transform 0.4s ease,opacity 0.6s ease;
-    }
-  }
-  &:hover{
-    .productCardImg{
-      transform:scale(1.35);
-    }
-    transform:scale(1.1);
-    &::after{
-      opacity:1;
-    }
-    .productCardInfo .productCardPrice{
-      transform:translateY(0px)
-    }
-    .productCardInfo .productCardName{
-      transform:translateY(0px);
-      opacity:1;
-      transition-delay:0.3s,0.3s;
-    }
-    .productCardInfo .productCardButton{
-      transform:translateY(0px);
-      opacity:1;
-      transition-delay:0.7s,0.7s;
-    }
+  } 
+  &_price{  
+    color:$red;
+    font-size:2vw;
   }
 }
 
 //BREAKPOINT
 
 //mobile
-@include mobile{
-
-  .productCard{
-    @include mobile{
-      // the width and hight of productCard is in Grid.scss and BodyHomePage.scss
-      width:100%;
-      height:100%;
+@include mobile{ 
+  .product_card{
+    @include mobile{ 
+      width:80%;
+      height:80%;
     }
   }
 }
 
 //tablet
-@include tablet{
-  
-  .productCard{
-    @include tablet{
-      // the width and hight of productCard is in Grid.scss and BodyHomePage.scss
-      width:100%;
-      height:100%;
+@include tablet{ 
+  .product_card{
+    @include tablet{ 
+      width:40%;
+      height:40%;
     }
   }
-}
-
-//desktop
-@include desktop{
-
-  .productCard{
-    @include desktop{
-      min-width:$desktop-card-min-width;
-      min-height:$desktop-card-min-width;
-      width:20vw;
-      height:20vw;
-    }
-  }
-}
+} 
 
 //large desktop
-@include large-desktop{
-
-  .productCard{
-    @include large-desktop{
-      min-width:$large-desktop-card-min-width;
-      min-height:$large-desktop-card-min-width;
+@include large-desktop{ 
+  .product_card{
+    @include large-desktop{ 
       width:20vw;
       height:20vw;
       margin:18px;

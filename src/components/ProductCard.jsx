@@ -21,23 +21,25 @@ const ProductCard = props => {
   //Dispatch
   const dispatch = useDispatch();
   return (
-    <div className="productCard" onClick={() => goToProductPage(catalogSlug, id)}>
-      <img className="productCardImg" src={props.productProps.color[0].img} />
-      <div className="productCardInfo">
-        <h1 className="productCardPrice">
-          US ${props.productProps.price}
-        </h1>
-        <div className="productCardName">{props.productProps.name}</div>
-        <div className="productCardButton">
-          {/* Button to show a productdetail in modal */}
-          <BuyProductButton
-            click={(e) => {
-              dispatch(set({ id, catalogSlug }));
-              e.stopPropagation();
-            }}
-          />
-        </div>
+    <div className="product_card" >
+      <div className="product_card_child" 
+        onClick={() => goToProductPage(catalogSlug, id)}
+      >
+        <img src={props.productProps.color[0].img} /> 
+        <div className="product_card_child_name">
+          {props.productProps.name}
+        </div> 
       </div>
+      <h1 className="product_card_price">
+        US ${props.productProps.price}
+      </h1> 
+      {/* Button to show a product detail in modal with redux */}
+      <BuyProductButton
+        click={(e) => {
+          dispatch(set({ id, catalogSlug }));
+          e.stopPropagation();
+        }}
+      /> 
     </div>
   );
 }
