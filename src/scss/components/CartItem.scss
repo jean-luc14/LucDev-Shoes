@@ -26,6 +26,7 @@
       font-weight: 500; 
     }
     &_color{
+      font-size: 1.5vw;
       font-weight: 400;
       color:rgb(103, 103, 103); 
     }
@@ -44,14 +45,16 @@
     &_quantity{
       @extend %flex-center;
       &_btn{
-        border:1px solid #000;
+        @include flex;
+        height:1.7vw;
+        width:1.7vw;
         border-radius:3px;
-        margin-right:1vw;
-        padding:0 5px;
+        margin-right:1vw; 
+        padding:0.2vw;
+        cursor:pointer;
+        border:1px solid #000;
         img{
-          height:1.2vw;
-          width:1.2vw;
-          cursor:pointer;
+          @extend %back-img;
         }
       }
       &_item{
@@ -69,6 +72,60 @@
       height:2vw;
       width:2vw;
       cursor:pointer;
+    }
+  }
+}
+
+@media screen and (max-width:$tablet-max-width){
+  .cart_item{ 
+    width:100%;
+    margin:15vw auto; 
+    .cart_item_img{
+      width:20vw;
+      height:20vw; 
+    }
+    .cart_item_info{  
+      height:20vw; 
+      &.first{
+        width:40vw;
+      }
+      &.last{
+        width:15vw;
+      }
+
+      &_name{
+        font-size: 2vw;  
+      }
+      &_color{
+        font-size: 3vw;  
+      }
+      &_size{
+        font-size:4vw; 
+      }
+      &_subtotal_price{
+        font-size:2.5vw; 
+      }
+      &_price{
+        font-size:2vw; 
+      } 
+      &_quantity_btn{ 
+        height:3vw;
+        width:3vw; 
+        margin-right:2vw; 
+        padding:0.4vw;  
+      }
+      &_quantity_item{
+        font-size: 2.5vw;
+        margin-right:2vw;
+      } 
+    }
+    &_del{
+      width:4vw;
+      height:20vw; 
+      img{
+        height:4vw;
+        width:4vw; 
+      }
     }
   }
 }

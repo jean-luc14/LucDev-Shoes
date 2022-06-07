@@ -25,6 +25,9 @@
       color:white;
       border-radius:5px;
       cursor:pointer;
+      &:active{
+        background: $red-active; 
+      }
     }
   }  
 } 
@@ -36,5 +39,24 @@
   span{
     color:$red;
     cursor:pointer;
+  }
+}
+
+@media screen and (max-width:$tablet-max-width){
+  .cart_info{
+    width: 80%;
+    height:30vw; 
+    align-items:center;
+    font-size: 4vw;
+    margin:2vw auto;  
+    h1,h2,button{
+      margin:2vw 0;
+    }
+    button{ 
+      padding:3vw 19vw;  
+    }
+  }   
+  .nothing_cart{
+    font-size: 5vw;  
   }
 }
