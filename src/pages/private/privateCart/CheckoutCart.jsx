@@ -24,6 +24,13 @@ const CheckoutCart = () => {
           {" "}
           Back
         </button>
+        <button
+          type="button"
+          onClick={() => navigate("/private/order-complete-cart")}
+        >
+          {" "}
+          Go
+        </button>
       </div>
     </>
   );

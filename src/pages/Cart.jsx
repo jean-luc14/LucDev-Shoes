@@ -1,15 +1,18 @@
 import React,{useState,useEffect} from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import CartItem from '../components/CartItem'
 import { SectionTitle } from "../components/Sections";
 import Progress from "../components/Progress";
+import { updateTotal } from "../redux/shoppingCart/TotalSlice";
 
 const Cart = props => {
 
+  //get products from redux state which are been added to cart 
   const [cartItems, setCartItems] = useState(useSelector((state) => state.cartItems.value));
   const [cartItemsClone, setCartItemsClone] = useState(cartItems);
 
+  //get nap of all product price and product number
   let ttlPrice = cartItemsClone.reduce(
     (total, e) => total + e.quantity * Number.parseFloat(e.price),
     0
@@ -19,11 +22,17 @@ const Cart = props => {
   );
   const [totalPrice, setTotalPrice] = useState(ttlPrice.toFixed(2));
 
+  // get data to know if current user is login
   const currentUser = useSelector((state) => state.firebase.value.currentUser);
+
   const navigate = useNavigate() 
+  const dispatch = useDispatch(); 
   
-  
+  //send total price and product with Dispatch and go to checkout page
   const goToCheckout = () => {
+    dispatch(
+      updateTotal({ totalPrice, totalProduct })
+    );
     navigate("/private/checkout-cart");
   }
 

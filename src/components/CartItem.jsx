@@ -82,7 +82,7 @@ const CartItem = props => {
 
   useEffect(() => {
     setItem(props.item); 
-  }, [props.item,quantity]);
+  }, [props.item]);
 
   return (
     <div className="cart_item">
