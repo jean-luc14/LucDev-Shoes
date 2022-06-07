@@ -50,7 +50,10 @@ const SearchResults = () => {
     return filterByColorResults.length;
   };
 
-  //filter Products By Category and push it in allFilterByCategoryResults variable
+  /*filter searchResults Products By Category ( the
+    filter result of each Category is push to allFilterByCategoryResults because,
+    this function is called by all category in CategoryFilter component  
+  )*/
   const filterByCategory = (productCategory, categoryCheck) => {
     let filterByCategoryResults = [];
 
@@ -62,14 +65,17 @@ const SearchResults = () => {
     }
   };
 
-  //filter Products By Price and push it in allFilterByPriceResults variable
+  /*filter allFilterByCategoryResults Products By Price
+   and push it to allFilterByPriceResults */
   const filterByPrice = (price) => {
     allFilterByPriceResults = allFilterByCategoryResults.filter(
       (e) => e.price < price
     );
   };
 
-  //filter Products By Color and push it in allFilterByColorResults variable
+  /*filter allFilterByPriceResults Products By Color (the
+    filter result of each color is push to allFilterByColorResults because,
+    this function is called by all color in ColorFilter component )*/
   const filterByColor = (productColor, colorCheck) => {
     let filterByColorResults = [];
 
@@ -86,8 +92,8 @@ const SearchResults = () => {
       allFilterByColorResults.push(...filterByColorResults);
     }
   };
-  
-  // update all filter in filter results state to show in DOM
+
+  // push all filter results to filterResults state 
   const putFilterResultsInState = () => {
     let arr = [...new Set(allFilterByColorResults)];
     setFilterResults(arr);
@@ -95,7 +101,7 @@ const SearchResults = () => {
 
   useEffect(() => {
     setSearchResults(searchProducts(value));
-    setFilterResults(searchProducts(value)); 
+    setFilterResults(searchProducts(value));
   }, [value]);
 
   return (

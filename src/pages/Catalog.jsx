@@ -10,8 +10,8 @@ import Filter from "../components/Filter";
 
 const Catalog = props => {
   const params = useParams();
-  const catalog = params.catalogSlug; 
-  
+  const catalog = params.catalogSlug;
+
   // Get current category
   const [activeCatalogPage, setActiveCatalogPage] = useState(
     catalogData.find((item) => catalog === item.path)
@@ -19,10 +19,10 @@ const Catalog = props => {
 
   //Get products witch are in current category
   const [catalogProductCards, setCatalogProductCards] = useState(
-    productData.filter(e => e.catalogSlug === catalog)
+    productData.filter((e) => e.catalogSlug === catalog)
   );
   const [catalogProductCardsClone, setCatalogProductCardsClone] = useState(
-    productData.filter(e => e.catalogSlug === catalog)
+    productData.filter((e) => e.catalogSlug === catalog)
   );
 
   let allFilterByPriceResults = [];
@@ -45,14 +45,17 @@ const Catalog = props => {
     return filterByColorResults.length;
   };
 
-  //filter Products By Price and push it in allFilterByPriceResults variable
+  /*filter catalogProductCards Products By Price
+   and push it to allFilterByPriceResults */
   const filterByPrice = (price) => {
     allFilterByPriceResults = catalogProductCards.filter(
-      e => e.price < price
+      (e) => e.price < price
     );
   };
 
-  //filter Products By Color and push it in allFilterByColorResults variable
+  /*filter allFilterByPriceResults Products By Color (the
+    filter result of each color is push to allFilterByColorResults because,
+    this function is called by all color in ColorFilter component )*/
   const filterByColor = (productColor, colorCheck) => {
     let filterByColorResults = [];
 
@@ -67,35 +70,34 @@ const Catalog = props => {
       );
 
       allFilterByColorResults.push(...filterByColorResults);
-       
     }
   };
 
-  // update all filter in filter results state to show in DOM
+  // push all filter results to catalogProductCardsClone state
   const putFilterResultsInState = () => {
-      let arr = [...new Set(allFilterByColorResults)];
-    setCatalogProductCardsClone(arr); 
+    let arr = [...new Set(allFilterByColorResults)];
+    setCatalogProductCardsClone(arr);
   };
 
   useEffect(() => {
     // put product category witch is in params in state
-    setActiveCatalogPage(catalogData.find(item => catalog === item.path)) 
-    
+    setActiveCatalogPage(catalogData.find((item) => catalog === item.path));
+
     // put products witch are in current category in state
-     setCatalogProductCards(
-      productData.filter(e => e.catalogSlug === catalog)
+    setCatalogProductCards(
+      productData.filter((e) => e.catalogSlug === catalog)
     );
     setCatalogProductCardsClone(
-      productData.filter(e => e.catalogSlug === catalog)
-    ); 
+      productData.filter((e) => e.catalogSlug === catalog)
+    );
   }, [catalog]);
   return (
     <>
       {/* The title and body sections components are in Sections.jsx */}
       {activeCatalogPage ? (
-        <div className='catalog'>
+        <div className="catalog">
           <Section>
-            <SectionTitle 
+            <SectionTitle
               ProductCards={catalogProductCardsClone}
               instruction={
                 <div className="color_instruction">
