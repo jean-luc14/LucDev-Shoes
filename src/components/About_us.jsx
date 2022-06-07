@@ -34,7 +34,7 @@ const About_us = () => {
         </div>
       </div>
       <div className="about_us_body">
-        <Clothes activeAboutUsTitle={activeAboutUsTitle} />
+        <Shoes activeAboutUsTitle={activeAboutUsTitle} />
         <Making_better activeMakingBetterTitle={activeMakingBetterTitle}/>
         <Frequently_Questions/>
       </div>
@@ -42,41 +42,41 @@ const About_us = () => {
   );
 }
 
-//the css of clothes components is in clothes.scss
-const Clothes = ({ activeAboutUsTitle }) => {
+//the css of shoes components is in shoes.scss
+const Shoes = ({ activeAboutUsTitle }) => {
 
   return (
-    <div className="clothes">
+    <div className="shoes">
       <div className={`moccasins ${activeAboutUsTitle ? 'active':''}`}>
         <img src={Moccasins} alt="moccasins" />
         <div>
           <h2>Hello </h2>
         </div>
       </div>
-      <div className="clothes_child">
-        <div className="clothes_child_title ">
+      <div className="shoes_child">
+        <div className="shoes_child_title ">
           <h1 className={`${activeAboutUsTitle ? "active first" : ""}`}>
-            Clothes
+            Shoes
           </h1>
         </div>
-        <div className="clothes_child_title">
+        <div className="shoes_child_title">
           <h1 className={`${activeAboutUsTitle ? "active second" : ""}`}>
             Can Give People
           </h1>
         </div>
-        <div className="clothes_child_title">
+        <div className="shoes_child_title">
           <h1 className={`${activeAboutUsTitle ? "active last" : ""}`}>
             A Better Images
           </h1>
         </div>
-        <div className="clothes_child_slides">
-          <div className="clothes_child_slides_item">
+        <div className="shoes_child_slides">
+          <div className="shoes_child_slides_item">
             <img className="first" src={Moccasins} alt="Moccasins" />
           </div>
-          <div className="clothes_child_slides_item">
+          <div className="shoes_child_slides_item">
             <img className="second" src={Oxfords} alt="Oxfords" />
           </div>
-          <div className="clothes_child_slides_item">
+          <div className="shoes_child_slides_item">
             <img className="last" src={Loafers} alt="Loafers" />
           </div>
         </div>

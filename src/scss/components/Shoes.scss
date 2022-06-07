@@ -1,8 +1,5 @@
-@import '../mixins';
-@import '../_placeholders';
-
-//The clothes components is in About_us.jsx
-.clothes{
+ //The Shoes components is in About_us.jsx
+.shoes{
   height:40vw;
   width:80vw;
   margin: auto;
@@ -38,7 +35,7 @@
       border-radius: 4px;
     }
   }
-  .clothes_child{
+  .shoes_child{
     height:100%;
     width:50%;
     @include flex(column,flex-start,space-around);
@@ -50,8 +47,8 @@
   }
 }
 
-//slides in clothes
-.clothes_child_slides{
+//slides in shoes
+.shoes_child_slides{
   position:relative;
   height:24vw;
   width: 90%;
@@ -109,8 +106,8 @@
 }
 
 
-//h1 in about us body in clothes
-.clothes_child h1{
+//h1 in about us body in shoes
+.shoes_child h1{
   font-size:calc(70 * var(--res));
 
   &.active{
@@ -129,7 +126,7 @@
 
 //Responsive
 @media  screen and (max-width:$tablet-max-width) {
-  .clothes{
+  .shoes{
     height:auto;
     width:80vw;
     flex-direction:column-reverse;
@@ -138,19 +135,19 @@
       width:75vw;
       margin:2vw auto;
     }
-    .clothes_child{
+    .shoes_child{
       height:90vw;
       width:75vw;
       margin:2vw auto;
 
-      .clothes_child_slides{
+      .shoes_child_slides{
         position:relative;
         height:60vw;
         width: 100%;
       }
     }
   }
-  .clothes_child_title h1{
+  .shoes_child_title h1{
     &:last-child{
       margin-bottom:3vmin;
     }
