@@ -11,7 +11,7 @@ const CartItem = props => {
   const dispatch = useDispatch();
   const [item, setItem] = useState(props.item); 
   const [quantity, setQuantity] = useState(props.item.quantity);
-  const [price, setPrice] = useState(props.item.price);
+  const [price, setPrice] = useState(props.item.price * props.item.quantity);
 
 
   //function to convert string to number
@@ -71,17 +71,16 @@ const CartItem = props => {
     dispatch(removeItem(item)); 
     props.setCartItemsClone(arr); 
     props.setTotalPrice(
-      (
-        toNumber(props.totalPrice) -
-        price
-      ).toFixed(2)
+      (toNumber(props.totalPrice) - props.item.price * quantity).toFixed(2)
     ); 
     props.setTotalProduct(props.totalProduct - quantity);
   };
 
 
   useEffect(() => {
-    setItem(props.item); 
+    setItem(props.item);
+    setPrice(toNumber(props.item.price * props.item.quantity).toFixed(2));
+    setQuantity(props.item.quantity);
   }, [props.item]);
 
   return (

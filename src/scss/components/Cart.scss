@@ -28,3 +28,13 @@
     }
   }  
 } 
+.nothing_cart{
+  font-size: 3vw;
+  font-weight: 500; 
+  width:100vw;
+  @include flex;
+  span{
+    color:$red;
+    cursor:pointer;
+  }
+}

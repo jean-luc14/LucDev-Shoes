@@ -76,7 +76,9 @@ const Cart = props => {
           </div>
         </div>
       ) : (
-        <h1>Vous n'avez rien dans le panier</h1>
+          <h1 className='nothing_cart'>You haven't product in cart.<span onClick={() => {
+             navigate("/");
+        }}> Home</span> </h1>
       )}
     </>
   );
