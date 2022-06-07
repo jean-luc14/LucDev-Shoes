@@ -3,6 +3,7 @@
   height:auto;
   padding-top:0;
   background: $background;
+  user-select:none;
   .body_home_page{
     width:73%;
   }
@@ -14,23 +15,17 @@
 .slideshow-container{
   position:relative;
   overflow: hidden;
-  height:20vw;
+  height:35vw;
   cursor:grab;
   margin-top:2vmin;
-  margin-bottom:10vmin;
+  margin-bottom:10vmin; 
 
   &:active{
     cursor:grabbing;
   }
   .slideshow{
     position :absolute;
-    display:flex;
-    pointer-events: none;
-    .child{
-      width:auto;
-      height:100%;
-      margin-right:4vmin;
-    }
+    display:flex; 
   }
 }
 
@@ -48,21 +43,12 @@
 @include mobile{
    .slideshow-container{
      height:50vw;
-     min-height:130px;
-    .slideshow .child{
-      min-width:130px;
-      width:50vw;
-    }
+     min-height:130px; 
   }
 }
 
 @include tablet {
   .slideshow-container {
-    height:40vw;
-    min-height:250px;
-    .slideshow .child{
-      min-width:250px;
-      width:40vw;
-    }
+    height:40vw; 
   }
 }

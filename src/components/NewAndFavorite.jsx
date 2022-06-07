@@ -86,13 +86,17 @@ const NewAndFavorite = (props) => {
   }, []);
 
   return (
-    <div className={`favorite_and_new_shoes_slider ${props.bodyHomePage === true ? 'body_home_page':'' }`}>
+    <div
+      className={`favorite_and_new_shoes_slider ${
+        props.bodyHomePage === true ? "body_home_page" : ""
+      }`}
+    >
       <h2>New Arrivals</h2>
       <section className="slideshow-container">
         <div className="slideshow">
           {newProducts.map((e, index) => (
             <div className="child" key={index}>
-              <ProductCard productProps={e} />
+              <ProductCard productProps={e} newAndFavorite={true} />
             </div>
           ))}
         </div>
@@ -102,7 +106,7 @@ const NewAndFavorite = (props) => {
         <div className="slideshow">
           {favoriteProducts.map((e, index) => (
             <div className="child" key={index}>
-              <ProductCard productProps={e} />
+              <ProductCard productProps={e} newAndFavorite={true} />
             </div>
           ))}
         </div>

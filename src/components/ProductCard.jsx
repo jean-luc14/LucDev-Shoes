@@ -22,7 +22,7 @@ const ProductCard = props => {
   const dispatch = useDispatch();
   return (
     <div className="product_card" >
-      <div className="product_card_child" 
+      <div className={`product_card_child ${props.newAndFavorite ? 'newAndFavorite':''}`}
         onClick={() => goToProductPage(catalogSlug, id)}
       >
         <img src={props.productProps.color[0].img} /> 

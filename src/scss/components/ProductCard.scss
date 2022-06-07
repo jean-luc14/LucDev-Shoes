@@ -23,6 +23,9 @@
       transition:opacity 0.5s ease-out ;
       z-index:1;
     }
+    &.newAndFavorite{
+      pointer-events: none;
+    }
     img{
       @extend %back-img;
       border-radius: 8px;
