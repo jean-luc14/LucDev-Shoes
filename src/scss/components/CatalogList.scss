@@ -1,29 +1,20 @@
-// A List of categories of shoes 
-.catalog{
+.catalog_list{
   position:sticky;
   top:0;
   width:auto;
   height:auto;
   
-  #catalog_list{
+  .catalog_list_child{
     opacity:1;
     height: auto;
     border-radius:10px;
     width:auto;
     transition:all 500ms ease-out;
     background:rgb(217, 217, 217);
-    // span{
-    //   position:absolute;
-    //   left:45px;
-    //   top:-22px;
-    //   width:20px;
-    //   height:20px;
-    //   border-bottom:10px solid #fff; 
-    //   border-top:10px solid transparent; 
-    //   border-right:10px solid transparent; 
-    //   border-left:10px solid transparent; 
-    //   z-index:1;
-    // }
+    &.navbar{ 
+      max-height:80vh;
+      overflow:auto;
+    }
 
     .catalog_link{
       position:relative;
@@ -32,43 +23,21 @@
       height:50px;
       display:inline-block;
       border-radius:10px;
+      cursor:pointer;
       &:hover{
         background:rgba(183, 183, 183, 0.624);
       }
-      div{
-        width:100%;
-        height:100%;
-        color:rgb(2, 2, 2);
-        white-space:nowrap;
-        font-size:1.1rem;
-        font-weight:500;
-        display:flex;
-        align-items:center;
-        padding-left:10px;
-      }
-      span{
-        position:absolute;
-        width:50px;
-        height:50px;
-        transform:translate(-50%,-50%);
-        background:rgba(178, 178, 178, 0.624);
-        border-radius:50%;
-        pointer-events: none;
-        animation: animCat 0.4s linear infinite;
-      }
-      @keyframes animCat{
-        0%{
-          width:0;
-          height:0;
-          opacity:0.5;
-        }
-        100%{
-          width: 300px;
-          height:300px;
-          opacity:0;
-        }
-      }   
     }
-    
+    .catalog_link_child{
+      display:flex;
+      align-items:center;
+      width:100%;
+      height:100%;
+      color:rgb(2, 2, 2);
+      white-space:nowrap;
+      font-size:1.1rem;
+      padding-left:10px;
+      font-weight:500;
+    }  
   }
-}
+} 

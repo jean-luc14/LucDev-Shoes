@@ -77,7 +77,7 @@ Please check your internet connect and retry.`
   };
   
   //catalog list animation
-  const animCatalog = () => {
+  const animCatalogList = () => {
     catalogRef.current.classList.toggle("active");
     setCatalog_list_back_state(!catalog_list_back_state);
   };
@@ -113,22 +113,20 @@ Please check your internet connect and retry.`
           <div className="slice"></div>
         </div>
         {catalog_list_back_state ? (
-          <div onClick={animCatalog} className="catalog_list_background"></div>
+          <div onClick={animCatalogList} className="catalog_list_background"></div>
         ) : null}
         <div className="catalog_list_parent">
           <button
             className="catalog_list_btn"
             type="button"
-            onClick={animCatalog}
+            onClick={animCatalogList}
           >
             Catalog
           </button>
           <div ref={catalogRef} className="catalog_list_wrapper">
             <CatalogList
               navbar={true}
-              animCatalog={animCatalog}
-              height={"80vh"}
-              overflow={"auto"}
+              animCatalogList={animCatalogList}
             />
           </div>
         </div>
