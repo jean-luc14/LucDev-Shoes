@@ -23,7 +23,9 @@ const ProductView = (props) => {
   const [activeThumb, setActiveThumb] = useState();
   const [size, setSize] = useState( product === undefined ? undefined : product.size[0]);
   const [quantity, setQuantity] = useState(1)
-  const [color, setColor] = useState(undefined)
+  const [color, setColor] = useState(
+    product === undefined ? undefined : product.color[0].name
+  );
   
   // fonction pour caputer l'adresse de l'image active avec la class nommer par swiper js
   const getSelectedImages = () => {
@@ -109,11 +111,12 @@ const ProductView = (props) => {
     }
   }
 
-   useEffect(() => {
-     setSize(product === undefined ? undefined : product.size[0]);
-     setQuantity(1);
-     getSelectedImages();
-   }, [product]);
+    useEffect(() => {
+      setSize(product === undefined ? undefined : product.size[0]);
+      setColor(product === undefined ? undefined : product.color[0].name);
+      setQuantity(1);
+      getSelectedImages();
+    }, [product]);
 
   return (
     <div>
