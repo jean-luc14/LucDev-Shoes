@@ -180,6 +180,7 @@ const ProductView = (props) => {
                     addToCart={addToCart}
                     goToCart={goToCart}
                     size={size}
+                    color={color}
                     quantity={quantity}
                     putColorInState={putColorInState}
                     modal={props.Modal}

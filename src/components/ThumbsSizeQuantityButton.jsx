@@ -12,45 +12,42 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 // thumbs of Swiper js
-const ThumbsSizeQuantityButton = (props) => {
-  const addToCart = useRef(null);
+const ThumbsSizeQuantityButton = (props) => { 
 
   //get products which are in cart
-  const cartItems = useSelector(state => state.cartItems.value)
+  const cartItems = useSelector((state) => state.cartItems.value);
 
-  //get true if current product is already in cart
+  //get true if current product with even properties is in cart already
   const already = cartItems.some(
-      (e) =>
-        (e.catalogSlug === props.product.catalogSlug) &
-      (e.id === props.product.id)
-  )  
+    (e) =>
+      (e.catalogSlug === props.product.catalogSlug) &
+      (e.id === props.product.id) &
+      (e.color === props.color) &
+      (e.size === props.size)
+  );
 
   const [productAlreadyInCart, setProductAlreadyInCart] = useState(already);
 
-  //redux
-  const navigate = useNavigate();
-  const dispatch = useDispatch()
+  //redux 
+  const dispatch = useDispatch();
 
   //Buy product, go to cart and close modal
   const goToCartAndClose = () => {
     props.goToCart();
 
-    if(props.modal){ 
-      dispatch(remove()); 
+    if (props.modal) {
+      dispatch(remove());
     }
-  }
-
-  //Add active class to add to cart button
-  const addActiveToBtn = () => {
-    addToCart.current.classList.add('active');
-  };
+  }; 
 
   useEffect(() => {
-    //get true if current product is already in cart
+    //get true if current product with even properties is in cart already
     const already = cartItems.some(
       (e) =>
         (e.catalogSlug === props.product.catalogSlug) &
-        (e.id === props.product.id)
+        (e.id === props.product.id) &
+        (e.color === props.color) &
+        (e.size === props.size)
     );
 
     /*use timer for that thz loading animation of add to cart button finish
@@ -63,8 +60,7 @@ const ThumbsSizeQuantityButton = (props) => {
       clearTimeout(alreadyTimeOutId);
     };
   }, [cartItems]);
-  
-  
+
   return (
     <>
       <Swiper
@@ -109,46 +105,87 @@ const ThumbsSizeQuantityButton = (props) => {
         </div>
       </div>
       <div className="buy_and_add_product_button">
-        <button type="button" onClick={goToCartAndClose}>
-          Buy Now
-        </button>
-        {productAlreadyInCart ? (
-          <button type="button" onClick={goToCartAndClose}>
-            <div className="view_cart_txt">View Cart</div>
-          </button>
-        ) : (
-          <button
-            ref={addToCart}
-            type="button"
-            onClick={() => {
-              props.addToCart();
-              addActiveToBtn()
-            }}
-          >
-            <div className="loading">
-              <div className="child">
-                <div></div>
-              </div>
-            </div>
-            <div className="add_to_cart_txt">Add To Cart</div>
-          </button>
-        )}
-        {props.modal ? (
-          <button
-            type="button"
-            onClick={() => {
-              navigate(
-                `/catalog=${props.product.catalogSlug}&id=${props.product.id}`
-              );
-              dispatch(remove());
-            }}
-          >
-            Go To Product Page
-          </button>
-        ) : null}
+        <Buttons
+          size={props.size}
+          color={props.color}
+          productAlreadyInCart={productAlreadyInCart}
+          setProductAlreadyInCart={setProductAlreadyInCart}
+          product={props.product}
+          cartItems={cartItems}
+          goToCartAndClose={goToCartAndClose}
+          addToCart={props.addToCart}
+          modal={props.modal}
+        />
       </div>
     </>
   );
 };
 
+const Buttons = (props) => {
+  const addToCart = useRef(null);
+
+  //Add active class to add to cart button
+  const animateLoader = () => {
+    addToCart.current.classList.add("active");
+  };
+
+  //redux
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    //get true if current product with even properties is in cart already
+    const already = props.cartItems.some(
+      (e) =>
+        (e.catalogSlug === props.product.catalogSlug) &
+        (e.id === props.product.id) &
+        (e.color === props.color) &
+        (e.size === props.size)
+    ); 
+    props.setProductAlreadyInCart(already);
+  }, [props.size, props.color]);
+
+  return (
+    <>
+      <button type="button" onClick={props.goToCartAndClose}>
+        Buy Now
+      </button>
+      {props.productAlreadyInCart ? (
+        <button type="button" onClick={props.goToCartAndClose}>
+          <div className="view_cart_txt">View Cart</div>
+        </button>
+      ) : (
+        <button
+          ref={addToCart}
+          type="button"
+          onClick={() => {
+            props.addToCart();
+            animateLoader();
+          }}
+        >
+          <div className="loading">
+            <div className="child">
+              <div></div>
+            </div>
+          </div>
+          <div className="add_to_cart_txt">Add To Cart</div>
+        </button>
+      )}
+      {props.modal ? (
+        <button
+          className="go_to_product_page"
+          type="button"
+          onClick={() => {
+            navigate(
+              `/catalog=${props.product.catalogSlug}&id=${props.product.id}`
+            );
+            dispatch(remove());
+          }}
+        >
+          Go To Product Page
+        </button>
+      ) : null}
+    </>
+  );
+};
 export default ThumbsSizeQuantityButton;
