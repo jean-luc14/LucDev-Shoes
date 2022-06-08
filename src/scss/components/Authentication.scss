@@ -1,14 +1,13 @@
-
 .auth_btn{
   box-sizing: border-box;
   cursor:pointer;
   height: auto;
-  font-size:calc(30 * var(--res));
-  margin:5px;
-  padding:3px 15px 5px;
+  font-size:1.3vw;
+  margin:1vw 0.4vw;
+  padding:0.2vw 1.3vw;
   color:#CE6A14;
   border-radius:5px;
-  font-weight:770;
+  font-weight:500;
   white-space: nowrap;
   
   &.sign_up{
@@ -26,13 +25,14 @@
     }
   }
   /* sign up button and log in button 
-    (But we have two button log in, one in link and one in list of link_child)*/
+    ( we have two button log in, one in link and one in list of link_child)*/
   
   &.log_in{
     position:relative;
     display :block;
     background-color:#ffd83c;
-    margin-right: 10px;
+    margin-right: 1vw; 
+    padding:0.3vw 1.4vw;
     border:0px solid transparent;
     &:active{
       background-color:  whitesmoke;
@@ -42,7 +42,7 @@
     position:relative;
     display :block;
     background-color:#fff;
-    margin-right: 10px;
+    margin-right: 1vw;
     border:0px solid transparent;
     cursor:pointer;
     
@@ -53,10 +53,17 @@
 }
 
 //RESPONSIVE
-@media screen and (max-width:800px) {
+@media screen and (max-width:$tablet-max-width) {
   .auth_btn{
-     &.log_in{
-       display:none;
-     }
+    font-size:2.6vmin;
+    margin:2vmin 0.8vmin;
+    padding:0.4vmin 2.6vmin;
+    &.log_in{
+      display:none;
+      padding:0.6vmin 2.8vmin;
+    }    
+    &.log_out{ 
+      margin-right: 2vmin; 
+    }
   }
 }

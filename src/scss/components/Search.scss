@@ -1,6 +1,6 @@
 .Search_wrapper{
   position:relative;
-  margin:5px;
+  margin:1vw 0.4vw;
   height:auto;
   width:auto;
 
@@ -8,9 +8,9 @@
     @include absolute(50%,100%,50%,0%);
     @include pseudo(2px,0);
     background:$toggle-white-black;
-    z-index: 1;
     border-radius:10px;
     transition:width 0.5s ease-out;
+    z-index: 1;
     
   }
   input{
@@ -22,89 +22,80 @@
     outline:none;
     color:$toggle-white-black;
     transition:opacity 0.5s ease-out;
-    border-radius:5px;
-
-    &:last-child{
-      opacity:1; 
-      background:$red;
-      width:98%;
-      color:rgb(226, 226, 204);
-      font-weight:500;
-      margin:2px 1%;
-      cursor:pointer;
-      &:active{
-        background:rgb(216, 71, 13);
-      }
-    }
+    border-radius:5px; 
   }
   .Search_icon{
-    height:20px;
-    width:20px;
+    position:absolute;
+    bottom:1px;
+    right:1px;
+    height:1.8vw;
+    width:1.8vw;
     filter:invert(1);
-    margin:0 5px;
+    margin:0 0.4vw;
     cursor:pointer;
   }
-  .dynamic_search_results{
-    @include absolute($top:37px,$y:0%);
-    box-shadow: $box-shadow;
-    background:white;
-    z-index: 1;
-    border-radius: 5px;
-    width:80vmin;
-    max-height:60vh;
-    overflow:auto;
-    .triangle{
-      @include absolute($top:-7px,$y:0%);
-      @include pseudo(0,0,transparent);
-      border-bottom:7px solid #fff;
-      border-left:7px solid transparent;
-      border-right:7px solid transparent;
+}
+
+.Search_wrapper .dynamic_search_results{
+  @include absolute($top:37px,$y:0%);
+  box-shadow: $box-shadow;
+  background:white;
+  z-index: 1;
+  border-radius: 5px;
+  width:80vmin;
+  max-height:60vh;
+  overflow:auto;
+  .triangle{
+    @include absolute($top:-7px,$y:0%);
+    @include pseudo(0,0,transparent);
+    border-bottom:7px solid #fff;
+    border-left:7px solid transparent;
+    border-right:7px solid transparent;
+  }
+  .dynamic_search_item{
+    position:relative;
+    padding:5px;
+    display:flex;
+    flex-wrap: nowrap;
+    height:auto;
+    width:100%;
+    z-index:1;
+    cursor:pointer;
+    &::before{
+      @include absolute(0,0,0,0);
+      @include pseudo(100%,100%);
+      z-index:2;
     }
-    .dynamic_search_item{
-      position:relative;
-      padding:5px;
-      display:flex;
-      flex-wrap: nowrap;
-      height:auto;
-      width:100%;
-      z-index:1;
-      cursor:pointer;
-      &::before{
-        @include absolute(0,0,0,0);
-        @include pseudo(100%,100%);
-        z-index:2;
+    &:hover::before{
+      background:rgba(0, 0, 0, 0.117);
+    }
+    &:active::before{
+      background:rgba(0, 0, 0, 0.26);
+    }
+    .dynamic_search_item_img{
+      height:calc((80vmin * 15) /100);;
+      width: 15%;
+      margin-right:5px;
+      img{
+        @extend %back-img;
+        border-radius:3px;
       }
-      &:hover::before{
-        background:rgba(0, 0, 0, 0.117);
+    }
+    &_content{
+      line-height: calc(80vmin /36);
+      width:85%;
+      &_price{
+        color:$yellow;
+        font-size:calc(80vmin /36);
       }
-      &:active::before{
-        background:rgba(0, 0, 0, 0.26);
+      &_category{
+        font-size:calc(80vmin /36);
+        color:rgb(128, 128, 128)
       }
-      .dynamic_search_item_img{
-        height:calc((80vmin * 15) /100);;
-        width: 15%;
-        margin-right:5px;
-        img{
-          @extend %back-img;
-          border-radius:3px;
-        }
-      }
-      &_content{
-        line-height: calc(80vmin /36);
-        width:85%;
-        &_price{
-          color:$yellow;
-          font-size:calc(80vmin /36);
-        }
-        &_category{
-          font-size:calc(80vmin /36);
-          color:rgb(128, 128, 128)
-        }
-        &_name{
-          text-overflow:ellipsis;
-          font-weight: 580;
-          font-size: calc(80vmin /42);
-        }
+      &_name{
+        text-overflow:ellipsis;
+        font-weight: 580;
+        font-size: calc(80vmin /42);
       }
     }
   }
@@ -117,5 +108,22 @@
   }
   input{
     opacity:1;
+  }
+}
+
+//RESPONSIVE
+@media screen and (max-width:$tablet-max-width) {
+  .Search_wrapper{ 
+     margin:1.8vmin 0.8vmin;     
+    .Search_icon{
+      height:3.6vmin;
+      width:3.6vmin; 
+      margin:0 0.8vmin; 
+    }
+  }
+}
+@media screen and (max-width:$mobile-max-width) {
+  .Search_wrapper{ 
+    margin:1.8vmin 0.8vmin;  
   }
 }

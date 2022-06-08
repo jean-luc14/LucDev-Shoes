@@ -1,4 +1,3 @@
-/* Navigation */
 #navbar{
   position:fixed;
   top:0;
@@ -7,6 +6,7 @@
   z-index:6;
   box-sizing: content-box;
   @include flex($flex-direction:column);
+  background:rgba(0, 0, 0, 0.547);
   
   .hamburger_menu{
     display: none;
@@ -25,12 +25,12 @@
   height:auto;
   .catalog_list_btn{
     position:absolute;
-    font-size:calc(27 * var(--res));
+    font-size:2.5vmin;
     font-weight:500;
     left:0;
-    top:45px;
+    top:10vmin;
     line-height: 2;
-    padding:0 2vmin;
+    padding:1vmin 2.5vmin;
     background:$red;
     cursor:pointer;
     margin-left:5px;
@@ -41,7 +41,7 @@
   .catalog_list_wrapper{
     position:absolute;
     left:0;
-    top:80px;
+    top:19vmin;
     width:230px;
     height:auto;
     transform:translateX(-100%);
@@ -53,7 +53,7 @@
 }
 
 #navbar #link{ 
-  @include flex(row,flex-end,center);
+  @include flex(row,flex-end,flex-start);
   width: 100vw;
   height:auto;
   
@@ -74,20 +74,20 @@
     }
     &_li{
       position:relative;
-      font-size:18px;
-      height:30px;
-      margin:12px 15px;
+      font-size:1.4vw;
+      height:auto;
+      margin:1vw 0.8vw;
     }
     &_li::after{
       content:'';
       position:absolute;
-      bottom:-2px;
+      bottom:-0.8vw;
       display:flex;
       left:50%;
       transform: translateX(-50%);
       transition:all 400ms ease-out;
       width:0%;
-      height:3px;
+      height:0.2vw;
       border-radius: 3px;
       background-color:#CE6A14;
     } 
@@ -100,18 +100,16 @@
     } 
 
     .btn{
-      cursor:pointer;
-      height: 30px;
-      font-size:calc(30 * var(--res));
-      margin:5px;
-      padding:3px 15px 5px;
+      cursor:pointer;  
+      font-size:2.6vmin;
+      margin:2vmin 0.8vmin; 
+      padding:1.2vmin 5.6vmin;
       color:#CE6A14;
       border-radius:5px;
-      font-weight:770;
+      font-weight:500;
     }
     .btn.log_in{
-      display:none;
-      margin:10px 0;
+      display:none; 
       position:relative;
       background-color:#ffd83c;
       border:0px solid transparent;
@@ -128,10 +126,10 @@
 
 #navbar .shopping_icon{
   img{
-    height:30px;
-    width:40px;
+    height:2.5vw;
+    width:3vw;
     filter:invert(1);
-    margin-right:15px;
+    margin:0.7vw 1.2vw 0 0.2vw;
   }
 }
 
@@ -149,12 +147,21 @@
       transform :translateX(-100%);
       background:rgba(0, 0, 0, 0.796);
       transition: transform 0.5s ease-in-out;
-      z-index:2;
-      //background-image:linear-gradient(180deg,rgba(0,0,0,1),rgba(0,0,0,0.6),rgba(0,0,0,0.4),rgba(0,0,0,0));
+      z-index:2; 
 
       &.active{
         transform :translateX(0%);
-      }  
+      } 
+
+      &_li{ 
+        font-size:2.8vmin; 
+        margin:2vmin 1.6vmin;
+      }
+      &_li::after{ 
+        bottom:-1.6vmin; 
+        height:0.4vmin; 
+      } 
+
     }
   }
   #navbar #link .link_child li .btn.log_in{
@@ -163,20 +170,17 @@
   #navbar .hamburger_menu {
     display: block;
     position: absolute;
-    top: 8px;
-    left: 7px;
-    width: auto;
-    height: auto;
-    min-height:25px;
-    min-width:35px;
+    top: 2.4vmin;
+    left: 2vmin; 
+    height:5vmin;
+    width:7vmin;
     cursor: pointer;
     z-index:3;
 
     .slice {
       position: absolute;
-      width: 90%;
-      height: calc(5*var(--res));
-      min-height:3px;
+      width: 100%;
+      height:0.5vmin;
       background: #fff;
       border-radius: 4px;
       transition: all 0.5s ease-in-out;
@@ -185,14 +189,14 @@
       top:0;
     }
     .slice:nth-child(2){
-      top:calc(calc(20*var(--res)) + calc(5*var(--res)));
+      top:2.25vmin;
     }
     .slice:nth-child(3){
-      top: calc(calc(40*var(--res)) + calc(10*var(--res)));
+      top:4.5vmin;
     }
 
     &.active .slice:nth-child(1) {
-      top: calc(20*var(--res));
+      top:2vmin;
       transform: rotate(135deg);
     }
     &.active .slice:nth-child(2){
@@ -200,12 +204,33 @@
       transform: translateX(-10px);
     }
     &.active .slice:nth-child(3) {
-      top: calc(22*var(--res));
+      top: 2vmin;
       transform: rotate(-135deg);
     }
   }
   #navbar #link{
     width:100vw;
+  }
+
+  #navbar #link{ 
+  @include flex(row,flex-end,flex-start);
+  width: 100vw;
+  height:auto;
+  
+  &.link{
+    background: rgb(255, 255, 255);
+    .link_child .nav-link{
+      color:black;
+    }
+  } 
+}
+
+  #navbar .shopping_icon{
+    img{
+      height:5vmin;
+      width:6vmin; 
+      margin:1.4vmin 2.4vmin 0 0.4vmin;
+    }
   }
 }  
 
