@@ -11,19 +11,6 @@
   .hamburger_menu{
     display: none;
   }
-
-  #link{ 
-    @include flex(row,flex-end,center);
-    width: 100vw;
-    height:auto;
-    
-    &.link{
-      background: rgb(255, 255, 255);
-      .link_child .nav-link{
-        color:black;
-      }
-    }
-  }
 }
 
 #navbar .catalog_list_background{
@@ -65,20 +52,33 @@
   }
 }
 
-#navbar #link .link_child{
-  position:fixed;
-  width:100vw;
-  display:flex;
+#navbar #link{ 
+  @include flex(row,flex-end,center);
+  width: 100vw;
+  height:auto;
   
-  &:first-child{
-    justify-content:center; 
+  &.link{
+    background: rgb(255, 255, 255);
+    .link_child .nav-link{
+      color:black;
+    }
   }
-  &_li{
-    position:relative;
-    font-size:18px;
-    height:30px;
-    margin:12px 15px;
-    &::after{
+
+  .link_child{
+    position:fixed;
+    width:100vw;
+    display:flex;
+    
+    &:first-child{
+      justify-content:center; 
+    }
+    &_li{
+      position:relative;
+      font-size:18px;
+      height:30px;
+      margin:12px 15px;
+    }
+    &_li::after{
       content:'';
       position:absolute;
       bottom:-2px;
@@ -90,40 +90,43 @@
       height:3px;
       border-radius: 3px;
       background-color:#CE6A14;
-    }
-    
-    &.active::after,&:hover::after{
+    } 
+
+    &_li.active::after,&_li:hover::after{
       width:100%;
     }
-    &.active .nav-link,&:hover .nav-link{
+    &_li.active .nav-link,&_li:hover .nav-link{
       color:#CE6A14;
+    } 
+
+    .btn{
+      cursor:pointer;
+      height: 30px;
+      font-size:calc(30 * var(--res));
+      margin:5px;
+      padding:3px 15px 5px;
+      color:#CE6A14;
+      border-radius:5px;
+      font-weight:770;
     }
-  }
-  .btn{
-    cursor:pointer;
-    height: 30px;
-    font-size:calc(30 * var(--res));
-    margin:5px;
-    padding:3px 15px 5px;
-    color:#CE6A14;
-    border-radius:5px;
-    font-weight:770;
-    &.log_in{
+    .btn.log_in{
       display:none;
       margin:10px 0;
       position:relative;
       background-color:#ffd83c;
       border:0px solid transparent;
-      &:active{
-        background-color:  whitesmoke;
-      }
     }
+    .btn.log_in:active{
+      background-color:  whitesmoke;
+    }  
   }
 }
+
 #navbar:first-child{
   justify-content:flex-end; 
 }
-#navbar .ecommerce_icons{
+
+#navbar .shopping_icon{
   img{
     height:30px;
     width:40px;
@@ -151,27 +154,7 @@
 
       &.active{
         transform :translateX(0%);
-      }
-
-      &_li{
-        position:relative;
-
-        &::after{
-          content:'';
-          position:absolute;
-          display:flex;
-          left:50%;
-          transform: translateX(-50%);
-          transition:all 400ms ease-in;
-          width:0%;
-          height:4px;
-          border-radius: 2px;
-          background-color:#CE6A14;
-        }
-        &.active::after,&:hover::after{
-          width:100%;
-        }
-      }
+      }  
     }
   }
   #navbar #link .link_child li .btn.log_in{
@@ -197,17 +180,17 @@
       background: #fff;
       border-radius: 4px;
       transition: all 0.5s ease-in-out;
-      
-      &:nth-child(1){
-        top:0;
-      }
-      &:nth-child(2){
-        top:calc(calc(20*var(--res)) + calc(5*var(--res)));
-      }
-      &:nth-child(3){
-        top: calc(calc(40*var(--res)) + calc(10*var(--res)));
-      }
+    } 
+    .slice:nth-child(1){
+      top:0;
     }
+    .slice:nth-child(2){
+      top:calc(calc(20*var(--res)) + calc(5*var(--res)));
+    }
+    .slice:nth-child(3){
+      top: calc(calc(40*var(--res)) + calc(10*var(--res)));
+    }
+
     &.active .slice:nth-child(1) {
       top: calc(20*var(--res));
       transform: rotate(135deg);

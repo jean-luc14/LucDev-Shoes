@@ -5,7 +5,7 @@ import LogInModal from "./LogInModal"
 import ForgotPasswordModal from "./ForgotPasswordModal";
 import Search from "./Search"
 import CatalogList from './CatalogList'
-import Shopping_cart from "../Assets/icons/shopping_cart.png"
+import Shopping_icon from "../Assets/icons/shopping_cart.png"
 import {navbarData} from  "../Assets/data/NavbarData"
 import {auth} from '../firebase-config'
 import {signOut} from  'firebase/auth'
@@ -166,9 +166,9 @@ Please check your internet connect and retry.`
             toggle_log={toggle_log}
             logOut={logOut}
           />
-          <div className="ecommerce_icons">
+          <div className="shopping_icon">
             <Link to="/cart">
-              <img src={Shopping_cart} />
+              <img src={Shopping_icon} />
             </Link>
           </div>
         </div>
