@@ -1,8 +1,8 @@
-import React from "react";
+import React,{useState,useEffect,useRef} from "react";
 import {useNavigate} from 'react-router-dom'
 import Plus from "../Assets/icons/plus.png";
 import Minus from "../Assets/icons/minus.png";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { remove } from "../redux/product/ProductSlice";
 
 // import of Swiper.js Modules
@@ -13,6 +13,21 @@ import "swiper/css/thumbs";
 
 // thumbs of Swiper js
 const ThumbsSizeQuantityButton = (props) => {
+  const addToCart = useRef(null);
+
+  //get products which are in cart
+  const cartItems = useSelector(state => state.cartItems.value)
+
+  //get true if current product is already in cart
+  const already = cartItems.some(
+      (e) =>
+        (e.catalogSlug === props.product.catalogSlug) &
+      (e.id === props.product.id)
+  )  
+
+  const [productAlreadyInCart, setProductAlreadyInCart] = useState(already);
+
+  //redux
   const navigate = useNavigate();
   const dispatch = useDispatch()
 
@@ -24,6 +39,31 @@ const ThumbsSizeQuantityButton = (props) => {
       dispatch(remove()); 
     }
   }
+
+  //Add active class to add to cart button
+  const addActiveToBtn = () => {
+    addToCart.current.classList.add('active');
+  };
+
+  useEffect(() => {
+    //get true if current product is already in cart
+    const already = cartItems.some(
+      (e) =>
+        (e.catalogSlug === props.product.catalogSlug) &
+        (e.id === props.product.id)
+    );
+
+    /*use timer for that thz loading animation of add to cart button finish
+      before that the add to cart button is changed to view cart button*/
+    const alreadyTimeOutId = setTimeout(() => {
+      setProductAlreadyInCart(already);
+    }, 3000);
+
+    return () => {
+      clearTimeout(alreadyTimeOutId);
+    };
+  }, [cartItems]);
+  
   
   return (
     <>
@@ -72,19 +112,34 @@ const ThumbsSizeQuantityButton = (props) => {
         <button type="button" onClick={goToCartAndClose}>
           Buy Now
         </button>
-        <button
-          type="button"
-          onClick={() => {
-            props.addToCart();
-          }}
-        >
-          Add To Card
-        </button>
+        {productAlreadyInCart ? (
+          <button type="button" onClick={goToCartAndClose}>
+            <div className="view_cart_txt">View Cart</div>
+          </button>
+        ) : (
+          <button
+            ref={addToCart}
+            type="button"
+            onClick={() => {
+              props.addToCart();
+              addActiveToBtn()
+            }}
+          >
+            <div className="loading">
+              <div className="child">
+                <div></div>
+              </div>
+            </div>
+            <div className="add_to_cart_txt">Add To Cart</div>
+          </button>
+        )}
         {props.modal ? (
           <button
             type="button"
             onClick={() => {
-              navigate(`/catalog=${props.product.catalogSlug}&id=${props.product.id}`);
+              navigate(
+                `/catalog=${props.product.catalogSlug}&id=${props.product.id}`
+              );
               dispatch(remove());
             }}
           >
