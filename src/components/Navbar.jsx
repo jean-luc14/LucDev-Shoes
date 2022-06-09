@@ -10,11 +10,15 @@ import {navbarData} from  "../Assets/data/NavbarData"
 import {auth} from '../firebase-config'
 import {signOut} from  'firebase/auth'
 import AuthenticationBtn from './AuthenticationBtn'
-import { useSelector } from "react-redux"
+import { useSelector,useDispatch } from "react-redux"
+import { set } from "../redux/search/ActiveSearchSlice";
 
 const Navbar = () => {
   //get products which are in cart
   const cartItems = useSelector((state) => state.cartItems.value);
+  
+  //get if the search is active
+  const activeSearch = useSelector((state) => state.search.value);
 
   //catch currentUser from redux/firebase
   const currentUser = useSelector((state) => state.firebase.value.currentUser);
@@ -29,6 +33,7 @@ const Navbar = () => {
   const catalogRef = useRef(null);
   const hamburger_anim = useRef(null);
   const navResponAnim = useRef(null);
+  const dispatch = useDispatch(null);
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -106,6 +111,11 @@ Please check your internet connect and retry.`
   return (
     <>
       <nav id="navbar">
+        {
+          activeSearch ? 
+          <div className="search_wrapper_back" onClick={()=>dispatch(set(!activeSearch))}></div>:
+          null
+        }
         <div
           ref={hamburger_anim}
           className="hamburger_menu"
@@ -116,7 +126,10 @@ Please check your internet connect and retry.`
           <div className="slice"></div>
         </div>
         {catalog_list_back_state ? (
-          <div onClick={animCatalogList} className="catalog_list_background"></div>
+          <div
+            onClick={animCatalogList}
+            className="catalog_list_background"
+          ></div>
         ) : null}
         <div className="catalog_list_parent">
           <button
@@ -127,10 +140,7 @@ Please check your internet connect and retry.`
             Catalog
           </button>
           <div ref={catalogRef} className="catalog_list_wrapper">
-            <CatalogList
-              navbar={true}
-              animCatalogList={animCatalogList}
-            />
+            <CatalogList navbar={true} animCatalogList={animCatalogList} />
           </div>
         </div>
         <div ref={link} id="link">

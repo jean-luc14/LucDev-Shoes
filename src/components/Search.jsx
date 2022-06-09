@@ -1,29 +1,37 @@
-import React,{useRef,useState,useEffect} from 'react'
+import React,{ useState,useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import Search_icon from '../Assets/icons/search_icon.png';
 import { searchProducts } from "../Assets/data/ProductData";
+import { useSelector,useDispatch } from 'react-redux'
+import {set} from '../redux/search/ActiveSearchSlice'
 
 
-const Search = props => {
-  const animSearch = useRef(null)
+const Search = props => { 
   const [dynamic_search_data,setDynamic_search_data] = useState([])
   const [inputValue, setInputValue] = useState('');
-  const navigate = useNavigate();
 
-  // fonction qui met a jour la valeur de l'input dans le state
+  const activeSearch = useSelector(state => state.search.value)
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  //put input value to state
   const searchProductFoo = e => {
     setInputValue(e.target.value);
   }
   
- // Ajout de class pour animer l'input au click
+ //update the value of search in redux store
   const animSearchFoo = () => {
-    animSearch.current.classList.toggle('animSearch')
+    dispatch(set(!activeSearch));
   }
-// function to go to product page 
+
+// go to product page 
   const goToProductPage = (catalogSlug,id) => {
     navigate(`/catalog=${catalogSlug}&id=${id}`)
     setInputValue('')
+    animSearchFoo();
   }
+
   //Submit
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +46,7 @@ const Search = props => {
   }, [inputValue]);
   
   return (
-    <div ref={animSearch} className="Search_wrapper">
+    <div className={`search_wrapper ${activeSearch ? "animSearch" : ""}`}> 
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -47,48 +55,52 @@ const Search = props => {
           onInput={searchProductFoo}
         ></input>
         <img
-          className="Search_icon"
+          className="search_icon"
           src={Search_icon}
           onClick={animSearchFoo}
         />
-        <div className="dynamic_search_results">
-          <span
-            className={`${
-              (inputValue.length > 2) & (dynamic_search_data.length > 0)
-                ? "triangle"
-                : ""
-            }`}
-          ></span>
-          {inputValue.length > 2
-            ? dynamic_search_data.map((e, i) => (
-                <>
-                  <div
-                    key={i}
-                    className="dynamic_search_item"
-                    onClick={() => goToProductPage(e.catalogSlug, e.id)}
-                  >
-                    <div className="dynamic_search_item_img">
-                      <img src={e.color[0].img} alt={e.name} />
-                    </div>
-                    <div className="dynamic_search_item_content">
-                      <p className="dynamic_search_item_content_price">
-                        US ${e.price}
-                      </p>
-                      <p className="dynamic_search_item_content_category">
-                        {e.catalogSlug}
-                      </p>
-                      <p className="dynamic_search_item_content_name">
-                        {e.name}
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ))
-            : null}
-          {(inputValue.length > 2) & (dynamic_search_data.length > 0) ? (
-            <input type="submit" value="Plus"></input>
-          ) : null}
-        </div>
+        {(inputValue.length > 2) & activeSearch ?
+          (
+            <>
+              <div className="dynamic_search_results">
+                <span
+                  className={`${ 
+                    (dynamic_search_data.length > 0)  
+                      ? "triangle"
+                      : ""
+                  }`}
+                ></span>
+                { dynamic_search_data.map((e, i) => (
+                    <>
+                      <div
+                        key={i}
+                        className="dynamic_search_item"
+                        onClick={() => goToProductPage(e.catalogSlug, e.id)}
+                      >
+                        <div className="dynamic_search_item_img">
+                          <img src={e.color[0].img} alt={e.name} />
+                        </div>
+                        <div className="dynamic_search_item_content">
+                          <p className="dynamic_search_item_content_price">
+                            US ${e.price}
+                          </p>
+                          <p className="dynamic_search_item_content_category">
+                            {e.catalogSlug}
+                          </p>
+                          <p className="dynamic_search_item_content_name">
+                            {e.name}
+                          </p>
+                        </div>
+                      </div>
+                   </>
+                ))}
+                { (dynamic_search_data.length > 0) ? (
+                <input type="submit" value="Plus"></input>
+                ) : null}
+              </div>
+            </>
+          )
+        :null }
       </form>
     </div>
   );
