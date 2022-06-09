@@ -13,6 +13,9 @@ import AuthenticationBtn from './AuthenticationBtn'
 import { useSelector } from "react-redux"
 
 const Navbar = () => {
+  //get products which are in cart
+  const cartItems = useSelector((state) => state.cartItems.value);
+
   //catch currentUser from redux/firebase
   const currentUser = useSelector((state) => state.firebase.value.currentUser);
 
@@ -167,6 +170,7 @@ Please check your internet connect and retry.`
           <div className="shopping_icon">
             <Link to="/cart">
               <img src={Shopping_icon} />
+              <div> {cartItems.length} </div>
             </Link>
           </div>
         </div>
@@ -184,5 +188,5 @@ Please check your internet connect and retry.`
       />
     </>
   );
-}
+} 
 export default Navbar;

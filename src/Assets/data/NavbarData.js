@@ -9,7 +9,7 @@
       path: "/contact",
     },
     {
-      display: "About us",
+      display: "About",
       path: "/about",
     },
 ]

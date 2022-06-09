@@ -125,11 +125,25 @@
 }
 
 #navbar .shopping_icon{
+  position:relative;
+  height:2.5vw;
+  width:3vw;
+  margin:0.7vw 3vw 0 0.2vw;
   img{
-    height:2.5vw;
-    width:3vw;
     filter:invert(1);
-    margin:0.7vw 1.2vw 0 0.2vw;
+    @extend %back-img;
+  }
+  div{
+    @include absolute(25%,0,-50%,20%);
+    @include flex;
+    font-weight:500;
+    font-size:1.5vw;
+    color:white;
+    background:$red;
+    border-radius:50%;
+    width:2.3vw;
+    height:2.3vw;
+    z-index:1;
   }
 }
 
@@ -226,11 +240,14 @@
 }
 
   #navbar .shopping_icon{
-    img{
-      height:5vmin;
-      width:6vmin; 
-      margin:1.4vmin 2.4vmin 0 0.4vmin;
+    height:5vmin;
+    width:6vmin; 
+    margin:1.4vmin 6vmin 0 0.4vmin; 
+    div{  
+      font-size:3vmin;  
+      width:4.6vmin;
+      height:4.6vmin; 
     }
-  }
+  } 
 }  
 
