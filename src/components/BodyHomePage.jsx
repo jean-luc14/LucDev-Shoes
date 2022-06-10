@@ -1,11 +1,9 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import CatalogList from "./CatalogList";
 import BestCategory from "./BestCategory";
-import NewAndFavorite from "./NewAndFavorite";
-import ImgD from '../Shoes_image/Oxford/D.jpg';
+import NewAndFavorite from "./NewAndFavorite"; 
 
-const BodyLayOut = props => {
-
+const BodyLayOut = () => { 
   
   return (
     <div className="body_home_page">

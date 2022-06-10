@@ -8,9 +8,6 @@ import "swiper/css/pagination";
 // import Swiper core and required modules
 import SwiperCore, { Pagination, Autoplay } from 'swiper';
 
-//import images
-import ImgD from '../Shoes_image/Oxford/D.jpg'
-
 const Header = props => {
   
   SwiperCore.use([Pagination, Autoplay]);
