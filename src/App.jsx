@@ -32,8 +32,7 @@ const App = () => {
     //progress bar click
     const progressBarClickFunc = () => {
       let totalHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+        document.documentElement.scrollHeight  
 
       progressBarClick.addEventListener("click", (e) => {
         let newPageScroll =
@@ -49,11 +48,16 @@ const App = () => {
     const progressBarFunc = () => {
       window.addEventListener("scroll", () => {
         let totalHeight =
-          document.documentElement.scrollHeight -
-          document.documentElement.clientHeight;
+          document.documentElement.scrollHeight 
 
-        let progress = (document.documentElement.scrollTop / totalHeight) * 100;
-        progressBar.style.height = `${progress}%`;
+        let progressHeight =
+          (document.documentElement.clientHeight / totalHeight) * 100;
+        progressBar.style.height = `${progressHeight}%`;
+
+        let progressTop = (document.documentElement.scrollTop / totalHeight) * 100;
+        progressBar.style.top = `${
+          progressTop 
+        }%`;
       });
     };
 

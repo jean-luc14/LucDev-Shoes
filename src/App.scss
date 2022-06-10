@@ -122,7 +122,7 @@ a{
   position:fixed;
   top:0;
   right:0;
-  width:12px;
+  width:1vw;
   height:100vh;
   background:rgba(170,170,170,0.356);
   user-select:none;
@@ -132,10 +132,10 @@ a{
     position:fixed;
     top:0;
     right:0;
-    width:12px;
+    width:1vw;
     height:0;
     background:linear-gradient(to top, rgb(254,254,5) ,rgb(254,63,3));
-    z-index:11;
+    z-index:1;
     border-radius:15px;
   }
 }
