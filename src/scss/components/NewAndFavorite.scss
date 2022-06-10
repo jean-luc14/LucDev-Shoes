@@ -11,21 +11,47 @@
     font-size: calc(80 * var(--res));
   }
 }
-
-.slideshow-container{
+.favorite_and_new_shoes_slider section{ 
   position:relative;
   overflow: hidden;
   height:35vw;
-  cursor:grab;
   margin-top:2vmin;
   margin-bottom:10vmin; 
-
-  &:active{
-    cursor:grabbing;
+  .slideshow-container{
+    position:relative;
+    overflow: hidden;
+    cursor:grab;
+    height:100%;
+  
+    &:active{
+      cursor:grabbing;
+    }
+    .slideshow{
+      position :absolute;
+      display:flex;  
+    }
   }
-  .slideshow{
-    position :absolute;
-    display:flex; 
+  .click_slider_bar{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:3%;
+    cursor:pointer;
+    background:rgba(170,170,170,0.356);
+    user-select:none;
+    z-index:1;
+    border-radius:15px;
+    .slider_bar{
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:0;
+      height:100%;
+      background:linear-gradient(to left, rgb(254,254,5) ,rgb(254,63,3));
+      z-index:1;
+      border-radius:15px;
+    }
   }
 }
 
