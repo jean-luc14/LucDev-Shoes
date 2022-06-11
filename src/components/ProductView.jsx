@@ -27,7 +27,7 @@ const ProductView = (props) => {
     product === undefined ? undefined : product.color[0].name
   );
   
-  // fonction pour caputer l'adresse de l'image active avec la class nommer par swiper js
+  // get the link of image which is in active slide of swiper js
   const getSelectedImages = () => {
     let Images = document.querySelectorAll('.imageSlider');
     let  imageSelected;
@@ -87,7 +87,7 @@ const ProductView = (props) => {
     navigate('/cart')
   }
 
-  //put color of active image in state
+  //put color of active slide in color state
   const putColorInState = () => {
     let activeImage;
     if (props.Modal) {
@@ -102,7 +102,7 @@ const ProductView = (props) => {
     setColor(activeImage.getAttribute("color"));
   }
 
-  // go to current category page
+  // go to the page of current category
   const goToCategoryPage = () => {
     navigate(`/catalog=${product.catalogSlug}`);
 
@@ -111,18 +111,62 @@ const ProductView = (props) => {
     }
   }
 
-    useEffect(() => {
-      setSize(product === undefined ? undefined : product.size[0]);
-      setColor(product === undefined ? undefined : product.color[0].name);
-      setQuantity(1);
-      getSelectedImages();
-    }, [product]);
+  useEffect(() => {
+    let productWrapper;
+    let productInfo;
+    let progressBar;
+
+    //get html element if product is don't undefined
+    if (product) {
+      if (props.Modal) {
+        productWrapper = document.querySelector(".productWrapper.modal");
+        productInfo = document.querySelector(
+          ".productWrapper.modal .productInfo"
+        );
+        progressBar = document.querySelector(".productWrapper.modal .scroll_bar");
+      } else {
+        productWrapper = document.querySelector(
+          ".productWrapper"
+        );
+        productInfo = document.querySelector(".productInfo");
+        progressBar = document.querySelector(
+          ".productWrapper .scroll_bar"
+        );
+      }
+
+      let totalHeight = productInfo.scrollHeight;
+
+      //set height of progress bar
+      const setProgressBarHeight = () => {
+        let progressHeight =
+          (productWrapper.getBoundingClientRect().height / totalHeight) * 100;
+        progressBar.style.height = `${progressHeight}%`;
+      };
+  
+      //progress bar
+      const progressBarFunc = () => {
+        productInfo.addEventListener("scroll", () => {
+          setProgressBarHeight();
+          let progressTop = (productInfo.scrollTop / totalHeight) * 100;
+          progressBar.style.top = `${progressTop}%`;
+        });
+      };
+
+      setProgressBarHeight();
+      progressBarFunc();
+    } 
+
+
+    setSize(product === undefined ? undefined : product.size[0]);
+    setColor(product === undefined ? undefined : product.color[0].name);
+    setQuantity(1);
+    getSelectedImages();
+  }, [product, props.Modal]);
 
   return (
     <div>
       {product ? (
         <>
-          {/*The Modal prop is to design the productView differently in modal*/}
           <div className="backgroundProduct">
             {props.Modal || product === undefined ? null : (
               <div className="backgroundProductImgWrapper">
@@ -130,15 +174,20 @@ const ProductView = (props) => {
               </div>
             )}
             <div className={`productWrapper ${props.Modal ? "modal" : ""}`}>
+              {/* close icon to close modal */}
               {props.Modal ? (
                 <span className="close" onClick={() => dispatch(remove())}>
                   {" "}
                   &times;
                 </span>
               ) : null}
+              {/* progress bar which is in tablet and mobile width on pc (if user narrow the window width of him pc)*/}
+              <div className="click_scroll_bar">
+                <div className="scroll_bar"></div>
+              </div>
               <div className="zoom_image_result"></div>
               <div className="productInfo">
-                {/* Swipe which show a current product */}
+                {/* Swipe which post a current product */}
                 <Swiper
                   navigation={true}
                   spaceBetween={10}

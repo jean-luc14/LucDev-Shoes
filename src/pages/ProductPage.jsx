@@ -23,7 +23,7 @@ const ProductPage = () => {
 
   return (
     <div>
-      <ProductView product={product} />
+      <ProductView product={product} Modal={false}/>
       <ProductInfo product={product} />
       <RelatedProducts product={product} />
       <NewAndFavorite />
