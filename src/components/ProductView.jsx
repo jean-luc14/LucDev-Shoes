@@ -115,46 +115,52 @@ const ProductView = (props) => {
     let productWrapper;
     let productInfo;
     let progressBar;
+    let totalHeight;
 
-    //get html element if product is don't undefined
-    if (product) {
-      if (props.Modal) {
-        productWrapper = document.querySelector(".productWrapper.modal");
-        productInfo = document.querySelector(
-          ".productWrapper.modal .productInfo"
-        );
-        progressBar = document.querySelector(".productWrapper.modal .scroll_bar");
-      } else {
-        productWrapper = document.querySelector(
-          ".productWrapper"
-        );
-        productInfo = document.querySelector(".productInfo");
-        progressBar = document.querySelector(
-          ".productWrapper .scroll_bar"
-        );
+    //get html element if current product doesn't undefined
+    const checkCurrentProduct = () => {
+      if (product) {
+        if (props.Modal) {
+          productWrapper = document.querySelector(".productWrapper.modal");
+          productInfo = document.querySelector(
+            ".productWrapper.modal .productInfo"
+          );
+          progressBar = document.querySelector(
+            ".productWrapper.modal .scroll_bar"
+          );
+        } else {
+          productWrapper = document.querySelector(".productWrapper");
+          productInfo = document.querySelector(".productInfo");
+          progressBar = document.querySelector(".productWrapper .scroll_bar");
+        }
+        totalHeight = productInfo.scrollHeight;
+        return true
       }
+    }; 
 
-      let totalHeight = productInfo.scrollHeight;
-
-      //set height of progress bar
-      const setProgressBarHeight = () => {
+    //set height of progress bar
+    const setProgressBarHeight = () => {
+      if (checkCurrentProduct()) {
         let progressHeight =
           (productWrapper.getBoundingClientRect().height / totalHeight) * 100;
         progressBar.style.height = `${progressHeight}%`;
-      };
-  
-      //progress bar
-      const progressBarFunc = () => {
+      }
+    };
+
+    //set and animate progress bar
+    const progressBarFunc = () => { 
+      if (checkCurrentProduct()) {
         productInfo.addEventListener("scroll", () => {
           setProgressBarHeight();
           let progressTop = (productInfo.scrollTop / totalHeight) * 100;
           progressBar.style.top = `${progressTop}%`;
         });
-      };
+      }
+    };
 
-      setProgressBarHeight();
-      progressBarFunc();
-    } 
+
+    setProgressBarHeight();
+    progressBarFunc();
 
 
     setSize(product === undefined ? undefined : product.size[0]);
