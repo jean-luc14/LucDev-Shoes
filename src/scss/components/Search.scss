@@ -10,8 +10,7 @@
     background:$toggle-white-black;
     border-radius:10px;
     transition:width 0.5s ease-out;
-    z-index: 1;
-    
+    z-index: 1; 
   }
   input{
     height:100%;
@@ -37,14 +36,15 @@
 }
 
 .search_wrapper .dynamic_search_results{
-  @include absolute($top:37px,$y:0%);
+  @include absolute($top:10vmin,$y:0%);
   box-shadow: $box-shadow;
   background:white;
-  z-index: 1;
   border-radius: 5px;
   width:80vmin;
   max-height:60vh;
   overflow:auto;
+  z-index: 1;
+  padding:0;
   .triangle{
     @include absolute($top:-7px,$y:0%);
     @include pseudo(0,0,transparent);
@@ -54,9 +54,9 @@
   }
   .dynamic_search_item{
     position:relative;
-    padding:5px;
     display:flex;
     flex-wrap: nowrap;
+    padding:1vmin;
     height:auto;
     width:100%;
     z-index:1;
@@ -75,7 +75,7 @@
     .dynamic_search_item_img{
       height:calc((80vmin * 15) /100);;
       width: 15%;
-      margin-right:5px;
+      margin-right:1vmin;
       img{
         @extend %back-img;
         border-radius:3px;
@@ -83,7 +83,7 @@
     }
     &_content{
       line-height: calc(80vmin /36);
-      width:85%;
+      width:80%;
       &_price{
         color:$yellow;
         font-size:calc(80vmin /36);
@@ -97,6 +97,20 @@
         font-weight: 580;
         font-size: calc(80vmin /42);
       }
+    }
+  }
+  input{
+    @include flex;
+    height:auto;
+    font-weight:500;
+    color:white;
+    background: $red;
+    border-radius:5px;
+    margin:0.5vmin auto ;
+    padding:0.4vmin 36vmin;
+    cursor:pointer;
+    &:active{
+      background: $red-active;
     }
   }
 }
@@ -120,10 +134,24 @@
       width:3.6vmin; 
       margin:0 0.8vmin; 
     }
+    .dynamic_search_results{
+      max-height: 50vh; 
+      width:73vmin;
+      left:-3vmin;
+      input{
+        padding:0.4vmin 34vmin;
+      }
+    }
   }
 }
 @media screen and (max-width:$mobile-max-width) {
   .search_wrapper{ 
     margin:1.8vmin 0.8vmin;  
+    .dynamic_search_results{
+      max-height: 45vh; 
+      input{
+        padding:0.4vmin 34.6vmin;
+      }
+    }
   }
 }

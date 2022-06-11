@@ -6,7 +6,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import {set} from '../redux/search/ActiveSearchSlice'
 
 
-const Search = props => { 
+const Search = () => { 
   const [dynamic_search_data,setDynamic_search_data] = useState([])
   const [inputValue, setInputValue] = useState('');
 
@@ -20,7 +20,7 @@ const Search = props => {
     setInputValue(e.target.value);
   }
   
- //update the value of search in redux store
+ //update the value of search in redux store to active search input and oder
   const animSearchFoo = () => {
     dispatch(set(!activeSearch));
   }
@@ -40,7 +40,7 @@ const Search = props => {
     animSearchFoo();
   }
   useEffect(() => {
-    // fonction qui recherche les produits et les met dans le state
+    // search products and put it in state
     var dynamic_result = searchProducts(inputValue);
     setDynamic_search_data(dynamic_result);
   }, [inputValue]);
@@ -51,6 +51,7 @@ const Search = props => {
         <input
           type="text"
           placeholder="Search"
+          className='search_input'
           value={inputValue}
           onInput={searchProductFoo}
         ></input>
