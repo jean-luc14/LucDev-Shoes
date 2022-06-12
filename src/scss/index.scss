@@ -1,63 +1,59 @@
-@import './_variables';
-@import './_mixins';
-@import './_placeholders';
-@import './_base';
-@import './components/ProductView';
-@import './components/ProductViewModal';
-@import './components/ProductCard.scss';
-@import './components/SignUpModal.scss';
-@import './components/Sections.scss';
-@import './components/Search.scss';
+@import "./_variables";
+@import "./_mixins";
+@import "./_placeholders";
+@import "./_base";
+@import "./components/ProductView";
+@import "./components/ProductViewModal";
+@import "./components/ProductCard.scss";
+@import "./components/SignUpModal.scss";
+@import "./components/Sections.scss";
+@import "./components/Search.scss";
 @import "./components/LogInModal.scss";
-@import './components/Navbar.scss';
-@import './components/Header.scss';
-@import './components/Grid.scss';
-@import './components/Footer.scss';
-@import './components/CatalogList.scss';
-@import './components/BuyProductButton.scss';
-@import './components/BodyHomePage.scss';
-@import './components/Cart.scss';
-@import './components/CartItem.scss';
-@import './components/Paypal.scss';
-@import './components/Authentication.scss';
-@import './components/ForgotPassword.scss';
-@import './components/BestCategory.scss';
-@import './components/About_us.scss';
-@import './components/Contact.scss';
-@import './components/Shoes.scss';
-@import './components/Making_better.scss';
-@import './components/Frequently_Questions.scss';
+@import "./components/Navbar.scss";
+@import "./components/Header.scss";
+@import "./components/Grid.scss";
+@import "./components/Footer.scss";
+@import "./components/CatalogList.scss";
+@import "./components/ViewProductButton.scss";
+@import "./components/BodyHomePage.scss";
+@import "./components/Cart.scss";
+@import "./components/CartItem.scss";
+@import "./components/Paypal.scss";
+@import "./components/Authentication.scss";
+@import "./components/ForgotPassword.scss";
+@import "./components/BestCategory.scss";
+@import "./components/About_us.scss";
+@import "./components/Contact.scss";
+@import "./components/Shoes.scss";
+@import "./components/Making_better.scss";
+@import "./components/Frequently_Questions.scss";
 @import "./components/Let's_talk.scss";
-@import './components/ContactForm.scss';
-@import './components/SearchResults.scss';
-@import './components/NewAndFavorite.scss';
-@import './components/ThumbsSizeQuantityButton.scss';
-@import './components/ProductInfo.scss';
-@import './components/RelatedProducts.scss';
-@import './components/Filter.scss';
-@import './components/PriceFilter.scss';
-@import './components/CategoryFilter.scss';
-@import './components/ColorFilter.scss';
-@import './components/Catalog.scss';
-@import './components/CheckoutCart.scss';
-@import './components/OrderCompleteCart.scss';
-@import './components/Progress.scss';
+@import "./components/ContactForm.scss";
+@import "./components/SearchResults.scss";
+@import "./components/NewAndFavorite.scss";
+@import "./components/ThumbsSizeQuantityButton.scss";
+@import "./components/ProductInfo.scss";
+@import "./components/RelatedProducts.scss";
+@import "./components/Filter.scss";
+@import "./components/PriceFilter.scss";
+@import "./components/CategoryFilter.scss";
+@import "./components/ColorFilter.scss";
+@import "./components/Catalog.scss";
+@import "./components/CheckoutCart.scss";
+@import "./components/OrderCompleteCart.scss";
+@import "./components/Progress.scss";
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  margin:0;
-  padding:0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-    
 }
-
-
-

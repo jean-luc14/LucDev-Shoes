@@ -1,4 +1,4 @@
-.buyButton {
+.view_button {
   @include flex;
   color: white;
   background: $red;
@@ -16,14 +16,14 @@
 
 //tablet
 @include tablet {
-  .buyButton {
+  .view_button {
     padding: 1.5vw 6vw;
   }
 }
 
 //mobile
 @include mobile {
-  .buyButton {
+  .view_button {
     padding: 3vw 12vw;
   }
 }
