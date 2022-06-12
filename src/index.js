@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import './scss/index.scss';
-import {store} from './redux/Store'
-import {Provider} from 'react-redux'
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "./scss/index.scss";
+import { store } from "./redux/Store";
+import { Provider } from "react-redux";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 //basename="/LucDev-Shoes"
 
 ReactDOM.render(
-  <BrowserRouter >
+  <BrowserRouter basename="/LucDev-Shoes">
     <Provider store={store}>
       <App />
     </Provider>
