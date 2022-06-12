@@ -1,16 +1,18 @@
-import React, {useState,useEffect}from 'react'
+import React, { useState, useEffect } from "react";
 import Grid from "../components/Grid";
 import ProductCard from "../components/ProductCard";
 import NewAndFavorite from "../components/NewAndFavorite";
 import Section, { SectionTitle, SectionBody } from "../components/Sections";
-import {useParams} from 'react-router-dom'
-import {catalogData} from "../Assets/data/CatalogData";
+import { useParams } from "react-router-dom";
+import { catalogData } from "../Assets/data/CatalogData";
 import { productData } from "../Assets/data/ProductData";
 import Filter from "../components/Filter";
 
-const Catalog = props => {
+const Catalog = (props) => {
   const params = useParams();
   const catalog = params.catalogSlug;
+
+  const [activeFilterBtn, setActiveFilterBtn] = useState(false);
 
   // Get current category
   const [activeCatalogPage, setActiveCatalogPage] = useState(
@@ -111,6 +113,39 @@ const Catalog = props => {
             </SectionTitle>
             <SectionBody>
               <div className="catalog_body">
+                <div className="filter_btn_wrapper">
+                  <button
+                    className="filter_btn"
+                    onClick={() => {
+                      setActiveFilterBtn(!activeFilterBtn);
+                    }}
+                  >
+                    Filter{" "}
+                  </button>
+                  <div
+                    className={`filter_btn_child ${
+                      activeFilterBtn ? "active" : ""
+                    }`}
+                  >
+                    <Filter
+                      searchPage={false}
+                      getColorQuantity={getColorQuantity}
+                      searchResults={catalogProductCards}
+                      filterByPrice={filterByPrice}
+                      filterByColor={filterByColor}
+                      putFilterResultsInState={putFilterResultsInState}
+                      slug={catalog}
+                    />
+                  </div>
+                  {activeFilterBtn ? (
+                    <div
+                      className="filter_btn_wrapper_bg"
+                      onClick={() => {
+                        setActiveFilterBtn(!activeFilterBtn);
+                      }}
+                    ></div>
+                  ) : null}
+                </div>
                 <Filter
                   searchPage={false}
                   getColorQuantity={getColorQuantity}
@@ -147,9 +182,6 @@ const Catalog = props => {
       )}
     </>
   );
-}
+};
 
-
-export default Catalog
-
-
+export default Catalog;

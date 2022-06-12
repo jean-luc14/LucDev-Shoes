@@ -1,21 +1,93 @@
 //filter of search results page
-.search_results_body .products_filter{
-  position:sticky;
-  top:0;
-  width:28%;
-  height:auto;
-  background:$background;
-  padding: 5px 2vw; 
-  
+.search_results_body .products_filter {
+  position: sticky;
+  top: 0;
+  width: 28%;
+  height: auto;
+  background: $background;
+  padding: 5px 2vw;
 }
 
 ////filter of catalog page
-.catalog_body .products_filter{
-  position:sticky;
-  top:0;
-  width:28%;
-  height:auto;
-  background:$background;
-  padding: 5px 2vw; 
-  
+.catalog_body .filter_btn_wrapper {
+  display: none;
+  position: sticky;
+  top: 20vmin;
+  z-index: 2;
+  button {
+    position: relative;
+    transform: translateX(-43vw);
+    font-size: 2.5vmin;
+    font-weight: 500;
+    line-height: 2;
+    padding: 1vmin 2.5vmin;
+    background: $red;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    z-index: 2;
+    &:active {
+      background: $red-active;
+    }
+  }
+  &_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 120vh;
+    background: transparent;
+    z-index: 1;
+  }
+  .filter_btn_child {
+    position: relative;
+    z-index: 3;
+    .products_filter {
+      position: absolute;
+      left: 0;
+      top: 2vw;
+      padding: 5px 2vw;
+      border-radius: 5px;
+      transform: translateX(-210%);
+      transition: transform 0.5s ease-out;
+    }
+  }
+  .filter_btn_child.active {
+    .products_filter {
+      transform: translateX(-43vw);
+    }
+  }
+}
+
+.catalog_body .products_filter {
+  position: sticky;
+  top: 20vmin;
+  width: 28%;
+  height: auto;
+  background: $background;
+  padding: 5px 2vw;
+}
+
+@include tablet {
+  .catalog_body > .products_filter {
+    display: none;
+  }
+  .catalog_body .filter_btn_wrapper {
+    display: block;
+    .products_filter {
+      width: 45vw;
+    }
+  }
+}
+@include mobile {
+  .catalog_body > .products_filter {
+    display: none;
+  }
+  .catalog_body .filter_btn_wrapper {
+    display: block;
+    .products_filter {
+      width: 60vw;
+    }
+  }
 }
