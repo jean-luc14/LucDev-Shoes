@@ -1,15 +1,16 @@
-//filter of search results page
+//filter of search results page and catalog page
+.catalog_body,
 .search_results_body .products_filter {
   position: sticky;
-  top: 0;
+  top: 20vmin;
   width: 28%;
   height: auto;
   background: $background;
   padding: 5px 2vw;
 }
 
-////filter of catalog page
-.catalog_body .filter_btn_wrapper {
+.catalog_body,
+.search_results_body .filter_btn_wrapper {
   display: none;
   position: sticky;
   top: 20vmin;
@@ -60,20 +61,13 @@
   }
 }
 
-.catalog_body .products_filter {
-  position: sticky;
-  top: 20vmin;
-  width: 28%;
-  height: auto;
-  background: $background;
-  padding: 5px 2vw;
-}
-
 @include tablet {
-  .catalog_body > .products_filter {
+  .catalog_body,
+  .search_results_body > .products_filter {
     display: none;
   }
-  .catalog_body .filter_btn_wrapper {
+  .catalog_body,
+  .search_results_body .filter_btn_wrapper {
     display: block;
     .products_filter {
       width: 45vw;
@@ -81,10 +75,12 @@
   }
 }
 @include mobile {
-  .catalog_body > .products_filter {
+  .catalog_body,
+  .search_results_body > .products_filter {
     display: none;
   }
-  .catalog_body .filter_btn_wrapper {
+  .catalog_body,
+  .search_results_body .filter_btn_wrapper {
     display: block;
     .products_filter {
       width: 60vw;

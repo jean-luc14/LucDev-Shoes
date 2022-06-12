@@ -8,6 +8,7 @@ import { searchProducts } from "../Assets/data/ProductData";
 import Filter from "../components/Filter";
 
 const SearchResults = () => {
+  const [activeFilterBtn, setActiveFilterBtn] = useState(false);
   //params and dispatch
   let params = useParams();
   let value = params.value;
@@ -93,7 +94,7 @@ const SearchResults = () => {
     }
   };
 
-  // push all filter results to filterResults state 
+  // push all filter results to filterResults state
   const putFilterResultsInState = () => {
     let arr = [...new Set(allFilterByColorResults)];
     setFilterResults(arr);
@@ -121,6 +122,41 @@ const SearchResults = () => {
         </SectionTitle>
         <SectionBody>
           <div className="search_results_body">
+            <div className="filter_btn_wrapper">
+              <button
+                className="filter_btn"
+                onClick={() => {
+                  setActiveFilterBtn(!activeFilterBtn);
+                }}
+              >
+                Filter{" "}
+              </button>
+              <div
+                className={`filter_btn_child ${
+                  activeFilterBtn ? "active" : ""
+                }`}
+              >
+                <Filter
+                  searchPage={true}
+                  getColorQuantity={getColorQuantity}
+                  getCategoryQuantity={getCategoryQuantity}
+                  searchResults={searchResults}
+                  filterByPrice={filterByPrice}
+                  filterByColor={filterByColor}
+                  filterByCategory={filterByCategory}
+                  putFilterResultsInState={putFilterResultsInState}
+                  value={value}
+                />
+              </div>
+              {activeFilterBtn ? (
+                <div
+                  className="filter_btn_wrapper_bg"
+                  onClick={() => {
+                    setActiveFilterBtn(!activeFilterBtn);
+                  }}
+                ></div>
+              ) : null}
+            </div>
             <Filter
               searchPage={true}
               getColorQuantity={getColorQuantity}

@@ -59,3 +59,13 @@
     }
   }
 }
+
+@media screen and (max-width: $tablet-max-width) {
+  .search_results .search_results_body {
+    @include flex(column, flex-start, center);
+    width: 100%;
+    &_child {
+      width: 85%;
+    }
+  }
+}
