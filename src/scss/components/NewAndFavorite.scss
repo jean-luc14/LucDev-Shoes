@@ -1,80 +1,76 @@
-.favorite_and_new_shoes_slider{
-  width:100%;
-  height:auto;
-  padding-top:0;
+.favorite_and_new_shoes_slider {
+  width: 100%;
+  height: auto;
+  padding-top: 0;
   background: $background;
-  user-select:none;
-  .body_home_page{
-    width:73%;
+  user-select: none;
+  .body_home_page {
+    width: 73%;
   }
-  h2{
+  h2 {
     font-size: calc(80 * var(--res));
   }
 }
-.favorite_and_new_shoes_slider section{ 
-  position:relative;
+.favorite_and_new_shoes_slider section {
+  position: relative;
   overflow: hidden;
-  height:35vw;
-  margin-top:2vmin;
-  margin-bottom:10vmin; 
-  .slideshow-container{
-    position:relative;
+  height: 35vw;
+  margin-top: 2vmin;
+  margin-bottom: 10vmin;
+  .slideshow-container {
+    position: relative;
     overflow: hidden;
-    cursor:grab;
-    height:100%;
-  
-    &:active{
-      cursor:grabbing;
+    cursor: grab;
+    height: 100%;
+
+    &:active {
+      cursor: grabbing;
     }
-    .slideshow{
-      position :absolute;
-      display:flex;  
+    .slideshow {
+      position: absolute;
+      display: flex;
     }
   }
-  .click_slider_bar{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:3%;
-    cursor:pointer;
-    background:rgba(170,170,170,0.356);
-    user-select:none;
-    z-index:1;
-    border-radius:15px;
-    .slider_bar{
-      position:absolute;
-      bottom:0;
-      left:0;
-      width:0;
-      height:100%;
-      background:linear-gradient(to left, rgb(254,254,5) ,rgb(254,63,3));
-      z-index:1;
-      border-radius:15px;
+  .click_slider_bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3%;
+    cursor: pointer;
+    background: rgba(170, 170, 170, 0.356);
+    user-select: none;
+    z-index: 1;
+    border-radius: 15px;
+    .slider_bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(to left, rgb(254, 254, 5), rgb(254, 63, 3));
+      z-index: 1;
+      border-radius: 15px;
     }
   }
 }
-
 
 //Responsive
-@media screen and (max-width:$tablet-max-width){
-  .favorite_and_new_shoes_slider{
-    width:100%;
+@media screen and (max-width: $tablet-max-width) {
+  .favorite_and_new_shoes_slider {
+    width: 100%;
+    section {
+      height: 52.5vw;
+    }
   }
-  .slideshow-container .slideshow .child{
-    margin:0 4vmin 0;
-  }
-}
-
-@include mobile{
-   .slideshow-container{
-     height:50vw;
-     min-height:130px; 
+  .slideshow-container .slideshow .child {
+    margin: 0 4vmin 0;
   }
 }
 
-@include tablet {
-  .slideshow-container {
-    height:40vw; 
+//mobile
+@include mobile {
+  .favorite_and_new_shoes_slider section {
+    height: 110vw;
   }
 }

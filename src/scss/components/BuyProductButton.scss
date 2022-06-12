@@ -1,15 +1,29 @@
-.buyButton{
+.buyButton {
   @include flex;
-  color:white;
-  background:$red;
-  padding:1vw 4vw;
-  line-height:1; 
+  color: white;
+  background: $red;
+  padding: 1vw 4vw;
+  line-height: 1;
   border-radius: 5px;
-  border:none;
-  outline:none;
-  cursor:pointer;
+  border: none;
+  outline: none;
+  cursor: pointer;
   font-weight: 500;
-  &:active{
-    background:$red-active;
+  &:active {
+    background: $red-active;
+  }
+}
+
+//tablet
+@include tablet {
+  .buyButton {
+    padding: 1.5vw 6vw;
+  }
+}
+
+//mobile
+@include mobile {
+  .buyButton {
+    padding: 3vw 12vw;
   }
 }
