@@ -1,156 +1,159 @@
-.search_wrapper{
-  position:relative;
-  margin:1vw 0.4vw;
-  height:auto;
-  width:auto;
+.search_wrapper {
+  position: relative;
+  margin: 1vw 0.4vw;
+  height: auto;
+  width: auto;
 
-  &::after{
-    @include absolute(50%,100%,50%,0%);
-    @include pseudo(2px,0);
-    background:$toggle-white-black;
-    border-radius:10px;
-    transition:width 0.5s ease-out;
-    z-index: 1; 
+  &::after {
+    @include absolute(50%, 100%, 50%, 0%);
+    @include pseudo(2px, 0);
+    background: $toggle-white-black;
+    border-radius: 10px;
+    transition: width 0.5s ease-out;
+    z-index: 1;
   }
-  input{
-    height:100%;
-    width:auto;
-    opacity:0;
-    background:none;
-    border:none;
-    outline:none;
-    color:$toggle-white-black;
-    transition:opacity 0.5s ease-out;
-    border-radius:5px; 
+  input[type="text"] {
+    height: 100%;
+    width: auto;
+    opacity: 0;
+    background: none;
+    border: none;
+    outline: none;
+    color: $toggle-white-black;
+    transition: opacity 0.5s ease-out;
+    border-radius: 5px;
   }
-  .search_icon{
-    position:absolute;
-    bottom:1px;
-    right:1px;
-    height:1.8vw;
-    width:1.8vw;
-    filter:invert(1);
-    margin:0 0.4vw;
-    cursor:pointer;
+  input[type="text"]:focus-within {
+    background: rgb(157, 155, 155);
+  }
+  .search_icon {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    height: 1.8vw;
+    width: 1.8vw;
+    filter: invert(1);
+    margin: 0 0.4vw;
+    cursor: pointer;
   }
 }
 
-.search_wrapper .dynamic_search_results{
-  @include absolute($top:10vmin,$y:0%);
+.search_wrapper .dynamic_search_results {
+  @include absolute($top: 10vmin, $y: 0%);
   box-shadow: $box-shadow;
-  background:white;
+  background: white;
   border-radius: 5px;
-  width:80vmin;
-  max-height:60vh;
-  overflow:auto;
+  width: 80vmin;
+  max-height: 60vh;
+  overflow: auto;
   z-index: 1;
-  padding:0;
-  .triangle{
-    @include absolute($top:-7px,$y:0%);
-    @include pseudo(0,0,transparent);
-    border-bottom:7px solid #fff;
-    border-left:7px solid transparent;
-    border-right:7px solid transparent;
+  padding: 0;
+  .triangle {
+    @include absolute($top: -7px, $y: 0%);
+    @include pseudo(0, 0, transparent);
+    border-bottom: 7px solid #fff;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
   }
-  .dynamic_search_item{
-    position:relative;
-    display:flex;
+  .dynamic_search_item {
+    position: relative;
+    display: flex;
     flex-wrap: nowrap;
-    padding:1vmin;
-    height:auto;
-    width:100%;
-    z-index:1;
-    cursor:pointer;
-    &::before{
-      @include absolute(0,0,0,0);
-      @include pseudo(100%,100%);
-      z-index:2;
+    padding: 1vmin;
+    height: auto;
+    width: 100%;
+    z-index: 1;
+    cursor: pointer;
+    &::before {
+      @include absolute(0, 0, 0, 0);
+      @include pseudo(100%, 100%);
+      z-index: 2;
     }
-    &:hover::before{
-      background:rgba(0, 0, 0, 0.117);
+    &:hover::before {
+      background: rgba(0, 0, 0, 0.117);
     }
-    &:active::before{
-      background:rgba(0, 0, 0, 0.26);
+    &:active::before {
+      background: rgba(0, 0, 0, 0.26);
     }
-    .dynamic_search_item_img{
-      height:calc((80vmin * 15) /100);;
+    .dynamic_search_item_img {
+      height: calc((80vmin * 15) / 100);
       width: 15%;
-      margin-right:1vmin;
-      img{
+      margin-right: 1vmin;
+      img {
         @extend %back-img;
-        border-radius:3px;
+        border-radius: 3px;
       }
     }
-    &_content{
-      line-height: calc(80vmin /36);
-      width:80%;
-      &_price{
-        color:$yellow;
-        font-size:calc(80vmin /36);
+    &_content {
+      line-height: calc(80vmin / 36);
+      width: 80%;
+      &_price {
+        color: $yellow;
+        font-size: calc(80vmin / 36);
       }
-      &_category{
-        font-size:calc(80vmin /36);
-        color:rgb(128, 128, 128)
+      &_category {
+        font-size: calc(80vmin / 36);
+        color: rgb(128, 128, 128);
       }
-      &_name{
-        text-overflow:ellipsis;
+      &_name {
+        text-overflow: ellipsis;
         font-weight: 580;
-        font-size: calc(80vmin /42);
+        font-size: calc(80vmin / 42);
       }
     }
   }
-  input{
+  input {
     @include flex;
-    height:auto;
-    font-weight:500;
-    color:white;
+    height: auto;
+    font-weight: 500;
+    color: white;
     background: $red;
-    border-radius:5px;
-    margin:0.5vmin auto ;
-    padding:0.4vmin 36vmin;
-    cursor:pointer;
-    &:active{
+    border-radius: 5px;
+    margin: 0.5vmin auto;
+    padding: 0.4vmin 36vmin;
+    cursor: pointer;
+    &:active {
       background: $red-active;
     }
   }
 }
 
 //animation of search bar witch is down
-.search_wrapper.animSearch{
-  &::after{
-    width:100%;
+.search_wrapper.animSearch {
+  &::after {
+    width: 100%;
   }
-  input{
-    opacity:1;
+  input {
+    opacity: 1;
   }
 }
 
 //RESPONSIVE
-@media screen and (max-width:$tablet-max-width) {
-  .search_wrapper{ 
-     margin:1.8vmin 0.8vmin;     
-    .search_icon{
-      height:3.6vmin;
-      width:3.6vmin; 
-      margin:0 0.8vmin; 
+@media screen and (max-width: $tablet-max-width) {
+  .search_wrapper {
+    margin: 1.8vmin 0.8vmin;
+    .search_icon {
+      height: 3.6vmin;
+      width: 3.6vmin;
+      margin: 0 0.8vmin;
     }
-    .dynamic_search_results{
-      max-height: 50vh; 
-      width:73vmin;
-      left:-3vmin;
-      input{
-        padding:0.4vmin 34vmin;
+    .dynamic_search_results {
+      max-height: 50vh;
+      width: 73vmin;
+      left: -3vmin;
+      input {
+        padding: 0.4vmin 34vmin;
       }
     }
   }
 }
-@media screen and (max-width:$mobile-max-width) {
-  .search_wrapper{ 
-    margin:1.8vmin 0.8vmin;  
-    .dynamic_search_results{
-      max-height: 45vh; 
-      input{
-        padding:0.4vmin 34.6vmin;
+@media screen and (max-width: $mobile-max-width) {
+  .search_wrapper {
+    margin: 1.8vmin 0.8vmin;
+    .dynamic_search_results {
+      max-height: 45vh;
+      input {
+        padding: 0.4vmin 34.6vmin;
       }
     }
   }
