@@ -1,66 +1,57 @@
-@import '../_mixins';
-@import '../_variables';
-@import '../_placeholders';
-
-
 //header of about us
-.about_us_header{
-  position:relative;
-  height:45vh;
-  width:100vw;
-  &::after{
+.about_us_header {
+  position: relative;
+  height: 45vh;
+  width: 100vw;
+  &::after {
     @include absolute;
-    @include pseudo($background:rgba(0, 0, 0, 0.466));
+    @include pseudo($background: rgba(0, 0, 0, 0.466));
   }
-  img{
+  img {
     @extend %back-img;
   }
-  .about_us_title{
-    @include absolute(9%,65%,0,50%);
-    height:auto;
-    z-index:1;
-    &_child{
-      width:100%;
-      height:auto;
-      overflow:hidden;
-      
+  .about_us_title {
+    @include absolute(9%, 65%, 0, 50%);
+    height: auto;
+    z-index: 1;
+    &_child {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
     }
   }
 }
 
 //body of about us
-.about_us_body{
-  width:90vw;
+.about_us_body {
+  width: 90vw;
   margin: auto;
-  padding:10vmin 0;
-  background:$background;
-
+  padding: 10vmin 0;
+  background: $background;
 }
 
 //All h1 in about us page
-.about_us h1{
-  font-size:calc(100 * var(--res));
-  font-weight:500;
+.about_us h1 {
+  font-size: calc(100 * var(--res));
+  font-weight: 500;
   @extend %title;
 }
 
 //h1 in about us header
-.about_us_title h1{
-  margin-bottom:1vmin;
-  &.active{
-    transform:translateY(0);
-    &.first{
-      transition-delay:0.2s;
+.about_us_title h1 {
+  margin-bottom: 1vmin;
+  &.active {
+    transform: translateY(0);
+    &.first {
+      transition-delay: 0.2s;
     }
-    &.last{
-      transition-delay:0.4s;
+    &.last {
+      transition-delay: 0.4s;
     }
   }
 }
-@media screen and(max-width:$tablet-max-width){
-  .about_us_body{
-    width:100vw;
-
+@media screen and(max-width:$tablet-max-width) {
+  .about_us_body {
+    width: 100vw;
   }
 }
-

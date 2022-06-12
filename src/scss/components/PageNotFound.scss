@@ -1,11 +1,12 @@
-@import '../_variables';
-@import '../_mixins';
-.center{
-  margin:30vh auto;
-  width:300px;
-  height:300px;
-  @include flex($flex-direction:column);
-  h1{
-    font-size:calc(100 * var(--res));
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30vh auto;
+  width: 300px;
+  height: 300px;
+  h1 {
+    font-size: calc(100 * var(--res));
   }
 }

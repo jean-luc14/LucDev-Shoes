@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 const ViewProductButton = (props) => {
   return (
@@ -8,7 +7,5 @@ const ViewProductButton = (props) => {
     </button>
   );
 };
-
-ViewProductButton.propTypes = {};
 
 export default ViewProductButton;

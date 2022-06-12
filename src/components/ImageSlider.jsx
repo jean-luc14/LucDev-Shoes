@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 
 // The style of ImageSlider Component is in ProductView.scss
-const ImageSlider = (props) => {
-  // if (props.isActive === true) {
-  //   props.updateColor(props.color);
-  // }
+const ImageSlider = (props) => { 
+  
   useEffect(() => {
     // get swiper in modal or not
     let swiper;

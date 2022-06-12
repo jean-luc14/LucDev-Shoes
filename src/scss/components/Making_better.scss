@@ -1,125 +1,125 @@
-@import '../mixins';
-@import '../_placeholders';
-@import '../_variables';
-
 //The making_better components is in About_us.jsx
-.making_better{
-  height:40vw;
-  width:80vw;
+.making_better {
+  height: 40vw;
+  width: 80vw;
   margin: 15vmin auto;
   @include flex;
-  .making_better_child{
-    height:100%;
-    width:48%;
+  .making_better_child {
+    height: 100%;
+    width: 48%;
     margin-right: 2%;
-    @include flex(column,flex-start,space-around);
-    &_title{
-      width:100%;
-      height:auto;
-      overflow:hidden;
+    @include flex(column, flex-start, space-around);
+    &_title {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
     }
   }
-  .moccasins{
-    position:relative;
-    height:100%;
-    width:48%;
-    &::after{
-      content:'';
-      @include absolute(0,0,0,0);
-      width:100%;
-      height:100%;
-      background-image:linear-gradient(0deg ,rgba(0, 0, 0, 0.843),rgba(0, 0, 0, 0));
-      z-index:1;
+  .moccasins {
+    position: relative;
+    height: 100%;
+    width: 48%;
+    &::after {
+      content: "";
+      @include absolute(0, 0, 0, 0);
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.843),
+        rgba(0, 0, 0, 0)
+      );
+      z-index: 1;
     }
-    div{
-      position:absolute;
-      bottom:3%;
-      left:5%;
-      width:100%;
-      height:auto;
-      overflow:hidden;
-      z-index:2;
-      h2{
-        font-size:calc(70 * var(--res));
-        color:white;
+    div {
+      position: absolute;
+      bottom: 3%;
+      left: 5%;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      z-index: 2;
+      h2 {
+        font-size: calc(70 * var(--res));
+        color: white;
       }
     }
-    img{
+    img {
       @extend %back-img;
       border-radius: 4px;
     }
   }
 }
 
-.making_better_child .making_better_child_info{
-  display:flex;
-  width:100%;
-  height:30%;
-  h2{
-    display:flex;
-    justify-content:center;
-    flex-direction:column;
-    font-size:calc(110 * var(--res));
-    width:70%;
+.making_better_child .making_better_child_info {
+  display: flex;
+  width: 100%;
+  height: 30%;
+  h2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: calc(110 * var(--res));
+    width: 70%;
   }
-  div{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    h3{
-      font-size:calc(50 * var(--res));
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h3 {
+      font-size: calc(50 * var(--res));
       font-weight: 500;
     }
-    div{
-      font-size:calc(20 * var(--res));
+    div {
+      font-size: calc(20 * var(--res));
     }
   }
 }
 
 //h1 in about us body in making_better
-.making_better_child h1{
-  font-size:calc(70 * var(--res));
+.making_better_child h1 {
+  font-size: calc(70 * var(--res));
 
-  &.first{
-    transition-delay:0s;
-    &.active{
-      transform:translateY(0);
+  &.first {
+    transition-delay: 0s;
+    &.active {
+      transform: translateY(0);
     }
   }
-  &.second{
-    transition-delay:0.2s;
-    &.active{
-      transform:translateY(0);
+  &.second {
+    transition-delay: 0.2s;
+    &.active {
+      transform: translateY(0);
     }
   }
-  &.last{
-    transition-delay:0.4s;
-    &.active{
-      transform:translateY(0);
+  &.last {
+    transition-delay: 0.4s;
+    &.active {
+      transform: translateY(0);
     }
   }
 }
 
 //Responsive
-@media  screen and (max-width:$tablet-max-width) {
-  .making_better{
-    height:auto;
-    width:75vw;
-    flex-direction:column;
-    .moccasins{
-      height:70vw;
-      width:70vw;
-      margin:2vw auto;
+@media screen and (max-width: $tablet-max-width) {
+  .making_better {
+    height: auto;
+    width: 75vw;
+    flex-direction: column;
+    .moccasins {
+      height: 70vw;
+      width: 70vw;
+      margin: 2vw auto;
     }
-    .making_better_child{
-      height:80vw;
-      width:70vw;
-      margin:2vw auto;
+    .making_better_child {
+      height: 80vw;
+      width: 70vw;
+      margin: 2vw auto;
       &_info > h2 {
-        width:70%;
+        width: 70%;
       }
       &_info > div > h3 {
-        font-size:calc(45 * var(--res));
+        font-size: calc(45 * var(--res));
       }
     }
   }

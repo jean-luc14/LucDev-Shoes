@@ -1,31 +1,17 @@
-import React,{useState,useRef,useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 
+const Section = (props) => {
+  return <div>{props.children}</div>;
+};
 
-const Section = props => {
-  return (
-    <div>
-      {props.children}
-    </div>
-  )
-}
-
-export const SectionTitle = props => {
+export const SectionTitle = (props) => {
   // States and useEffect to add class to h1
   const [activeTitle, setActiveTitle] = useState(false);
-  // const [noActiveTitle, setNoActiveTitle] = useState(false);
-  const h1 = useRef();
-  // let active; 
-  
+
   useEffect(() => {
-    // active = true;
     setActiveTitle(true);
-    // console.log(active);
-    // console.log(activeTitle);
-    // // return () => {
-    // //   active = false;
-    // // };
   }, []);
-  
+
   return (
     <div className="sectionTitle">
       {props.ProductCards.length > 0 ? (
@@ -53,14 +39,10 @@ export const SectionTitle = props => {
       )}
     </div>
   );
-}
+};
 
-export const SectionBody = props => {
-  return (
-    <div className = 'sectionBody'>
-      {props.children}
-    </div>
-  )
-}
+export const SectionBody = (props) => {
+  return <div className="sectionBody">{props.children}</div>;
+};
 
-export default Section
+export default Section;
