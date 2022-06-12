@@ -17,9 +17,15 @@ export const SectionTitle = (props) => {
       {props.ProductCards.length > 0 ? (
         <>
           {props.cartPage ? (
-            <img src={props.ProductCards[0].img} />
+            <img
+              src={props.ProductCards[0].img}
+              alt={props.ProductCards[0].name}
+            />
           ) : (
-            <img src={props.ProductCards[0].color[0].img} />
+            <img
+              src={props.ProductCards[0].color[0].img}
+              alt={props.ProductCards[0].color[0].name}
+            />
           )}
           <div className="sectionTitle_child">
             <h1 className={`${activeTitle ? "active" : ""}`}>
