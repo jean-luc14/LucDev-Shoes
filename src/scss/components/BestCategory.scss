@@ -1,163 +1,217 @@
-.bestCategory{
-  width:80vw;
-  height:40vw;
-  display:flex;
-  margin:5vmin auto 15vmin;
-  
-  .derby{
-    width:20vw;
-    height:100%;
-    margin-right:2%;
-    cursor:pointer;
-    img{
+.bestCategory {
+  width: 80vw;
+  height: 40vw;
+  display: flex;
+  margin: 5vmin auto 15vmin;
+
+  .derby {
+    width: 20vw;
+    height: 100%;
+    margin-right: 2%;
+    cursor: pointer;
+    img {
       @extend %back-img;
     }
   }
-  &_child{
-    width:60vw;
-    height:40vw;
-    @include grid(1fr , 1fr 1fr);
-    &_name{
-      width:60vw;
-      height:11vw;
-      margin-bottom:1vw;
-      margin-right:1vw;
-      grid-column: 1/span 3;
-      grid-row:1/ span 1;
+  &_child {
+    width: 60vw;
+    height: 40vw;
+    @include grid(1fr, 1fr 1fr);
+    &_name {
+      width: 60vw;
+      height: 11vw;
+      margin-bottom: 1vw;
+      margin-right: 1vw;
+      grid-column: 1 / span 3;
+      grid-row: 1 / span 1;
       background: rgba(10, 10, 10, 0.232);
-      overflow:hidden;
+      overflow: hidden;
       border-radius: 3px;
     }
   }
 }
-.bestCategory_child_name .slide_item_wrapper{
-  width:300%;
-  height:100%;
+.bestCategory_child_name .slide_item_wrapper {
+  width: 300%;
+  height: 100%;
   display: flex;
-  transform:translateX(0%);
-  transition:transform 0.5s ease-out; 
-  div{
-    position:relative;
-    height:100%;
-    width:calc(100% / 3);
+  transform: translateX(0%);
+  transition: transform 0.5s ease-out;
+  div {
+    position: relative;
+    height: 100%;
+    width: calc(100% / 3);
     @include flex;
-    cursor:pointer;
-    &::after{
-      @include pseudo($background:rgba(0, 0, 0, 0.251));
-      position:absolute;
-      z-index:1;
+    cursor: pointer;
+    &::after {
+      @include pseudo($background: rgba(0, 0, 0, 0.251));
+      position: absolute;
+      z-index: 1;
     }
-    .slide_item{
-      position:absolute;
-      color:#fff;
-      font-size:calc(90 * var(--res));
-      z-index:2;
+    .slide_item {
+      position: absolute;
+      color: #fff;
+      font-size: calc(90 * var(--res));
+      z-index: 2;
     }
-    img{
-      position:absolute;
+    img {
+      position: absolute;
       @extend %back-img;
     }
   }
 }
-.bestCategory_child_items{
-  grid-column: 1/span 1;
-  grid-row:2/ span 1;
+.bestCategory_child_items {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
   @include grid(1fr 1fr 1fr, 1fr);
   @include flex;
-  .moccasins{
+  .moccasins {
     @include flex;
-    overflow:hidden;
-    grid-column: 1/span 1;
-    grid-row:1/ span 1;
-    height:28vw;
-    width:19.25vw;
-    margin-right:1vw;
-    transition:width 0.5s ease-out;
-    cursor:pointer;
-    img{
+    overflow: hidden;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    height: 28vw;
+    width: 19.25vw;
+    margin-right: 1vw;
+    transition: width 0.5s ease-out;
+    cursor: pointer;
+    img {
       @extend %back-img;
     }
   }
-  .oxfords{
+  .oxfords {
     @include flex;
-    overflow:hidden;
-    grid-column: 2/span 1;
-    grid-row:1/ span 1;
-    height:28vw;
-    width:19.25vw;
-    margin-right:1vw;
-    cursor:pointer;
-    transition:width 0.5s ease-out;
-    img{
+    overflow: hidden;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    height: 28vw;
+    width: 19.25vw;
+    margin-right: 1vw;
+    cursor: pointer;
+    transition: width 0.5s ease-out;
+    img {
       @extend %back-img;
     }
   }
-  .loafers{
+  .loafers {
     @include flex;
-    overflow:hidden;
-    grid-column: 3/span 1;
-    grid-row:1/ span 1;
-    height:28vw;
-    width:19.25vw;
-    margin-right:1vw;
-    cursor:pointer;
-    transition:width 0.5s ease-out;
-    img{
+    overflow: hidden;
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+    height: 28vw;
+    width: 19.25vw;
+    margin-right: 1vw;
+    cursor: pointer;
+    transition: width 0.5s ease-out;
+    img {
       @extend %back-img;
     }
   }
 }
 
 //active class for animation
-
-.bestCategory_child{
-  &.active-moccasins{
-    .bestCategory_child_name{
-      .slide_item_wrapper{
-        transform:translateX(0%);
+.bestCategory_child {
+  &.active-moccasins {
+    .bestCategory_child_name {
+      .slide_item_wrapper {
+        transform: translateX(0%);
       }
     }
-    .moccasins{
-      width:28vw;
+    .moccasins {
+      width: 28vw;
     }
-    .oxfords{
-      width:15vw;
+    .oxfords {
+      width: 15vw;
     }
-    .loafers{
-      width:15vw;
+    .loafers {
+      width: 15vw;
     }
   }
-  &.active-oxfords{
-    .bestCategory_child_name{
-      .slide_item_wrapper{
-        transform:translateX(-33.3%);
+  &.active-oxfords {
+    .bestCategory_child_name {
+      .slide_item_wrapper {
+        transform: translateX(-33.3%);
       }
     }
-    .moccasins{
-      width:15vw;
+    .moccasins {
+      width: 15vw;
     }
-    .oxfords{
-      width:28vw;
+    .oxfords {
+      width: 28vw;
     }
-    .loafers{
-      width:15vw;
+    .loafers {
+      width: 15vw;
     }
   }
-  &.active-loafers{
-    .bestCategory_child_name{
-      .slide_item_wrapper{
-        transform:translateX(-66.6%);
+  &.active-loafers {
+    .bestCategory_child_name {
+      .slide_item_wrapper {
+        transform: translateX(-66.6%);
       }
     }
-    .moccasins{
-      width:15vw;
+    .moccasins {
+      width: 15vw;
     }
-    .oxfords{
-      width:15vw;
+    .oxfords {
+      width: 15vw;
     }
-    .loafers{
-      width:28vw;
+    .loafers {
+      width: 28vw;
     }
   }
 }
 
+@media screen and (max-width: $tablet-max-width) {
+  .bestCategory {
+    width: 80vw;
+    height: auto;
+    @include flex(column);
+    margin: 5vmin auto 15vmin;
+
+    .derby {
+      width: 100%;
+      height: auto;
+      margin: 5vmin 0;
+      border-radius: 10px;
+      img {
+        border-radius: 10px;
+      }
+    }
+    &_child {
+      width: 80vw;
+      height: auto;
+      grid-template-rows: 1fr;
+      &_name {
+        display: none;
+      }
+    }
+  }
+  .bestCategory_child_items {
+    @include flex(column);
+    .moccasins,
+    .oxfords,
+    .loafers {
+      @include flex;
+      overflow: hidden;
+      height: 80vw;
+      width: 100%;
+      margin: 5vmin 0;
+      border-radius: 10px;
+      img {
+        border-radius: 10px;
+      }
+    }
+  }
+
+  //active class for animation
+  .bestCategory_child {
+    &.active-moccasins,
+    &.active-oxfords,
+    &.active-loafers {
+      .moccasins,
+      .oxfords,
+      .loafers {
+        width: 100%;
+      }
+    }
+  }
+}
