@@ -18,19 +18,8 @@
   button {
     position: relative;
     transform: translateX(-43vw);
-    font-size: 2.5vmin;
-    font-weight: 500;
-    line-height: 2;
-    padding: 1vmin 2.5vmin;
-    background: $red;
-    cursor: pointer;
-    border-radius: 5px;
-    border: none;
-    outline: none;
+    @extend %button;
     z-index: 2;
-    &:active {
-      background: $red-active;
-    }
   }
   &_bg {
     position: fixed;

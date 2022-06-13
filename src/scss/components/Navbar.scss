@@ -29,21 +29,9 @@
   height: auto;
   .catalog_list_btn {
     position: absolute;
-    font-size: 2.5vmin;
-    font-weight: 500;
     left: 0;
     top: 10vmin;
-    line-height: 2;
-    padding: 1vmin 2.5vmin;
-    background: $red;
-    cursor: pointer;
-    margin-left: 5px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    &:active {
-      background: $red-active;
-    }
+    @extend %button;
   }
   .catalog_list_wrapper {
     position: absolute;

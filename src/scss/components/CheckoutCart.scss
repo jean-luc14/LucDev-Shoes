@@ -1,5 +1,13 @@
-.checkout_cart{
-  width:90vw;
+.checkout_cart {
+  width: 90vw;
   margin: auto;
   user-select: none;
+  .button_wrapper {
+    width: 100%;
+    height: auto;
+    @include flex($justify-content: space-between);
+    button {
+      @extend %button;
+    }
+  }
 }

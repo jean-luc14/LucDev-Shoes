@@ -1,10 +1,9 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 import Progress from "../../../components/Progress";
-import {useNavigate} from 'react-router-dom' 
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const OrderCompleteCart = () => {
-
   const [totalPrice, setTotalPrice] = useState(
     useSelector((state) => state.total.value.totalPrice)
   );
@@ -13,17 +12,17 @@ const OrderCompleteCart = () => {
     useSelector((state) => state.total.value.totalProduct)
   );
 
-  const [shipping, setShipping] = useState(((totalPrice * 10) / 100) );
-  const [tax, setTax] = useState(((totalPrice * 5) / 100) );
+  const [shipping, setShipping] = useState((totalPrice * 10) / 100);
+  const [tax, setTax] = useState((totalPrice * 5) / 100);
   const [total, setTotal] = useState(0);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    let ttl = Number.parseFloat(totalPrice) + shipping + tax
-    setTotal(ttl.toFixed(2)) 
-  }, [])
-  
+    let ttl = Number.parseFloat(totalPrice) + shipping + tax;
+    setTotal(ttl.toFixed(2));
+  }, []);
+
   return (
     <>
       <div className="order_complete">
@@ -53,17 +52,18 @@ const OrderCompleteCart = () => {
           <h2>Total : </h2>
           <div>US ${total}</div>
         </div>
-
-        <button
-          type="button"
-          onClick={() => navigate("/private/checkout-cart")}
-        >
-          {" "}
-          Back
-        </button>
+        <div className="button_wrapper">
+          <button
+            type="button"
+            onClick={() => navigate("/private/checkout-cart")}
+          >
+            {" "}
+            Back
+          </button>
+        </div>
       </div>
     </>
   );
-}
+};
 
-export default OrderCompleteCart
+export default OrderCompleteCart;

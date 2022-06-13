@@ -99,3 +99,18 @@
   height: 100vh;
   background: rgba(0, 0, 0, 0.299);
 }
+%button {
+  font-size: 2.5vmin;
+  font-weight: 500;
+  line-height: 2;
+  padding: 1vmin 2.5vmin;
+  background: rgb(236, 75, 11);
+  cursor: pointer;
+  margin-left: 5px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  &:active {
+    background: rgb(215, 72, 15);
+  }
+}
