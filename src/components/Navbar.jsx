@@ -1,22 +1,22 @@
-import React,{useState,useEffect,useRef} from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import SignUpModal from "./SignUpModal"
-import LogInModal from "./LogInModal"
+import SignUpModal from "./SignUpModal";
+import LogInModal from "./LogInModal";
 import ForgotPasswordModal from "./ForgotPasswordModal";
-import Search from "./Search"
-import CatalogList from './CatalogList'
-import Shopping_icon from "../Assets/icons/shopping_cart.png"
-import {navbarData} from  "../Assets/data/NavbarData"
-import {auth} from '../firebase-config'
-import {signOut} from  'firebase/auth'
-import AuthenticationBtn from './AuthenticationBtn'
-import { useSelector,useDispatch } from "react-redux"
+import Search from "./Search";
+import CatalogList from "./CatalogList";
+import Shopping_icon from "../Assets/icons/shopping_cart.png";
+import { navbarData } from "../Assets/data/NavbarData";
+import { auth } from "../firebase-config";
+import { signOut } from "firebase/auth";
+import AuthenticationBtn from "./AuthenticationBtn";
+import { useSelector, useDispatch } from "react-redux";
 import { set } from "../redux/search/ActiveSearchSlice";
 
 const Navbar = () => {
   //get products which are in cart
   const cartItems = useSelector((state) => state.cartItems.value);
-  
+
   //get if the search is active
   const activeSearch = useSelector((state) => state.search.value);
 
@@ -83,7 +83,7 @@ Please check your internet connect and retry.`
       );
     }
   };
-  
+
   //catalog list animation
   const animCatalogList = () => {
     catalogRef.current.classList.toggle("active");
@@ -111,11 +111,12 @@ Please check your internet connect and retry.`
   return (
     <>
       <nav id="navbar">
-        {
-          activeSearch ? 
-          <div className="search_wrapper_back" onClick={()=>dispatch(set(!activeSearch))}></div>:
-          null
-        }
+        {activeSearch ? (
+          <div
+            className="search_wrapper_back"
+            onClick={() => dispatch(set(!activeSearch))}
+          ></div>
+        ) : null}
         <div
           ref={hamburger_anim}
           className="hamburger_menu"
@@ -198,5 +199,6 @@ Please check your internet connect and retry.`
       />
     </>
   );
-} 
+};
+
 export default Navbar;

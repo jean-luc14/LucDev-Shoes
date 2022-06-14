@@ -1,42 +1,48 @@
-.progress{
-  @include flex($justify-content:space-around);
-  width:100%; 
+.progress {
+  @include flex($justify-content: space-around);
+  width: 100%;
   user-select: none;
-  &_item{
-    width:10vw;
-    height:10vw;
-    @include flex($flex-direction:column,$justify-content:space-around);
-    div{
-      height:40%;
-      width:40%;
-      border-radius:50%;
+  &_item {
+    width: 10vw;
+    height: 10vw;
+    @include flex($flex-direction: column, $justify-content: space-around);
+    div {
+      height: 40%;
+      width: 40%;
+      border-radius: 50%;
       background: rgb(190, 190, 190);
-      &.active{
-        background:$red;
+      @include flex;
+      img {
+        height: 70%;
+        width: 70%;
+        object-fit: cover;
+      }
+      &.active {
+        background: $red;
       }
     }
-    h2{
-      font-size:2vw;
-      font-weight:500;
-      white-space: nowrap; 
+    h2 {
+      font-size: 2vw;
+      font-weight: 500;
+      white-space: nowrap;
     }
   }
-  &_arrow{
-    position:relative;
-    width:18vw;
-    height:3px;
-    background:rgb(190, 190, 190);
-    span{
-      @include absolute($left:100%,$x:0%);
-      @include pseudo(0,0,transparent);
-      border-left:1vw solid rgb(190, 190, 190);
-      border-top:1vw solid transparent;
-      border-bottom:1vw solid transparent;
+  &_arrow {
+    position: relative;
+    width: 18vw;
+    height: 3px;
+    background: rgb(190, 190, 190);
+    span {
+      @include absolute($left: 100%, $x: 0%);
+      @include pseudo(0, 0, transparent);
+      border-left: 1vw solid rgb(190, 190, 190);
+      border-top: 1vw solid transparent;
+      border-bottom: 1vw solid transparent;
     }
-    &.active{
-      background:$red;
-      span{
-        border-left:1vw solid $red;
+    &.active {
+      background: $red;
+      span {
+        border-left: 1vw solid $red;
       }
     }
   }
