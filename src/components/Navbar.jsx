@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SignUpModal from "./SignUpModal";
 import LogInModal from "./LogInModal";
@@ -23,8 +23,6 @@ const Navbar = () => {
   //catch currentUser from redux/firebase
   const currentUser = useSelector((state) => state.firebase.value.currentUser);
 
-  //state  for catch current path
-  const [pathnameState, setPathnameState] = useState(null);
   //state for animate catalog list
   const [catalog_list_back_state, setCatalog_list_back_state] = useState(false);
 
@@ -38,10 +36,6 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  // update  current path in state
-  if (!pathnameState === pathname) {
-    setPathnameState(pathname);
-  }
   // find active path
   const active = navbarData.findIndex((e) => e.path === pathname);
 
@@ -89,24 +83,6 @@ Please check your internet connect and retry.`
     catalogRef.current.classList.toggle("active");
     setCatalog_list_back_state(!catalog_list_back_state);
   };
-
-  useEffect(() => {
-    if (pathnameState === "/") {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 500) {
-          console.log(window.scrollY);
-          link.current.classList.add("link");
-        } else {
-          link.current.classList.remove("link");
-        }
-      });
-    } else {
-      link.current.classList.remove("link");
-    }
-    return () => {
-      window.removeEventListener("scroll");
-    };
-  }, [pathnameState]);
 
   return (
     <>
