@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import User from "../Assets/icons/User.png";
 import Email from "../Assets/icons/Email.png";
 import Lock from "../Assets/icons/Lock.png";
 import Warning from "../Assets/icons/warning.png";

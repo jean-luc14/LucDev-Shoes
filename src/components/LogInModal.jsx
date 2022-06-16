@@ -1,18 +1,20 @@
-import React, { useState } from "react";
-import User from "../Assets/icons/User.png";
+import React, { useState, useRef } from "react";
 import Email from "../Assets/icons/Email.png";
 import Lock from "../Assets/icons/Lock.png";
 import { logIn } from "../redux/firebase/FirebaseSlice";
 import { useNavigate } from "react-router-dom";
 
 const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
+  // form state
   const [form, setForm] = useState({
-    user: { value: "" },
     email: { value: "" },
     password: { value: "" },
   });
 
+  //firebase
   const [firebaseErrMes, setFirebaseErrMes] = useState("");
+
+  const formRefLog = useRef();
 
   const handleInputChange = (e) => {
     const fieldName = e.target.name;
@@ -25,6 +27,7 @@ const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
     e.preventDefault();
     try {
       await logIn(form.email.value, form.password.value);
+      formRefLog.current.reset();
       setFirebaseErrMes("");
       toggle_log();
     } catch {
@@ -34,7 +37,15 @@ const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
 
   return (
     <>
-      {reverse_log ? <div className="op_log" onClick={toggle_log} /> : null}
+      {reverse_log ? (
+        <div
+          className="op_log"
+          onClick={() => {
+            toggle_log();
+            setFirebaseErrMes("");
+          }}
+        />
+      ) : null}
       <div
         className="wrapper_log"
         style={{
@@ -46,33 +57,37 @@ const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
             : "translate(-50%,-50%)",
         }}
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} ref={formRefLog}>
           <h1>
-            Log In <span onClick={toggle_log}> &times;</span>
+            Log In{" "}
+            <span
+              onClick={() => {
+                toggle_log();
+                setFirebaseErrMes("");
+              }}
+            >
+              {" "}
+              &times;
+            </span>
           </h1>
-          <div className="inputBox">
-            <input
-              name="user"
-              type="test"
-              placeholder="Username"
-              onChange={(e) => handleInputChange(e)}
-            ></input>
-            <img src={User} />
-          </div>
+          {/* email input */}
           <div className="inputBox">
             <input
               name="email"
-              type="test"
+              type="text"
+              value={form.email.value}
               placeholder="Email"
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Email} />
           </div>
+          {/* password input */}
           <div className="inputBox">
             <input
               name="password"
               type="password"
               placeholder="Password"
+              value={form.password.value}
               onChange={(e) => handleInputChange(e)}
             ></input>
             <img src={Lock} />
