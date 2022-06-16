@@ -1,15 +1,15 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from "react";
 
 const ProductInfo = (props) => {
   useEffect(() => {
-    //Catch title container
+    //get HtmlElement title container of product info
     const productInfo = document.querySelector(".product_info");
-    
-    //Catch title (h1)
+
+    //get HtmlElement title (h1)
     const title = document.querySelector(".product_info h1");
-  
-    //Add active class to title if he is visible in viewport
-    window.addEventListener("scroll", () => {
+
+    //Add active class to title of description if he is visible in viewport
+    const animateDescriptionTitle = () => {
       const { scrollTop, clientHeight } = document.documentElement;
       const TopProductInfoToTopViewport =
         productInfo.getBoundingClientRect().top;
@@ -17,9 +17,16 @@ const ProductInfo = (props) => {
         scrollTop >
         (scrollTop + TopProductInfoToTopViewport).toFixed() - clientHeight * 0.7
       ) {
-          title.classList.add("active");
+        title.classList.add("active");
       }
-    });},[])
+    };
+
+    window.addEventListener("scroll", animateDescriptionTitle());
+
+    return () => {
+      window.removeEventListener("scroll", animateDescriptionTitle());
+    };
+  }, []);
   return (
     <div className="product_info">
       <div className="product_info_description">
@@ -64,7 +71,7 @@ const ProductInfo = (props) => {
         </div>
         <div className="product_info_content_guide">
           {props.product === undefined ? null : (
-            <div className='img_wrapper'>
+            <div className="img_wrapper">
               <img
                 src={props.product.color[1].img}
                 alt={props.product.color[1].name}
@@ -93,6 +100,6 @@ const ProductInfo = (props) => {
       </div>
     </div>
   );
-}
+};
 
-export default ProductInfo
+export default ProductInfo;
