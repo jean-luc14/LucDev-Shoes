@@ -129,7 +129,7 @@
       position: relative;
       width: inherit;
       height: 30px;
-      margin: 13px 0;
+      margin: 5vmin 0;
       min-width: inherit;
       input {
         position: absolute;
@@ -334,7 +334,7 @@
       linear-gradient(311deg, rgb(231, 158, 27), rgb(231, 16, 16));
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: $tablet-max-width) {
   .wrapper_sign form .inputBox {
     height: 25px;
     margin: 10px 0;

@@ -14,7 +14,6 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
 
   // form state
   const [form, setForm] = useState({
-    user: { value: "", errorMes: "", isValid: false },
     email: { value: "", errorMes: "", isValid: false },
     password: { value: "", errorMes: "", isValid: false },
     checkPassword: { value: "", errorMes: "", isValid: false },
@@ -31,20 +30,6 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
   //check the form validity and show request error if form isn't valid
   const validForm = () => {
     let newForm = form;
-
-    if (USERNAME_REGEX.test(form.user.value)) {
-      const newField = { value: form.user.value, errorMes: "", isValid: true };
-      newForm = { ...newForm, ...{ user: newField } };
-    } else {
-      const error =
-        "The username must be between 3 and 15 characters long, must contain only hyphens and underscores as special characters, and the first letter must be a number or a character.";
-      const newField = {
-        value: form.user.value,
-        errorMes: error,
-        isValid: false,
-      };
-      newForm = { ...newForm, ...{ user: newField } };
-    }
 
     if (EMAIL_REGEX.test(form.email.value)) {
       const newField = { value: form.email.value, errorMes: "", isValid: true };
@@ -116,7 +101,6 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
     // send request to firebase to login if form validity is true
     const sendRequest = async () => {
       if (
-        form.user.isValid &&
         form.email.isValid &&
         form.password.isValid &&
         form.checkPassword.isValid
@@ -138,12 +122,7 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
     };
 
     sendRequest();
-  }, [
-    form.user.isValid,
-    form.email.isValid,
-    form.password.isValid,
-    form.checkPassword.isValid,
-  ]);
+  }, [form.email.isValid, form.password.isValid, form.checkPassword.isValid]);
 
   return (
     <>
@@ -155,10 +134,9 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
             setFirebaseErrMes("");
             setForm({
               ...form,
-              user: { ...form.user, errorMes: "" },
               email: { ...form.email, errorMes: "" },
-              passWord: { ...form.passWord, errorMes: "" },
-              checkPassWord: { ...form.checkPassWord, checkPassWord: "" },
+              password: { ...form.password, errorMes: "" },
+              checkPassword: { ...form.checkPassword, errorMes: "" },
             });
           }}
         />
@@ -184,7 +162,6 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
                 setFirebaseErrMes("");
                 setForm({
                   ...form,
-                  user: { ...form.user, errorMes: "" },
                   email: { ...form.email, errorMes: "" },
                   password: { ...form.password, errorMes: "" },
                   checkPassword: { ...form.checkPassword, errorMes: "" },
@@ -195,26 +172,6 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
               &times;
             </span>
           </h1>
-          {/* Username input */}
-          <div className="inputBox">
-            <input
-              type="text"
-              name="user"
-              placeholder="Username"
-              value={form.user.value}
-              onChange={(e) => handleInputChange(e)}
-            ></input>
-            <img src={User} />
-            {form.user.errorMes.length > 0 ? (
-              <div className="inputAlert ">
-                <span></span>
-                <small>
-                  <img src={Warning} />
-                  {form.user.errorMes}
-                </small>
-              </div>
-            ) : null}
-          </div>
           {/* email input */}
           <div className="inputBox">
             <input
