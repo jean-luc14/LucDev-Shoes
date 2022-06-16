@@ -106,12 +106,6 @@
   transition: all 0.5s ease-out;
   z-index: 7;
 
-  // //ajout de backdrop filter pour une meilleur vision
-  // &.backdrop{
-  //   backdrop-filter:blur(105px);
-  //   background: blue;
-  // }
-
   form {
     @include flex($flex-direction: column);
     width: 30vw;
@@ -148,7 +142,6 @@
         outline: none;
         border-radius: 5px;
         color: #fff;
-        // padding-left pour faire apparaitre les icons dans l'input
         padding-left: 21px;
         transform: translateY(-50%);
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
