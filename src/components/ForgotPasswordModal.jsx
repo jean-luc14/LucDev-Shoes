@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { forgotPassword } from "../redux/firebase/FirebaseSlice";
 import Warning from "../Assets/icons/warning.png";
 import Email from "../Assets/icons/Email.png";
@@ -12,23 +12,36 @@ const ForgotPasswordModal = () => {
   const dispatch = useDispatch();
 
   // State for input value, invalid email error, toggle to show invalid email error and firebase Error in order
-  const [inputValue, setInputValue] = useState("");
-  const [emailErr, setEmailErr] = useState("");
-  const [showEmailErr, setShowEmailErr] = useState(false);
+  const [emailInput, setEmailInput] = useState({
+    value: "",
+    errorMes: "",
+    isValid: false,
+  });
   const [errFromFirebase, setErrFromFirebase] = useState("");
 
   // Regex of Email
   const EMAIL_REGEX =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+  // Update the value of input in the state
+  const handleChange = (e) => {
+    setEmailInput({ value: e.target.value, errorMes: "", isValid: false });
+  };
+
   // check validity of Email
   const validEmail = () => {
-    if (EMAIL_REGEX.test(inputValue)) {
-      setEmailErr("");
-      setShowEmailErr(false);
+    if (EMAIL_REGEX.test(emailInput.value)) {
+      setEmailInput({
+        value: emailInput.value,
+        errorMes: "",
+        isValid: true,
+      });
     } else {
-      setEmailErr("Invalid format email");
-      setShowEmailErr(true);
+      setEmailInput({
+        value: emailInput.value,
+        errorMes: "Invalid format email",
+        isValid: false,
+      });
     }
   };
 
@@ -36,21 +49,26 @@ const ForgotPasswordModal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     validEmail();
-    try {
-      await forgotPassword(inputValue);
-      dispatch(toggle_forget());
-      alert(
-        "We have sent an email to your address so you can change your password"
-      );
-    } catch {
-      setErrFromFirebase("An error has occurred, please try again");
-    }
   };
 
-  // Update the value of input in the state
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-  };
+  useEffect(() => {
+    //send request to firebase to modify password
+    const sendRequest = async () => {
+      if (emailInput.isValid) {
+        try {
+          await forgotPassword(emailInput.value);
+          dispatch(toggle_forget());
+          alert(
+            "We have sent an email to your address so you can change your password"
+          );
+        } catch {
+          setErrFromFirebase("An error has occurred, please try again");
+        }
+      }
+    };
+    sendRequest();
+  }, [emailInput.isValid]);
+
   return (
     <>
       {forgetPassModal ? (
@@ -59,14 +77,13 @@ const ForgotPasswordModal = () => {
           onClick={() => {
             dispatch(toggle_forget());
             setErrFromFirebase("");
-            setShowEmailErr(false);
+            setEmailInput({ ...emailInput, errorMes: "" });
           }}
         />
       ) : null}
 
       <div
         className="wrapper_forgot"
-        //ref={backdropWrapperSign}
         style={{
           top: forgetPassModal ? "50%" : "-50%",
           left: forgetPassModal ? "50%" : "50%",
@@ -82,7 +99,8 @@ const ForgotPasswordModal = () => {
             <span
               onClick={() => {
                 dispatch(toggle_forget());
-                setShowEmailErr(false);
+                setErrFromFirebase("");
+                setEmailInput({ ...emailInput, errorMes: "" });
               }}
             >
               &times;
@@ -94,16 +112,16 @@ const ForgotPasswordModal = () => {
               type="text"
               name="email"
               placeholder="Email"
-              value={inputValue}
+              value={emailInput.value}
               onChange={(e) => handleChange(e)}
             ></input>
             <img src={Email} />
-            {showEmailErr ? (
+            {emailInput.errorMes.length > 0 ? (
               <div className="inputAlert">
                 <span></span>
                 <small>
                   <img src={Warning} />
-                  {emailErr}
+                  {emailInput.errorMes}
                 </small>
               </div>
             ) : null}

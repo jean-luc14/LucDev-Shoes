@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Email from "../Assets/icons/Email.png";
 import Lock from "../Assets/icons/Lock.png";
 import Warning from "../Assets/icons/warning.png";
@@ -24,13 +24,10 @@ const SignUpModal = () => {
     checkPassword: { value: "", errorMes: "", isValid: false },
   });
 
-  const formRef = useRef();
-
   // REGEX
   const EMAIL_REGEX =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const PASSWORD_REGEX = /^(?=.*\d).{4,14}$/;
-  const USERNAME_REGEX = /^[a-zA-Z0-9][a-zA-Z0-9_]{2,14}$/;
 
   //check the form validity and show request error if form isn't valid
   const validForm = () => {
@@ -103,7 +100,7 @@ const SignUpModal = () => {
   };
 
   useEffect(() => {
-    // send request to firebase to login if form validity is true
+    // send request to firebase to sign up if form validity is true
     const sendRequest = async () => {
       if (
         form.email.isValid &&
@@ -112,7 +109,6 @@ const SignUpModal = () => {
       ) {
         try {
           await signUp(form.email.value, form.password.value);
-          formRef.current.reset();
           setFirebaseErrMes("");
           dispatch(toggle_sign());
         } catch (err) {
@@ -158,7 +154,7 @@ const SignUpModal = () => {
             : "translate(-50%,-50%)",
         }}
       >
-        <form onSubmit={handleSubmit} ref={formRef}>
+        <form onSubmit={handleSubmit}>
           <h1>
             Sign up{" "}
             <span
