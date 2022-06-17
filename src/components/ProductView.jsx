@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from 'react-redux'
-import { addItem } from '../redux/shoppingCart/CartItemsSlice'
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/shoppingCart/CartItemsSlice";
 import ImageSlider from "./ImageSlider";
 import ThumbsSizeQuantityButton from "./ThumbsSizeQuantityButton";
-import { remove } from "../redux/product/ProductSlice";
+import { remove } from "../redux/productModal/ProductModalSlice";
 
 // import of Swiper.js Modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,25 +12,25 @@ import { Navigation, Thumbs } from "swiper";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-
 const ProductView = (props) => {
-  
   let product = props.product;
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
- 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   //State
   const [activeThumb, setActiveThumb] = useState();
-  const [size, setSize] = useState( product === undefined ? undefined : product.size[0]);
-  const [quantity, setQuantity] = useState(1)
+  const [size, setSize] = useState(
+    product === undefined ? undefined : product.size[0]
+  );
+  const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState(
     product === undefined ? undefined : product.color[0].name
   );
-  
+
   // get the link of image which is in active slide of swiper js
   const getSelectedImages = () => {
-    let Images = document.querySelectorAll('.imageSlider');
-    let  imageSelected;
+    let Images = document.querySelectorAll(".imageSlider");
+    let imageSelected;
     Images.forEach((item) => {
       if (
         item.parentNode.parentNode.className ===
@@ -38,36 +38,38 @@ const ProductView = (props) => {
       ) {
         imageSelected = item.src;
       }
-    }) 
+    });
     return imageSelected;
-  }
+  };
 
   // update product property function
   const updateQuantity = (type) => {
-    if (type === 'plus') {
-      setQuantity(quantity + 1)
+    if (type === "plus") {
+      setQuantity(quantity + 1);
     } else {
-      setQuantity(quantity > 1 ? quantity - 1 : 1)
+      setQuantity(quantity > 1 ? quantity - 1 : 1);
     }
-  } 
+  };
   const updateSize = (item) => {
-    setSize(item)
-  }
+    setSize(item);
+  };
 
   //Add Product to cart
   const addToCart = () => {
     let selectedImg = getSelectedImages();
-      dispatch(addItem({
+    dispatch(
+      addItem({
         id: product.id,
-        catalogSlug:product.catalogSlug,
+        catalogSlug: product.catalogSlug,
         name: product.name,
-        price:product.price,
-        img:selectedImg,
+        price: product.price,
+        img: selectedImg,
         color: color,
         size: size,
-        quantity:quantity,
-      }))
-  }
+        quantity: quantity,
+      })
+    );
+  };
 
   //Add Product to cart and go to cart
   const goToCart = () => {
@@ -84,8 +86,8 @@ const ProductView = (props) => {
         quantity: quantity,
       })
     );
-    navigate('/cart')
-  }
+    navigate("/cart");
+  };
 
   //put color of active slide in color state
   const putColorInState = () => {
@@ -96,11 +98,11 @@ const ProductView = (props) => {
       );
     } else {
       activeImage = document.querySelector(
-       ".swiper-slide.swiper-slide-active .imageSlider"
-     );
+        ".swiper-slide.swiper-slide-active .imageSlider"
+      );
     }
     setColor(activeImage.getAttribute("color"));
-  }
+  };
 
   // go to the page of current category
   const goToCategoryPage = () => {
@@ -109,7 +111,7 @@ const ProductView = (props) => {
     if (props.Modal) {
       dispatch(remove());
     }
-  }
+  };
 
   useEffect(() => {
     let productWrapper;
@@ -118,7 +120,7 @@ const ProductView = (props) => {
     let progressBarClick;
 
     let totalHeight;
-    let productWrapperHeight; 
+    let productWrapperHeight;
 
     //get html element if current product doesn't undefined
     const checkCurrentProduct = () => {
@@ -143,19 +145,19 @@ const ProductView = (props) => {
           );
         }
 
-        totalHeight = productInfo.scrollHeight; 
-        productWrapperHeight = productWrapper.getBoundingClientRect().height
-          
+        totalHeight = productInfo.scrollHeight;
+        productWrapperHeight = productWrapper.getBoundingClientRect().height;
+
         if (productWrapperHeight >= totalHeight) {
           progressBarClick.style.height = 0;
           progressBar.style.height = 0;
           return false;
         } else {
           progressBarClick.style.height = productWrapperHeight;
-           return true;
+          return true;
         }
       }
-    }; 
+    };
 
     //set height of progress bar
     const setProgressBarHeight = () => {
@@ -166,19 +168,18 @@ const ProductView = (props) => {
     };
 
     //set and animate progress bar
-    const progressBarFunc = () => { 
+    const progressBarFunc = () => {
       if (checkCurrentProduct()) {
-        productInfo.addEventListener("scroll", () => { 
+        productInfo.addEventListener("scroll", () => {
           setProgressBarHeight();
           let progressTop = (productInfo.scrollTop / totalHeight) * 100;
           progressBar.style.top = `${progressTop}%`;
         });
       }
-    }; 
- 
+    };
+
     setProgressBarHeight();
     progressBarFunc();
-
 
     setSize(product === undefined ? undefined : product.size[0]);
     setColor(product === undefined ? undefined : product.color[0].name);

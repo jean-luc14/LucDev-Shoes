@@ -4,9 +4,9 @@ import { getProductByCatalogAndId } from "../Assets/data/ProductData";
 import { useSelector } from "react-redux";
 
 const ProductViewModal = () => {
-  const productId = useSelector((state) => state.product.value.id);
+  const productId = useSelector((state) => state.productModal.value.id);
   const productCatalogSlug = useSelector(
-    (state) => state.product.value.catalogSlug
+    (state) => state.productModal.value.catalogSlug
   );
   const [product, setProduct] = useState(undefined);
 

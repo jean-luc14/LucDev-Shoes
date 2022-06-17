@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import ViewProductButton from "./ViewProductButton";
 import { useDispatch } from "react-redux";
-import { set } from "../redux/product/ProductSlice";
+import { set } from "../redux/productModal/ProductModalSlice";
 
 const ProductCard = (props) => {
   //Navigate

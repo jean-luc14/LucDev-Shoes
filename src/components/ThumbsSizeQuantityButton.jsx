@@ -1,9 +1,9 @@
-import React,{useState,useEffect,useRef} from "react";
-import {useNavigate} from 'react-router-dom'
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Plus from "../Assets/icons/plus.png";
 import Minus from "../Assets/icons/minus.png";
-import { useDispatch,useSelector } from "react-redux";
-import { remove } from "../redux/product/ProductSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { remove } from "../redux/productModal/ProductModalSlice";
 
 // import of Swiper.js Modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,8 +12,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 // thumbs of Swiper js
-const ThumbsSizeQuantityButton = (props) => { 
-
+const ThumbsSizeQuantityButton = (props) => {
   //get products which are in cart
   const cartItems = useSelector((state) => state.cartItems.value);
 
@@ -28,7 +27,7 @@ const ThumbsSizeQuantityButton = (props) => {
 
   const [productAlreadyInCart, setProductAlreadyInCart] = useState(already);
 
-  //redux 
+  //redux
   const dispatch = useDispatch();
 
   //Buy product, go to cart and close modal
@@ -38,7 +37,7 @@ const ThumbsSizeQuantityButton = (props) => {
     if (props.modal) {
       dispatch(remove());
     }
-  }; 
+  };
 
   useEffect(() => {
     //get true if current product with even properties is in cart already
@@ -141,7 +140,7 @@ const Buttons = (props) => {
         (e.id === props.product.id) &
         (e.color === props.color) &
         (e.size === props.size)
-    ); 
+    );
     props.setProductAlreadyInCart(already);
   }, [props.size, props.color]);
 
