@@ -3,6 +3,7 @@ import Email from "../Assets/icons/Email.png";
 import Lock from "../Assets/icons/Lock.png";
 import { logIn } from "../redux/firebase/FirebaseSlice";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   toggle_log,
   toggle_forget,
@@ -11,6 +12,9 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 
 const LogInModal = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   // form state
   const [form, setForm] = useState({
     email: { value: "" },
@@ -30,6 +34,13 @@ const LogInModal = () => {
     setForm({ ...form, ...newField });
   };
 
+  //navigate to checkout page if user is on cart page
+  const goToCheckout = () => {
+    if (location.pathname === "/cart") {
+      navigate("/private/checkout-cart");
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -37,6 +48,7 @@ const LogInModal = () => {
       alert("the connection to your account went well");
       setFirebaseErrMes("");
       dispatch(toggle_log());
+      goToCheckout();
     } catch {
       setFirebaseErrMes("Wopsy, Email and/or password incorrect");
       setForm({

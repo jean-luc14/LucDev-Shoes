@@ -1,15 +1,17 @@
-import React,{useState,useEffect} from 'react'
-import { useSelector,useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import CartItem from '../components/CartItem'
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import CartItem from "../components/CartItem";
 import { SectionTitle } from "../components/Sections";
 import Progress from "../components/Progress";
 import { updateTotal } from "../redux/shoppingCart/TotalSlice";
+import { toggle_log } from "../redux/toggleModal/ToggleModalSlice";
 
-const Cart = props => {
-
-  //get products from redux state which are been added to cart 
-  const [cartItems, setCartItems] = useState(useSelector((state) => state.cartItems.value));
+const Cart = (props) => {
+  //get products from redux state which are been added to cart
+  const [cartItems, setCartItems] = useState(
+    useSelector((state) => state.cartItems.value)
+  );
   const [cartItemsClone, setCartItemsClone] = useState(cartItems);
 
   //get nap of all product price and product number
@@ -22,24 +24,26 @@ const Cart = props => {
   );
   const [totalPrice, setTotalPrice] = useState(ttlPrice.toFixed(2));
 
-  // get data to know if current user is login
+  // know if current user is connect
   const currentUser = useSelector((state) => state.firebase.value.currentUser);
 
-  const navigate = useNavigate() 
-  const dispatch = useDispatch(); 
-  
-  //send total price and product with Dispatch and go to checkout page
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  //if user is already connect, send total price and product to redux store and go to checkout page
   const goToCheckout = () => {
-    dispatch(
-      updateTotal({ totalPrice, totalProduct })
-    );
-    navigate("/private/checkout-cart");
-  }
+    if (currentUser) {
+      dispatch(updateTotal({ totalPrice, totalProduct }));
+      navigate("/private/checkout-cart");
+    } else {
+      dispatch(toggle_log());
+    }
+  };
 
   useEffect(() => {
-    setCartItems(cartItemsClone); 
+    setCartItems(cartItemsClone);
   }, [cartItemsClone]);
-  
+
   return (
     <>
       <SectionTitle ProductCards={cartItemsClone} cartPage={true}>
@@ -76,12 +80,20 @@ const Cart = props => {
           </div>
         </div>
       ) : (
-          <h1 className='nothing_cart'>You haven't product in cart.<span onClick={() => {
-             navigate("/");
-        }}> Home</span> </h1>
+        <h1 className="nothing_cart">
+          You haven't product in cart.
+          <span
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            {" "}
+            Home
+          </span>{" "}
+        </h1>
       )}
     </>
   );
-}
+};
 
-export default Cart
+export default Cart;

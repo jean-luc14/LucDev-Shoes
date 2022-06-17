@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Email from "../Assets/icons/Email.png";
 import Lock from "../Assets/icons/Lock.png";
 import Warning from "../Assets/icons/warning.png";
@@ -8,8 +9,10 @@ import { toggle_log, toggle_sign } from "../redux/toggleModal/ToggleModalSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const SignUpModal = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const signUpModal = useSelector(
     (state) => state.toggleModal.value.signUpModal
   );
@@ -100,6 +103,12 @@ const SignUpModal = () => {
   };
 
   useEffect(() => {
+    //navigate to checkout page if user is on cart page
+    const goToCheckout = () => {
+      if (location.pathname === "/cart") {
+        navigate("/private/checkout-cart");
+      }
+    };
     // send request to firebase to sign up if form validity is true
     const sendRequest = async () => {
       if (
@@ -112,6 +121,7 @@ const SignUpModal = () => {
           setFirebaseErrMes("");
           dispatch(toggle_sign());
           alert("your registration went well");
+          goToCheckout();
         } catch (err) {
           if (err.code === "auth/invalid-email") {
             setFirebaseErrMes("Invalid format email");
