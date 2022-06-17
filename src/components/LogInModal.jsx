@@ -93,11 +93,9 @@ const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
             <img src={Lock} />
           </div>
           <small className="firebaseErrMes">{firebaseErrMes}</small>
-          <div className="inputBox">
-            <input className="submit" type="submit" value="Log in"></input>
-          </div>
-          <p className="forget" onClick={toggle_forgot}>
-            Forget <i>Password</i>
+          <input className="submit" type="submit" value="Log in"></input>
+          <p className="forget">
+            Forget <i onClick={toggle_forgot}>Password</i>
           </p>
           <p className="forget">
             Don't have an <i>Account </i>
