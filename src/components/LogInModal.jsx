@@ -32,6 +32,10 @@ const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
       toggle_log();
     } catch {
       setFirebaseErrMes("Wopsy, Email and/or password incorrect");
+      setForm({
+        email: { value: form.email.value },
+        password: { value: "" },
+      });
     }
   };
 
