@@ -4,9 +4,15 @@ import Lock from "../Assets/icons/Lock.png";
 import Warning from "../Assets/icons/warning.png";
 import { signUp } from "../redux/firebase/FirebaseSlice";
 import { useNavigate } from "react-router-dom";
+import { toggle_sign } from "../redux/toggleModal/ToggleModalSlice";
+import { useSelector, useDispatch } from "react-redux";
 
-const SignUpModal = ({ reverse_sign, toggle_sign }) => {
+const SignUpModal = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const signUpModal = useSelector(
+    (state) => state.toggleModal.value.signUpModal
+  );
 
   //firebase
   const [firebaseErrMes, setFirebaseErrMes] = useState("");
@@ -108,7 +114,7 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
           await signUp(form.email.value, form.password.value);
           formRef.current.reset();
           setFirebaseErrMes("");
-          toggle_sign();
+          dispatch(toggle_sign());
         } catch (err) {
           if (err.code === "auth/invalid-email") {
             setFirebaseErrMes("Invalid format email");
@@ -125,11 +131,11 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
 
   return (
     <>
-      {reverse_sign ? (
+      {signUpModal ? (
         <div
           className="op_sign"
           onClick={() => {
-            toggle_sign();
+            dispatch(toggle_sign());
             setFirebaseErrMes("");
             setForm({
               ...form,
@@ -144,10 +150,10 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
       <div
         className="wrapper_sign"
         style={{
-          top: reverse_sign ? "50%" : "-50%",
-          left: reverse_sign ? "50%" : "50%",
-          opacity: reverse_sign ? "1" : "0",
-          transform: reverse_sign
+          top: signUpModal ? "50%" : "-50%",
+          left: signUpModal ? "50%" : "50%",
+          opacity: signUpModal ? "1" : "0",
+          transform: signUpModal
             ? "translate(-50%,-50%)"
             : "translate(-50%,-50%)",
         }}
@@ -157,7 +163,7 @@ const SignUpModal = ({ reverse_sign, toggle_sign }) => {
             Sign up{" "}
             <span
               onClick={() => {
-                toggle_sign();
+                dispatch(toggle_sign());
                 setFirebaseErrMes("");
                 setForm({
                   ...form,

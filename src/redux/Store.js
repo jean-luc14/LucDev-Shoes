@@ -5,6 +5,7 @@ import cartItemsSlice from "./shoppingCart/CartItemsSlice";
 import totalSlice from "./shoppingCart/TotalSlice";
 import firebaseSlice from "./firebase/FirebaseSlice";
 import activeSearch from "./search/ActiveSearchSlice";
+import toggleModal from "./toggleModal/ToggleModalSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,5 +14,6 @@ export const store = configureStore({
     total: totalSlice,
     firebase: firebaseSlice,
     search: activeSearch,
+    toggleModal: toggleModal,
   },
 });

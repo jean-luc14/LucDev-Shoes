@@ -3,8 +3,13 @@ import Email from "../Assets/icons/Email.png";
 import Lock from "../Assets/icons/Lock.png";
 import { logIn } from "../redux/firebase/FirebaseSlice";
 import { useNavigate } from "react-router-dom";
+import {
+  toggle_log,
+  toggle_forget,
+} from "../redux/toggleModal/ToggleModalSlice";
+import { useSelector, useDispatch } from "react-redux";
 
-const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
+const LogInModal = () => {
   // form state
   const [form, setForm] = useState({
     email: { value: "" },
@@ -14,6 +19,8 @@ const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
   //firebase
   const [firebaseErrMes, setFirebaseErrMes] = useState("");
 
+  const dispatch = useDispatch();
+  const logInModal = useSelector((state) => state.toggleModal.value.logInModal);
   const formRefLog = useRef();
 
   const handleInputChange = (e) => {
@@ -29,7 +36,7 @@ const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
       await logIn(form.email.value, form.password.value);
       formRefLog.current.reset();
       setFirebaseErrMes("");
-      toggle_log();
+      dispatch(toggle_log());
     } catch {
       setFirebaseErrMes("Wopsy, Email and/or password incorrect");
       setForm({
@@ -41,11 +48,11 @@ const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
 
   return (
     <>
-      {reverse_log ? (
+      {logInModal ? (
         <div
           className="op_log"
           onClick={() => {
-            toggle_log();
+            dispatch(toggle_log());
             setFirebaseErrMes("");
           }}
         />
@@ -53,10 +60,10 @@ const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
       <div
         className="wrapper_log"
         style={{
-          top: reverse_log ? "50%" : "-50%",
-          left: reverse_log ? "50%" : "50%",
-          opacity: reverse_log ? "1" : "0",
-          transform: reverse_log
+          top: logInModal ? "50%" : "-50%",
+          left: logInModal ? "50%" : "50%",
+          opacity: logInModal ? "1" : "0",
+          transform: logInModal
             ? "translate(-50%,-50%)"
             : "translate(-50%,-50%)",
         }}
@@ -66,7 +73,7 @@ const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
             Log In{" "}
             <span
               onClick={() => {
-                toggle_log();
+                dispatch(toggle_log());
                 setFirebaseErrMes("");
               }}
             >
@@ -99,7 +106,7 @@ const LogInModal = ({ reverse_log, toggle_log, toggle_forgot }) => {
           <small className="firebaseErrMes">{firebaseErrMes}</small>
           <input className="submit" type="submit" value="Log in"></input>
           <p className="forget">
-            Forget <i onClick={toggle_forgot}>Password</i>
+            Forget <i onClick={() => dispatch(toggle_forget())}>Password</i>
           </p>
           <p className="forget">
             Don't have an <i>Account </i>

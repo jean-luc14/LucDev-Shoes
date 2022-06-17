@@ -12,6 +12,7 @@ import { signOut } from "firebase/auth";
 import AuthenticationBtn from "./AuthenticationBtn";
 import { useSelector, useDispatch } from "react-redux";
 import { set } from "../redux/search/ActiveSearchSlice";
+import { toggle_log } from "../redux/toggleModal/ToggleModalSlice";
 
 const Navbar = () => {
   //get products which are in cart
@@ -43,26 +44,6 @@ const Navbar = () => {
   const hamburgerAnim_and_navResponAnim = () => {
     hamburger_anim.current.classList.toggle("active");
     navResponAnim.current.classList.toggle("active");
-  };
-
-  //state and his update function for active signUp, LogIn and forgotPassword modal
-  const [reverse_sign, setReverse_sign] = useState(false);
-  const [reverse_log, setReverse_log] = useState(false);
-  const [reverse_forgot, setReverse_forgot] = useState(false);
-  const toggle_sign = () => {
-    setReverse_sign(!reverse_sign);
-    setReverse_log(false);
-    setReverse_forgot(false);
-  };
-  const toggle_log = () => {
-    setReverse_log(!reverse_log);
-    setReverse_sign(false);
-    setReverse_forgot(false);
-  };
-  const toggle_forgot = () => {
-    setReverse_forgot(!reverse_forgot);
-    setReverse_log(false);
-    setReverse_sign(false);
   };
 
   //request to firebase to log out
@@ -141,7 +122,7 @@ Please check your internet connect and retry.`
                 <button
                   className="btn log_in"
                   type="button"
-                  onClick={toggle_log}
+                  onClick={() => dispatch(toggle_log())}
                 >
                   Log in
                 </button>
@@ -149,11 +130,7 @@ Please check your internet connect and retry.`
             )}
           </ul>
           <Search />
-          <AuthenticationBtn
-            toggle_sign={toggle_sign}
-            toggle_log={toggle_log}
-            logOut={logOut}
-          />
+          <AuthenticationBtn logOut={logOut} />
           <div className="shopping_icon">
             <Link to="/cart">
               <img src={Shopping_icon} />
@@ -163,16 +140,9 @@ Please check your internet connect and retry.`
         </div>
       </nav>
 
-      <SignUpModal reverse_sign={reverse_sign} toggle_sign={toggle_sign} />
-      <LogInModal
-        reverse_log={reverse_log}
-        toggle_log={toggle_log}
-        toggle_forgot={toggle_forgot}
-      />
-      <ForgotPasswordModal
-        reverse_forgot={reverse_forgot}
-        toggle_forgot={toggle_forgot}
-      />
+      <SignUpModal />
+      <LogInModal />
+      <ForgotPasswordModal />
     </>
   );
 };

@@ -1,8 +1,9 @@
-import React from 'react'
-import { useSelector } from "react-redux";
+import React from "react";
+import { toggle_sign, toggle_log } from "../redux/toggleModal/ToggleModalSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const AuthenticationBtn = (props) => {
-
+  const dispatch = useDispatch();
   //catch currentUser from redux/firebase
   const currentUser = useSelector((state) => state.firebase.value.currentUser);
 
@@ -21,14 +22,14 @@ const AuthenticationBtn = (props) => {
           <button
             type="button"
             className="auth_btn sign_up"
-            onClick={props.toggle_sign}
+            onClick={() => dispatch(toggle_sign())}
           >
             Sign up
           </button>
           <button
             type="button"
             className="auth_btn log_in"
-            onClick={props.toggle_log}
+            onClick={() => dispatch(toggle_log())}
           >
             Log in
           </button>
@@ -36,6 +37,6 @@ const AuthenticationBtn = (props) => {
       )}
     </>
   );
-}
+};
 
-export default AuthenticationBtn
+export default AuthenticationBtn;
