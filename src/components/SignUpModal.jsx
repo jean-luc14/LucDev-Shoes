@@ -111,6 +111,7 @@ const SignUpModal = () => {
           await signUp(form.email.value, form.password.value);
           setFirebaseErrMes("");
           dispatch(toggle_sign());
+          alert("your registration went well");
         } catch (err) {
           if (err.code === "auth/invalid-email") {
             setFirebaseErrMes("Invalid format email");

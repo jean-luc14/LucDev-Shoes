@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Email from "../Assets/icons/Email.png";
 import Lock from "../Assets/icons/Lock.png";
 import { logIn } from "../redux/firebase/FirebaseSlice";
@@ -21,7 +21,6 @@ const LogInModal = () => {
 
   const dispatch = useDispatch();
   const logInModal = useSelector((state) => state.toggleModal.value.logInModal);
-  const formRefLog = useRef();
 
   const handleInputChange = (e) => {
     const fieldName = e.target.name;
@@ -34,7 +33,7 @@ const LogInModal = () => {
     e.preventDefault();
     try {
       await logIn(form.email.value, form.password.value);
-      formRefLog.current.reset();
+      alert("the connection to your account went well");
       setFirebaseErrMes("");
       dispatch(toggle_log());
     } catch {
@@ -68,7 +67,7 @@ const LogInModal = () => {
             : "translate(-50%,-50%)",
         }}
       >
-        <form onSubmit={handleSubmit} ref={formRefLog}>
+        <form onSubmit={handleSubmit}>
           <h1>
             Log In{" "}
             <span
