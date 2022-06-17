@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import {
   toggle_log,
   toggle_forget,
+  toggle_sign,
 } from "../redux/toggleModal/ToggleModalSlice";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -108,7 +109,8 @@ const LogInModal = () => {
             Forget <i onClick={() => dispatch(toggle_forget())}>Password</i>
           </p>
           <p className="forget">
-            Don't have an <i>Account </i>
+            Don't have an{" "}
+            <i onClick={() => dispatch(toggle_sign())}>Account </i>
           </p>
         </form>
       </div>

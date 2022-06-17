@@ -4,7 +4,7 @@ import Lock from "../Assets/icons/Lock.png";
 import Warning from "../Assets/icons/warning.png";
 import { signUp } from "../redux/firebase/FirebaseSlice";
 import { useNavigate } from "react-router-dom";
-import { toggle_sign } from "../redux/toggleModal/ToggleModalSlice";
+import { toggle_log, toggle_sign } from "../redux/toggleModal/ToggleModalSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const SignUpModal = () => {
@@ -237,6 +237,10 @@ const SignUpModal = () => {
           {/* submit form */}
           <small className="firebaseErrMes">{firebaseErrMes}</small>
           <input className="submit" type="submit" value="Sign up"></input>
+          <p>
+            Already have an
+            <i onClick={() => dispatch(toggle_log())}> Account ?</i>{" "}
+          </p>
         </form>
       </div>
     </>

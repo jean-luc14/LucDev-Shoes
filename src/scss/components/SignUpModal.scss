@@ -71,6 +71,13 @@
   .firebaseErrMes {
     @extend %firebaseErrMes;
   }
+  p {
+    font-weight: 500;
+    i {
+      color: blue;
+      cursor: pointer;
+    }
+  }
 }
 
 //RESPONSIVE
