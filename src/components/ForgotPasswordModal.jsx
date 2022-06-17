@@ -73,7 +73,7 @@ const ForgotPasswordModal = () => {
     <>
       {forgetPassModal ? (
         <div
-          className="op_forgot"
+          className="op_forgot_pass"
           onClick={() => {
             dispatch(toggle_forget());
             setErrFromFirebase("");
@@ -83,7 +83,7 @@ const ForgotPasswordModal = () => {
       ) : null}
 
       <div
-        className="wrapper_forgot"
+        className="wrapper_forgot_pass"
         style={{
           top: forgetPassModal ? "50%" : "-50%",
           left: forgetPassModal ? "50%" : "50%",
