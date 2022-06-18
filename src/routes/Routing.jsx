@@ -12,6 +12,8 @@ import Catalog from "../pages/Catalog";
 import UserConnected from "../pages/private/userConnected/UserConnected";
 import CheckoutCart from "../pages/private/userConnected/cart/CheckoutCart";
 import OrderCompleteCart from "../pages/private/userConnected/cart/OrderCompleteCart";
+import Admin from "../pages/private/admin/Admin";
+import AddProduct from "../pages/private/admin/management/AddProduct";
 
 const Routing = () => {
   return (
@@ -33,6 +35,9 @@ const Routing = () => {
           path="/user-connected/order-complete-cart"
           element={<OrderCompleteCart />}
         />
+      </Route>
+      <Route path="/admin" element={<Admin />}>
+        <Route path="/admin/add-product" element={<AddProduct />} />
       </Route>
       <Route element={<PageNotFound />} />
     </Routes>
