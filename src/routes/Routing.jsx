@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from '../pages/Home'
-import ProductPage from '../pages/ProductPage'
+import Home from "../pages/Home";
+import ProductPage from "../pages/ProductPage";
 import Contact from "../components/Contact";
 import SearchResults from "../pages/SearchResults";
 import About_us from "../components/About_us";
@@ -9,9 +9,9 @@ import B from "../Composants-de-chaussures/Oxford/B";
 import PageNotFound from "../pages/PageNotFound";
 import Cart from "../pages/Cart";
 import Catalog from "../pages/Catalog";
-import Private from "../pages/private/Private";
-import CheckoutCart from "../pages/private/privateCart/CheckoutCart";
-import OrderCompleteCart from "../pages/private/privateCart/OrderCompleteCart";
+import UserConnected from "../pages/private/userConnected/UserConnected";
+import CheckoutCart from "../pages/private/userConnected/cart/CheckoutCart";
+import OrderCompleteCart from "../pages/private/userConnected/cart/OrderCompleteCart";
 
 const Routing = () => {
   return (
@@ -24,13 +24,19 @@ const Routing = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/search=:value" element={<SearchResults />} />
       <Route path="/Composants-de-chaussures/Oxford/B" element={<B />} />
-      <Route path="/private" element={<Private />}>
-        <Route path="/private/checkout-cart" element={<CheckoutCart />} />
-        <Route path="/private/order-complete-cart" element={<OrderCompleteCart />} />
+      <Route path="/user-connected" element={<UserConnected />}>
+        <Route
+          path="/user-connected/checkout-cart"
+          element={<CheckoutCart />}
+        />
+        <Route
+          path="/user-connected/order-complete-cart"
+          element={<OrderCompleteCart />}
+        />
       </Route>
       <Route element={<PageNotFound />} />
     </Routes>
   );
-}
+};
 
-export default Routing ;
+export default Routing;

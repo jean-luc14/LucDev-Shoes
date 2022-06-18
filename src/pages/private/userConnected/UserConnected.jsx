@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet, useLocation, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Private = () => {
+const UserConnected = () => {
   const currentUser = useSelector((state) => state.firebase.value.currentUser);
 
   if (!currentUser) {
@@ -16,4 +16,4 @@ const Private = () => {
   );
 };
 
-export default Private;
+export default UserConnected;

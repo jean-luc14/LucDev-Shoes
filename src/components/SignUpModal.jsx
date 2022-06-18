@@ -106,7 +106,7 @@ const SignUpModal = () => {
     //navigate to checkout page if user is on cart page
     const goToCheckout = () => {
       if (location.pathname === "/cart") {
-        navigate("/private/checkout-cart");
+        navigate("/user-connected/checkout-cart");
       }
     };
     // send request to firebase to sign up if form validity is true

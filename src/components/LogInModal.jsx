@@ -37,7 +37,7 @@ const LogInModal = () => {
   //navigate to checkout page if user is on cart page
   const goToCheckout = () => {
     if (location.pathname === "/cart") {
-      navigate("/private/checkout-cart");
+      navigate("/user-connected/checkout-cart");
     }
   };
 

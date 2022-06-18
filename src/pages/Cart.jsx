@@ -34,7 +34,7 @@ const Cart = (props) => {
   const goToCheckout = () => {
     if (currentUser) {
       dispatch(updateTotal({ totalPrice, totalProduct }));
-      navigate("/private/checkout-cart");
+      navigate("/user-connected/checkout-cart");
     } else {
       dispatch(toggle_log());
     }

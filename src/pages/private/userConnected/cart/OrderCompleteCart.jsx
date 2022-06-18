@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Progress from "../../../components/Progress";
+import Progress from "../../../../components/Progress";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -55,7 +55,9 @@ const OrderCompleteCart = () => {
         <div className="button_wrapper">
           <button
             type="button"
-            onClick={() => navigate("/private/checkout-cart")}
+            onClick={() =>
+              navigate("/user-connected/checkout-cart")
+            }
           >
             {" "}
             Back
