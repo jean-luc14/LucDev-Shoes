@@ -1,145 +1,189 @@
 import React, { useState, useeffect } from "react";
+import NewColor from "../../../../components/NewColor";
+import NewSize from "../../../../components/NewSize";
+import NewProductPreview from "../../../../components/NewProductPreview";
 import { db, storage } from "../../../../firebase-config";
-import { collection, addDoc } from "firebase/firestore";
-import {
-  getDownloadURL,
-  getStorage,
-  ref,
-  uploadBytesResumable,
-} from "firebase/storage";
-import { unwrapResult } from "@reduxjs/toolkit";
+import { collection, addDoc, setDoc, doc } from "firebase/firestore";
+import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
 
 const AddProduct = () => {
-  // form state
-  const [form, setForm] = useState({
+  //firebase ref
+  const storage = getStorage();
+
+  // product productForm state
+  const [productForm, setProductForm] = useState({
     category: "",
     id: "",
     name: "",
-    price: "",
+    price: 0,
     favorite: false,
-    description: "",
+    size: null,
+    description: {
+      material: "",
+      process: "",
+      size: "",
+    },
+    color: null,
   });
-
-  const [color, setColor] = useState([]);
-  const [size, setSize] = useState([]);
-
-  const [image, setImage] = useState(null);
-  const [imageError, setImageError] = useState("");
-  const [progressUpload, setProgressUpload] = useState(0);
 
   //upload  error and success message
   const [uploadSuccessMsg, setUploadSuccessMsg] = useState("");
   const [uploadErrorMsg, setUploadErrorMsg] = useState("");
 
-  //firebase ref
-  const storage = getStorage();
-
-  //types of image which will push to firebase storage
-  const type = ["image/jpg", "image/jpeg", "image/png", "image/PNG"];
-
-  //update image state of product
-  const handleChangeImg = (e) => {
-    const selectedImg = e.target.files[0];
-    if (!selectedImg) return;
-    if (selectedImg && type.includes(selectedImg.type)) {
-      setImage(selectedImg);
-      setImageError("");
-    } else {
-      setImage(null);
-      setImageError("Please select a valid image type (png,jpeg,jpg)");
+  //add rpoduct to firestore
+  const addProductToFirestore = async () => {
+    try {
+      await setDoc(doc(db, "productData", "loafers_3"), {
+        category: productForm.category,
+        id: productForm.id,
+        name: productForm.name,
+        price: productForm.price,
+        favorite: productForm.favorite,
+        color: productForm.color,
+        description: productForm.description,
+      });
+    } catch (err) {
+      console.log(err);
     }
   };
 
-  //submit form
-  const handleAddProducts = (e) => {
-    e.preventDefault();
-    if (image) {
-      const imagesRef = ref(storage, `/loafers/${image.name}`);
-
-      const uploadTask = uploadBytesResumable(imagesRef, image);
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-          setProgressUpload(progress);
-        },
-        (err) => setUploadErrorMsg(err.message),
-        () =>
-          getDownloadURL(uploadTask.snapshot.ref).then((url) =>
-            console.log(url)
-          )
-      );
-
-      setImageError("");
-    } else {
-      setImageError("Please select a image to upload , (png,jpeg,jpg) ");
+  const updateProductDescription = (e, type) => {
+    if (type === "material") {
+      setProductForm({
+        ...productForm,
+        description: { ...productForm.description, material: e.target.value },
+      });
+    }
+    if (type === "process") {
+      setProductForm({
+        ...productForm,
+        description: { ...productForm.description, process: e.target.value },
+      });
+    }
+    if (type === "size") {
+      setProductForm({
+        ...productForm,
+        description: { ...productForm.description, size: e.target.value },
+      });
     }
   };
 
   return (
-    <div className="add_product">
-      <h1>Add Products</h1>
+    <>
+      <h1 className="add_product_h1">Add Products</h1>
       {uploadSuccessMsg && (
-        <>
-          <div className="uploadErrorMsg">{uploadSuccessMsg}</div>
-        </>
+        <div className="uploadErrorMsg">{uploadSuccessMsg}</div>
       )}
-      <form onSubmit={handleAddProducts}>
-        <div className="title_wrapper">
-          <label id="name">Product Name</label>
-          <input
-            id="name"
-            type="text"
-            value={form.name}
-            required
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-          ></input>
+      <div className="add_product">
+        <div className="add_product_child">
+          <form>
+            <div className="category_wrapper">
+              <label>
+                Product Category:
+                <input
+                  type="text"
+                  required
+                  value={productForm.category}
+                  onChange={(e) =>
+                    setProductForm({ ...productForm, category: e.target.value })
+                  }
+                ></input>
+              </label>
+            </div>
+            <div className="id_wrapper">
+              <label>
+                Product Id:
+                <input
+                  type="number"
+                  value={productForm.id}
+                  required
+                  onChange={(e) =>
+                    setProductForm({ ...productForm, id: e.target.value })
+                  }
+                ></input>
+              </label>
+            </div>
+            <div className="name_wrapper">
+              <label>
+                Product Name:
+                <input
+                  type="text"
+                  value={productForm.name}
+                  required
+                  onChange={(e) =>
+                    setProductForm({ ...productForm, name: e.target.value })
+                  }
+                ></input>
+              </label>
+            </div>
+            <div className="price_wrapper">
+              <label>
+                Product Price:
+                <input
+                  type="number"
+                  value={productForm.price}
+                  required
+                  onChange={(e) =>
+                    setProductForm({ ...productForm, price: e.target.value })
+                  }
+                ></input>
+              </label>
+            </div>
+            <div className="favorite_wrapper">
+              <label>
+                Choose a if product is a favorite:
+                <select
+                  value={productForm.favorite}
+                  onChange={(e) =>
+                    setProductForm({ ...productForm, favorite: e.target.value })
+                  }
+                >
+                  <option value="false">False</option>
+                  <option value="true">True</option>
+                </select>
+              </label>
+            </div>
+            <div className="description_wrapper">
+              <label>
+                Material Description:
+                <textarea
+                  type="text"
+                  value={productForm.description.material}
+                  required
+                  onChange={(e) => updateProductDescription(e, "material")}
+                ></textarea>
+              </label>
+              <label>
+                Process Description:
+                <textarea
+                  type="text"
+                  value={productForm.description.process}
+                  required
+                  onChange={(e) => updateProductDescription(e, "process")}
+                ></textarea>
+              </label>
+              <label>
+                Size Description:
+                <textarea
+                  type="text"
+                  value={productForm.description.size}
+                  required
+                  onChange={(e) => updateProductDescription(e, "size")}
+                ></textarea>
+              </label>
+            </div>
+          </form>
+          <NewSize productForm={productForm} setProductForm={setProductForm} />
+          <NewColor
+            category={productForm.category}
+            productForm={productForm}
+            setProductForm={setProductForm}
+          />
         </div>
-        <div className="title_wrapper">
-          <label id="price">Product Price</label>
-          <input
-            id="price"
-            type="number"
-            value={form.price}
-            required
-            onChange={(e) => setForm({ ...form, price: e.target.value })}
-          ></input>
-        </div>
-        <div className="title_wrapper">
-          <label id="description">Product Description</label>
-          <input
-            id="description"
-            type="text"
-            value={form.description}
-            required
-            onChange={(e) => setForm({ ...form, description: e.target.value })}
-          ></input>
-        </div>
-        <div className="title_wrapper">
-          <label id="image"> Upload Product Image</label>
-          <input
-            id="image"
-            type="file"
-            required
-            onChange={(e) => handleChangeImg(e)}
-          ></input>
-          <h1>{progressUpload} %</h1>
-          {imageError && (
-            <>
-              <div className="imageError">{imageError}</div>
-            </>
-          )}
-        </div>
-        <input type="submit" value="Submit"></input>
-      </form>
-      {uploadErrorMsg && (
-        <>
-          <div className="uploadErrorMsg">{uploadErrorMsg}</div>
-        </>
-      )}
-    </div>
+        <NewProductPreview productForm={productForm} />
+      </div>
+      {uploadErrorMsg && <div className="uploadErrorMsg">{uploadErrorMsg}</div>}
+    </>
   );
 };
 

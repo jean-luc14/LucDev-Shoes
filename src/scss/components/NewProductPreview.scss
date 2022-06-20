@@ -1,0 +1,20 @@
+.add_product .new_product_preview {
+  width: 47%;
+  height: auto;
+  &_size {
+    @include flex(row, flex-start);
+  }
+  &_color {
+    display: flex;
+    .item {
+      @include flex(row, flex-start);
+    }
+    .item_img {
+      width: 5vmin;
+      height: 5vmin;
+      img {
+        @extend %back-img;
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+.new_size_wrapper {
+  .size_list {
+    @include flex(row, flex-start);
+  }
+}

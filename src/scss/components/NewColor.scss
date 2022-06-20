@@ -1,0 +1,24 @@
+.new_color_wrapper {
+  width: 100%;
+  .imageError {
+    width: 100%;
+    height: 10vmin;
+    padding: 1vmin 3vmin;
+    color: red;
+    background: rgba(255, 5, 5, 0.268);
+    border-radius: 5px;
+  }
+}
+.color_list {
+  display: flex;
+  .item {
+    @include flex(row, flex-start);
+  }
+  .item_img {
+    width: 5vmin;
+    height: 5vmin;
+    img {
+      @extend %back-img;
+    }
+  }
+}

@@ -1,23 +1,22 @@
+.uploadErrorMsg {
+  width: 100%;
+  height: 10vmin;
+  padding: 1vmin 3vmin;
+  color: red;
+  background: rgba(255, 5, 5, 0.268);
+  border-radius: 5px;
+}
+.add_product_h1 {
+  width: 10vw;
+  margin: 10vmin auto 5vmin;
+  white-space: nowrap;
+}
 .add_product {
-  width: 80vmin;
-  height: 80vmin;
-  margin: 20vmin auto;
-  .uploadErrorMsg {
-    width: 100%;
-    height: 10vmin;
-    padding: 1vmin 3vmin;
-    color: red;
-    background: rgba(255, 5, 5, 0.268);
-    border-radius: 5px;
-  }
-  form {
-    .imageError {
-      width: 100%;
-      height: 10vmin;
-      padding: 1vmin 3vmin;
-      color: red;
-      background: rgba(255, 5, 5, 0.268);
-      border-radius: 5px;
-    }
+  width: 90vw;
+  height: auto;
+  margin: 10vmin auto;
+  @include flex(row, space-between, flex-start);
+  &_child {
+    width: 47%;
   }
 }
