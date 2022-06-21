@@ -4,18 +4,14 @@ import NewSize from "../../../../components/NewSize";
 import NewProductPreview from "../../../../components/NewProductPreview";
 import { db, storage } from "../../../../firebase-config";
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";
-import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
 
 const AddProduct = () => {
-  //firebase ref
-  const storage = getStorage();
-
   // product productForm state
   const [productForm, setProductForm] = useState({
     category: "",
     id: "",
     name: "",
-    price: 0,
+    price: "",
     favorite: false,
     size: null,
     description: {
@@ -30,20 +26,58 @@ const AddProduct = () => {
   const [uploadSuccessMsg, setUploadSuccessMsg] = useState("");
   const [uploadErrorMsg, setUploadErrorMsg] = useState("");
 
+  const [checkFormError, setCheckFormError] = useState("");
+
   //add rpoduct to firestore
   const addProductToFirestore = async () => {
-    try {
-      await setDoc(doc(db, "productData", "loafers_3"), {
-        category: productForm.category,
-        id: productForm.id,
-        name: productForm.name,
-        price: productForm.price,
-        favorite: productForm.favorite,
-        color: productForm.color,
-        description: productForm.description,
-      });
-    } catch (err) {
-      console.log(err);
+    if (
+      productForm.category &&
+      productForm.id &&
+      productForm.name &&
+      productForm.price &&
+      productForm.favorite &&
+      productForm.description.material &&
+      productForm.description.process &&
+      productForm.description.size &&
+      productForm.size &&
+      productForm.color
+    ) {
+      try {
+        const docRef = await addDoc(collection(db, "productData"), {
+          category: productForm.category,
+          id: productForm.id,
+          name: productForm.name,
+          price: productForm.price,
+          favorite: productForm.favorite,
+          color: productForm.color,
+          description: productForm.description,
+        });
+        setProductForm({
+          category: "",
+          id: "",
+          name: "",
+          price: 0,
+          favorite: false,
+          size: null,
+          description: {
+            material: "",
+            process: "",
+            size: "",
+          },
+          color: null,
+        });
+        setUploadSuccessMsg("Product Added Successfully");
+        setUploadErrorMsg("");
+        setTimeout(() => {
+          setUploadSuccessMsg("");
+        }, 3000);
+      } catch (err) {
+        setUploadErrorMsg(err.message);
+        setUploadSuccessMsg("");
+      }
+      setCheckFormError("");
+    } else {
+      setCheckFormError("Please complete each of the fields above");
     }
   };
 
@@ -71,9 +105,6 @@ const AddProduct = () => {
   return (
     <>
       <h1 className="add_product_h1">Add Products</h1>
-      {uploadSuccessMsg && (
-        <div className="uploadErrorMsg">{uploadSuccessMsg}</div>
-      )}
       <div className="add_product">
         <div className="add_product_child">
           <form>
@@ -174,15 +205,19 @@ const AddProduct = () => {
             </div>
           </form>
           <NewSize productForm={productForm} setProductForm={setProductForm} />
-          <NewColor
-            category={productForm.category}
-            productForm={productForm}
-            setProductForm={setProductForm}
-          />
+          <NewColor productForm={productForm} setProductForm={setProductForm} />
         </div>
         <NewProductPreview productForm={productForm} />
       </div>
+      <button className="add_product_submit" onClick={addProductToFirestore}>
+        Add Product
+      </button>
+
+      {uploadSuccessMsg && (
+        <div className="uploadSuccessMsg">{uploadSuccessMsg}</div>
+      )}
       {uploadErrorMsg && <div className="uploadErrorMsg">{uploadErrorMsg}</div>}
+      {checkFormError && <div className="checkFormError">{checkFormError}</div>}
     </>
   );
 };

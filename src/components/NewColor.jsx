@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { db, storage } from "../firebase-config";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
-const NewColor = ({ productForm, setProductForm, category }) => {
+const NewColor = ({ productForm, setProductForm }) => {
+  const newColorRef = useRef();
   const [newColor, setNewColor] = useState({
     name: "",
     img: null,
@@ -23,7 +24,7 @@ const NewColor = ({ productForm, setProductForm, category }) => {
       setNewColor({ ...newColor, img: selectedImg });
       setImageError("");
     } else {
-      setNewColor(null);
+      newColorRef.current.value = "";
       setImageError("Please select a valid image type (png,jpeg,jpg)");
     }
   };
@@ -34,7 +35,7 @@ const NewColor = ({ productForm, setProductForm, category }) => {
       ...newColor,
       img: url,
     };
-
+    //if product.color is already array, push newClr; if not, define newClr as productForm.color
     if (productForm.color) {
       setProductForm({ ...productForm, color: [...productForm.color, newClr] });
     } else {
@@ -44,13 +45,17 @@ const NewColor = ({ productForm, setProductForm, category }) => {
       name: "",
       img: null,
     });
+    newColorRef.current.value = "";
   };
 
   //register image in cloud Storage and get her url
   const sendImageToCloudStorage = () => {
-    if (category.length > 0) {
+    if (productForm.category) {
       if (newColor.img && newColor.name) {
-        const imagesRef = ref(storage, `/${category}/${newColor.img.name}`);
+        const imagesRef = ref(
+          storage,
+          `products-image/${productForm.category}/${productForm.id}/${newColor.img.name}`
+        );
         const uploadTask = uploadBytesResumable(imagesRef, newColor.img);
         uploadTask.on(
           "state_changed",
@@ -100,12 +105,13 @@ const NewColor = ({ productForm, setProductForm, category }) => {
             {" "}
             Color Image:
             <input
+              ref={newColorRef}
               type="file"
               required
               onChange={(e) => handleChangeImg(e)}
             ></input>
           </label>
-          <button onClick={sendImageToCloudStorage}>Add New Color</button>
+          <button onClick={sendImageToCloudStorage}>Add Color</button>
           <h1>{progressUpload} %</h1>
           {imageError && <div className="imageError">{imageError}</div>}
           {uploadErrorMsg && (
