@@ -1,12 +1,3 @@
-const A = "images/A.webp";
-const B = "images/B.webp";
-const C = "images/C.jpg";
-const D = "images/D.jpg";
-const E = "images/E.jpg";
-const F = "images/F.jpg";
-const G = "images/G.jpg";
-const H = "images/H.jpg";
-
 const catalogData = [
   {
     display: "Loafers",
@@ -70,4 +61,4 @@ const catalogData = [
   },
 ];
 
-export { catalogData, }; 
+export { catalogData };
