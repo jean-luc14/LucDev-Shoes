@@ -16,8 +16,8 @@ const NewProductPreview = ({ productForm }) => {
           productForm.size.map((item, index) => <div key={index}>{item},</div>)}
       </div>
       <div>Material Description:{productForm.description.material}</div>
-      <div>Material Process:{productForm.description.process}</div>
-      <div>Material Sizes:{productForm.description.size}</div>
+      <div>Process Description:{productForm.description.process}</div>
+      <div>Sizes Description:{productForm.description.size}</div>
       <div className="new_product_preview_color">
         <div>Product Colors:</div>
         {productForm.color &&

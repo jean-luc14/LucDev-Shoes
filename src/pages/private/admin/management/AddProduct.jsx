@@ -53,16 +53,16 @@ const AddProduct = () => {
           description: productForm.description,
         });
         setProductForm({
-          category: "",
-          id: "",
+          category: productForm.category,
+          id: productForm.id,
           name: "",
-          price: 0,
+          price: "",
           favorite: false,
           size: null,
           description: {
-            material: "",
-            process: "",
-            size: "",
+            material: productForm.description.material,
+            process: productForm.description.process,
+            size: productForm.description.size,
           },
           color: null,
         });
@@ -70,7 +70,7 @@ const AddProduct = () => {
         setUploadErrorMsg("");
         setTimeout(() => {
           setUploadSuccessMsg("");
-        }, 3000);
+        }, 5000);
       } catch (err) {
         setUploadErrorMsg(err.message);
         setUploadSuccessMsg("");

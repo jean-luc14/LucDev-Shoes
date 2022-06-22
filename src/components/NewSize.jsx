@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 
 const NewSize = ({ productForm, setProductForm }) => {
-  const [newSize, setNewSize] = useState(0);
+  const [newSize, setNewSize] = useState("");
+  const [sizeError, setSizeError] = useState("");
 
   //Add new size to size list of new product
   const addNewSize = () => {
-    if (productForm.size) {
-      let newSz = [...productForm.size];
-      newSz.push(newSize);
-      setProductForm({ ...productForm, size: [...newSz] });
+    if (newSize) {
+      if (productForm.size) {
+        let newSz = [...productForm.size];
+        newSz.push(newSize);
+        setProductForm({ ...productForm, size: [...newSz] });
+      } else {
+        const newSz = [newSize];
+        setProductForm({ ...productForm, size: [...newSz] });
+      }
+      setNewSize("");
+      setSizeError("");
     } else {
-      const newSz = [newSize];
-      setProductForm({ ...productForm, size: [...newSz] });
+      setSizeError("Please enter a size to add to product sizes list ");
     }
-    setNewSize(0);
   };
 
   return (
@@ -27,6 +33,7 @@ const NewSize = ({ productForm, setProductForm }) => {
         ></input>
       </label>
       <button onClick={addNewSize}>Add New Size</button>
+      {sizeError && <div className="sizeError">{sizeError}</div>}
       <div className="size_list">
         <div>Product Sizes:</div>
         {productForm.size &&

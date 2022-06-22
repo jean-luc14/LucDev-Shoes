@@ -9,12 +9,18 @@ const NewColor = ({ productForm, setProductForm }) => {
     img: null,
   });
 
-  const [imageError, setImageError] = useState("");
+  const [colorError, setColorError] = useState("");
   const [progressUpload, setProgressUpload] = useState(0);
   const [uploadErrorMsg, setUploadErrorMsg] = useState("");
 
   //types of image which will push to firebase storage
-  const type = ["image/jpg", "image/jpeg", "image/png", "image/PNG"];
+  const type = [
+    "image/jpg",
+    "image/jpeg",
+    "image/png",
+    "image/PNG",
+    "image/webp",
+  ];
 
   //update image state of product
   const handleChangeImg = (e) => {
@@ -22,10 +28,10 @@ const NewColor = ({ productForm, setProductForm }) => {
     if (!selectedImg) return;
     if (selectedImg && type.includes(selectedImg.type)) {
       setNewColor({ ...newColor, img: selectedImg });
-      setImageError("");
+      setColorError("");
     } else {
       newColorRef.current.value = "";
-      setImageError("Please select a valid image type (png,jpeg,jpg)");
+      setColorError("Please select a valid image type (png,jpeg,jpg)");
     }
   };
 
@@ -72,14 +78,14 @@ const NewColor = ({ productForm, setProductForm }) => {
             )
         );
 
-        setImageError("");
+        setColorError("");
       } else {
-        setImageError(
-          "Please give a name to a new product color which you want to add to color list"
+        setColorError(
+          "Please give a name and image to a new product color which you want to add to color list"
         );
       }
     } else {
-      setImageError(
+      setColorError(
         "Please you must define a product category before defining a color. it will be used in the image reference."
       );
     }
@@ -113,7 +119,7 @@ const NewColor = ({ productForm, setProductForm }) => {
           </label>
           <button onClick={sendImageToCloudStorage}>Add Color</button>
           <h1>{progressUpload} %</h1>
-          {imageError && <div className="imageError">{imageError}</div>}
+          {colorError && <div className="colorError">{colorError}</div>}
           {uploadErrorMsg && (
             <div className="uploadErrorMsg">{uploadErrorMsg}</div>
           )}

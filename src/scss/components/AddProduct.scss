@@ -1,23 +1,20 @@
 .uploadErrorMsg,
-.checkFormError {
-  width: 100%;
+.checkFormError,
+.uploadSuccessMsg {
+  width: 85%;
   @include flex;
   height: auto;
+  margin: auto;
   padding: 2vmin 0vmin;
+  border-radius: 5px;
   color: red;
   background: rgba(255, 5, 5, 0.268);
-  border-radius: 5px;
+  border: 2px solid rgb(251, 54, 54);
 }
 
 .uploadSuccessMsg {
-  width: 90%;
-  height: auto;
-  @include flex;
-  margin: auto;
-  padding: 2vmin 0vmin;
   color: green;
   background: rgba(5, 255, 26, 0.268);
-  border-radius: 5px;
   border: 2px solid rgba(0, 192, 35, 0.799);
 }
 .add_product_h1 {
