@@ -1,4 +1,4 @@
-import {catalogData} from'./CatalogData'
+import { catalogData } from "./CatalogData";
 const A = require("../images/A.webp");
 const B = require("../images/B.webp");
 const C = require("../images/C.jpg");
@@ -7,7 +7,6 @@ const E = require("../images/E.jpg");
 const F = require("../images/F.jpg");
 const G = require("../images/G.jpg");
 const H = require("../images/H.jpg");
-
 
 const I = require("../images/A.webp");
 const J = require("../images/B.webp");
@@ -19,7 +18,6 @@ const O = require("../images/G.jpg");
 const P = require("../images/H.jpg");
 
 const sellingPrice = (price) => `${(price * 3).toFixed(2)}`;
-
 
 const productData = [
   {
@@ -2116,15 +2114,15 @@ const productData = [
     ],
   },
 ];
- 
+
 //  get our favorite products
 const getFavoriteProducts = () => {
   let favorite;
-  favorite = productData.filter(e => e.favorite === false)
+  favorite = productData.filter((e) => e.favorite === false);
   return favorite;
-}
+};
 
-// get the last product of each category 
+// get the last product of each category
 const getNewProducts = () => {
   let lastProductInCategory;
   const catalogSlugs = [];
@@ -2133,52 +2131,49 @@ const getNewProducts = () => {
 
   catalogData.forEach((e) => {
     catalogSlugs.push(e.path);
-  })
+  });
 
   catalogSlugs.forEach((item) => {
-    category = productData.filter(e => e.catalogSlug === item)
-    
-    lastProductInCategory = category.find(e => e.id === category.length.toString());
-    
+    category = productData.filter((e) => e.catalogSlug === item);
+
+    lastProductInCategory = category.find(
+      (e) => e.id === category.length.toString()
+    );
+
     NewArrivals.push(lastProductInCategory);
-  })
-  
+  });
+
   return NewArrivals;
-}
+};
 
 // get a product object by him catalog and id
 const getProductByCatalogAndId = (catalog, id) => {
   let product;
-  if (catalog & id === undefined) {
-    product=undefined
+  if (catalog & (id === undefined)) {
+    product = undefined;
   } else {
-    product = productData.find(e => e.catalogSlug === catalog && e.id === id)
+    product = productData.find((e) => e.catalogSlug === catalog && e.id === id);
   }
   return product;
-}
+};
 
 /*( si les mots d'un groupe de mot recherchés sont mis dans un ordre
    different de celui du nom des produits, ceux-ci ne s'afficheront pas(A performer plus tard) )*/
-const searchProducts = value => {
-
+const searchProducts = (value) => {
   let results;
-    results = productData.filter( e => {
-      return e.name
-        .toLowerCase()
-        .replace(/\s/g, "")
-        .includes(value.toLowerCase().replace(/\s/g, ""));
-    })
-  return results
-}
-
+  results = productData.filter((e) => {
+    return e.name
+      .toLowerCase()
+      .replace(/\s/g, "")
+      .includes(value.toLowerCase().replace(/\s/g, ""));
+  });
+  return results;
+};
 
 export {
   productData,
   getProductByCatalogAndId,
   getNewProducts,
   getFavoriteProducts,
-  searchProducts, 
+  searchProducts,
 };
-
-
-

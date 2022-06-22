@@ -3,8 +3,9 @@ import Grid from "../components/Grid";
 import ProductCard from "../components/ProductCard";
 import NewAndFavorite from "../components/NewAndFavorite";
 import Section, { SectionTitle, SectionBody } from "../components/Sections";
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { useParams } from "react-router-dom";
-import { catalogData } from "../Assets/data/CatalogData";
+import { db } from "../firebase-config";
 import { productData } from "../Assets/data/ProductData";
 import Filter from "../components/Filter";
 
@@ -14,18 +15,10 @@ const Catalog = (props) => {
 
   const [activeFilterBtn, setActiveFilterBtn] = useState(false);
 
-  // Get current category
-  const [activeCatalogPage, setActiveCatalogPage] = useState(
-    catalogData.find((item) => catalog === item.path)
-  );
-
   //Get products witch are in current category
-  const [catalogProductCards, setCatalogProductCards] = useState(
-    productData.filter((e) => e.catalogSlug === catalog)
-  );
-  const [catalogProductCardsClone, setCatalogProductCardsClone] = useState(
-    productData.filter((e) => e.catalogSlug === catalog)
-  );
+  const [catalogProductCards, setCatalogProductCards] = useState(undefined);
+  const [catalogProductCardsClone, setCatalogProductCardsClone] =
+    useState(undefined);
 
   let allFilterByPriceResults = [];
   let allFilterByColorResults = [];
@@ -82,21 +75,29 @@ const Catalog = (props) => {
   };
 
   useEffect(() => {
-    // put product category witch is in params in state
-    setActiveCatalogPage(catalogData.find((item) => catalog === item.path));
+    //get from firestore product which have as category param.catalogSlug and put them to the state
+    const getProductByCategory = async () => {
+      const q = query(
+        collection(db, "productData"),
+        where("category", "==", catalog)
+      );
 
-    // put products witch are in current category in state
-    setCatalogProductCards(
-      productData.filter((e) => e.catalogSlug === catalog)
-    );
-    setCatalogProductCardsClone(
-      productData.filter((e) => e.catalogSlug === catalog)
-    );
+      const querySnapshot = await getDocs(q);
+      let products = [];
+      querySnapshot.forEach((doc) => {
+        products.push(doc.data());
+      });
+
+      setCatalogProductCards([...products]);
+      setCatalogProductCardsClone([...products]);
+    };
+
+    getProductByCategory();
   }, [catalog]);
   return (
     <>
       {/* The title and body sections components are in Sections.jsx */}
-      {activeCatalogPage ? (
+      {catalogProductCards && catalogProductCardsClone && (
         <div className="catalog">
           <Section>
             <SectionTitle
@@ -109,7 +110,9 @@ const Catalog = (props) => {
                 </div>
               }
             >
-              {`${activeCatalogPage.display} (${catalogProductCardsClone.length})`}
+              {`${catalog.replace("-", " ")} (${
+                catalogProductCardsClone.length
+              })`}
             </SectionTitle>
             <SectionBody>
               <div className="catalog_body">
@@ -177,8 +180,6 @@ const Catalog = (props) => {
           </Section>
           <NewAndFavorite />
         </div>
-      ) : (
-        <h1>This catalog page does not found</h1>
       )}
     </>
   );

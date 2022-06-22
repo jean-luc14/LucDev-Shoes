@@ -5,26 +5,13 @@ import Moccasins from "../../Assets/images/moccasins/7/gray.jpg";
 
 // Debugging Component
 const B = () => {
-  useEffect(() => {
-    let arr1 = [];
-    let arr2 = [1, 2, 3, 4, 5];
-    let arr;
-    arr1.forEach((item) => {
-      arr = arr2.filter((e) => e < item);
-      console.log(arr);
-    });
-  }, []);
-
   const dowload = () => {
-    let link = document.querySelector("#link");
-    link.href = "";
+    console.log("derby-shoes".toUpperCase().replace("-", " "));
   };
   return (
     <>
-      <div className="parent">
-        <div className="child">
-          <a id="link" href="#" onClick={dowload}></a>
-        </div>
+      <div className="parent" onClick={dowload}>
+        <div className="child"></div>
       </div>
     </>
   );

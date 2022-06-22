@@ -21,6 +21,7 @@
       font-size: calc(100 * var(--res));
       font-weight: 600;
       @extend %title;
+      text-transform: capitalize;
       &.active {
         transform: translateY(0);
         transition-delay: 1s;
