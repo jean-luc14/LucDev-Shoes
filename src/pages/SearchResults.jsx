@@ -6,6 +6,8 @@ import NewAndFavorite from "../components/NewAndFavorite";
 import Section, { SectionTitle, SectionBody } from "../components/Sections";
 import { searchProducts } from "../Assets/data/ProductData";
 import Filter from "../components/Filter";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase-config";
 
 const SearchResults = () => {
   const [activeFilterBtn, setActiveFilterBtn] = useState(false);
@@ -13,10 +15,8 @@ const SearchResults = () => {
   let params = useParams();
   let value = params.value;
   //All filter state
-  const [searchResults, setSearchResults] = useState(
-    searchProducts(params.value)
-  );
-  const [filterResults, setFilterResults] = useState(searchResults);
+  const [searchResults, setSearchResults] = useState([]);
+  const [filterResults, setFilterResults] = useState([]);
 
   let allFilterByCategoryResults = [];
   let allFilterByPriceResults = [];
@@ -101,41 +101,80 @@ const SearchResults = () => {
   };
 
   useEffect(() => {
-    setSearchResults(searchProducts(value));
-    setFilterResults(searchProducts(value));
+    //get all products from firestore which have a search value and put their in state
+    const getAllProducts = async (value) => {
+      const querySnapshot = await getDocs(collection(db, "productData"));
+      let products = [];
+      querySnapshot.forEach((doc) => {
+        products.push(doc.data());
+      });
+      const productResults = searchProducts(value, products);
+
+      setSearchResults(productResults);
+      setFilterResults(productResults);
+    };
+    getAllProducts(value);
+
+    return () => {
+      setSearchResults([]);
+      setFilterResults([]);
+    };
   }, [value]);
 
   return (
-    <div className="search_results">
-      <Section>
-        <SectionTitle
-          ProductCards={filterResults}
-          instruction={
-            <div className="color_instruction">
-              <span className="triangle"></span>
-              Each product has different colors, please click on the buy button
-              to see the other colors of the product{" "}
-            </div>
-          }
-        >
-          {`Search Results (${filterResults.length})`}
-        </SectionTitle>
-        <SectionBody>
-          <div className="search_results_body">
-            <div className="filter_btn_wrapper">
-              <button
-                className="filter_btn"
-                onClick={() => {
-                  setActiveFilterBtn(!activeFilterBtn);
-                }}
-              >
-                Filter{" "}
-              </button>
-              <div
-                className={`filter_btn_child ${
-                  activeFilterBtn ? "active" : ""
-                }`}
-              >
+    <>
+      {searchResults && filterResults && (
+        <div className="search_results">
+          <Section>
+            <SectionTitle
+              ProductCards={filterResults}
+              instruction={
+                <div className="color_instruction">
+                  <span className="triangle"></span>
+                  Each product has different colors, please click on the buy
+                  button to see the other colors of the product{" "}
+                </div>
+              }
+            >
+              {`Search Results (${filterResults.length})`}
+            </SectionTitle>
+            <SectionBody>
+              <div className="search_results_body">
+                <div className="filter_btn_wrapper">
+                  <button
+                    className="filter_btn"
+                    onClick={() => {
+                      setActiveFilterBtn(!activeFilterBtn);
+                    }}
+                  >
+                    Filter{" "}
+                  </button>
+                  <div
+                    className={`filter_btn_child ${
+                      activeFilterBtn ? "active" : ""
+                    }`}
+                  >
+                    <Filter
+                      searchPage={true}
+                      getColorQuantity={getColorQuantity}
+                      getCategoryQuantity={getCategoryQuantity}
+                      searchResults={searchResults}
+                      filterByPrice={filterByPrice}
+                      filterByColor={filterByColor}
+                      filterByCategory={filterByCategory}
+                      putFilterResultsInState={putFilterResultsInState}
+                      value={value}
+                    />
+                  </div>
+                  {activeFilterBtn ? (
+                    <div
+                      className="filter_btn_wrapper_bg"
+                      onClick={() => {
+                        setActiveFilterBtn(!activeFilterBtn);
+                      }}
+                    ></div>
+                  ) : null}
+                </div>
                 <Filter
                   searchPage={true}
                   getColorQuantity={getColorQuantity}
@@ -147,51 +186,33 @@ const SearchResults = () => {
                   putFilterResultsInState={putFilterResultsInState}
                   value={value}
                 />
-              </div>
-              {activeFilterBtn ? (
-                <div
-                  className="filter_btn_wrapper_bg"
-                  onClick={() => {
-                    setActiveFilterBtn(!activeFilterBtn);
-                  }}
-                ></div>
-              ) : null}
-            </div>
-            <Filter
-              searchPage={true}
-              getColorQuantity={getColorQuantity}
-              getCategoryQuantity={getCategoryQuantity}
-              searchResults={searchResults}
-              filterByPrice={filterByPrice}
-              filterByColor={filterByColor}
-              filterByCategory={filterByCategory}
-              putFilterResultsInState={putFilterResultsInState}
-              value={value}
-            />
-            <div className="search_results_body_child">
-              {filterResults.length > 0 ? (
-                <Grid searchResults={true}>
-                  {filterResults.map((e, i) => (
-                    <ProductCard productProps={e} key={i} />
-                  ))}
-                </Grid>
-              ) : (
-                <div className="no_results">
-                  <h1> Oops! No Results </h1>
-                  <div>
-                    <span className="triangle"></span>
-                    Please select at least one product category and one active
-                    (red) product color. If there is no active category or
-                    product color, please search for other keywords
-                  </div>
+                <div className="search_results_body_child">
+                  {filterResults.length > 0 ? (
+                    <Grid searchResults={true}>
+                      {filterResults.map((e, i) => (
+                        <ProductCard productProps={e} key={i} />
+                      ))}
+                    </Grid>
+                  ) : (
+                    <div className="no_results">
+                      <h1> Oops! No Results </h1>
+                      <div>
+                        <span className="triangle"></span>
+                        Please select at least one product category and one
+                        active (red) product color. If there is no active
+                        category or product color, please search for other
+                        keywords
+                      </div>
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </div>
-        </SectionBody>
-      </Section>
-      <NewAndFavorite />
-    </div>
+              </div>
+            </SectionBody>
+          </Section>
+          <NewAndFavorite />
+        </div>
+      )}
+    </>
   );
 };
 export default SearchResults;

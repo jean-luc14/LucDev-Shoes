@@ -2159,9 +2159,9 @@ const getProductByCatalogAndId = (catalog, id) => {
 
 /*( si les mots d'un groupe de mot recherchés sont mis dans un ordre
    different de celui du nom des produits, ceux-ci ne s'afficheront pas(A performer plus tard) )*/
-const searchProducts = (value) => {
+const searchProducts = (value, products) => {
   let results;
-  results = productData.filter((e) => {
+  results = products.filter((e) => {
     return e.name
       .toLowerCase()
       .replace(/\s/g, "")

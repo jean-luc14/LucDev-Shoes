@@ -4,6 +4,8 @@ import Search_icon from "../Assets/icons/search_icon.png";
 import { searchProducts } from "../Assets/data/ProductData";
 import { useSelector, useDispatch } from "react-redux";
 import { set } from "../redux/search/ActiveSearchSlice";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase-config";
 
 const Search = () => {
   const [dynamic_search_data, setDynamic_search_data] = useState([]);
@@ -41,9 +43,19 @@ const Search = () => {
     animSearchFoo();
   };
   useEffect(() => {
-    // search products and put it in state
-    var dynamic_result = searchProducts(inputValue);
-    setDynamic_search_data(dynamic_result);
+    //get all products from firestore which have a search value and put their in state
+    const getAllProducts = async (value) => {
+      const querySnapshot = await getDocs(collection(db, "productData"));
+      let products = [];
+      querySnapshot.forEach((doc) => {
+        products.push(doc.data());
+      });
+      const productResults = searchProducts(value, products);
+
+      setDynamic_search_data(productResults);
+      return productResults;
+    };
+    getAllProducts(inputValue);
   }, [inputValue]);
 
   return (
