@@ -83,28 +83,24 @@ const Search = () => {
                 }`}
               ></span>
               {dynamic_search_data.map((e, i) => (
-                <>
-                  <div
-                    key={i}
-                    className="dynamic_search_item"
-                    onClick={() => goToProductPage(e.catalogSlug, e.id)}
-                  >
-                    <div className="dynamic_search_item_img">
-                      <img src={e.color[0].img} alt={e.name} />
-                    </div>
-                    <div className="dynamic_search_item_content">
-                      <p className="dynamic_search_item_content_price">
-                        US ${e.price}
-                      </p>
-                      <p className="dynamic_search_item_content_category">
-                        {e.catalogSlug}
-                      </p>
-                      <p className="dynamic_search_item_content_name">
-                        {e.name}
-                      </p>
-                    </div>
+                <div
+                  key={i}
+                  className="dynamic_search_item"
+                  onClick={() => goToProductPage(e.catalogSlug, e.id)}
+                >
+                  <div className="dynamic_search_item_img">
+                    <img src={e.color[0].img} alt={e.name} />
                   </div>
-                </>
+                  <div className="dynamic_search_item_content">
+                    <p className="dynamic_search_item_content_price">
+                      US ${e.price}
+                    </p>
+                    <p className="dynamic_search_item_content_category">
+                      {e.catalogSlug}
+                    </p>
+                    <p className="dynamic_search_item_content_name">{e.name}</p>
+                  </div>
+                </div>
               ))}
               {dynamic_search_data.length > 0 ? (
                 <input type="submit" value="Plus"></input>
