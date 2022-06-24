@@ -88,8 +88,8 @@ const Catalog = (props) => {
         products.push(doc.data());
       });
 
-      setCatalogProductCards([...products]);
-      setCatalogProductCardsClone([...products]);
+      setCatalogProductCards(products);
+      setCatalogProductCardsClone(products);
     };
 
     getProductByCategory();

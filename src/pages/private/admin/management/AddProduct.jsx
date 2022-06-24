@@ -49,6 +49,7 @@ const AddProduct = () => {
           name: productForm.name,
           price: productForm.price,
           favorite: productForm.favorite,
+          size: productForm.size,
           color: productForm.color,
           description: productForm.description,
         });
