@@ -28,7 +28,7 @@ const SearchResults = () => {
 
     if (categoryCheck) {
       filterByCategoryResults = searchResults.filter(
-        (item) => item.catalogSlug === productCategory
+        (item) => item.category === productCategory
       );
     }
     return filterByCategoryResults.length;
@@ -60,7 +60,7 @@ const SearchResults = () => {
 
     if (categoryCheck) {
       filterByCategoryResults = searchResults.filter(
-        (item) => item.catalogSlug === productCategory
+        (item) => item.category === productCategory
       );
       allFilterByCategoryResults.push(...filterByCategoryResults);
     }

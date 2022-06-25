@@ -86,7 +86,7 @@ const Search = () => {
                 <div
                   key={i}
                   className="dynamic_search_item"
-                  onClick={() => goToProductPage(e.catalogSlug, e.id)}
+                  onClick={() => goToProductPage(e.category, e.id)}
                 >
                   <div className="dynamic_search_item_img">
                     <img src={e.color[0].img} alt={e.name} />
@@ -96,7 +96,7 @@ const Search = () => {
                       US ${e.price}
                     </p>
                     <p className="dynamic_search_item_content_category">
-                      {e.catalogSlug}
+                      {e.category}
                     </p>
                     <p className="dynamic_search_item_content_name">{e.name}</p>
                   </div>

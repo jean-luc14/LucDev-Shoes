@@ -77,7 +77,7 @@ const ProductView = (props) => {
     dispatch(
       addItem({
         id: product.id,
-        catalogSlug: product.catalogSlug,
+        catalogSlug: product.category,
         name: product.name,
         price: product.price,
         img: selectedImg,
@@ -106,7 +106,7 @@ const ProductView = (props) => {
 
   // go to the page of current category
   const goToCategoryPage = () => {
-    navigate(`/catalog=${product.catalogSlug}`);
+    navigate(`/catalog=${product.category}`);
 
     if (props.Modal) {
       dispatch(remove());
@@ -239,9 +239,7 @@ const ProductView = (props) => {
                   <p>{product.name}</p>
                   <div className="category">
                     Category :{" "}
-                    <span onClick={goToCategoryPage}>
-                      {product.catalogSlug}
-                    </span>
+                    <span onClick={goToCategoryPage}>{product.category}</span>
                   </div>
                   <div>
                     Color : <span onClick={goToCategoryPage}>{color}</span>
