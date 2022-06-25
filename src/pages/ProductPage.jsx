@@ -24,19 +24,15 @@ const ProductPage = () => {
       );
 
       const querySnapshot = await getDocs(q);
-      let product;
+      let prod;
       querySnapshot.forEach((doc) => {
-        product = doc.data();
+        prod = doc.data();
       });
 
-      console.log(product);
+      setProduct(prod);
+      //console.log(prod);
     };
     getProductByCategoryAndId();
-    productData.forEach((e) => {
-      if ((id === e.id) & (catalogSlug === e.catalogSlug)) {
-        setProduct(e);
-      }
-    });
   }, [id, catalogSlug]);
 
   return (

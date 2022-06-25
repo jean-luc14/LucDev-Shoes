@@ -1,34 +1,33 @@
-.related_products{
-  height:35vw;
-  width:95%;
-  margin:10vmin auto;
-  background:$background;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-around;
-  &_title{
-    height:auto;
-    width:100%;
-    overflow:hidden;
+.related_products {
+  height: 45vw;
+  width: 95%;
+  margin: 10vmin auto;
+  background: $background;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  &_title {
+    height: auto;
+    width: 100%;
+    overflow: hidden;
     @include flex;
 
-    h1{
+    h1 {
       font-size: calc(80 * var(--res));
-      margin:1vmin 0;
-      font-weight:500;
+      margin: 1vmin 0;
+      font-weight: 500;
       @extend %title;
-      &.active{
-        transform:translateY(0);
+      &.active {
+        transform: translateY(0);
       }
-      
     }
   }
-  &_child{
-    @include flex($justify-content:space-around);
-    margin-bottom:5vmin;
-    &_item{
-      height:20vw;
-      width:20vw;
+  &_child {
+    @include flex($justify-content: space-around);
+    margin-bottom: 5vmin;
+    &_item {
+      height: 20vw;
+      width: 20vw;
     }
   }
 }

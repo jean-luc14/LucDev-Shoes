@@ -60,7 +60,7 @@ const ProductView = (props) => {
     dispatch(
       addItem({
         id: product.id,
-        catalogSlug: product.catalogSlug,
+        catalogSlug: product.category,
         name: product.name,
         price: product.price,
         img: selectedImg,

@@ -1,50 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
 import ViewProductButton from "./ViewProductButton";
 import { useDispatch } from "react-redux";
 import { set } from "../redux/productModal/ProductModalSlice";
 
 const ProductCard = (props) => {
+  // product id and category state
+  const id = props.productProps ? props.productProps.id : undefined;
+  const catalogSlug = props.productProps
+    ? props.productProps.category
+    : undefined;
   //Navigate
   const navigate = useNavigate();
-
-  //Go to product page func
-  const goToProductPage = (catalogSlug, id) => {
-    navigate(`/catalog=${catalogSlug}&id=${id}`);
-  };
-
-  //Catch current product id and category
-  const id = props.productProps.id;
-  const catalogSlug = props.productProps.catalogSlug;
-
   //Dispatch
   const dispatch = useDispatch();
-  return (
-    <div className="product_card">
-      <div
-        className={`product_card_child ${
-          props.newAndFavorite ? "newAndFavorite" : ""
-        }`}
-        onClick={() => goToProductPage(catalogSlug, id)}
-      >
-        <img src={props.productProps.color[0].img} />
-        <div className="product_card_child_name">{props.productProps.name}</div>
-      </div>
-      <h1 className="product_card_price">US ${props.productProps.price}</h1>
-      {/* Button to show a product detail in modal with redux */}
-      <ViewProductButton
-        click={(e) => {
-          dispatch(set({ id, catalogSlug }));
-          e.stopPropagation();
-        }}
-      />
-    </div>
-  );
-};
 
-ProductCard.propTypes = {
-  productProps: PropTypes.object.isRequired,
+  //Go to product page func
+  const goToProductPage = (catalog, id) => {
+    navigate(`/catalog=${catalog}&id=${id}`);
+  };
+
+  return (
+    <>
+      {props.productProps && (
+        <div className="product_card">
+          <div
+            className={`product_card_child ${
+              props.newAndFavorite ? "newAndFavorite" : ""
+            }`}
+            onClick={() => goToProductPage(catalogSlug, id)}
+          >
+            <img src={props.productProps.color[0].img} />
+            <div className="product_card_child_name">
+              {props.productProps.name}
+            </div>
+          </div>
+          <h1 className="product_card_price">US ${props.productProps.price}</h1>
+          {/* Button to show a product detail in modal with redux */}
+          <ViewProductButton
+            click={(e) => {
+              dispatch(set({ id, catalogSlug }));
+              e.stopPropagation();
+            }}
+          />
+        </div>
+      )}
+    </>
+  );
 };
 
 export default ProductCard;
