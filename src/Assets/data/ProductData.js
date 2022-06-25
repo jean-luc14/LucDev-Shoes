@@ -2145,7 +2145,6 @@ const getNewProducts = () => {
 
   return NewArrivals;
 };
-
 // get a product object by him catalog and id
 const getProductByCatalogAndId = (catalog, id) => {
   let product;
