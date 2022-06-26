@@ -19,7 +19,7 @@ const ThumbsSizeQuantityButton = (props) => {
   //get true if current product with even properties is in cart already
   const already = cartItems.some(
     (e) =>
-      (e.catalogSlug === props.product.catalogSlug) &
+      (e.category === props.product.category) &
       (e.id === props.product.id) &
       (e.color === props.color) &
       (e.size === props.size)
@@ -43,7 +43,7 @@ const ThumbsSizeQuantityButton = (props) => {
     //get true if current product with even properties is in cart already
     const already = cartItems.some(
       (e) =>
-        (e.catalogSlug === props.product.catalogSlug) &
+        (e.category === props.product.category) &
         (e.id === props.product.id) &
         (e.color === props.color) &
         (e.size === props.size)
@@ -136,12 +136,12 @@ const Buttons = (props) => {
     //get true if current product with even properties is in cart already
     const already = props.cartItems.some(
       (e) =>
-        (e.catalogSlug === props.product.catalogSlug) &
+        (e.category === props.product.category) &
         (e.id === props.product.id) &
         (e.color === props.color) &
         (e.size === props.size)
     );
-    props.setProductAlreadyInCart(already);
+    props.setProductAlreadyInCart(already); 
   }, [props.size, props.color]);
 
   return (
@@ -176,7 +176,7 @@ const Buttons = (props) => {
           type="button"
           onClick={() => {
             navigate(
-              `/catalog=${props.product.catalogSlug}&id=${props.product.id}`
+              `/category=${props.product.category}&id=${props.product.id}`
             );
             dispatch(remove());
           }}

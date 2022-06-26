@@ -22,18 +22,18 @@
   }
 }
 
-#navbar .catalog_list_background {
+#navbar .category_list_background {
   @extend %dark-background;
 }
-#navbar .catalog_list_parent {
+#navbar .category_list_parent {
   height: auto;
-  .catalog_list_btn {
+  .category_list_btn {
     position: absolute;
     left: 0;
     top: 10vmin;
     @extend %button;
   }
-  .catalog_list_wrapper {
+  .category_list_wrapper {
     position: absolute;
     left: 0;
     top: 19vmin;

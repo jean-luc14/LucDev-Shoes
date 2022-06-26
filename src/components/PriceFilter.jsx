@@ -49,7 +49,7 @@ const PriceFilter = ({
     if (searchPage) { 
       Body = document.querySelector(".search_results_body");
     } else {
-      Body = document.querySelector(".catalog_body"); 
+      Body = document.querySelector(".category_body"); 
     }
     const rowFilterGray = document.querySelector(
       ".products_filter_item_price_child.gray"

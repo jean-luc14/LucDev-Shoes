@@ -8,7 +8,7 @@ import About_us from "../components/About_us";
 import B from "../Composants-de-chaussures/Oxford/B";
 import PageNotFound from "../pages/PageNotFound";
 import Cart from "../pages/Cart";
-import Catalog from "../pages/Catalog";
+import Category from "../pages/Category";
 import UserConnected from "../pages/private/userConnected/UserConnected";
 import CheckoutCart from "../pages/private/userConnected/cart/CheckoutCart";
 import OrderCompleteCart from "../pages/private/userConnected/cart/OrderCompleteCart";
@@ -19,8 +19,8 @@ const Routing = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/catalog=:catalogSlug&id=:id" element={<ProductPage />} />
-      <Route path="/catalog=:catalogSlug" element={<Catalog />} />
+      <Route path="/category=:category&id=:id" element={<ProductPage />} />
+      <Route path="/category=:category" element={<Category />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/about" element={<About_us />} />
       <Route path="/contact" element={<Contact />} />

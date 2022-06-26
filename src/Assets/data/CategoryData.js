@@ -1,4 +1,4 @@
-const catalogData = [
+const categoryData = [
   {
     display: "Loafers",
     path: "loafers",
@@ -61,4 +61,4 @@ const catalogData = [
   },
 ];
 
-export { catalogData };
+export { categoryData };

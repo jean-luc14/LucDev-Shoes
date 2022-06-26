@@ -1,23 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const items = localStorage.getItem('cartItems') !== null ?
-  JSON.parse(localStorage.getItem('cartItems')) : []
-  
-const initialState = { value: items }
+const items =
+  localStorage.getItem("cartItems") !== null
+    ? JSON.parse(localStorage.getItem("cartItems"))
+    : [];
+
+const initialState = { value: items };
 
 export const cartItemsSlice = createSlice({
-  name: 'cartItems',
-  initialState, 
+  name: "cartItems",
+  initialState,
   reducers: {
-    //add product to cart 
+    //add product to cart
     addItem: (state, action) => {
-      const newItem = action.payload
+      const newItem = action.payload;
 
-      const duplicate = findItem(state.value, newItem)
+      const duplicate = findItem(state.value, newItem);
 
       if (duplicate.length > 0) {
-        state.value = delItem(state.value, newItem)
-        
+        state.value = delItem(state.value, newItem);
+
         state.value = [
           ...state.value,
           {
@@ -26,19 +28,19 @@ export const cartItemsSlice = createSlice({
             quantity: newItem.quantity + duplicate[0].quantity,
           },
         ];
-      }
-      else {
+      } else {
         state.value = [
           ...state.value,
           {
             ...newItem,
             valueItemId:
               state.value.length > 0
-                ? state.value[state.value.length - 1].valueItemId + 1: 1,
+                ? state.value[state.value.length - 1].valueItemId + 1
+                : 1,
           },
         ];
-      } 
-      localStorage.setItem('cartItems',JSON.stringify(sortItems(state.value)))
+      }
+      localStorage.setItem("cartItems", JSON.stringify(sortItems(state.value)));
     },
 
     //update a product in products of cart
@@ -56,39 +58,36 @@ export const cartItemsSlice = createSlice({
           },
         ];
       }
-      localStorage.setItem("cartItems", JSON.stringify(sortItems(state.value))); 
+      localStorage.setItem("cartItems", JSON.stringify(sortItems(state.value)));
     },
 
     //remove product in cart
     removeItem: (state, action) => {
-      const item = action.payload
+      const item = action.payload;
       state.value = delItem(state.value, item);
-       localStorage.setItem(
-         "cartItems",
-         JSON.stringify(sortItems(state.value))
-      ); 
-    }
-  }
-})
+      localStorage.setItem("cartItems", JSON.stringify(sortItems(state.value)));
+    },
+  },
+});
 
-//find product 
+//find product
 const findItem = (arr, item) =>
   arr.filter(
     (e) =>
-      e.catalogSlug === item.catalogSlug &&
+      e.category === item.category &&
       e.id === item.id &&
       e.color === item.color &&
-      e.size === item.size 
+      e.size === item.size
   );
 
 //delete product
 const delItem = (arr, item) =>
   arr.filter(
-    e =>
-      e.catalogSlug !== item.catalogSlug ||
+    (e) =>
+      e.category !== item.category ||
       e.id !== item.id ||
       e.color !== item.color ||
-      e.size !== item.size 
+      e.size !== item.size
   );
 
 //sort products
@@ -98,6 +97,6 @@ const sortItems = (arr) =>
   );
 
 export { findItem, delItem, sortItems };
-export const { addItem, updateItem ,removeItem} = cartItemsSlice.actions;
+export const { addItem, updateItem, removeItem } = cartItemsSlice.actions;
 
-export default cartItemsSlice.reducer
+export default cartItemsSlice.reducer;

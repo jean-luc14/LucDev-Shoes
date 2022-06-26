@@ -1,5 +1,5 @@
-//filter of search results page and catalog page
-.catalog_body,
+//filter of search results page and category page
+.category_body,
 .search_results_body .products_filter {
   position: sticky;
   top: 20vmin;
@@ -9,7 +9,7 @@
   padding: 5px 2vw;
 }
 
-.catalog_body,
+.category_body,
 .search_results_body .filter_btn_wrapper {
   display: none;
   position: sticky;
@@ -51,11 +51,11 @@
 }
 
 @include tablet {
-  .catalog_body,
+  .category_body,
   .search_results_body > .products_filter {
     display: none;
   }
-  .catalog_body,
+  .category_body,
   .search_results_body .filter_btn_wrapper {
     display: block;
     .products_filter {
@@ -64,11 +64,11 @@
   }
 }
 @include mobile {
-  .catalog_body,
+  .category_body,
   .search_results_body > .products_filter {
     display: none;
   }
-  .catalog_body,
+  .category_body,
   .search_results_body .filter_btn_wrapper {
     display: block;
     .products_filter {

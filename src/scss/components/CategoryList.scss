@@ -1,10 +1,10 @@
-.catalog_list{
+.category_list{
   position:sticky;
   top:0;
   width:auto;
   height:auto;
   
-  .catalog_list_child{
+  .category_list_child{
     opacity:1;
     height: auto;
     border-radius:10px;
@@ -16,7 +16,7 @@
       overflow:auto;
     }
 
-    .catalog_link{
+    .category_link{
       position:relative;
       overflow:hidden;
       width:100%;
@@ -28,7 +28,7 @@
         background:rgba(183, 183, 183, 0.624);
       }
     }
-    .catalog_link_child{
+    .category_link_child{
       display:flex;
       align-items:center;
       width:100%;

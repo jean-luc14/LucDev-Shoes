@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: {
-    catalogSlug: undefined,
+    category: undefined,
     id: undefined,
   },
 };

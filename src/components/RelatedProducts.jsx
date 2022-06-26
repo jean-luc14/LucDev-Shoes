@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
-import { getProductByCatalogAndId } from "../Assets/data/ProductData";
+import { getProductByCategoryAndId } from "../Assets/data/ProductData";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../firebase-config";
 
@@ -50,7 +50,6 @@ const RelatedProducts = ({ product }) => {
     }
     //Add active class to title of related product if he is visible in viewport
     const animateRelatedTitle = () => {
-      console.log(product);
       if (product === undefined) return;
       //get HtmlElement title container of related product
       const relatedProducts = document.querySelector(".related_products");

@@ -12,14 +12,14 @@ const ProductPage = () => {
   const [product, setProduct] = useState(undefined);
   const params = useParams();
   const id = params.id;
-  const catalogSlug = params.catalogSlug;
+  const category = params.category;
 
   useEffect(() => {
-    //get from firestore product which have as category param.catalogSlug, id param.id and put it to the state
+    //get from firestore product which have as category param.category, id param.id and put it to the state
     const getProductByCategoryAndId = async () => {
       let q = query(
         collection(db, "productData"),
-        where("category", "==", catalogSlug),
+        where("category", "==", category),
         where("id", "==", id)
       );
 
@@ -30,10 +30,9 @@ const ProductPage = () => {
       });
 
       setProduct(prod);
-      //console.log(prod);
     };
     getProductByCategoryAndId();
-  }, [id, catalogSlug]);
+  }, [id, category]);
 
   return (
     <div>

@@ -7,17 +7,15 @@ import { set } from "../redux/productModal/ProductModalSlice";
 const ProductCard = (props) => {
   // product id and category state
   const id = props.productProps ? props.productProps.id : undefined;
-  const catalogSlug = props.productProps
-    ? props.productProps.category
-    : undefined;
+  const category = props.productProps ? props.productProps.category : undefined;
   //Navigate
   const navigate = useNavigate();
   //Dispatch
   const dispatch = useDispatch();
 
   //Go to product page func
-  const goToProductPage = (catalog, id) => {
-    navigate(`/catalog=${catalog}&id=${id}`);
+  const goToProductPage = (category, id) => {
+    navigate(`/category=${category}&id=${id}`);
   };
 
   return (
@@ -28,7 +26,7 @@ const ProductCard = (props) => {
             className={`product_card_child ${
               props.newAndFavorite ? "newAndFavorite" : ""
             }`}
-            onClick={() => goToProductPage(catalogSlug, id)}
+            onClick={() => goToProductPage(category, id)}
           >
             <img src={props.productProps.color[0].img} />
             <div className="product_card_child_name">
@@ -39,7 +37,7 @@ const ProductCard = (props) => {
           {/* Button to show a product detail in modal with redux */}
           <ViewProductButton
             click={(e) => {
-              dispatch(set({ id, catalogSlug }));
+              dispatch(set({ id, category }));
               e.stopPropagation();
             }}
           />

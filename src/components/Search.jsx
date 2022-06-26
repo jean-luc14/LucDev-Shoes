@@ -29,8 +29,8 @@ const Search = () => {
   };
 
   // go to product page
-  const goToProductPage = (catalogSlug, id) => {
-    navigate(`/catalog=${catalogSlug}&id=${id}`);
+  const goToProductPage = (category, id) => {
+    navigate(`/category=${category}&id=${id}`);
     setInputValue("");
     animSearchFoo();
   };

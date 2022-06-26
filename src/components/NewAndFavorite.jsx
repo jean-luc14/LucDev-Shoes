@@ -17,7 +17,7 @@ const NewAndFavorite = (props) => {
   useEffect(() => {
     //Get new and favorite products from firestore
     const getNewAndFavoriteProducts = async () => {
-      let productCatalogList = [];
+      let productCategoryList = [];
       let allProducts = [];
       let NewArrivals = [];
       let category;
@@ -29,12 +29,12 @@ const NewAndFavorite = (props) => {
         const all = doc.data();
         const docCategory = doc.data().category;
         allProducts.push(all);
-        productCatalogList.push(docCategory);
+        productCategoryList.push(docCategory);
       });
-      productCatalogList = [...new Set(productCatalogList)];
+      productCategoryList = [...new Set(productCategoryList)];
 
       //get last product of each product category
-      productCatalogList.forEach((item) => {
+      productCategoryList.forEach((item) => {
         category = allProducts.filter((e) => e.category === item);
         category.sort((a, b) => Number.parseInt(a.id) - Number.parseInt(b.id));
         lastProductInCategory = category.slice(-1)[0];

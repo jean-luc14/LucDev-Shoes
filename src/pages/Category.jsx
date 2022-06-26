@@ -9,15 +9,15 @@ import { db } from "../firebase-config";
 import { productData } from "../Assets/data/ProductData";
 import Filter from "../components/Filter";
 
-const Catalog = (props) => {
+const Category = (props) => {
   const params = useParams();
-  const catalog = params.catalogSlug;
+  const category = params.category;
 
   const [activeFilterBtn, setActiveFilterBtn] = useState(false);
 
   //Get products witch are in current category
-  const [catalogProductCards, setCatalogProductCards] = useState(undefined);
-  const [catalogProductCardsClone, setCatalogProductCardsClone] =
+  const [categoryProductCards, setCategoryProductCards] = useState(undefined);
+  const [categoryProductCardsClone, setCategoryProductCardsClone] =
     useState(undefined);
 
   let allFilterByPriceResults = [];
@@ -28,7 +28,7 @@ const Catalog = (props) => {
     let filterByColorResults = [];
 
     if (colorCheck) {
-      filterByColorResults = catalogProductCards.filter((item) =>
+      filterByColorResults = categoryProductCards.filter((item) =>
         item.color.some((e) =>
           e.name
             .toLowerCase()
@@ -40,10 +40,10 @@ const Catalog = (props) => {
     return filterByColorResults.length;
   };
 
-  /*filter catalogProductCards Products By Price
+  /*filter categoryProductCards Products By Price
    and push it to allFilterByPriceResults */
   const filterByPrice = (price) => {
-    allFilterByPriceResults = catalogProductCards.filter(
+    allFilterByPriceResults = categoryProductCards.filter(
       (e) => e.price < price
     );
   };
@@ -68,18 +68,18 @@ const Catalog = (props) => {
     }
   };
 
-  // push all filter results to catalogProductCardsClone state
+  // push all filter results to categoryProductCardsClone state
   const putFilterResultsInState = () => {
     let arr = [...new Set(allFilterByColorResults)];
-    setCatalogProductCardsClone(arr);
+    setCategoryProductCardsClone(arr);
   };
 
   useEffect(() => {
-    //get from firestore product which have as category param.catalogSlug and put them to the state
+    //get from firestore product which have as category param.category and put them to the state
     const getProductByCategory = async () => {
       const q = query(
         collection(db, "productData"),
-        where("category", "==", catalog)
+        where("category", "==", category)
       );
 
       const querySnapshot = await getDocs(q);
@@ -88,20 +88,20 @@ const Catalog = (props) => {
         products.push(doc.data());
       });
 
-      setCatalogProductCards(products);
-      setCatalogProductCardsClone(products);
+      setCategoryProductCards(products);
+      setCategoryProductCardsClone(products);
     };
 
     getProductByCategory();
-  }, [catalog]);
+  }, [category]);
   return (
     <>
       {/* The title and body sections components are in Sections.jsx */}
-      {catalogProductCards && catalogProductCardsClone && (
-        <div className="catalog">
+      {categoryProductCards && categoryProductCardsClone && (
+        <div className="category">
           <Section>
             <SectionTitle
-              ProductCards={catalogProductCardsClone}
+              ProductCards={categoryProductCardsClone}
               instruction={
                 <div className="color_instruction">
                   <span className="triangle"></span>
@@ -110,12 +110,12 @@ const Catalog = (props) => {
                 </div>
               }
             >
-              {`${catalog.replace("-", " ")} (${
-                catalogProductCardsClone.length
+              {`${category.replace("-", " ")} (${
+                categoryProductCardsClone.length
               })`}
             </SectionTitle>
             <SectionBody>
-              <div className="catalog_body">
+              <div className="category_body">
                 <div className="filter_btn_wrapper">
                   <button
                     className="filter_btn"
@@ -133,11 +133,11 @@ const Catalog = (props) => {
                     <Filter
                       searchPage={false}
                       getColorQuantity={getColorQuantity}
-                      searchResults={catalogProductCards}
+                      searchResults={categoryProductCards}
                       filterByPrice={filterByPrice}
                       filterByColor={filterByColor}
                       putFilterResultsInState={putFilterResultsInState}
-                      slug={catalog}
+                      slug={category}
                     />
                   </div>
                   {activeFilterBtn ? (
@@ -152,16 +152,16 @@ const Catalog = (props) => {
                 <Filter
                   searchPage={false}
                   getColorQuantity={getColorQuantity}
-                  searchResults={catalogProductCards}
+                  searchResults={categoryProductCards}
                   filterByPrice={filterByPrice}
                   filterByColor={filterByColor}
                   putFilterResultsInState={putFilterResultsInState}
-                  slug={catalog}
+                  slug={category}
                 />
-                <div className="catalog_body_child">
-                  {catalogProductCardsClone.length > 0 ? (
+                <div className="category_body_child">
+                  {categoryProductCardsClone.length > 0 ? (
                     <Grid searchResults={false}>
-                      {catalogProductCardsClone.map((e, i) => (
+                      {categoryProductCardsClone.map((e, i) => (
                         <ProductCard productProps={e} key={i} />
                       ))}
                     </Grid>
@@ -185,4 +185,4 @@ const Catalog = (props) => {
   );
 };
 
-export default Catalog;
+export default Category;

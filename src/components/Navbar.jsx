@@ -4,7 +4,7 @@ import SignUpModal from "./SignUpModal";
 import LogInModal from "./LogInModal";
 import ForgotPasswordModal from "./ForgotPasswordModal";
 import Search from "./Search";
-import CatalogList from "./CatalogList";
+import CategoryList from "./CategoryList";
 import Shopping_icon from "../Assets/icons/shopping_cart.png";
 import { navbarData } from "../Assets/data/NavbarData";
 import { auth } from "../firebase-config";
@@ -24,12 +24,12 @@ const Navbar = () => {
   //catch currentUser from redux/firebase
   const currentUser = useSelector((state) => state.firebase.value.currentUser);
 
-  //state for animate catalog list
-  const [catalog_list_back_state, setCatalog_list_back_state] = useState(false);
+  //state for animate category list
+  const [category_list_back_state, setCategory_list_back_state] = useState(false);
 
-  //ref for to catch navbar,hamburger,catalog list
+  //ref for to catch navbar,hamburger,category list
   const link = useRef(null);
-  const catalogRef = useRef(null);
+  const categoryRef = useRef(null);
   const hamburger_anim = useRef(null);
   const navResponAnim = useRef(null);
   const dispatch = useDispatch(null);
@@ -59,10 +59,10 @@ Please check your internet connect and retry.`
     }
   };
 
-  //catalog list animation
-  const animCatalogList = () => {
-    catalogRef.current.classList.toggle("active");
-    setCatalog_list_back_state(!catalog_list_back_state);
+  //category list animation
+  const animCategoryList = () => {
+    categoryRef.current.classList.toggle("active");
+    setCategory_list_back_state(!category_list_back_state);
   };
 
   return (
@@ -83,22 +83,22 @@ Please check your internet connect and retry.`
           <div className="slice"></div>
           <div className="slice"></div>
         </div>
-        {catalog_list_back_state ? (
+        {category_list_back_state ? (
           <div
-            onClick={animCatalogList}
-            className="catalog_list_background"
+            onClick={animCategoryList}
+            className="category_list_background"
           ></div>
         ) : null}
-        <div className="catalog_list_parent">
+        <div className="category_list_parent">
           <button
-            className="catalog_list_btn"
+            className="category_list_btn"
             type="button"
-            onClick={animCatalogList}
+            onClick={animCategoryList}
           >
-            Catalog
+            Category
           </button>
-          <div ref={catalogRef} className="catalog_list_wrapper">
-            <CatalogList navbar={true} animCatalogList={animCatalogList} />
+          <div ref={categoryRef} className="category_list_wrapper">
+            <CategoryList navbar={true} animCategoryList={animCategoryList} />
           </div>
         </div>
         <div ref={link} id="link">

@@ -1,4 +1,4 @@
-import { catalogData } from "./CatalogData";
+import { categoryData } from "./CategoryData";
 const A = require("../images/A.webp");
 const B = require("../images/B.webp");
 const C = require("../images/C.jpg");
@@ -21,7 +21,7 @@ const sellingPrice = (price) => `${(price * 3).toFixed(2)}`;
 
 const productData = [
   {
-    catalogSlug: "loafers",
+    category: "loafers",
     id: "1",
     name: "men's formal shoes Loafers Size 7-12 comfortable Men dress shoes men's casual shoes formal shoes for men #AL701",
     price: sellingPrice(43.2),
@@ -33,7 +33,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "loafers",
+    category: "loafers",
     id: "2",
     name: "Designer Men Leather Shoes Comfortable Fashion Men loafers Summer Casual Shoes",
     price: sellingPrice(30.52),
@@ -45,7 +45,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "loafers",
+    category: "loafers",
     id: "3",
     name: "Italian High Quality Men Loafers Casual Shoes Luxury Brand Shoes for Men Leather Moccasins British Style Slip on Driving Shoes",
     price: sellingPrice(34.75),
@@ -58,7 +58,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "loafers",
+    category: "loafers",
     id: "4",
     name: "Men Shoes Fashion Loafers Breathable Canvas Sneakers Men Slip-On Casual Shoes Soft Comfortable Non-slip Driving Flats Black Gray",
     price: sellingPrice(12.79),
@@ -70,7 +70,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "loafers",
+    category: "loafers",
     id: "5",
     name: "Designer Shoes Men Zapatos De Hombre Slip-on Leather Shoes Casual Male Shoes Adult Red Driving Moccasin Soft Non-slip Loafers",
     price: sellingPrice(13.8),
@@ -83,7 +83,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "loafers",
+    category: "loafers",
     id: "6",
     name: "Shoes Men Loafers Shoes High Quality Big Size 48 Slip-On Loafers Comfortable Soft Driving Shoe Men Shoes",
     price: sellingPrice(29.89),
@@ -97,7 +97,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "loafers",
+    category: "loafers",
     id: "7",
     name: "Men's Loafers Comfortable Flat Casual Shoes Breathable Slip-On Soft Leather Driving Shoes Moccasins Mocasines Hombre Men Shoes",
     price: sellingPrice(10.28),
@@ -110,7 +110,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "loafers",
+    category: "loafers",
     id: "8",
     name: "Shoes Men Loafers Shoes 2021 Summer Fashion Shoes Men High Quality Leather Man Classic Comfy Casual Men Shoes",
     price: sellingPrice(27.49),
@@ -124,7 +124,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "moccasins",
+    category: "moccasins",
     id: "1",
     name: "Brand Casual Shoes High Quality Men's Leather Shoes Snake Pea Shoes Spring Summer Leather Ladies Moccasin Loafers",
     price: sellingPrice(27.2),
@@ -141,7 +141,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "moccasins",
+    category: "moccasins",
     id: "2",
     name: "Casual Men Shoes Tassels Men Loafers Shoes Genuine Leather Loafers Soft Moccasins Men Suede Loafers for Men Male Flats",
     price: sellingPrice(24.43),
@@ -162,7 +162,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "moccasins",
+    category: "moccasins",
     id: "3",
     name: "Men Casual Shoes Fashion Men Shoes Genuine Leather Men Loafers Moccasins Slip on Men's Flats Male Driving Shoes 2020 New",
     price: sellingPrice(10.32),
@@ -191,7 +191,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "moccasins",
+    category: "moccasins",
     id: "4",
     name: "Summer Leather Shoes Shoes Male Fashion Sneakers Men Casual Men's Italian Leather For Gentle Black Sport Lather Moccasins",
     price: sellingPrice(26.31),
@@ -206,7 +206,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "moccasins",
+    category: "moccasins",
     id: "5",
     name: "Designer New Mens Leather Casual Shoes Formal Brogue Shoes for Men Tassel Loafers Large Size Comfortable Black Brown Moccasins",
     price: sellingPrice(28.44),
@@ -220,7 +220,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "moccasins",
+    category: "moccasins",
     id: "6",
     name: "Men's Moccasins Brown Leather Shoes Gentle Men Mens Dress Loafers Lether Fashion Men's For Wedding Formal Luxury Black Gentleman",
     price: sellingPrice(26.83),
@@ -233,7 +233,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "moccasins",
+    category: "moccasins",
     id: "7",
     name: "Suede Leather Men Shoes Casual Tassel Slip On Loafers Moccasins Soft Breathable Suede Men's Shoes Drivings",
     price: sellingPrice(27.5),
@@ -247,7 +247,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "moccasins",
+    category: "moccasins",
     id: "8",
     name: "Men's Moccasins Brown Leather Shoes Gentle Men Mens Dress Loafers Lether Fashion Men's For Wedding Formal Luxury Black Gentleman",
     price: sellingPrice(26.83),
@@ -260,7 +260,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "oxfords",
+    category: "oxfords",
     id: "1",
     name: "New Men Dress Handmade Shoes Genuine Leather Male Oxford Italian Classic Vintage Lace-up Men's Brogue Shoes Oxford",
     price: sellingPrice(64.1),
@@ -274,7 +274,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "oxfords",
+    category: "oxfords",
     id: "2",
     name: "Handmade Mens Wingtip Oxford Shoes Grey Leather Brogue Men's Dress Shoes Classic Business Formal Shoes for Men 56",
     price: sellingPrice(13.86),
@@ -287,7 +287,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "oxfords",
+    category: "oxfords",
     id: "3",
     name: "Elegant Men Genuine Leather Oxford Wedding Business Mens Dress Flats Shoes 2020 Back Burgundy Vintage Pointed Shoes For Men",
     price: sellingPrice(67.69),
@@ -299,7 +299,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "oxfords",
+    category: "oxfords",
     id: "4",
     name: "Oxford Shoes Fashion Brogue Men Leather Formal Dress Shoes Man Comfortable Office Party Footwear",
     price: sellingPrice(35.28),
@@ -325,7 +325,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "oxfords",
+    category: "oxfords",
     id: "5",
     name: "Men Summer New British Style Shoes Handmade Leather Shoes Wedding Shoes Mens Black Casual Increase British Lace-Up Oxfrods",
     price: sellingPrice(66.66),
@@ -337,7 +337,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "oxfords",
+    category: "oxfords",
     id: "6",
     name: " High Quality Handmade Oxford Dress Shoes Men Genuine Cow Leather Suit Shoes Footwear Wedding Formal Italian Shoes Hot",
     price: sellingPrice(34.6),
@@ -350,7 +350,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "oxfords",
+    category: "oxfords",
     id: "7",
     name: "High Quality Handmade Oxford Dress Shoes Men Genuine Cow Leather Suit Shoes Footwear Wedding Formal Italian Shoes Hot",
     price: sellingPrice(34.6),
@@ -362,7 +362,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "oxfords",
+    category: "oxfords",
     id: "8",
     name: "Luxury Business Oxford Leather Shoes Men Breathable Rubber Formal Dress Shoes Male Office Wedding Flats Footwear Mocassin Homme",
     price: sellingPrice(20.07),
@@ -375,7 +375,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "derby-shoes",
+    category: "derby-shoes",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -393,7 +393,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "derby-shoes",
+    category: "derby-shoes",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -411,7 +411,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "derby-shoes",
+    category: "derby-shoes",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -429,7 +429,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "derby-shoes",
+    category: "derby-shoes",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -447,7 +447,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "derby-shoes",
+    category: "derby-shoes",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -465,7 +465,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "derby-shoes",
+    category: "derby-shoes",
     id: "6",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -483,7 +483,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "derby-shoes",
+    category: "derby-shoes",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -501,7 +501,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "derby-shoes",
+    category: "derby-shoes",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -520,7 +520,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "chukkas",
+    category: "chukkas",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -538,7 +538,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chukkas",
+    category: "chukkas",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -556,7 +556,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chukkas",
+    category: "chukkas",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -574,7 +574,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chukkas",
+    category: "chukkas",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -592,7 +592,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chukkas",
+    category: "chukkas",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -610,7 +610,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chukkas",
+    category: "chukkas",
     id: "6",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -628,7 +628,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chukkas",
+    category: "chukkas",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -646,7 +646,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chukkas",
+    category: "chukkas",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -665,7 +665,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "chelsea-style-boots",
+    category: "chelsea-style-boots",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -683,7 +683,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chelsea-style-boots",
+    category: "chelsea-style-boots",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -701,7 +701,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chelsea-style-boots",
+    category: "chelsea-style-boots",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -719,7 +719,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chelsea-style-boots",
+    category: "chelsea-style-boots",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -737,7 +737,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chelsea-style-boots",
+    category: "chelsea-style-boots",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -755,7 +755,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chelsea-style-boots",
+    category: "chelsea-style-boots",
     id: "6",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -773,7 +773,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chelsea-style-boots",
+    category: "chelsea-style-boots",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -791,7 +791,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "chelsea-style-boots",
+    category: "chelsea-style-boots",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -810,7 +810,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "casual-slip-on-shoes",
+    category: "casual-slip-on-shoes",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -828,7 +828,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-shoes",
+    category: "casual-slip-on-shoes",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -846,7 +846,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-shoes",
+    category: "casual-slip-on-shoes",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -864,7 +864,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-shoes",
+    category: "casual-slip-on-shoes",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -882,7 +882,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-shoes",
+    category: "casual-slip-on-shoes",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -900,7 +900,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-shoes",
+    category: "casual-slip-on-shoes",
     id: "6",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -918,7 +918,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-shoes",
+    category: "casual-slip-on-shoes",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -936,7 +936,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-shoes",
+    category: "casual-slip-on-shoes",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -955,7 +955,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "active-sneakers",
+    category: "active-sneakers",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -973,7 +973,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sneakers",
+    category: "active-sneakers",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -991,7 +991,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sneakers",
+    category: "active-sneakers",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1009,7 +1009,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sneakers",
+    category: "active-sneakers",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1027,7 +1027,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sneakers",
+    category: "active-sneakers",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1045,7 +1045,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sneakers",
+    category: "active-sneakers",
     id: "6",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1063,7 +1063,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sneakers",
+    category: "active-sneakers",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1081,7 +1081,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sneakers",
+    category: "active-sneakers",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1100,7 +1100,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "walking-shoes",
+    category: "walking-shoes",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1118,7 +1118,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "walking-shoes",
+    category: "walking-shoes",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1136,7 +1136,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "walking-shoes",
+    category: "walking-shoes",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1154,7 +1154,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "walking-shoes",
+    category: "walking-shoes",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1172,7 +1172,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "walking-shoes",
+    category: "walking-shoes",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1190,7 +1190,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "walking-shoes",
+    category: "walking-shoes",
     id: "6",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1208,7 +1208,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "walking-shoes",
+    category: "walking-shoes",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1226,7 +1226,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "walking-shoes",
+    category: "walking-shoes",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1245,7 +1245,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "casual-lace-up-sneakers",
+    category: "casual-lace-up-sneakers",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1263,7 +1263,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-lace-up-sneakers",
+    category: "casual-lace-up-sneakers",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1281,7 +1281,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-lace-up-sneakers",
+    category: "casual-lace-up-sneakers",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1299,7 +1299,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-lace-up-sneakers",
+    category: "casual-lace-up-sneakers",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1317,7 +1317,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-lace-up-sneakers",
+    category: "casual-lace-up-sneakers",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1335,7 +1335,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-lace-up-sneakers",
+    category: "casual-lace-up-sneakers",
     id: "6",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1353,7 +1353,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-lace-up-sneakers",
+    category: "casual-lace-up-sneakers",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1371,7 +1371,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-lace-up-sneakers",
+    category: "casual-lace-up-sneakers",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1390,7 +1390,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "casual-slip-on-sneakers",
+    category: "casual-slip-on-sneakers",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1408,7 +1408,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-sneakers",
+    category: "casual-slip-on-sneakers",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1426,7 +1426,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-sneakers",
+    category: "casual-slip-on-sneakers",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1444,7 +1444,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-sneakers",
+    category: "casual-slip-on-sneakers",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1462,7 +1462,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-sneakers",
+    category: "casual-slip-on-sneakers",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1480,7 +1480,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-sneakers",
+    category: "casual-slip-on-sneakers",
     id: "6",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1498,7 +1498,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-sneakers",
+    category: "casual-slip-on-sneakers",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1516,7 +1516,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "casual-slip-on-sneakers",
+    category: "casual-slip-on-sneakers",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1535,7 +1535,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "at-home-shoes",
+    category: "at-home-shoes",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1553,7 +1553,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "at-home-shoes",
+    category: "at-home-shoes",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1571,7 +1571,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "at-home-shoes",
+    category: "at-home-shoes",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1589,7 +1589,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "at-home-shoes",
+    category: "at-home-shoes",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1607,7 +1607,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "at-home-shoes",
+    category: "at-home-shoes",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1625,7 +1625,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "at-home-shoes",
+    category: "at-home-shoes",
     id: "6",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1643,7 +1643,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "at-home-shoes",
+    category: "at-home-shoes",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1661,7 +1661,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "at-home-shoes",
+    category: "at-home-shoes",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1680,7 +1680,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "slides",
+    category: "slides",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1698,7 +1698,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "slides",
+    category: "slides",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1716,7 +1716,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "slides",
+    category: "slides",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1734,7 +1734,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "slides",
+    category: "slides",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1752,7 +1752,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "slides",
+    category: "slides",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1770,7 +1770,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "slides",
+    category: "slides",
     id: "6",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1788,7 +1788,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "slides",
+    category: "slides",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1806,7 +1806,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "slides",
+    category: "slides",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1825,7 +1825,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "toe-post-sandals",
+    category: "toe-post-sandals",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1843,7 +1843,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "toe-post-sandals",
+    category: "toe-post-sandals",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1861,7 +1861,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "toe-post-sandals",
+    category: "toe-post-sandals",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1879,7 +1879,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "toe-post-sandals",
+    category: "toe-post-sandals",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1897,7 +1897,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "toe-post-sandals",
+    category: "toe-post-sandals",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1915,7 +1915,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "toe-post-sandals",
+    category: "toe-post-sandals",
     id: "6",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1933,7 +1933,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "toe-post-sandals",
+    category: "toe-post-sandals",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1951,7 +1951,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "toe-post-sandals",
+    category: "toe-post-sandals",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1970,7 +1970,7 @@ const productData = [
   },
 
   {
-    catalogSlug: "active-sandals",
+    category: "active-sandals",
     id: "1",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -1988,7 +1988,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sandals",
+    category: "active-sandals",
     id: "2",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -2006,7 +2006,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sandals",
+    category: "active-sandals",
     id: "3",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -2024,7 +2024,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sandals",
+    category: "active-sandals",
     id: "4",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -2042,7 +2042,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sandals",
+    category: "active-sandals",
     id: "5",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -2060,7 +2060,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sandals",
+    category: "active-sandals",
     id: "6",
     name: "loufoc en cuire veritable pour homme,style retro,broderie sculpté haute qualité",
     price: sellingPrice(64.1),
@@ -2078,7 +2078,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sandals",
+    category: "active-sandals",
     id: "7",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -2096,7 +2096,7 @@ const productData = [
     ],
   },
   {
-    catalogSlug: "active-sandals",
+    category: "active-sandals",
     id: "8",
     name: "chaussures en cuire veritable qualité",
     price: sellingPrice(64.1),
@@ -2125,16 +2125,16 @@ const getFavoriteProducts = () => {
 // get the last product of each category
 const getNewProducts = () => {
   let lastProductInCategory;
-  const catalogSlugs = [];
+  const categories = [];
   let NewArrivals = [];
   let category;
 
-  catalogData.forEach((e) => {
-    catalogSlugs.push(e.path);
+  categoryData.forEach((e) => {
+    categories.push(e.path);
   });
 
-  catalogSlugs.forEach((item) => {
-    category = productData.filter((e) => e.catalogSlug === item);
+  categories.forEach((item) => {
+    category = productData.filter((e) => e.category === item);
 
     lastProductInCategory = category.find(
       (e) => e.id === category.length.toString()
@@ -2145,13 +2145,13 @@ const getNewProducts = () => {
 
   return NewArrivals;
 };
-// get a product object by him catalog and id
-const getProductByCatalogAndId = (catalog, id) => {
+// get a product object by him category and id
+const getProductByCategoryAndId = (category, id) => {
   let product;
-  if (catalog & (id === undefined)) {
+  if (category & (id === undefined)) {
     product = undefined;
   } else {
-    product = productData.find((e) => e.catalogSlug === catalog && e.id === id);
+    product = productData.find((e) => e.category === category && e.id === id);
   }
   return product;
 };
@@ -2171,7 +2171,7 @@ const searchProducts = (value, products) => {
 
 export {
   productData,
-  getProductByCatalogAndId,
+  getProductByCategoryAndId,
   getNewProducts,
   getFavoriteProducts,
   searchProducts,

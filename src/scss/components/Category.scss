@@ -1,4 +1,4 @@
-.catalog {
+.category {
   .color_instruction {
     position: absolute;
     right: 2%;
@@ -22,7 +22,7 @@
   }
 }
 
-.catalog .catalog_body {
+.category .category_body {
   position: relative;
   @include flex(row, space-between, flex-start);
   width: 98%;
@@ -57,7 +57,7 @@
 }
 
 @media screen and (max-width: $tablet-max-width) {
-  .catalog .catalog_body {
+  .category .category_body {
     @include flex(column, flex-start, center);
     width: 100%;
     &_child {
