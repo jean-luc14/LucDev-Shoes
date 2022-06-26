@@ -128,8 +128,8 @@ const NewColor = ({ productForm, setProductForm }) => {
       <div className="color_list">
         {productForm.color &&
           productForm.color.map((item, index) => (
-            <div className="item">
-              <div key={index}>{item.name}</div>
+            <div key={index} className="item">
+              <div>{item.name}</div>
               <div className="item_img">
                 <img src={item.img} alt={item.name} />
               </div>

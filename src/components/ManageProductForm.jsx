@@ -3,7 +3,7 @@ import NewColor from "./NewColor";
 import NewSize from "./NewSize";
 import NewProductPreview from "./NewProductPreview";
 
-const ManageProductForm = ({ productForm, setProductForm }) => {
+const ManageProductForm = ({ productForm, setProductForm, add }) => {
   const updateProductDescription = (e, type) => {
     if (type === "material") {
       setProductForm({
@@ -28,32 +28,39 @@ const ManageProductForm = ({ productForm, setProductForm }) => {
     <div className="manage_product">
       <div className="manage_product_child">
         <form>
-          <div className="category_wrapper">
-            <label>
-              Product Category:
-              <input
-                type="text"
-                required
-                value={productForm.category}
-                onChange={(e) =>
-                  setProductForm({ ...productForm, category: e.target.value })
-                }
-              ></input>
-            </label>
-          </div>
-          <div className="id_wrapper">
-            <label>
-              Product Id:
-              <input
-                type="number"
-                value={productForm.id}
-                required
-                onChange={(e) =>
-                  setProductForm({ ...productForm, id: e.target.value })
-                }
-              ></input>
-            </label>
-          </div>
+          {add && (
+            <>
+              <div className="category_wrapper">
+                <label>
+                  Product Category:
+                  <input
+                    type="text"
+                    required
+                    value={productForm.category}
+                    onChange={(e) =>
+                      setProductForm({
+                        ...productForm,
+                        category: e.target.value,
+                      })
+                    }
+                  ></input>
+                </label>
+              </div>
+              <div className="id_wrapper">
+                <label>
+                  Product Id:
+                  <input
+                    type="number"
+                    value={productForm.id}
+                    required
+                    onChange={(e) =>
+                      setProductForm({ ...productForm, id: e.target.value })
+                    }
+                  ></input>
+                </label>
+              </div>
+            </>
+          )}
           <div className="name_wrapper">
             <label>
               Product Name:

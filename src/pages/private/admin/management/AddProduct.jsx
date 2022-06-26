@@ -86,6 +86,7 @@ const AddProduct = () => {
       <ManageProductForm
         productForm={productForm}
         setProductForm={setProductForm}
+        add={true}
       />
       <button className="add_product_submit" onClick={addProductToFirestore}>
         Add Product
