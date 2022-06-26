@@ -1,33 +1,26 @@
-.uploadErrorMsg,
-.checkFormError,
-.uploadSuccessMsg {
-  width: 85%;
-  @include flex;
-  height: auto;
-  margin: auto;
-  padding: 2vmin 0vmin;
-  border-radius: 5px;
-  color: red;
-  background: rgba(255, 5, 5, 0.268);
-  border: 2px solid rgb(251, 54, 54);
-}
-
-.uploadSuccessMsg {
-  color: green;
-  background: rgba(5, 255, 26, 0.268);
-  border: 2px solid rgba(0, 192, 35, 0.799);
-}
-.add_product_h1 {
-  width: 10vw;
-  margin: 10vmin auto 5vmin;
-  white-space: nowrap;
-}
 .add_product {
-  width: 90vw;
-  height: auto;
-  margin: 10vmin auto;
-  @include flex(row, space-between, flex-start);
-  &_child {
-    width: 47%;
+  &_h1 {
+    width: 10vw;
+    margin: 10vmin auto 5vmin;
+    white-space: nowrap;
+  }
+  .uploadErrorMsg,
+  .checkFormError,
+  .uploadSuccessMsg {
+    width: 85%;
+    @include flex;
+    height: auto;
+    margin: auto;
+    padding: 2vmin 0vmin;
+    border-radius: 5px;
+    color: red;
+    background: rgba(255, 5, 5, 0.268);
+    border: 2px solid rgb(251, 54, 54);
+  }
+
+  .uploadSuccessMsg {
+    color: green;
+    background: rgba(5, 255, 26, 0.268);
+    border: 2px solid rgba(0, 192, 35, 0.799);
   }
 }
