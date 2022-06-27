@@ -35,7 +35,6 @@ const ManageProductForm = ({ productForm, setProductForm, add }) => {
                   Product Category:
                   <input
                     type="text"
-                    required
                     value={productForm.category}
                     onChange={(e) =>
                       setProductForm({
@@ -52,7 +51,6 @@ const ManageProductForm = ({ productForm, setProductForm, add }) => {
                   <input
                     type="number"
                     value={productForm.id}
-                    required
                     onChange={(e) =>
                       setProductForm({ ...productForm, id: e.target.value })
                     }
@@ -67,7 +65,6 @@ const ManageProductForm = ({ productForm, setProductForm, add }) => {
               <input
                 type="text"
                 value={productForm.name}
-                required
                 onChange={(e) =>
                   setProductForm({ ...productForm, name: e.target.value })
                 }
@@ -80,7 +77,6 @@ const ManageProductForm = ({ productForm, setProductForm, add }) => {
               <input
                 type="number"
                 value={productForm.price}
-                required
                 onChange={(e) =>
                   setProductForm({ ...productForm, price: e.target.value })
                 }
@@ -107,7 +103,6 @@ const ManageProductForm = ({ productForm, setProductForm, add }) => {
               <textarea
                 type="text"
                 value={productForm.description.material}
-                required
                 onChange={(e) => updateProductDescription(e, "material")}
               ></textarea>
             </label>
@@ -116,7 +111,6 @@ const ManageProductForm = ({ productForm, setProductForm, add }) => {
               <textarea
                 type="text"
                 value={productForm.description.process}
-                required
                 onChange={(e) => updateProductDescription(e, "process")}
               ></textarea>
             </label>
@@ -125,7 +119,6 @@ const ManageProductForm = ({ productForm, setProductForm, add }) => {
               <textarea
                 type="text"
                 value={productForm.description.size}
-                required
                 onChange={(e) => updateProductDescription(e, "size")}
               ></textarea>
             </label>
