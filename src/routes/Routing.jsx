@@ -15,6 +15,7 @@ import OrderCompleteCart from "../pages/private/userConnected/cart/OrderComplete
 import Admin from "../pages/private/admin/Admin";
 import AddProduct from "../pages/private/admin/management/AddProduct";
 import UpdateProduct from "../pages/private/admin/management/UpdateProduct";
+import DeleteProduct from "../pages/private/admin/management/DeleteProduct";
 
 const Routing = () => {
   return (
@@ -40,6 +41,7 @@ const Routing = () => {
       <Route path="/admin" element={<Admin />}>
         <Route path="/admin/add-product" element={<AddProduct />} />
         <Route path="/admin/update-product" element={<UpdateProduct />} />
+        <Route path="/admin/delete-product" element={<DeleteProduct />} />
       </Route>
       <Route element={<PageNotFound />} />
     </Routes>

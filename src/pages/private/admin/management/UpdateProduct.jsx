@@ -30,8 +30,8 @@ const UpdateProduct = () => {
 
   const [checkFormError, setCheckFormError] = useState("");
 
-  //add rpoduct to firestore
-  const updateProductToFirestore = async () => {
+  //update rpoduct to firestore
+  const updateProductFromFirestore = async () => {
     if (
       productForm.category &&
       productForm.id &&
@@ -72,14 +72,14 @@ const UpdateProduct = () => {
             },
             color: null,
           });
-          setUploadSuccessMsg("Product Updated Successfully");
+          setUploadSuccessMsg("The product has been successfully updated");
           setUploadErrorMsg("");
           setTimeout(() => {
             setUploadSuccessMsg("");
           }, 5000);
         })
         .catch((error) => {
-          setUploadErrorMsg("Error updating document:", error);
+          setUploadErrorMsg("Error updating product:", error);
           setUploadSuccessMsg("");
         });
 
@@ -96,6 +96,7 @@ const UpdateProduct = () => {
         <GetProduct
           setProductForm={setProductForm}
           setProductFound={setProductFound}
+          updateProd={true}
         />
       ) : (
         <>
@@ -106,7 +107,7 @@ const UpdateProduct = () => {
           />
           <button
             className="update_product_submit"
-            onClick={updateProductToFirestore}
+            onClick={updateProductFromFirestore}
           >
             Update Product
           </button>

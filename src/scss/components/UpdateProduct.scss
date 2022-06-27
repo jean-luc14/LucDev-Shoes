@@ -4,19 +4,9 @@
     margin: 10vmin auto 5vmin;
     white-space: nowrap;
   }
-  h2 {
-    @include flex;
-    width: 85%;
-    font-weight: 500;
-    padding: 2vmin 0vmin;
-    height: auto;
-    margin: auto;
-    color: $red;
-  }
   .uploadErrorMsg,
   .checkFormError,
-  .uploadSuccessMsg,
-  .getProductErrMsg {
+  .uploadSuccessMsg {
     width: 85%;
     @include flex;
     height: auto;

@@ -1,6 +1,9 @@
-.get_product {
-  width: 90vw;
-
+.delete_product {
+  &_h1 {
+    width: 10vw;
+    margin: 10vmin auto 5vmin;
+    white-space: nowrap;
+  }
   h2 {
     @include flex;
     width: 85%;
@@ -10,7 +13,8 @@
     margin: auto;
     color: $red;
   }
-  .getProductErrMsg {
+  .uploadErrorMsg,
+  .uploadSuccessMsg {
     width: 85%;
     @include flex;
     height: auto;
@@ -20,5 +24,11 @@
     color: red;
     background: rgba(255, 5, 5, 0.268);
     border: 2px solid rgb(251, 54, 54);
+  }
+
+  .uploadSuccessMsg {
+    color: green;
+    background: rgba(5, 255, 26, 0.268);
+    border: 2px solid rgba(0, 192, 35, 0.799);
   }
 }

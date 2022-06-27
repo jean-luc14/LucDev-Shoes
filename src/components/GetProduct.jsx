@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { db } from "../firebase-config";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
-const GetProduct = ({ setProductForm, setProductFound }) => {
+const GetProduct = ({
+  setProductForm,
+  setProductFound,
+  updateProd,
+  deleteProd,
+  setDocId,
+}) => {
   //states to catch category and td of product witch will be update
   const [getProduct, setGetProduct] = useState({
     id: "",
@@ -10,7 +16,8 @@ const GetProduct = ({ setProductForm, setProductFound }) => {
   });
   const [getProductErrMsg, setGetProductErrMsg] = useState("");
 
-  //get from firestore product by his category and id, and put it and his firestore doc id to the state
+  /*get from firestore product by his category and id, and put it and his firestore doc id to the state if
+   component is in updateProduct comp and delete him from firestore if component is in DeleteProduct comp */
   const getProductByCategoryAndId = async (e) => {
     e.preventDefault();
     if (getProduct.category && getProduct.id) {
@@ -29,7 +36,13 @@ const GetProduct = ({ setProductForm, setProductFound }) => {
       });
 
       if (prod) {
-        setProductForm({ ...prod, docId: Id });
+        if (updateProd) {
+          setProductForm({ ...prod, docId: Id });
+        }
+        if (deleteProd) {
+          setDocId(Id);
+        }
+        console.log(prod);
         setProductFound(true);
         setGetProductErrMsg("");
       } else {
@@ -40,15 +53,15 @@ const GetProduct = ({ setProductForm, setProductFound }) => {
       }
     } else {
       setGetProductErrMsg("Please enter a product category and id");
-      setProductFound(false);
     }
   };
   return (
     <div>
-      <form className="get_product_msg" onSubmit={getProductByCategoryAndId}>
+      <form className="get_product" onSubmit={getProductByCategoryAndId}>
         <h2>
           Please, enter the category and the id of the product you want to
-          update
+          {deleteProd && " delete"}
+          {updateProd && " update"}
         </h2>
         <div className="category_wrapper">
           <label>
