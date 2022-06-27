@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import ManageProductForm from "../../../../components/ManageProductForm";
 import { db } from "../../../../firebase-config";
-import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  updateDoc,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 
 const UpdateProduct = () => {
   //states to catch category and td of product witch will be update
@@ -14,6 +21,7 @@ const UpdateProduct = () => {
 
   // product productForm state
   const [productForm, setProductForm] = useState({
+    docId: "",
     category: "",
     id: "",
     name: "",
@@ -28,7 +36,7 @@ const UpdateProduct = () => {
     color: null,
   });
 
-  //get from firestore product by category and id, and put it to the state
+  //get from firestore product by his category and id, and put it and his firestore doc id to the state
   const getProductByCategoryAndId = async (e) => {
     e.preventDefault();
     if (getProduct.category && getProduct.id) {
@@ -40,12 +48,14 @@ const UpdateProduct = () => {
 
       const querySnapshot = await getDocs(q);
       let prod;
+      let Id;
       querySnapshot.forEach((doc) => {
         prod = doc.data();
+        Id = doc.id;
       });
 
       if (prod) {
-        setProductForm(prod);
+        setProductForm({ ...prod, docId: Id });
         setProductFound(true);
         setGetProductErrMsg("");
       } else {
@@ -78,42 +88,47 @@ const UpdateProduct = () => {
       productForm.description.process &&
       productForm.description.size &&
       productForm.size &&
-      productForm.color
+      productForm.color &&
+      productForm.docId
     ) {
-      try {
-        const docRef = await addDoc(collection(db, "productData"), {
-          category: productForm.category,
-          id: productForm.id,
-          name: productForm.name,
-          price: productForm.price,
-          favorite: productForm.favorite,
-          size: productForm.size,
-          color: productForm.color,
-          description: productForm.description,
-        });
-        setProductForm({
-          category: productForm.category,
-          id: productForm.id,
-          name: "",
-          price: "",
-          favorite: false,
-          size: null,
-          description: {
-            material: productForm.description.material,
-            process: productForm.description.process,
-            size: productForm.description.size,
-          },
-          color: null,
-        });
-        setUploadSuccessMsg("Product Added Successfully");
-        setUploadErrorMsg("");
-        setTimeout(() => {
+      const productRef = doc(db, "productData", `${productForm.docId}`);
+      await updateDoc(productRef, {
+        category: productForm.category,
+        id: productForm.id,
+        name: productForm.name,
+        price: productForm.price,
+        favorite: productForm.favorite,
+        size: productForm.size,
+        color: productForm.color,
+        description: productForm.description,
+      })
+        .then(() => {
+          setProductForm({
+            category: productForm.category,
+            id: productForm.id,
+            name: "",
+            price: "",
+            docId: "",
+            favorite: false,
+            size: null,
+            description: {
+              material: productForm.description.material,
+              process: productForm.description.process,
+              size: productForm.description.size,
+            },
+            color: null,
+          });
+          setUploadSuccessMsg("Product Updated Successfully");
+          setUploadErrorMsg("");
+          setTimeout(() => {
+            setUploadSuccessMsg("");
+          }, 5000);
+        })
+        .catch((error) => {
+          setUploadErrorMsg("Error updating document:", error);
           setUploadSuccessMsg("");
-        }, 5000);
-      } catch (err) {
-        setUploadErrorMsg(err.message);
-        setUploadSuccessMsg("");
-      }
+        });
+
       setCheckFormError("");
     } else {
       setCheckFormError("Please complete each of the fields above");
@@ -134,7 +149,6 @@ const UpdateProduct = () => {
               Product Category:
               <input
                 type="text"
-                required
                 value={getProduct.category}
                 onChange={(e) =>
                   setGetProduct({
@@ -155,7 +169,7 @@ const UpdateProduct = () => {
                   setGetProduct({ ...getProduct, id: e.target.value })
                 }
               ></input>
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Get Product" />
             </label>
           </div>
           {getProductErrMsg && (
