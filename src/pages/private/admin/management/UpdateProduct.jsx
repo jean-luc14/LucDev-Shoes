@@ -1,23 +1,11 @@
 import React, { useState } from "react";
 import ManageProductForm from "../../../../components/ManageProductForm";
+import GetProduct from "../../../../components/GetProduct";
 import { db } from "../../../../firebase-config";
-import {
-  collection,
-  doc,
-  updateDoc,
-  query,
-  where,
-  getDocs,
-} from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 
 const UpdateProduct = () => {
-  //states to catch category and td of product witch will be update
-  const [getProduct, setGetProduct] = useState({
-    id: "",
-    category: "",
-  });
   const [productFound, setProductFound] = useState(false);
-  const [getProductErrMsg, setGetProductErrMsg] = useState("");
 
   // product productForm state
   const [productForm, setProductForm] = useState({
@@ -35,40 +23,6 @@ const UpdateProduct = () => {
     },
     color: null,
   });
-
-  //get from firestore product by his category and id, and put it and his firestore doc id to the state
-  const getProductByCategoryAndId = async (e) => {
-    e.preventDefault();
-    if (getProduct.category && getProduct.id) {
-      let q = query(
-        collection(db, "productData"),
-        where("category", "==", getProduct.category),
-        where("id", "==", getProduct.id)
-      );
-
-      const querySnapshot = await getDocs(q);
-      let prod;
-      let Id;
-      querySnapshot.forEach((doc) => {
-        prod = doc.data();
-        Id = doc.id;
-      });
-
-      if (prod) {
-        setProductForm({ ...prod, docId: Id });
-        setProductFound(true);
-        setGetProductErrMsg("");
-      } else {
-        setGetProductErrMsg(
-          "It seems that no product has this category and this identifier in the database"
-        );
-        setProductFound(false);
-      }
-    } else {
-      setGetProductErrMsg("Please enter a product category and id");
-      setProductFound(false);
-    }
-  };
 
   //upload  error and success message
   const [uploadSuccessMsg, setUploadSuccessMsg] = useState("");
@@ -139,43 +93,10 @@ const UpdateProduct = () => {
     <div className="update_product">
       <h1 className="update_product_h1">Update Product</h1>
       {productFound === false ? (
-        <form className="get_product_msg" onSubmit={getProductByCategoryAndId}>
-          <h2>
-            Please, enter the category and the id of the product you want to
-            update
-          </h2>
-          <div className="category_wrapper">
-            <label>
-              Product Category:
-              <input
-                type="text"
-                value={getProduct.category}
-                onChange={(e) =>
-                  setGetProduct({
-                    ...getProduct,
-                    category: e.target.value,
-                  })
-                }
-              ></input>
-            </label>
-          </div>
-          <div className="id_wrapper">
-            <label>
-              Product Id:
-              <input
-                type="number"
-                value={getProduct.id}
-                onChange={(e) =>
-                  setGetProduct({ ...getProduct, id: e.target.value })
-                }
-              ></input>
-              <input type="submit" value="Get Product" />
-            </label>
-          </div>
-          {getProductErrMsg && (
-            <div className="getProductErrMsg">{getProductErrMsg}</div>
-          )}
-        </form>
+        <GetProduct
+          setProductForm={setProductForm}
+          setProductFound={setProductFound}
+        />
       ) : (
         <>
           <ManageProductForm
