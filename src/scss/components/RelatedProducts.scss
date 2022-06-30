@@ -25,9 +25,15 @@
   &_child {
     @include flex($justify-content: space-around);
     margin-bottom: 5vmin;
-    &_item {
-      height: 20vw;
-      width: 20vw;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+@media screen and (max-width: $tablet-max-width) {
+  .related_products {
+    height: auto;
+    &_child {
+      @include flex($flex-direction: column);
     }
   }
 }
